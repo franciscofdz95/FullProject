@@ -1,0 +1,325 @@
+﻿.BH_Clickable { cursor: pointer; }
+
+.BH_Text {
+    color: #ebebe6;
+}
+
+.BH_SQLInlinePre {
+    display: inline;
+    background-color: silver;
+    padding: 1px 4px 3px;
+}
+
+.BH_SQLParam {
+    font-weight: bold;
+    color: Maroon;
+    display: inline;
+}
+
+.BH_Text_Small {
+    font-size: 9pt;
+}
+
+.BH_Text_Large {
+    font-size: 19pt;
+}
+
+.BH_Text_Center { 
+    text-align: center;
+    vertical-align: middle;
+}
+
+.BH_Button
+{
+    width: 24px;
+    height: 24px;
+    background-color: #ebebe6;
+    margin-right: 4px;
+    border-radius: 2px;
+    float: left;
+    /*border: 1px;
+    border-style: solid;
+    border-color: #2c0000;
+    padding: 2px;*/
+}
+
+.BH_Timer,
+.BH_Notify,
+.BH_Pending 
+{
+    width: auto;
+    color: black;
+}
+
+.BH_Timer span,
+.BH_Notify span,
+.BH_Pending span 
+{
+    padding-right: 2px;
+}
+
+.BH_Header
+{
+    background-color: #908474;
+    height: 64px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    /*font-family: “Century Gothic”, CenturyGothic, AppleGothic, sans-serif;*/
+    /*font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;*/
+    font-family: 'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+    /*font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;*/
+    /*font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;*/
+    border-bottom: solid 2px #2c0000;
+
+    /* border subtracts from box dimensions: IE quirks mode */
+        -ms-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.BH_Header.Mobile
+{
+    height: 36px;
+}
+
+.BH_Image
+{
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.BH_Logo {
+    height: 62px;
+}
+
+.BH_Segment {
+    height: 64px;
+    padding: 0px 2px 0px 2px;
+    float: left;
+}
+
+.Mobile .BH_Segment,
+.Mobile .BH_Segment_Half {
+    height: 36px;
+}
+
+.Mobile .BH_Start {
+    height: 36px;
+    float: left;
+    padding: 2px 0px 0px 2px;
+
+}
+
+.BH_Segment_Half {
+    height: 32px;
+    padding: 0px 0px 0px 0px;
+}
+
+ .BH_Button_Spacer {
+    width: 12px;
+    height: 22px;
+    float: left;
+}
+
+.BH_Start {
+    padding-left: 0px;
+}
+
+.BH_End {
+    padding-right: 0px;
+}
+
+.BH_Right {
+    float: right;
+    text-align: right;
+}
+
+.BH_Pad_Down {
+    padding: 4px 0px 0px 0px;
+}
+
+.BH_Icon.BH_CustomIcon {
+    color: #06F;
+}
+
+.BH_Icon {
+    color: #555;
+    font-size: 17px !important;
+    padding: 3px;
+}
+
+.BH_Button:hover {
+    background-color: #cacac6;
+}
+
+.BH_Button:hover .BH_Icon:not(.BH_CustomIcon):not(.BH_SAIcon) {
+    color: #222 !important;
+}
+
+.BH_Button:hover .BH_Icon.BH_CustomIcon {
+    color: #0047B1 !important;
+}
+
+#BH_Logo_BIA {
+    background-image: url(images/BIA.png);
+    width: 50px;
+}
+
+#BH_Mobile_Logo_BIA {
+    background-image: url(images/BIA.png);
+    width: 30px;
+    height: 35px;
+    background-size: 30px;
+}
+
+#BH_ButtonBar {padding: 4px 0px 0px 0px;}
+
+.Mobile #BH_ButtonBar {
+    padding: 6px 0 0;
+}
+#BH_CustomButtonList { padding: 0px 0px 0px 10px; }
+
+#BH_User_Name, 
+#BH_Session, 
+#BH_OtherTool {
+    margin-right: 4px;
+}
+
+.BH_Header.Mobile #BH_User_Name,
+.BH_Header.Mobile #BH_Session,
+.BH_Header.Mobile #BH_OtherTool {
+    display: none;
+}
+
+.BH_Icon.BH_SAIcon {
+    color: #E5790B;
+}
+
+.BH_Button:hover .BH_Icon.BH_SAIcon {
+    color: #A15100;
+}
+
+.BH_Env_Watermark {
+    position: absolute;
+    top: -9px;
+    font-size: 35px;
+    color: rgba(70, 70, 70, 0.3);
+    font-weight: bold;
+    cursor: default;
+}
+
+.BH_Header.Mobile .BH_Env_Watermark {
+    top: -5px;
+    font-size: 32px;
+}
+
+.ExtJSValHeader {
+    background-color: #EBEBE6;
+}
+
+.ExtJSHeaderFilterButton {
+    border-radius: 5px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    background-color: #D5D5D5;
+}
+
+.ExtJSHeaderFilterButton:hover {
+    background-color: #bbb;
+}
+
+.ExtJSHeaderFilterButton.ShowFails {
+    background-color: #555;
+    color: #FFF;
+}
+
+.ErrorContainer,
+.WarningContainer,
+.MessageContainer {
+    display: none;
+}
+
+.ShowErrors .ErrorContainer,
+.ShowWarnings .WarningContainer,
+.ShowMessages .MessageContainer {
+    display: block;
+}
+
+.PeformanceTrackerHeaderButtonRequestDisplayTable {
+    float: left;
+    margin-top: -5px;
+    font-size: 10px;
+    line-height: 10px;
+    margin-left: 5px;
+}
+
+.PeformanceTrackerHeaderButtonRequestDisplayTable td{
+    border: none !important;
+    padding: 0px;
+    text-align: left;
+}
+
+.PeformanceTrackerHeaderButtonRequestDisplayTable tr td.value{
+    text-align: right;
+}
+
+#BH_Button_PerformanceTrackerSparkline {
+    width: 100px;
+}
+
+/* buttons 
+#BH_Button_Home { background-image: url(images/Button_Home.png) !important; }
+#BH_Button_Search { background-image: url(images/Button_Search.png) !important; }
+#BH_Button_Pending { background-image: url(images/Button_Pending.png) !important; }
+#BH_Button_Notify { background-image: url(images/Button_Notify.png) !important; }
+#BH_Button_MyReports { background-image: url(images/Button_MyReports.png) !important; }
+#BH_Button_LaunchApp { background-image: url(images/Button_LaunchApp.png) !important; }
+#BH_Button_UserMenu { background-image: url(images/Button_UserMenu.png) !important; }
+#BH_Button_Help { background-image: url(images/Button_Help.png) !important; }
+#BH_Button_Logout { background-image: url(images/Button_Logout.png) !important; }
+    */
+/*#BH_SearchWindow
+{
+    height: 100px;
+    width: 235px;
+}*/
+
+/*#BH_Notify
+{
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 9pt;
+    text-align: center;
+    vertical-align: middle;
+}*/
+
+/*#BH_Search_Label
+{
+    color: #555;
+}*/
+
+#BH_Button_PerformanceTrackerSQLInjection {
+    width: 135px;
+    color: white;
+    padding: 4px;
+    cursor: default;
+    background-color: #9c9c9c;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#BH_Button_PerformanceTrackerSQLInjectionToggle {
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+.BH_Button_PerformanceTrackerSQLInjectionEnabled {
+    background-color: rgb(0, 188, 6) !important;
+}
+
+.BH_Button_PerformanceTrackerSQLInjectionBad {
+    background-color: rgb(255, 51, 51) !important;
+}

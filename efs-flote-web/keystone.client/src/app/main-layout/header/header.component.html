@@ -1,0 +1,53 @@
+<nav aria-label="menu" class="navbar navbar-expand-md navbar-dark primary-nav">
+
+  <a class="navbar-brand">
+    <img src="../../../assets/logo/logo_flote.gif" alt="Flote" title="Flote"
+         class="d-inline-block align-text-top sheild"
+         style="width:75px; height:60px;" />
+  </a>
+
+  <div class="container-fluid container-header">
+    <div class="container-fluid">
+      Forwarding Local Ocean Transportation Expense
+      <div>
+        <i class="fa fa-home fa-3" title="Home" aria-hidden="true" (click)="goHome()" style="cursor:pointer;"></i>&nbsp;
+        <i class="fa fa-user icon-clickable" title="Signout" aria-hidden="true" (click)="logout()"></i>&nbsp;
+        <i class="fa fa-clock-o fa-clock icon-link" title="Documentation" aria-hidden="true" (click)="openDocumentation()" style="cursor:pointer;"><span>29m</span></i>&nbsp;
+        <i class="fa fa-sign-out fa-sign-out-alt fa-3" title="Home" aria-hidden="true" (click)="goHome()" style="cursor:pointer;"></i>&nbsp;
+        <i class="fa fa-medkit icon-clickable" title="Signout" aria-hidden="true" (click)="logout()"></i>&nbsp;
+
+        <i class="fa fa-file-alt icon-link" title="Documentation" aria-hidden="true" (click)="openDocumentation()" style="cursor:pointer;"></i>&nbsp;
+        <i class="fa fa-user-plus fa-3" title="Home" aria-hidden="true" (click)="goHome()" style="cursor:pointer;"></i>&nbsp;
+        <i class="fa fa-file-alt icon-link" title="Documentation" aria-hidden="true" (click)="openDocumentation()" style="cursor:pointer;"></i>&nbsp;
+        <i class="fa fa-user-md icon-clickable" title="Signout" aria-hidden="true" (click)="logout()"></i>&nbsp;
+        
+          <img src="../../../assets/logo/tooloptions.gif" />
+      </div>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav right-pane">
+        <div class="user-info-block">
+          <div class="label-text mt-2 user-line">{{ userName }} ({{userAccount}})</div>
+          <div class="label-text mt-1 meta-line">{{date}} | {{browser}}</div>
+        </div>
+
+        <li class="dropdown" (click)="redirectToBIA()">
+          <a class="nav-link" href="#" id="full-profile-menu" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="../../../assets/logo/BIA_logo.png" alt="profile"
+                 data-bs-toggle="tooltip"
+                 data-bs-placement="bottom"
+                 data-bs-title="Profile"
+                 class="profile-logo"
+                 style="width:56px; height:56px; border-radius:50%;">
+          </a>
+        </li>
+        <li class="dropdown">
+          <ng-select bindLabel="name"
+                     bindValue="id"
+                     placeholder="Select a tool">
+          </ng-select>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

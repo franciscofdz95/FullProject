@@ -1,0 +1,17 @@
+﻿.group-combo ul {
+    list-style-type: none;
+    padding-left: 0px;
+}
+
+.group-combo .x-boundlist-item {
+    padding-left: 15px;
+}
+
+.group-combo-title {
+    color: #606060;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #d0d0d0;
+    padding: 8px;
+    font-weight: bolder;
+}

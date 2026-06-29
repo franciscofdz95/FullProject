@@ -1,0 +1,286 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BIACore.WebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:BIACore.Web.Controller.BaseController">
+            <summary>
+            Extends the WebAPI API controller class.
+            I found I was writing the same stuff over and over again for all my controllers, 
+            so this is a collection of all the functionality I've needed.
+            Logging is included automatically, as well as first-chance exception catch and log.
+            This way the exception is logged at the point closest to the database if (and when)
+            it occurs.
+            </summary>
+        </member>
+        <member name="P:BIACore.Web.Controller.BaseController.Connection">
+            <summary>
+            The connection string for use with the SQL calls below.
+            </summary>
+        </member>
+        <member name="M:BIACore.Web.Controller.BaseController.LoadClientResult(System.String,BIACore.Model.DBParameter[])">
+            <summary>
+            Execute a stored procedure with the given arguments.
+            The result is not expected to be paged.
+            MetaData (for ExtJS) is automatically generated from the result set.
+            </summary>
+            <param name="sp">Stored Procedure to be run</param>
+            <param name="dbType">type of DB to connect to</param>
+            <param name="args">Arguments to pass</param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Web.Controller.BaseController.LoadClientResult(System.String,BIACore.Web.Controller.BaseController.DBType,BIACore.Model.DBParameter[])">
+            <summary>
+            Execute a stored procedure with the given arguments.
+            The result is not expected to be paged.
+            MetaData (for ExtJS) is automatically generated from the result set.
+            </summary>
+            <param name="sp">Stored Procedure to be run</param>
+            <param name="dbType">type of DB to connect to</param>
+            <param name="args">Arguments to pass</param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Web.Controller.BaseController.LoadClientNullableResult(System.String,BIACore.Model.DBParameter[])">
+            <summary>
+            Execute a stored procedure with the given arguments.
+            The result is not expected to be paged.
+            MetaData (for ExtJS) is automatically generated from the result set.
+            </summary>
+            <param name="sp">Stored Procedure to be run</param>
+            <param name="dbType">type of DB to connect to</param>
+            <param name="args">Arguments to pass</param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Web.Controller.BaseController.LoadClientNullableResult(System.String,BIACore.Web.Controller.BaseController.DBType,BIACore.Model.DBParameter[])">
+            <summary>
+            Execute a stored procedure with the given arguments.
+            The result is not expected to be paged.
+            MetaData (for ExtJS) is automatically generated from the result set.
+            </summary>
+            <param name="sp">Stored Procedure to be run</param>
+            <param name="dbType">type of DB to connect to</param>
+            <param name="args">Arguments to pass</param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Web.Controller.BaseController.LoadClientNullableResult(System.String,BIACore.Web.Controller.BaseController.DBType,System.Boolean,BIACore.Model.DBParameter[])">
+            <summary>
+            Execute a stored procedure with the given arguments.
+            The result is not expected to be paged.
+            MetaData (for ExtJS) is automatically generated from the result set.
+            </summary>
+            <param name="sp">Stored Procedure to be run</param>
+            <param name="dbType">type of DB to connect to</param>
+            <param name="args">Arguments to pass</param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Web.Controller.BaseController.LoadPagedClientResult(System.String,BIACore.Model.DBParameter[])">
+            <summary>
+            Execute a stored procedure with the given arguments.
+            The result is expected to be paged, so a TotalRow (The last row in the data set)
+            is expected. This row will be filtered out of the Data array and added to it's own
+            DataTotal array.
+            Aside from paging and total row count, you can also add per-page or data total 
+            values to this row.
+            </summary>
+            <param name="sp"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Web.Controller.BaseController.LoadPagedClientResult(System.String,BIACore.Web.Controller.BaseController.DBType,BIACore.Model.DBParameter[])">
+            <summary>
+            Execute a stored procedure with the given arguments.
+            The result is expected to be paged, so a TotalRow (The last row in the data set)
+            is expected. This row will be filtered out of the Data array and added to it's own
+            DataTotal array.
+            Aside from paging and total row count, you can also add per-page or data total 
+            values to this row.
+            </summary>
+            <param name="sp"></param>
+            <param name="dbType">type of DB to connect to</param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Web.Controller.BaseController.LoadResult(System.String,BIACore.Model.DBParameter[])">
+            <summary>
+            Execute a stored procedure with the given arguments.
+            Returns a list of dynamically created classes with properties for each column in
+            the result set.
+            </summary>
+            <param name="sp"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Web.Controller.BaseController.LoadResult(System.String,BIACore.Web.Controller.BaseController.DBType,BIACore.Model.DBParameter[])">
+            <summary>
+            Execute a stored procedure with the given arguments.
+            Returns a list of dynamically created classes with properties for each column in
+            the result set.
+            </summary>
+            <param name="sp"></param>
+            <param name="dbType">type of DB to connect to</param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Web.Controller.BaseController.LoadResult``1(System.String,BIACore.Model.DBParameter[])">
+            <summary>
+            Execute a stored procedure with the given arguments.
+            Returns a list of dynamically created classes that extends the given type T (and so T
+            MUST be a public type) with properties for each column in the result set.
+            Items defined in T will be left alone; extra values will be stuck in the extension of T.
+            So if you defined Thing{ int Item; }, this would return Thing1 : Thing { int id; }
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sp"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Web.Controller.BaseController.LoadResult``1(System.String,BIACore.Web.Controller.BaseController.DBType,BIACore.Model.DBParameter[])">
+            <summary>
+            Execute a stored procedure with the given arguments.
+            Returns a list of dynamically created classes that extends the given type T (and so T
+            MUST be a public type) with properties for each column in the result set.
+            Items defined in T will be left alone; extra values will be stuck in the extension of T.
+            So if you defined Thing{ int Item; }, this would return Thing1 : Thing { int id; }
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sp"></param>
+            <param name="dbType">type of DB to connect to</param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Web.Controller.BaseController.LoadSingle(System.String,BIACore.Model.DBParameter[])">
+            <summary>
+            Load a single item from the given stored procedure.
+            If the result set is actually an array, then only the first item is returned.
+            </summary>
+            <param name="sp"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Web.Controller.BaseController.LoadSingle(System.String,BIACore.Web.Controller.BaseController.DBType,BIACore.Model.DBParameter[])">
+            <summary>
+            Load a single item from the given stored procedure.
+            If the result set is actually an array, then only the first item is returned.
+            </summary>
+            <param name="sp"></param>
+            <param name="dbType">type of DB to connect to</param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Web.Controller.BaseController.LoadSingle``1(System.String,BIACore.Model.DBParameter[])">
+            <summary>
+            Load a single item from the given stored procedure.
+            If the result set is actually an array, then only the first item is returned.
+            Result class will extend T, and so T MUST be public.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sp"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Web.Controller.BaseController.LoadSingle``1(System.String,BIACore.Web.Controller.BaseController.DBType,BIACore.Model.DBParameter[])">
+            <summary>
+            Load a single item from the given stored procedure.
+            If the result set is actually an array, then only the first item is returned.
+            Result class will extend T, and so T MUST be public.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sp"></param>
+            <param name="dbType">type of DB to connect to</param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Web.Controller.BaseController.Execute(System.String,BIACore.Model.DBParameter[])">
+            <summary>
+            Execute the given stored procedure; no result is expected.
+            </summary>
+            <param name="sp"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:BIACore.Web.Controller.BaseController.Execute(System.String,BIACore.Web.Controller.BaseController.DBType,BIACore.Model.DBParameter[])">
+            <summary>
+            Execute the given stored procedure; no result is expected.
+            </summary>
+            <param name="sp"></param>
+            <param name="dbType">type of DB to connect to</param>
+            <param name="args"></param>
+        </member>
+        <member name="M:BIACore.Web.Controller.BaseController.Sanitize(System.Data.DataTable,BIACore.Web.Controller.BaseController.DBType)">
+            <summary>
+            Clean the resulting table of any columns the user is not allowed to see.
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:BIACore.Web.Controller.MyReportsController.Download(System.Nullable{System.Int32})">
+            <summary>
+            BIACore.Web.Controller.Download(int?) method for downloading MyReports files.
+            </summary>
+        </member>
+        <member name="T:BIACore.Web.Model.ExtJS.MetaData">
+            <summary>
+            ExtJS supports automatically creating models with a 'metadata' attribute on result sets.
+            This facilitates the 'metadata' transfer - And if you use BaseController, it's automatically
+            added (which means not defining models 18 times!)
+            </summary>
+        </member>
+        <member name="T:BIACore.Web.Model.ExtJS.Parameter">
+            <summary>
+            Base class for an ExtJS store based data request.
+            Automatically handles 'sort' and 'paging'.
+            Need to add 'filter' and 'grouping' at some point.
+            </summary>
+        </member>
+        <member name="T:BIACore.Web.Model.ExtJS.Sorter">
+            <summary>
+            Class for handling the 'sort' parameters on store posts.
+            </summary>
+        </member>
+        <member name="T:BIACore.Web.Model.ExtJS.StoreResult`1">
+            <summary>
+            Defines the ExtJS store based result set.
+            Automatically includes metaData/data/total/dataTotal/success properties.
+            Meant to be used with the 'webapi' proxy type.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:BIACore.Web.MediaFormatter.JsonpFormatter">
+            <summary>
+            Handles JsonP requests when requests are fired with text/javascript and 
+            the query string contains a 'callback' parameter.
+            Necessary for cross-domain javascript execution.
+            Add it to your project in the Application_Start section of Global.asax with:
+            // add jsonp formatter support. needs to go ahead of other json formatters!
+            GlobalConfiguration.Configuration.Formatters.Insert(0, new BIACore.Web.MediaFormatter.JsonpFormatter());
+            </summary>
+        </member>
+        <member name="P:BIACore.Web.MediaFormatter.JsonpFormatter.JsonpParameterName">
+            <summary>
+             Name of the query string parameter to look for
+             the jsonp function name
+            </summary>
+        </member>
+        <member name="F:BIACore.Web.MediaFormatter.JsonpFormatter.JsonpCallbackFunction">
+            <summary>
+            Captured name of the Jsonp function that the JSON call
+            is wrapped in. Set in GetPerRequestFormatter Instance
+            </summary>
+        </member>
+        <member name="M:BIACore.Web.MediaFormatter.JsonpFormatter.GetPerRequestFormatterInstance(System.Type,System.Net.Http.HttpRequestMessage,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Override this method to capture the Request object
+            </summary>
+            <param name="type"></param>
+            <param name="request"></param>
+            <param name="mediaType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Web.MediaFormatter.JsonpFormatter.GetJsonCallbackFunction(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Retrieves the Jsonp Callback function
+            from the query string
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

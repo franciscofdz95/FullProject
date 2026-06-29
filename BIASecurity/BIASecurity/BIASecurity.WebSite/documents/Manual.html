@@ -1,0 +1,344 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>BIA Security Manual</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        li {
+            text-align: left;
+        }
+
+        .header {
+            height: 70px;
+            width: 100%;
+            background-color: #2C0000;
+            color: white;
+            border-bottom: solid 2px #DFB42C;
+            position: absolute;
+            top: 0px;
+        }
+
+        .biaTitle {
+            padding-left: 8px;
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 18.6667px;
+            font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+        }
+
+        .upsLogo {
+            width: 60px;
+            padding: 8px;
+            vertical-align: middle;
+            display: table-cell;
+        }
+
+        .biaLogo {
+            padding-top: 4px;
+            color: #EBEBE6;
+            display: inline-block;
+            float: right;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 2px;
+            background-color: #D4CCBF;
+        }
+
+        .mainContainer {
+            overflow: auto;
+            position: absolute;
+            top: 70px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+        }
+
+        .Card {
+            box-shadow: rgba(0, 0, 0, 0.137255) 0px 2px 2px 1px, rgba(0, 0, 0, 0.117647) 0px 1px 5px 2px, rgba(0, 0, 0, 0.2) 0px 3px 1px 0px;
+            border-radius: 3px;
+        }
+
+        .MessageBox {
+            padding: 7px;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: bold;
+            background-color: rgba(255, 246, 179, 0.4);
+            text-align: center;
+        }
+
+            .MessageBox .MessageHeader {
+                font-size: 30px;
+                margin-bottom: 10px;
+                line-height: 36px;
+            }
+
+        .messageContainer {
+            margin: auto;
+            width: 800px;
+            margin-top: 40px;
+        }
+
+        .instructionsContainer {
+            margin-top: 25px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 800px;
+            font-size: large;
+            line-height: 40px;
+        }
+
+        .instructionsTitle {
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 800px;
+            font-weight: bold;
+            font-size: large;
+            line-height: 40px;
+        }
+
+        .instructionsContainer2 {
+            margin-top: 25px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 800px;
+            font-size: large;
+            line-height: 40px;
+        }
+
+        .instructionsContainer2 {
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 800px;
+            font-weight: bold;
+            font-size: large;
+            line-height: 40px;
+        }
+
+        .instructionsContainer3 {
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 25px;
+            width: 800px;
+            font-size: large;
+            line-height: 30px;
+        }
+
+        .imageContainer {
+            width: 100%;
+            text-align: center;
+        }
+
+            .imageContainer img {
+                width: 700px;
+            }
+
+        #scroll {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            background-color: #3498db;
+            text-indent: -9999px;
+            display: none;
+            -webkit-border-radius: 60px;
+            -moz-border-radius: 60px;
+            border-radius: 60px
+        }
+    </style>
+
+</head>
+<body>
+    <div class="header">
+        <span class="biaLogo">
+            <img src="../images/BIA_Logo.png" />
+        </span>
+        <span class="upsLogo">
+            <img src="../images/UPS_Logo.png" />
+        </span>
+        <span class="biaTitle">Business Intelligence &amp; Analysis</span>
+    </div>
+    <div class="mainContainer">
+        <div id="Message" class="Card MessageBox messageContainer">
+
+            <h2>BIA Security Manual</h2>
+            <ol type="1">
+                <li><a href="#general">General Overview</a></li>
+                <li><a href="#appList">Application List</a></li>
+                <li><a href="#userList">User List</a></li>
+                <li><a href="#accessList">Access List</a></li>
+            </ol>
+        </div>
+        <div class="instructionsContainer" id="general">
+            <span class="instructionsTitle">1. General Overview</span>
+            <br />
+            <div class="imageContainer">
+                <img src="../images/manual_overview.png" />
+            </div>
+            <span class="instructions">By default all BIA users will have access to BIASecurity.  Within the app users will be able to:</span>
+            <ul>
+                <li>View Apps</li>
+                <li>View/Edit App Details</li>
+                <li>Request App Access</li>
+                <li>View Access List</li>
+                <li>Approve/Deny Access Request</li>
+                <li>Remove or Edit Extended Attributes of Existing Users</li>
+                <li>Create New Apps and Users</li>
+                <li>Edit User Profile</li>
+            </ul>
+            <div class="instructionsContainer3">
+                The driving force of BIASecurity are the 3 highlighted sections on the menu bar.  The Search field (#1) will filter any list you are currently viewing by app or user.  The Pin field will keep static any user or app search when switching between the 3 main views (Apps, Users, Access).  By default the Pin field is set to a user’s ADID for a person with user access level.  Only admin users will have the Pin search enabled.  The buttons on the right side (#3) will switch the list view between Apps, Users and Access.  This is also where users can create new Apps, Users or Access Request.  Note, access request can additionally be made in other places within the app.
+            </div>
+        </div>
+        <div class="instructionsContainer" id="appList">
+            <span class="instructionsTitle">2 - Application List</span>
+            <br />
+            <div class="imageContainer">
+                <img src="../images/manual_app_list.png" />
+            </div>
+            <div class="instructionsContainer3">
+                Users can sort the application list with the button groups (#1) to view Online, Offline or Online and Offline applications.  Note, this button is not a toggle.  Users must unclick to remove a certain criteria.  To request access to an application click the button (#2) next to an app name.  The person icon to the left of each app row will be marked by a checkmark (has access) or x (does not have access).  Apps for which you have current access will also not display the blue request button (#2).  Admin users will able to change the status of their app (#3) by clicking any of the 3 status buttons (Online, Visible & Able to Request Access).
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_app_request.png" />
+            </div>
+            <div class="instructionsContainer3">
+                Clicking the request access will prompt a popup partially populated.  Users will need to fill out Request Geo, Access Level and Reason.  Both Request Geo and Access level can be utilized as combo drop down box or searchable text field.  The app manager will receive a request email once the users hits the Request Access button.
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_app_usage.png" />
+            </div>
+            <div class="instructionsContainer3">
+                The Detail view of the apps list will display additional Usage graph options.  Here you can view Hits, Errors and Logins sorted by Days, Weeks or Months.
+            </div>
+            <br />
+            <div class="instructionsContainer3">
+                Double clicking an app row will open additional information and tools.  Here users can see an app Summary, Details, Access Geos and who has access.
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_app_summary.png" />
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_app_detail.png" />
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_app_geos.png" />
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_app_access.png" />
+            </div>
+            <br />
+            <div class="imageContainer">
+                <img src="../images/manual_app_approve.png" />
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_app_remove_ea.png" />
+            </div>
+            <div class="instructionsContainer3">
+                Admins under an app’s Access tab can filter between Has Access and Pending access, these buttons are not a toggle.  In the Actions columns under the Pending filter admins will be able to Approve or Deny a request.  Under the Has Access filter admins can edit Extended Attributes and remove user.  
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_access_EA.png" />
+            </div>
+            <div class="instructionsContainer3">
+                The info icon (#1) hover will display Request Reason and age of the request.  The left user icon (#2) can be clicked to access Extended Attributes while the right user icon (#3) can be used to remove a user's access.
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_app_new.png" />
+            </div>
+            <div class="instructionsContainer3">
+                To create a New Application simply hit the + button while viewing the App List.  A popup will ask for basic new app information.  You can also click the Apps dropdown to prompt the new app popup too.
+            </div>
+
+        </div>
+        <div class="instructionsContainer" id="userList">
+            <span class="instructionsTitle">3 - User List</span>
+            <br />
+            <div class="imageContainer">
+                <img src="../images/manual_user_overview.png" />
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_user_usage.png" />
+            </div>
+            <div class="instructionsContainer3">
+                The User List will display all BIA user accounts.  A user can request access to an app by clicking the + button on the left side (#1).  Users can see how many apps they have access to by the number on the right (#2).  Clicking that number will pop up a window showing all app accesses and levels.
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_user_request.png" />
+            </div>
+            <div class="instructionsContainer3">
+                This access window will request users to fill out Application, Request Geo, Access Level and Reason.  Again, these are both dropdown selections and type in search fields.
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_user_history.png" />
+            </div>
+            <div class="instructionsContainer3">
+                The all app access popup will display information such as App, Access Level, Request Date and Action (Granted, Denied or Modified).
+            </div>
+            <br />
+            <div class="instructionsContainer3">
+                Double clicking a user row will display additional user information such as Profile, Access and Delegates.
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_user_profile.png" />
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_user_access.png" />
+            </div>
+            <div class="instructionsContainer3">
+                Here admins will be able to edit current access and approve or deny based on the filter.
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_user_delegates.png" />
+            </div>
+            <div class="instructionsContainer3">
+                Users can create and view delegates created for their profile.
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_user_new.png" />
+            </div>
+            <div class="instructionsContainer3">
+                To add a new user simply hit the + button while viewing the User List or click New User on the main Users button dropdown.
+            </div>
+
+        </div>
+        <div class="instructionsContainer" id="accessList">
+            <span class="instructionsTitle">4 - Access List</span>
+            <div class="imageContainer">
+                <img src="../images/manual_access_overview.png" />
+            </div>
+            <div class="instructionsContainer3">
+                The Access List can be used to view all levels of access for every user within BIA.  Admin users will able to take actions on request and edit or remove existing current access levels. The filter buttons for Has Access and Pending must be clicked on or off to change the Access list.  Meaning you can have both buttons active to view both sorts, or unclick one to see just pending or current access.
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_access_approve.png" />
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_access_remove_ea.png" />
+            </div>
+            <div class="instructionsContainer3">
+                Under the Pending filter admins will be able to Approve or Deny pending request.  The information button hover will show request reason and age of the request.  Admins will also be able to remove or edit Extended Attributes under the Has Access filter.
+            </div>
+            <div class="imageContainer">
+                <img src="../images/manual_access_new.png" />
+            </div>
+            <div class="instructionsContainer3">
+                Press the + button while viewing the Access List to request new access.  Users will need to fill out Application, Request Geo, Access Level and Reason.  App Admin will get an approval request email upon submission.
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

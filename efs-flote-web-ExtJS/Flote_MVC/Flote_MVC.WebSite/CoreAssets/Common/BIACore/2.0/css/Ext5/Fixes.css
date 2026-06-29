@@ -1,0 +1,7 @@
+﻿.x-column-header-align-right .x-column-header-text {
+  margin-right: 0px !important; 
+}
+
+.x-action-col-cell .x-grid-cell-inner-action-col .x-action-col-icon { 
+  line-height: 16px; font-size: 16px; 
+}

@@ -1,0 +1,22 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Ignore Visual Studio Folders
+.vs/
+
+# Ignore Visual Studio Local Configuration Files
+*.user
+
+# Ignore .NET builds
+bin/
+obj/
+
+# Ignore Node.js
+node_modules/
+
+# Ignore logs
+*.log
+Keystone.Server/log*.txt
+
+# Angular (keystone.client)
+keystone.client/.angular/
+keystone.client/dist/

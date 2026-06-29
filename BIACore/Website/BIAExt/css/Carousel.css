@@ -1,0 +1,23 @@
+﻿.x-carousel-title {
+    font-size: 2em;
+    font-weight: bold;
+}
+.x-carousel-alt {
+}
+.x-carousel-class {
+    font-style: italic;
+}
+.x-carousel-east {
+    background-image: url('images/rightArrow.gif') !important;
+    background-repeat: no-repeat;
+    height: 38px;
+    width: 30px;
+    margin: 2px;
+}
+.x-carousel-west {
+    background-image: url('images/leftArrow.gif') !important;
+    background-repeat: no-repeat;
+    height: 38px;
+    width: 30px;
+    margin: 2px;
+}

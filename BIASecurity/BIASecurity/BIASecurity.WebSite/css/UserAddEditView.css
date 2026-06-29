@@ -1,0 +1,23 @@
+﻿.userAddeditview .userAddeditviewTabbar {
+    margin: 0 0 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+/*.userAddeditviewProfileComponentInfolist {
+    border-top: 2px solid #888;
+}
+
+.userAddeditviewProfileComponentInfolistTitle {
+    margin-top: 0px;
+    margin-left: 15px;
+    background-color: white;
+    padding: 0 5px;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: bold;
+    color: #666;
+}*/
+
+.userAddeditviewProfileRolesummarylistView.BIA_Components_PagedList .ListItemDefault {
+    border-bottom: none !important;
+}

@@ -1,0 +1,12 @@
+﻿.AdminMenuItem {
+    cursor: pointer;
+    border: solid #AAA 2px;
+    background-color: #66A9FF;
+    padding: 4px 6px;
+    border-radius: 3px;
+    color: white;
+}
+
+.AdminMenuItem:hover {
+    background-color: #3376F0;
+}

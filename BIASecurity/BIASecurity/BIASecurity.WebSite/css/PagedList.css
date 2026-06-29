@@ -1,0 +1,34 @@
+﻿.BIA_Components_PagedList .x-panel-header .x-panel-header-title {
+    font-size: 16px;
+}
+
+.BIA_Components_PagedList .componentListToolbarContainer {
+    background-color: #157fcc;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+.BIA_Components_PagedList .ListItemDefault {
+    border-bottom: #000 1px solid !important;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.BIA_Components_PagedList .ListItemHeaderDefault {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.BIA_Components_PagedList .ListItemHeader i.headerSortIcon {
+    padding: 0 2px;
+    cursor: pointer;
+    color: #A6A6A3; /*Stone Dark*/
+}
+
+.BIA_Components_PagedList .ListItemHeader i.headerSortIcon.fa-sort-amount-asc, 
+.BIA_Components_PagedList .ListItemHeader i.headerSortIcon.fa-sort-amount-desc {
+    color: #666; /*Black 25%*/
+}

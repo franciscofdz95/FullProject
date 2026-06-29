@@ -1,0 +1,21 @@
+﻿.x-desktop-shortcut {
+    cursor: pointer;
+}
+
+.x-desktop-shortcut-icon {
+    display: table-cell;
+    vertical-align: middle;
+    margin: 2px;
+    padding: 2px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+
+.x-desktop-shortcut-text {
+    font: bold;
+    font-size: 1.5em;
+}
+
+.x-desktop-shortcut-text .x-view-over {
+    text-decoration: underline;
+}

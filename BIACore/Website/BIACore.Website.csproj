@@ -1,0 +1,1176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C8434E19-38DD-4755-A0DE-4E7C83434F1B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BIACore.Website</RootNamespace>
+    <AssemblyName>BIACore.Website</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>59371</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.5.2\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client, Version=4.35.1.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Identity.Client.4.35.1\lib\net461\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.2.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Administration, Version=7.9.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\Web\Microsoft.Web.Administration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.10.1\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="SpreadsheetLight, Version=3.4.11.0, Culture=neutral, PublicKeyToken=32fbb46dc1730c57, processorArchitecture=MSIL">
+      <HintPath>..\packages\SpreadsheetLight.3.4.11\lib\net40\SpreadsheetLight.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.5.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WinHttpHandler, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.WinHttpHandler.5.0.0\lib\net461\System.Net.Http.WinHttpHandler.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.2\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>\\winprodpost4.inside.ups.com\BIAAlpha\Reference\BIACore\2.0\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="VaultSharp, Version=1.7.1.0, Culture=neutral, PublicKeyToken=cb3d4aad92b0eded, processorArchitecture=MSIL">
+      <HintPath>..\packages\VaultSharp.1.7.1\lib\net48\VaultSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\App\App.js" />
+    <Content Include="app\App\base\History.js" />
+    <Content Include="app\App\controller\Browser\Tab.js" />
+    <Content Include="app\App\controller\Browser\Filter.js" />
+    <Content Include="app\App\controller\Browser\Grid.js" />
+    <Content Include="app\App\controller\Desktop.js" />
+    <Content Include="app\App\controller\Log\Detail.js" />
+    <Content Include="app\App\controller\Log\Filter.js" />
+    <Content Include="app\App\controller\Security\Active.js" />
+    <Content Include="app\App\controller\Security\Detail.js" />
+    <Content Include="app\App\controller\Security\Filter.js" />
+    <Content Include="app\App\controller\Security\History.js" />
+    <Content Include="app\App\controller\Security\Unlock.js" />
+    <Content Include="app\App\controller\Version\Filter.js" />
+    <Content Include="app\App\desktop\Button.js" />
+    <Content Include="app\App\desktop\Module.js" />
+    <Content Include="app\App\form\field\MultiCombo.js" />
+    <Content Include="app\App\module\Browser.js" />
+    <Content Include="app\App\module\SecurityDetail.js" />
+    <Content Include="app\App\module\Security.js" />
+    <Content Include="app\App\module\MyReports.js" />
+    <Content Include="app\App\module\Version.js" />
+    <Content Include="app\App\view\Browser\GroupGrid.js" />
+    <Content Include="app\App\view\Browser\Graph.js" />
+    <Content Include="app\App\view\Browser\Grid.js" />
+    <Content Include="app\App\view\Browser\Filter.js" />
+    <Content Include="app\App\view\Desktop.js" />
+    <Content Include="app\App\view\Security\Active.js" />
+    <Content Include="app\App\view\Security\UnlockFilter.js" />
+    <Content Include="app\App\view\Security\Filter.js" />
+    <Content Include="app\App\view\Security\History.js" />
+    <Content Include="app\App\view\Security\Detail.js" />
+    <Content Include="app\App\view\Security\Stats.js" />
+    <Content Include="app\App\view\Security\Unlock.js" />
+    <Content Include="app\App\view\Version\Filter.js" />
+    <Content Include="app\App\view\Version\Grid.js" />
+    <Content Include="BIACoreDebug.aspx" />
+    <Content Include="BIACore\Client\Base\Base.js" />
+    <Content Include="BIACore\Client\Base\Config.js" />
+    <Content Include="BIACore\Client\Base\Event.js" />
+    <Content Include="BIACore\Client\Base\Loader.js" />
+    <Content Include="BIACore\Client\Base\Log.js" />
+    <Content Include="BIACore\Client\Base\Timeout.js" />
+    <Content Include="BIACore\Client\Base\URL.js" />
+    <Content Include="BIACore\Client\BIACore\Addons\CSS.js" />
+    <Content Include="BIACore\Client\BIACore\Addons\JQuery.js" />
+    <Content Include="BIACore\Client\BIACore\Addons\JQuery\jquery.dropdown.js" />
+    <Content Include="BIACore\Client\BIACore\Addons\JQuery\jquery.exists.js" />
+    <Content Include="BIACore\Client\BIACore\Addons\JQuery\jquery.loadmask.js" />
+    <Content Include="BIACore\Client\BIACore\Addons\JQuery\jquery.timer.js" />
+    <Content Include="BIACore\Client\BIACore\Addons\JQuery\jquery.topzindex.js" />
+    <Content Include="BIACore\Client\BIACore\Addons\JQuery\jquery.ui.js" />
+    <Content Include="BIACore\Client\BIACore\Addons\JQuery\jquery.uifixes.js" />
+    <Content Include="BIACore\Client\BIACore\Addons\JQuery\jquery.XDomainRequest.js" />
+    <Content Include="BIACore\Client\BIACore\Addons\JSON.js" />
+    <Content Include="BIACore\Client\BIACore\Addons\StackTrace.js" />
+    <Content Include="BIACore\Client\BIACore\AJAX.js" />
+    <Content Include="BIACore\Client\BIACore\API\Application.js" />
+    <Content Include="BIACore\Client\BIACore\API\User.js" />
+    <Content Include="BIACore\Client\BIACore\API\WS4ID.js" />
+    <Content Include="BIACore\Client\BIACore\Browser.js" />
+    <Content Include="BIACore\Client\BIACore\Cookie.js" />
+    <Content Include="BIACore\Client\BIACore\Date.js" />
+    <Content Include="BIACore\Client\BIACore\Hash.js" />
+    <Content Include="BIACore\Client\BIACore\Header.js" />
+    <Content Include="BIACore\Client\BIACore\Header\Buttons.js" />
+    <Content Include="BIACore\Client\BIACore\Header\ExtJSVal.js" />
+    <Content Include="BIACore\Client\BIACore\Header\Help.js" />
+    <Content Include="BIACore\Client\BIACore\Header\Impersonation.js" />
+    <Content Include="BIACore\Client\BIACore\Header\Launch.js" />
+    <Content Include="BIACore\Client\BIACore\Header\Notification.js" />
+    <Content Include="BIACore\Client\BIACore\Header\OtherTools.js" />
+    <Content Include="BIACore\Client\BIACore\Header\PerformanceTracker.js" />
+    <Content Include="BIACore\Client\BIACore\Header\Search.js" />
+    <Content Include="BIACore\Client\BIACore\Logger.js" />
+    <Content Include="BIACore\Client\BIACore\Number.js" />
+    <Content Include="BIACore\Client\BIACore\Object.js" />
+    <Content Include="BIACore\Client\BIACore\Security.js" />
+    <Content Include="BIACore\Client\BIACore\Security\Application.js" />
+    <Content Include="BIACore\Client\BIACore\Security\Authenticate.js" />
+    <Content Include="BIACore\Client\BIACore\Security\Lock.js" />
+    <Content Include="BIACore\Client\BIACore\Security\Session.js" />
+    <Content Include="BIACore\Client\BIACore\Security\User.js" />
+    <Content Include="BIACore\Client\BIACore\String.js" />
+    <Content Include="BIACore\Client\BIACore\Tracking\Browser.js" />
+    <Content Include="BIACore\Client\BIACore\Window.js" />
+    <Content Include="BIACore\Client\Final\Startup.js" />
+    <Content Include="BIAExt\0Ext\app\bind\BaseBinding.js" />
+    <Content Include="BIAExt\0Ext\Blank_Image_URL.js" />
+    <Content Include="BIAExt\0Ext\button\Button.js" />
+    <Content Include="BIAExt\0Ext\chart\CartesianChart.js" />
+    <Content Include="BIAExt\0Ext\chart\legend\SpriteLegend.js" />
+    <Content Include="BIAExt\0Ext\chart\series\Pie.js" />
+    <Content Include="BIAExt\0Ext\Component.js" />
+    <Content Include="BIAExt\0Ext\controller\Controller.js" />
+    <Content Include="BIAExt\0Ext\data\Connection.js" />
+    <Content Include="BIAExt\0Ext\data\operation\Operation.js" />
+    <Content Include="BIAExt\0Ext\data\Request.js" />
+    <Content Include="BIAExt\0Ext\data\Store.js" />
+    <Content Include="BIAExt\0Ext\Date.js" />
+    <Content Include="BIAExt\0Ext\dom\Element.js" />
+    <Content Include="BIAExt\0Ext\draw\SegmentTree.js" />
+    <Content Include="BIAExt\0Ext\Error.js" />
+    <Content Include="BIAExt\0Ext\GlobalEvents.js" />
+    <Content Include="BIAExt\0Ext\grid\column\Action.js" />
+    <Content Include="BIAExt\0Ext\grid\plugin\RowEditing.js" />
+    <Content Include="BIAExt\0Ext\layout\container\Column.js" />
+    <Content Include="BIAExt\0Ext\layout\container\Container.js" />
+    <Content Include="BIAExt\0Ext\layout\Context.js" />
+    <Content Include="BIAExt\0Ext\Object.js" />
+    <Content Include="BIAExt\0Ext\Theme.js" />
+    <Content Include="BIAExt\0Ext\toolbar\Paging.js" />
+    <Content Include="BIAExt\0Ext\util\Filter.js" />
+    <Content Include="BIAExt\0Ext\util\Floating.js" />
+    <Content Include="BIAExt\0Ext\util\Renderable.js" />
+    <Content Include="BIAExt\0Ext\util\Sorter.js" />
+    <Content Include="BIAExt\0Ext\ux\exporter\excelFormatter\Cell.js" />
+    <Content Include="BIAExt\0Ext\ux\exporter\csvFormatter\CsvFormatter.js" />
+    <Content Include="BIAExt\0Ext\ux\exporter\excelFormatter\ExcelFormatter.js" />
+    <Content Include="BIAExt\0Ext\ux\exporter\FileSaver.js" />
+    <Content Include="BIAExt\0Ext\ux\exporter\Formatter.js" />
+    <Content Include="BIAExt\0Ext\ux\exporter\excelFormatter\Style.js" />
+    <Content Include="BIAExt\0Ext\ux\exporter\excelFormatter\Workbook.js" />
+    <Content Include="BIAExt\0Ext\ux\exporter\excelFormatter\Worksheet.js" />
+    <Content Include="BIAExt\0Ext\view\Table.js" />
+    <Content Include="BIAExt\BIA\Ajax.js" />
+    <Content Include="BIAExt\BIA\AjaxLoopPrevention.js" />
+    <Content Include="BIAExt\BIA\BindingOverrides.js" />
+    <Content Include="BIAExt\BIA\Component.js" />
+    <Content Include="BIAExt\BIA\Components\CardFlip.js" />
+    <Content Include="BIAExt\BIA\Components\CardFlip\Container.js" />
+    <Content Include="BIAExt\BIA\Components\CardFlip\Side.js" />
+    <Content Include="BIAExt\BIA\Components\CardFlip\Side\Container.js" />
+    <Content Include="BIAExt\BIA\Components\CardFlip\Side\FlipButton\Footer.js" />
+    <Content Include="BIAExt\BIA\Components\CardFlip\Side\FlipButton\LeftEdge.js" />
+    <Content Include="BIAExt\BIA\Components\CardFlip\Side\FlipButton\RightEdge.js" />
+    <Content Include="BIAExt\BIA\Components\Chart\StatusPie.js" />
+    <Content Include="BIAExt\BIA\Components\ClickConfirmationPopup.js" />
+    <Content Include="BIAExt\BIA\Components\DeepLink.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Window\Loading.cnt.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Window\Component\MessageContainer.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Window\IEComplete\Container.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Window\IEComplete\Icon.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Window\IEComplete\Message.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Window\Loading\Autoclose.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Window\Loading\Container.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Window\Loading\Icon.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Window\Loading\Message.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Window\Main.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Spreadsheet\ButtonContainer.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Spreadsheet\PromptButton.js" />
+    <Content Include="BIAExt\BIA\Components\Export\SpreadsheetInterface.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Spreadsheet\PromptWindow.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Spreadsheet\PromptWindow\Exports.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Spreadsheet\PromptWindow\Exports\All.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Spreadsheet\PromptWindow\Exports\Formatted.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Spreadsheet\PromptWindow\Message.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Spreadsheet\PromptWindow\Options.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Spreadsheet\PromptWindow\Options\ExportAll.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Spreadsheet\PromptWindow\Options\ExportCSV.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Spreadsheet\PromptWindow\Title.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Spreadsheet\QuickCSVButton.js" />
+    <Content Include="BIAExt\BIA\Components\Export\Spreadsheet\QuickExcelButton.js" />
+    <Content Include="BIAExt\BIA\Components\FingerprintValue.js" />
+    <Content Include="BIAExt\BIA\Components\FusionCharts\AngularGauge.js" />
+    <Content Include="BIAExt\BIA\Components\GridPicker.js" />
+    <Content Include="BIAExt\BIA\Components\HeaderContainer.js" />
+    <Content Include="BIAExt\BIA\Components\HoverWindow.js" />
+    <Content Include="BIAExt\BIA\Components\PagedList.js" />
+    <Content Include="BIAExt\BIA\Components\PagedList\Item.js" />
+    <Content Include="BIAExt\BIA\Components\PagedList\PagingToolbar.js" />
+    <Content Include="BIAExt\BIA\Components\PagedList\PagingToolbar\Button.js" />
+    <Content Include="BIAExt\BIA\Components\PagedList\PagingToolbar\GoToPage.js" />
+    <Content Include="BIAExt\BIA\Components\PagedList\PagingToolbar\Refresh.js" />
+    <Content Include="BIAExt\BIA\container\FusionCharts.js" />
+    <Content Include="BIAExt\BIA\controller\CardFlip.cnt.js" />
+    <Content Include="BIAExt\BIA\controller\Chart.cnt.js" />
+    <Content Include="BIAExt\BIA\controller\Chart\StatusPie.cnt.js" />
+    <Content Include="BIAExt\BIA\controller\ClickConfirmationPopup.cnt.js" />
+    <Content Include="BIAExt\BIA\controller\ExportSpreadsheetButtonContainer.cnt.js" />
+    <Content Include="BIAExt\BIA\controller\ExportSpreadsheetPromptWindow.cnt.js" />
+    <Content Include="BIAExt\BIA\controller\FilterContainer.cnt.js" />
+    <Content Include="BIAExt\BIA\controller\FusionCharts\AngularGauge.cnt.js" />
+    <Content Include="BIAExt\BIA\controller\GlobalEvents.cnt.js" />
+    <Content Include="BIAExt\BIA\controller\HoverWindow.cnt.js" />
+    <Content Include="BIAExt\BIA\controller\PagedList.cnt.js" />
+    <Content Include="BIAExt\BIA\controller\PagedList\Item.cnt.js" />
+    <Content Include="BIAExt\BIA\controller\PageViewImpression.cnt.js" />
+    <Content Include="BIAExt\BIA\controller\PerformanceTrackerDetail.cnt.js" />
+    <Content Include="BIAExt\BIA\controller\PerformanceTrackerInterface.cnt.js" />
+    <Content Include="BIAExt\BIA\controller\PerformanceTrackerSummary.cnt.js" />
+    <Content Include="BIAExt\BIA\controller\Plugin\ClickConfirmation.cnt.js" />
+    <Content Include="BIAExt\BIA\controller\Plugin\ComponentStoreBind.cnt.js" />
+    <Content Include="BIAExt\BIA\form\field\ClearableNumber.js" />
+    <Content Include="app\App\controller\Log\Grid.js" />
+    <Content Include="BIACore.Ext.css" />
+    <Content Include="BIACore.Ext.js" />
+    <Content Include="BIACore.Ext.min.js" />
+    <Content Include="BIAExt\BIA\app\Application.js" />
+    <Content Include="BIAExt\BIA\BIA.js" />
+    <Content Include="BIAExt\BIA\chart\theme\Large.js" />
+    <Content Include="BIAExt\BIA\container\FilterContainer.js" />
+    <Content Include="BIAExt\BIA\container\FilterContainerCard.js" />
+    <Content Include="BIAExt\BIA\container\Header.js" />
+    <Content Include="BIAExt\BIA\container\Viewport.js" />
+    <Content Include="BIAExt\BIA\data\FilterModel.js" />
+    <Content Include="BIAExt\BIA\data\proxy\WebAPI.js" />
+    <Content Include="BIAExt\BIA\data\reader\WebAPI.js" />
+    <Content Include="BIAExt\BIA\data\Store.js" />
+    <Content Include="BIAExt\BIA\data\store\Memory.js" />
+    <Content Include="BIAExt\BIA\data\store\WebAPI.js" />
+    <Content Include="BIAExt\BIA\data\writer\WebAPI.js" />
+    <Content Include="BIAExt\BIA\form\field\ClearableComboBox.js" />
+    <Content Include="BIAExt\BIA\form\field\ClearableTextBox.js" />
+    <Content Include="BIAExt\BIA\form\field\ClickableDisplayField.js" />
+    <Content Include="BIAExt\BIA\form\field\FormattedNumber.js" />
+    <Content Include="BIAExt\BIA\form\field\MultiComboBox.js" />
+    <Content Include="BIAExt\BIA\form\FileDownload.js" />
+    <Content Include="BIAExt\BIA\grid\column\Boolean.js" />
+    <Content Include="BIAExt\BIA\grid\feature\RemoteSummary.js" />
+    <Content Include="BIAExt\BIA\grid\FormEditor.js" />
+    <Content Include="BIAExt\BIA\grid\PagedPanel.js" />
+    <Content Include="BIAExt\BIA\grid\plugin\Copyable.js" />
+    <Content Include="BIAExt\BIA\grid\plugin\FormEditing.js" />
+    <Content Include="BIAExt\0Ext\mixin\StoreCreate.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTrackerInterface.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTrackerSummaryLogging.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTracker\Component\GridSummary.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTracker\Detail.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTracker\Detail\Component\InfoDisplay.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTracker\Detail\Component\TimelinePart.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTracker\Detail\Container.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTracker\Detail\Timeline.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTracker\Detail\Title.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTracker\Sparkline.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTracker\Summary.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTracker\Summary\CallGroups.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTracker\Component\Grid.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTracker\Summary\ClearSessionButton.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTracker\Summary\LatestCalls.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTracker\Summary\DataRefreshButton.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTracker\Summary\NewSessionButton.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTracker\Summary\ProblemCalls.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTracker\Summary\Tabs.js" />
+    <Content Include="BIAExt\BIA\header\tool\PerformanceTracker\Summary\Utility.js" />
+    <Content Include="BIAExt\BIA\PageViewImpression.js" />
+    <Content Include="BIAExt\BIA\panel\Carousel.js" />
+    <Content Include="BIAExt\BIA\panel\Desktop.js" />
+    <Content Include="BIAExt\BIA\panel\Graph.js" />
+    <Content Include="BIAExt\BIA\plugin\ChartHoverLine.js" />
+    <Content Include="BIAExt\BIA\plugin\ClickConfirmation.js" />
+    <Content Include="BIAExt\BIA\plugin\ComponentStoreBind.js" />
+    <Content Include="BIAExt\BIA\toolbar\MultiSort.js" />
+    <Content Include="BIAExt\BIA\util\Accessors.js" />
+    <Content Include="BIAExt\BIA\util\Chart.js" />
+    <Content Include="BIAExt\BIA\util\Format.js" />
+    <Content Include="BIAExt\BIA\util\Function.js" />
+    <Content Include="BIAExt\BIA\window\ChartWindow.js" />
+    <Content Include="BIAExt\BIA\window\BIAWindow.js" />
+    <Content Include="BIAExt\css\CardFlip.css" />
+    <Content Include="BIAExt\css\Carousel.css" />
+    <Content Include="BIAExt\css\Chart\StatusPie.css" />
+    <Content Include="BIAExt\css\Desktop.css" />
+    <Content Include="BIAExt\css\DisplayField.css" />
+    <Content Include="BIAExt\css\Fakelink.css" />
+    <Content Include="BIAExt\css\FusionCharts\AngularGauge.css" />
+    <Content Include="BIAExt\css\IE.css" />
+    <Content Include="BIAExt\css\LoadingMask.css" />
+    <Content Include="BIAExt\css\MyReports.css" />
+    <Content Include="BIAExt\0Ext\AbstractComponent.js" />
+    <Content Include="BIAExt\0Ext\form\field\ComboBox.js" />
+    <Content Include="BIAExt\0Ext\grid\column\Column.js" />
+    <Content Include="BIAExt\0Ext\grid\RowEditor.js" />
+    <Content Include="BIAExt\0Ext\LoadMask.js" />
+    <Content Include="BIAExt\0Ext\ModelManager.js" />
+    <Content Include="BIAExt\0Ext\tip\ToolTip.js" />
+    <Content Include="BIAExt\0Ext\util\Format.js" />
+    <Content Include="BIAExt\0Ext\util\Observable.js" />
+    <Content Include="BIAExt\0Ext\ux\BoxReorderer.js" />
+    <Content Include="BIAExt\0Ext\ux\ToolbarDroppable.js" />
+    <Content Include="BIAExt\css\PagedList.css" />
+    <Content Include="BIAExt\css\PerformanceTracker.css" />
+    <Content Include="BIAExt\css\RedButton.css" />
+    <Content Include="BIAExt\css\Trigger.css" />
+    <Content Include="BIAExt\MyReports2\css\icons.css" />
+    <Content Include="BIAExt\MyReports2\css\MyReports.css" />
+    <Content Include="BIAExt\MyReports2\MyReports.js" />
+    <Content Include="BIAExt\MyReports2\store\Grid.js" />
+    <Content Include="BIAExt\MyReports2\store\User.js" />
+    <Content Include="BIAExt\MyReports2\store\Date.js" />
+    <Content Include="BIAExt\MyReports2\store\Status.js" />
+    <Content Include="BIAExt\MyReports2\store\Type.js" />
+    <Content Include="BIAExt\MyReports2\view\Grid.js" />
+    <Content Include="BIAExt\MyReports\controller\Filter\Date.js" />
+    <Content Include="BIAExt\MyReports\controller\Filter\Status.js" />
+    <Content Include="BIAExt\MyReports\controller\Filter\ToggleAgent.js" />
+    <Content Include="BIAExt\MyReports\controller\Filter\Type.js" />
+    <Content Include="BIAExt\MyReports\controller\Filter\User.js" />
+    <Content Include="BIAExt\MyReports\controller\Report\Grid.js" />
+    <Content Include="BIAExt\MyReports\Module\MyReports.js" />
+    <Content Include="BIAExt\MyReports\MyReports.js" />
+    <Content Include="BIAExt\MyReports\store\Filter\Date.js" />
+    <Content Include="BIAExt\MyReports\store\Filter\Status.js" />
+    <Content Include="BIAExt\MyReports\store\Filter\Type.js" />
+    <Content Include="BIAExt\MyReports\store\Report\Grid.js" />
+    <Content Include="BIAExt\MyReports\view\Report\Grid.js" />
+    <Content Include="BIAExt\README.txt" />
+    <Content Include="BIAExt\css\ExportSpreadsheetPromptWindow.css" />
+    <Content Include="css\Ext5\Fixes.css" />
+    <Content Include="css\Ext7\Fixes.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\Header\images\bia.png" />
+    <Content Include="css\jquery.loadmask.css" />
+    <Content Include="css\Login.css" />
+    <Content Include="BIAExt\css\Exporter.css" />
+    <Content Include="css\Support.css" />
+    <Content Include="EAMTest.aspx" />
+    <Content Include="Error.aspx" />
+    <Content Include="Exporter\App\App\App.js" />
+    <Content Include="Exporter\App\App\Controller\Loading.cnt.js" />
+    <Content Include="Exporter\App\App\View\Component\MessageContainer.js" />
+    <Content Include="Exporter\App\App\View\IEComplete\Container.js" />
+    <Content Include="Exporter\App\App\View\IEComplete\Icon.js" />
+    <Content Include="Exporter\App\App\View\IEComplete\Message.js" />
+    <Content Include="Exporter\App\App\View\Loading\Autoclose.js" />
+    <Content Include="Exporter\App\App\View\Loading\Container.js" />
+    <Content Include="Exporter\App\App\View\Loading\Icon.js" />
+    <Content Include="Exporter\App\App\View\Loading\Message.js" />
+    <Content Include="Exporter\App\App\View\Main.js" />
+    <Content Include="Exporter\App\css\Main.css" />
+    <Content Include="Exporter\Spreadsheet.aspx" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="GeneralErrors.aspx" />
+    <Content Include="images\APRS_Application.png" />
+    <Content Include="images\APRS_Confirm.png" />
+    <Content Include="images\APRS_Homepage.png" />
+    <Content Include="images\APRS_Request.png" />
+    <Content Include="images\APRS_Role.png" />
+    <Content Include="images\APRS_Yourself.png" />
+    <Content Include="images\bia_create.png" />
+    <Content Include="images\bia_create_new.png" />
+    <Content Include="images\bia_district.png" />
+    <Content Include="images\BIA_Logo.png" />
+    <Content Include="images\bia_redirect.png" />
+    <Content Include="images\BIA_Spinner.png" />
+    <Content Include="images\BIA_Spinner_50.gif" />
+    <Content Include="images\BIA_Spinner_50.png" />
+    <Content Include="images\BIA_Spinner_lc.gif" />
+    <Content Include="images\btn-red-small-bg.gif" />
+    <Content Include="images\btn-red-small-corners.gif" />
+    <Content Include="images\btn-red-small-sides.gif" />
+    <Content Include="images\iiq_1_access_nav.png" />
+    <Content Include="images\iiq_2_app_access.png" />
+    <Content Include="images\iiq_3_app_search.png" />
+    <Content Include="images\iiq_4_role_select.png" />
+    <Content Include="images\iiq_5_submit.png" />
+    <Content Include="images\leftArrow.gif" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\MyReports.png" />
+    <Content Include="images\Request access_Application.png" />
+    <Content Include="images\Request access_form.png" />
+    <Content Include="images\Request access_submit.png" />
+    <Content Include="images\rightArrow.gif" />
+    <Content Include="images\security_home.png" />
+    <Content Include="images\security_request_app.png" />
+    <Content Include="images\security_request_user_info.png" />
+    <Content Include="images\security_user_adid.png" />
+    <Content Include="images\security_user_create.png" />
+    <Content Include="images\security_user_info.png" />
+    <Content Include="images\Select_Application.png" />
+    <Content Include="images\Small package _emp.png" />
+    <Content Include="images\trash-can.png" />
+    <Content Include="app\css\LogGrid.css" />
+    <Content Include="app\App\module\Header.js" />
+    <Content Include="app\App\view\Header\Panel.js" />
+    <Content Include="app\App\module\LogDetail.js" />
+    <Content Include="app\App\module\Log.js" />
+    <Content Include="app\App\view\Log\Detail.js" />
+    <Content Include="app\App\view\Log\Filter.js" />
+    <Content Include="app\App\view\Log\Grid.js" />
+    <Content Include="BIACore.js" />
+    <Content Include="BIACore.min.js" />
+    <Content Include="BIACore.Ext.min.js.map">
+      <DependentUpon>BIACore.Ext.js</DependentUpon>
+    </Content>
+    <None Include="biacore.json.example" />
+    <Content Include="BIACore.min.js.map">
+      <DependentUpon>BIACore.js</DependentUpon>
+    </Content>
+    <Content Include="Default.aspx" />
+    <Content Include="images\trigger-editor.gif" />
+    <Content Include="images\trigger-tag.gif" />
+    <Content Include="images\UPS_Logo.png" />
+    <Content Include="images\Usermaint_Home.png" />
+    <Content Include="js\Login.js" />
+    <Content Include="js\Support.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="Loop.aspx" />
+    <Content Include="RequestAccess.aspx" />
+    <Content Include="Router\SalesforceCanvas.aspx" />
+    <Content Include="Router\Default.aspx" />
+    <Content Include="Router\TestHarness.aspx" />
+    <Content Include="Downloads\BIA_Application_Access.pptx" />
+    <Content Include="certificates\bia.vault.ams1907.com.p12" />
+    <Content Include="certificates\bia.vault.ups.com.p12" />
+    <Content Include="certificates\bia.vault.ups.com_2022.p12" />
+    <Content Include="certificates\bia.vault.ups.com_AE_FE_88_DC_BF_2A_A8_EE_C7_85_17_60_9D_C2_0D_D6 - Copy.p12" />
+    <None Include="packages.config" />
+    <Content Include="Service References\ITAuth\BIACore.Website.ITAuth.getUserAuthenticationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\Web.config" />
+    <None Include="fonts\Web.DEV.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="fonts\Web.LocalTest.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="fonts\Web.PROD.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="fonts\Web.QA.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="fonts\Web.RC.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Properties\PublishProfiles\BIAalpha.pubxml" />
+    <None Include="Properties\PublishProfiles\Dev-TestNet.pubxml" />
+    <None Include="Properties\PublishProfiles\DEV3.0.pubxml" />
+    <None Include="Properties\PublishProfiles\QA2.pubxml" />
+    <Content Include="Router\upsdrive_ams1907_com_expired.cer" />
+    <None Include="Service References\ITAuth\configuration91.svcinfo" />
+    <None Include="Service References\ITAuth\configuration.svcinfo" />
+    <None Include="Service References\ITAuth\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="css\Header\Header.css" />
+    <Content Include="css\jquery.dropdown.css" />
+    <Content Include="css\Security\Security.css" />
+    <Content Include="css\start\images\animated-overlay.gif" />
+    <Content Include="css\start\images\ui-bg_flat_55_999999_40x100.png" />
+    <Content Include="css\start\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="css\start\images\ui-bg_glass_45_0078ae_1x400.png" />
+    <Content Include="css\start\images\ui-bg_glass_55_f8da4e_1x400.png" />
+    <Content Include="css\start\images\ui-bg_glass_75_79c9ec_1x400.png" />
+    <Content Include="css\start\images\ui-bg_gloss-wave_45_e14f1c_500x100.png" />
+    <Content Include="css\start\images\ui-bg_gloss-wave_50_6eac2c_500x100.png" />
+    <Content Include="css\start\images\ui-bg_gloss-wave_75_2191c0_500x100.png" />
+    <Content Include="css\start\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="css\start\images\ui-icons_0078ae_256x240.png" />
+    <Content Include="css\start\images\ui-icons_056b93_256x240.png" />
+    <Content Include="css\start\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="css\start\images\ui-icons_e0fdff_256x240.png" />
+    <Content Include="css\start\images\ui-icons_f5e175_256x240.png" />
+    <Content Include="css\start\images\ui-icons_f7a50d_256x240.png" />
+    <Content Include="css\start\images\ui-icons_fcd113_256x240.png" />
+    <Content Include="css\start\jquery-ui.css" />
+    <Content Include="Global.asax" />
+    <Content Include="css\Header\images\BIA_Logo_App.gif" />
+    <Content Include="css\Header\images\Button_Help.png" />
+    <Content Include="css\Header\images\Button_Home.png" />
+    <Content Include="css\Header\images\Button_LaunchApp.png" />
+    <Content Include="css\Header\images\Button_Logout.png" />
+    <Content Include="css\Header\images\Button_MyReports.png" />
+    <Content Include="css\Header\images\Button_Notify.png" />
+    <Content Include="css\Header\images\Button_Pending.png" />
+    <Content Include="css\Header\images\Button_Search.png" />
+    <Content Include="css\Header\images\Button_UserMenu.png" />
+    <Content Include="css\Header\images\Window_Close.gif" />
+    <Content Include="Service References\ITUserByEmail\BIACore.Website.ITUserByEmail.UserMailboxResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITAuth\UserAuthentication1.wsdl" />
+    <None Include="Service References\ITUserByEmail\configuration91.svcinfo" />
+    <None Include="Service References\ITUserByEmail\configuration.svcinfo" />
+    <None Include="Service References\ITUserByEmail\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\ITUserById\BIACore.Website.ITUserById.UserListResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITUserByEmail\UserMailbox1.wsdl" />
+    <None Include="Service References\ITUserById\configuration91.svcinfo" />
+    <None Include="Service References\ITUserById\configuration.svcinfo" />
+    <None Include="Service References\ITUserById\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\ITUserExt\BIACore.Website.ITUserExt.UserProfile2Result.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITUserById\UserList1.wsdl" />
+    <None Include="Service References\ITUserExt\configuration91.svcinfo" />
+    <None Include="Service References\ITUserExt\configuration.svcinfo" />
+    <None Include="Service References\ITUserExt\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ITUserExt\UserProfile2.wsdl" />
+    <Content Include="Service References\ITUser\BIACore.Website.ITUser.UserProfileResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ITUser\configuration91.svcinfo" />
+    <None Include="Service References\ITUser\configuration.svcinfo" />
+    <None Include="Service References\ITUser\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Support.aspx" />
+    <Content Include="UploadValidationTest.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Web.DEV.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.TestNet.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\ConnectionInit.cs" />
+    <Compile Include="BIACoreDebug.aspx.cs">
+      <DependentUpon>BIACoreDebug.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BIACoreDebug.aspx.designer.cs">
+      <DependentUpon>BIACoreDebug.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BIACore\Server\AuthEvent.cs" />
+    <Compile Include="BIACore\Server\Cache.cs" />
+    <Compile Include="BIACore\Server\Cached.cs" />
+    <Compile Include="BIACore\Server\Connections.cs" />
+    <Compile Include="BIACore\Server\Controller\ApplicationController.cs" />
+    <Compile Include="BIACore\Server\Controller\Application\Application.cs" />
+    <Compile Include="BIACore\Server\Controller\Application\UserList.cs" />
+    <Compile Include="BIACore\Server\Controller\AuthenticationController.cs" />
+    <Compile Include="BIACore\Server\Controller\Authentication\Authenticate.cs" />
+    <Compile Include="BIACore\Server\Controller\CodeNameController.cs" />
+    <Compile Include="BIACore\Server\Controller\CodeName\CodeName.cs" />
+    <Compile Include="BIACore\Server\Controller\Upload\Upload.cs" />
+    <Compile Include="BIACore\Server\Controller\UploadController.cs" />
+    <Compile Include="BIACore\Server\Controller\CodeReviewController.cs" />
+    <Compile Include="BIACore\Server\Controller\CodeReview\CodeReview.cs" />
+    <Compile Include="BIACore\Server\Controller\ExtJSValController.cs" />
+    <Compile Include="BIACore\Server\Controller\ExtJSVal\ExtJSVal.cs" />
+    <Compile Include="BIACore\Server\Controller\FingerprintValueController.cs" />
+    <Compile Include="BIACore\Server\Controller\FingerprintValue\FingerprintValue.cs" />
+    <Compile Include="BIACore\Server\Controller\ImpersonationController.cs" />
+    <Compile Include="BIACore\Server\Controller\Impersonation\Impersonate.cs" />
+    <Compile Include="BIACore\Server\Controller\Impersonation\List.cs" />
+    <Compile Include="BIACore\Server\Controller\Impersonation\Search.cs" />
+    <Compile Include="BIACore\Server\Controller\LogController.cs" />
+    <Compile Include="BIACore\Server\Controller\LoginController.cs" />
+    <Compile Include="BIACore\Server\Controller\Login\Info.cs" />
+    <Compile Include="BIACore\Server\Controller\Login\Token.cs" />
+    <Compile Include="BIACore\Server\Controller\Log\Activity.cs" />
+    <Compile Include="BIACore\Server\Controller\Log\Connection.cs" />
+    <Compile Include="BIACore\Server\Controller\Log\Event.cs" />
+    <Compile Include="BIACore\Server\Controller\Log\Export.cs" />
+    <Compile Include="BIACore\Server\Controller\Log\Version.cs" />
+    <Compile Include="BIACore\Server\Controller\SecurityController.cs" />
+    <Compile Include="BIACore\Server\Controller\Security\Application.cs" />
+    <Compile Include="BIACore\Server\Controller\Security\Session.cs" />
+    <Compile Include="BIACore\Server\Controller\Security\User.cs" />
+    <Compile Include="BIACore\Server\Controller\SessionController.cs" />
+    <Compile Include="BIACore\Server\Controller\Session\Session.cs" />
+    <Compile Include="BIACore\Server\Controller\SmartFilterController.cs" />
+    <Compile Include="BIACore\Server\Controller\SmartFilter\SmartFilterBrain.cs" />
+    <Compile Include="BIACore\Server\Controller\TrackController.cs" />
+    <Compile Include="BIACore\Server\Controller\Track\Browser.cs" />
+    <Compile Include="BIACore\Server\Controller\UserController.cs" />
+    <Compile Include="BIACore\Server\Controller\User\User.cs" />
+    <Compile Include="BIACore\Server\Controller\UtilityController.cs" />
+    <Compile Include="BIACore\Server\Controller\Utility\Hashicorp.cs" />
+    <Compile Include="BIACore\Server\CurrentContext.cs" />
+    <Compile Include="BIACore\Server\Env.cs" />
+    <Compile Include="BIACore\Server\LogFactory.cs" />
+    <Compile Include="BIACore\Server\Model\ActivityEntry.cs" />
+    <Compile Include="BIACore\Server\Model\AuthLog.cs" />
+    <Compile Include="BIACore\Server\Model\AuthResult.cs" />
+    <Compile Include="BIACore\Server\Model\BIAMessage.cs" />
+    <Compile Include="BIACore\Server\Model\BrowserEntry.cs" />
+    <Compile Include="BIACore\Server\Model\ConnectionEntry.cs" />
+    <Compile Include="BIACore\Server\Model\Entry.cs" />
+    <Compile Include="BIACore\Server\Model\ExportEntry.cs" />
+    <Compile Include="BIACore\Server\Model\LogEntry.cs" />
+    <Compile Include="BIACore\Server\Model\SecurityRequest.cs" />
+    <Compile Include="BIACore\Server\Model\VersionEntry.cs" />
+    <Compile Include="BIACore\Server\RouteConfig.cs" />
+    <Compile Include="BIACore\Server\Token.cs" />
+    <Compile Include="BIACore\Server\Uncached.cs" />
+    <Compile Include="Connections.cs" />
+    <Compile Include="Controller\Log\Filter\Level.cs" />
+    <Compile Include="Controller\Log\Filter\Server.cs" />
+    <Compile Include="Controller\Log\Filter\UserId.cs" />
+    <Compile Include="Controller\Log\Filter\Event.cs" />
+    <Compile Include="Controller\Log\AppLogController.cs" />
+    <Compile Include="Controller\Log\Report\Browser.cs" />
+    <Compile Include="Controller\Log\Report\Version.cs" />
+    <Compile Include="Controller\Model\SecurityReport.cs" />
+    <Compile Include="Controller\Model\LogReport.cs" />
+    <Compile Include="Controller\Model\SecurityFilter.cs" />
+    <Compile Include="Controller\RouteConfig.cs" />
+    <Compile Include="Controller\Model\Secure.cs" />
+    <Compile Include="Controller\Security\Filter\Client.cs" />
+    <Compile Include="Controller\Security\Filter\Event.cs" />
+    <Compile Include="Controller\Security\Filter\TargetId.cs" />
+    <Compile Include="Controller\Security\Filter\UserId.cs" />
+    <Compile Include="Controller\Security\Report\Active.cs" />
+    <Compile Include="Controller\Security\Report\Lockout.cs" />
+    <Compile Include="Controller\Security\Report\History.cs" />
+    <Compile Include="Controller\Security\Report\Stats.cs" />
+    <Compile Include="Controller\Security\AppSecurityController.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\Model\LogFilter.cs" />
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Exporter\Spreadsheet.aspx.cs">
+      <DependentUpon>Spreadsheet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Exporter\Spreadsheet.aspx.designer.cs">
+      <DependentUpon>Spreadsheet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Loop.aspx.cs">
+      <DependentUpon>Loop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Loop.aspx.designer.cs">
+      <DependentUpon>Loop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyReports\MyReportsAgent\Update.cs" />
+    <Compile Include="MyReports\MyReportsAgent\List.cs" />
+    <Compile Include="MyReports\Statics.cs" />
+    <Compile Include="MyReports\MyReportsController.cs" />
+    <Compile Include="MyReports\MyReportsAgentController.cs" />
+    <Compile Include="MyReports\MyReports\Agent.cs" />
+    <Compile Include="MyReports\MyReports\Type.cs" />
+    <Compile Include="MyReports\MyReports\User.cs" />
+    <Compile Include="MyReports\MyReports\Delete.cs" />
+    <Compile Include="MyReports\MyReports\Download.cs" />
+    <Compile Include="MyReports\MyReports\Enqueue.cs" />
+    <Compile Include="MyReports\MyReports\List.cs" />
+    <Compile Include="MyReports\MyReports\Retry.cs" />
+    <Compile Include="MyReports\MyReportsAgent\Upload.cs" />
+    <Compile Include="MyReports\RouteConfig.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\Log\Filter\AppCode.cs" />
+    <Compile Include="Controller\Log\Report\Data.cs" />
+    <Compile Include="RequestAccess.aspx.cs">
+      <DependentUpon>RequestAccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RequestAccess.aspx.designer.cs">
+      <DependentUpon>RequestAccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Router\SalesforceCanvas.aspx.cs">
+      <DependentUpon>SalesforceCanvas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Router\SalesforceCanvas.aspx.designer.cs">
+      <DependentUpon>SalesforceCanvas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Router\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Router\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Router\TestHarness.aspx.cs">
+      <DependentUpon>TestHarness.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Router\TestHarness.aspx.designer.cs">
+      <DependentUpon>TestHarness.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ITAuth\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ITUserByEmail\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ITUserById\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ITUserExt\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ITUser\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Support.aspx.cs">
+      <DependentUpon>Support.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Support.aspx.designer.cs">
+      <DependentUpon>Support.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadValidationTest.aspx.cs">
+      <DependentUpon>UploadValidationTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UploadValidationTest.aspx.designer.cs">
+      <DependentUpon>UploadValidationTest.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Exporter\Web.config" />
+    <Content Include="BIACore\Client\README.txt" />
+    <Content Include="BIACore\README.txt" />
+    <None Include="Exporter\Web.DEV.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Exporter\Web.PROD.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Exporter\Web.QA.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Exporter\Web.RC.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Exporter\Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Properties\PublishProfiles\DEV.pubxml" />
+    <None Include="Properties\PublishProfiles\PROD.pubxml" />
+    <Content Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="Router\Web.config" />
+    <Content Include="Router\upsdrive_ams1907_com.cer" />
+    <Content Include="Router\upsdrive_ups_com_cert.cer" />
+    <None Include="Router\Web.DEV.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Router\Web.PROD.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Router\Web.QA.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Router\Web.RC.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Router\Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Service References\ITUser\UserProfile.wsdl" />
+    <None Include="Web.LocalTest.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.PROD.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.QA.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.RC.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BIACore\BIACore.csproj">
+      <Project>{f74d65c7-0ef0-441f-86ae-1fd0f0702c31}</Project>
+      <Name>BIACore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebAPI\BIACore.WebAPI.csproj">
+      <Project>{c25594c8-1c97-4979-a566-bfb87f8f1682}</Project>
+      <Name>BIACore.WebAPI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BIAExt\0Ext\plugin\" />
+    <Folder Include="BIAExt\BIA\mixin\" />
+    <Folder Include="BIAExt\MyReports2\Module\" />
+    <Folder Include="Exporter\TestFiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ITAuth\" />
+    <WCFMetadataStorage Include="Service References\ITUserByEmail\" />
+    <WCFMetadataStorage Include="Service References\ITUserById\" />
+    <WCFMetadataStorage Include="Service References\ITUserExt\" />
+    <WCFMetadataStorage Include="Service References\ITUser\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DEV|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Optimize>false</Optimize>
+    <ExcludeFoldersFromDeployment>BIAExt;BIACore\Client</ExcludeFoldersFromDeployment>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PROD|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <Optimize>false</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <ExcludeFoldersFromDeployment>BIAExt;BIACore\Client</ExcludeFoldersFromDeployment>
+    <DocumentationFile>..\Reference\Documentation\BIACore.Website.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QA|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <Optimize>false</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <ExcludeFoldersFromDeployment>BIAExt;BIACore\Client</ExcludeFoldersFromDeployment>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'RC|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <ExcludeFoldersFromDeployment>BIAExt;BIACore\Client</ExcludeFoldersFromDeployment>
+    <Optimize>false</Optimize>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LocalTest|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <Optimize>false</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <DefineConstants>LocalTest</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TestNet|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>59371</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59371/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>$(ProjectDir)..\Tools\compile.bat $(ProjectDir) $(ProjectDir)..\Tools\
+
+</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

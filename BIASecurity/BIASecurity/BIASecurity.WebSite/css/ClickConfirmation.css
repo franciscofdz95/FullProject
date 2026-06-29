@@ -1,0 +1,41 @@
+﻿.RedButton {
+    border-width: 1px;
+    border-style: solid;
+    background-image: none;
+    background-color: #f00;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#fb3232),color-stop(50%,#f00),color-stop(51%,#f91010),color-stop(100%,#f00));
+    background-image: -webkit-linear-gradient(top,#fb3232,#f00 50%,#f91010 51%,#f00);
+    background-image: -moz-linear-gradient(top,#fb3232,#f00 50%,#f91010 51%,#f00);
+    background-image: -o-linear-gradient(top,#fb3232,#f00 50%,#f91010 51%,#f00);
+    background-image: -ms-linear-gradient(top,#fb3232,#f00 50%,#f91010 51%,#f00);
+    background-image: linear-gradient(top,#fb3232,#f00 50%,#f91010 51%,#f00);
+    border-color: #e10202;
+}
+
+.RedButton.RedButtonHover {
+    border-color: #a60000;
+    background-image: none;
+    background-color: #D40000;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#d52828),color-stop(50%,#D40000),color-stop(51%,#d40d0d),color-stop(100%,#D40000));
+    background-image: -webkit-linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+    background-image: -moz-linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+    background-image: -o-linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+    background-image: -ms-linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+    background-image: linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+}
+
+.RedButton.x-btn-RedButtonFocus.x-RedButtonFocus {
+    -webkit-box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+    -moz-box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+    box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+}
+
+.RedButton.x-RedButtonFocus.x-btn-RedButtonFocus.x-btn-pressed {
+    background-image: none;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#A81E1E),color-stop(50%,#950101),color-stop(51%,#A20A0A),color-stop(100%,#950101));
+    background-image: -webkit-linear-gradient(top,#A81E1E,#950101 50%,#A20A0A 51%,#950101);
+    background-image: -moz-linear-gradient(top,#A81E1E,#950101 50%,#A20A0A 51%,#950101);
+    background-image: -o-linear-gradient(top,#A81E1E,#950101 50%,#A20A0A 51%,#950101);
+    background-image: -ms-linear-gradient(top,#A81E1E,#950101 50%,#A20A0A 51%,#950101);
+    background-image: linear-gradient(top,#A81E1E,#950101 50%,#A20A0A 51%,#950101);
+}

@@ -1,0 +1,701 @@
+﻿/* \css\CardFlip.css */
+
+/* entire container, keeps perspective */
+.flip-card {
+    -webkit-perspective: 3000px;
+    -moz-perspective: 3000px;
+    -o-perspective: 3000px;
+    -ms-perspective: 3000px;
+    perspective: 3000px;
+}
+.flip-card-ie {
+    -webkit-perspective: 200px;
+    -moz-perspective: 200px;
+    -o-perspective: 200px;
+    perspective: 200px;
+}
+
+/* flip the pane when hovered */
+.flip-card.hover .card-container.front,
+.flip-card-ie.hover .card-container.front {
+    -webkit-transform: perspective(7500px) rotateY( 90deg );
+    -moz-transform: perspective(7500px) rotateY( 90deg );
+    -o-transform: perspective(7500px) rotateY( 90deg );
+    transform: perspective(7500px) rotateY( 90deg );
+}
+.flip-card .card-container.front,
+.flip-card-ie .card-container.front {
+    -webkit-transform: perspective(7500px) rotateY( 0deg );
+    -moz-transform: perspective(7500px) rotateY( 0deg );
+    -o-transform: perspective(7500px) rotateY( 0deg );
+    transform: perspective(7500px) rotateY( 0deg );
+}
+.flip-card.hover .card-container.back,
+.flip-card-ie.hover .card-container.back {
+    -webkit-transform: perspective(7500px) rotateY( 270deg );
+    -moz-transform: perspective(7500px) rotateY( 270deg );
+    -o-transform: perspective(7500px) rotateY( 270deg );
+    transform: perspective(7500px) rotateY( 270deg );
+}
+.flip-card .card-container.back,
+.flip-card-ie .card-container.back {
+    -webkit-transform: perspective(7500px) rotateY( 360deg );
+    -moz-transform: perspective(7500px) rotateY( 360deg );
+    -o-transform: perspective(7500px) rotateY( 360deg );
+    transform: perspective(7500px) rotateY( 360deg );
+}
+/* flip speed goes here */
+.card-container {
+    -webkit-transition: -webkit-transform .3s;
+    -moz-transition: -moz-transform .3s;
+    -o-transition: -o-transform .3s;
+    transition: transform .3s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    position: relative;
+    backface-visibility: hidden;
+}
+.flip-card-ie .card-container {
+    -webkit-transition: -webkit-transform .3s;
+    -moz-transition: -moz-transform .3s;
+    -o-transition: -o-transform .3s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .card-container {
+        -ms-backface-visibility: visible;
+        backface-visibility: visible;
+    }
+}
+
+.CardFlipSideFooterButton .fa {
+    color: #555;
+    font-size: 25px;
+    cursor: pointer;
+}
+.CardFlipSideFooterButton .fa:hover {
+    color: #00698A;
+}
+.CardFlip .fa.clickableIcon {
+    cursor: pointer;
+}
+/* \css\Carousel.css */
+.x-carousel-title {
+    font-size: 2em;
+    font-weight: bold;
+}
+.x-carousel-alt {
+}
+.x-carousel-class {
+    font-style: italic;
+}
+.x-carousel-east {
+    background-image: url('images/rightArrow.gif') !important;
+    background-repeat: no-repeat;
+    height: 38px;
+    width: 30px;
+    margin: 2px;
+}
+.x-carousel-west {
+    background-image: url('images/leftArrow.gif') !important;
+    background-repeat: no-repeat;
+    height: 38px;
+    width: 30px;
+    margin: 2px;
+}
+/* \css\Desktop.css */
+.x-desktop-shortcut {
+    cursor: pointer;
+}
+
+.x-desktop-shortcut-icon {
+    display: table-cell;
+    vertical-align: middle;
+    margin: 2px;
+    padding: 2px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+
+.x-desktop-shortcut-text {
+    font: bold;
+    font-size: 1.5em;
+}
+
+.x-desktop-shortcut-text .x-view-over {
+    text-decoration: underline;
+}
+/* \css\DisplayField.css */
+.x-form-item-label-light { color: darkgray; }
+
+/* \css\Exporter.css */
+.Card {
+    box-shadow: rgba(0, 0, 0, 0.137255) 0px 2px 2px 1px, rgba(0, 0, 0, 0.117647) 0px 1px 5px 2px, rgba(0, 0, 0, 0.2) 0px 3px 1px 0px;
+    border-radius: 3px;
+    margin: 8px;
+    padding: 10px;
+}
+
+.ExporterIcon {
+    color: #157fcc;
+}
+
+.ExporterMessage {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 25px;
+}
+
+.ExporterLoadingAutoclose {
+    font-size: 12px;
+    font-style: italic;
+}
+
+.ExporterIconComplete {
+    color: #64A70B;
+}
+/* \css\ExportSpreadsheetPromptWindow.css */
+.PromptWindowOptionsCheckboxLabels .x-form-cb-label{
+    font-style: italic; 
+    font-size: 14px; 
+    padding-left: 25px;
+}
+
+.BIAExportSpreadsheetPromptWindow.x-window {
+    border-width: 0px;
+    border-style: none;
+}
+/* \css\Fakelink.css */
+.bia-fakelink {
+    text-decoration: underline;
+    color: #0000FF;
+    cursor: pointer;
+}
+/* \css\IE.css */
+/* remove MS field "helper" */
+input[type=text]::-ms-clear {
+    display: none;
+    width: 0px;
+    height: 0px;
+}
+input[type=password]::-ms-reveal {
+    display: none;
+    width: 0px;
+    height: 0px;
+}
+/* \css\LoadingMask.css */
+.bia-mask .x-mask-msg {
+    border: none;
+    background-color:#B0A696;
+    padding: 30px 10px;
+    min-width: 90px;
+}
+
+.bia-mask .x-mask-msg-inner.bia-mask-msg-inner {
+    border: none;
+    background-color: transparent;
+    color: #EBEBE6;
+    font: normal 20px tahoma,arial,verdana,sans-serif;
+}
+
+.bia-mask .x-mask-msg-text.bia-mask-msg-text {
+    padding: 65px 0 0;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+.bia-mask .x-mask-msg-text.bia-mask-msg-text {
+    background-image: url(images/BIA_Spinner_50.gif);
+    background-size: 50px 50px;
+}
+
+/* IE specific icon */
+.bia-mask.bia-mask-IE .x-mask-msg-text.bia-mask-msg-text {
+    background-image: url(images/BIA_Spinner_50.png);
+}
+
+/* Mobile formatting */
+.bia-mask.bia-mask-mobile .x-mask-msg-text.bia-mask-msg-text {
+    background-size: 25px 25px;
+}
+
+.bia-mask.bia-mask-mobile .x-mask-msg-text.bia-mask-msg-text {
+    padding: 40px 0 0;
+}
+
+.bia-mask.bia-mask-mobile .x-mask-msg {
+    padding: 15px 10px;
+    min-width: 60px;
+}
+
+
+.bia-mask.bia-mask-mobile .x-mask-msg-inner.bia-mask-msg-inner {
+    font: normal 14px tahoma,arial,verdana,sans-serif;
+}
+
+.bia-mask.bia-mask-micro .x-mask-msg-text.bia-mask-msg-text {
+    background-size: 25px 25px;
+}
+
+.bia-mask.bia-mask-micro .x-mask-msg {
+    padding: 10px 10px;
+    min-width: 50px;
+}
+
+.bia-mask.bia-mask-micro .x-mask-msg-text.bia-mask-msg-text {
+    padding: 30px 0 0;
+}
+
+.bia-mask-hidden {
+    display: none;
+}
+/* \css\MyReports.css */
+.MyReports .Processing {
+    color: purple;
+    font-style: italic;
+}
+.MyReports .Error {
+    color: brown; 
+    font-weight: bold;
+}
+.MyReports .Complete {
+    color: Green;
+}
+.MyReports .NotApplicable {
+    color: #93915a;  
+    font-weight: bold;
+}
+.icon-trash_can { background-image:url('images/trash-can.png'); }
+
+/* \css\PagedList.css */
+.BIAPagedListPagingToolbar {
+    font-size: 20px;
+    color: #3366cc;
+    font-weight: bold;
+    background-color: #d4ccbf;
+    padding: 4px;
+}
+
+.BIAPagedListPagingToolbar .PagingToolbarButton.PageLinkCurrent, .BIAPagedListPagingToolbar .PagingToolbarButton.PageLinkCurrent.Hover {
+    background-color: #b0a696;
+    cursor: default;
+}
+
+.BIAPagedListPagingToolbar .PagedListRefresh {
+    color: #60513A;
+    cursor: pointer;
+}
+
+.BIAPagedListPagingToolbar .PagingToolbarButton {
+    cursor: pointer;
+}
+
+.BIAPagedListPagingToolbar .PagingToolbarButton.Hover {
+    background-color: #bfb5a4;
+}
+
+.BIA_Components_PagedList .ListItemDefault {
+    border-bottom: #000 1px solid !important;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.BIA_Components_PagedList .ListItemHeaderDefault {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
+}
+/* \css\PerformanceTracker.css */
+#BH_Button_PerformanceTracker span {
+    font-size: 13px;
+    padding-left: 5px;
+}
+
+#BH_Button_PerformanceTracker i {
+    font-size: 16px;
+}
+
+.BIAPerformanceTrackerGrid .critical,
+.BIAPerformanceTrackerGrid .error,
+.BIAPerformanceTrackerGrid .sqlerror {
+    font-weight: bold;
+    background-color: #ddd;
+}
+
+.BIAPerformanceTrackerGrid .problemArea i {
+    color: #888;
+}
+
+.BIAPerformanceTrackerGrid i {
+    font-size: 20px;
+}
+
+.BIAPerformanceTrackerGrid .status i {
+    display: none;
+    padding-right: 5px;
+}
+
+.BIAPerformanceTrackerGrid .warning .status .warningIcon,
+.BIAPerformanceTrackerGrid .caution .status .cautionIcon,
+.BIAPerformanceTrackerGrid .critical .status .criticalIcon,
+.BIAPerformanceTrackerGrid .error .status .errorIcon,
+.BIAPerformanceTrackerGrid .sqlerror .status .sqlerrorIcon,
+.BIAPerformanceTrackerGrid .no-issues .status .noIssuesIcon,
+.BIAPerformanceTrackerGrid .no-issues-sql .status .noIssuesSqlIcon {
+    display: block;
+}
+
+.BIAPerformanceTrackerGrid .warning .status .warningIcon,
+.PerformanceTrackerDetailTimelinePart i.warningIcon,
+.BIAPerformanceTrackerDetailStatusDisplay i.warningIcon { 
+    color: #689ed7;
+}
+.BIAPerformanceTrackerGrid .caution .status .cautionIcon,
+.PerformanceTrackerDetailTimelinePart i.cautionIcon,
+.BIAPerformanceTrackerDetailStatusDisplay i.cautionIcon { 
+    color: #ef8f1a;
+}
+.BIAPerformanceTrackerGrid .critical .status .criticalIcon,
+.BIAPerformanceTrackerGrid .error .status .errorIcon,
+.BIAPerformanceTrackerGrid .sqlerror .status .sqlerrorIcon,
+.PerformanceTrackerDetailTimelinePart i.criticalIcon,
+.BIAPerformanceTrackerDetailStatusDisplay i.criticalIcon,
+.BIAPerformanceTrackerDetailStatusDisplay i.errorIcon,
+.BIAPerformanceTrackerDetailStatusDisplay i.sqlerrorIcon {
+    color: #f33;
+}
+.BIAPerformanceTrackerGrid .no-issues .status .noIssuesIcon,
+.BIAPerformanceTrackerDetailStatusDisplay i.noIssuesIcon { 
+    color: #00bc06;
+}
+
+.BIAPerformanceTrackerGrid .no-issues-sql .status .noIssuesSqlIcon,
+.BIAPerformanceTrackerDetailStatusDisplay i.noIssuesSqlIcon {
+    color: #c5c5c3;
+}
+
+.BIAPerformanceTrackerDetailStatusDisplay i {
+    font-size: 22px;
+}
+
+.BIAPerformanceTrackerGrid .problemArea i {
+    color: #888;
+    padding-right: 5px;
+}
+
+.BIAPerformanceTrackerSummary.x-window,
+.BIAPerformanceTrackerDetail.x-window {
+    border-width: 0px;
+    border-style: none;
+}
+
+.BIAPerformanceTrackerDetail pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    padding: 10px;
+    background-color: #eee;
+}
+
+.BIAPerformanceTrackerSummaryDataRefreshButton {
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    background-image: none;
+    background-color: #3892d3;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#4b9cd7),color-stop(50%,#3892d3),color-stop(51%,#358ac8),color-stop(100%,#3892d3));
+    background-image: -webkit-linear-gradient(top,#4b9cd7,#3892d3 50%,#358ac8 51%,#3892d3);
+    background-image: -moz-linear-gradient(top,#4b9cd7,#3892d3 50%,#358ac8 51%,#3892d3);
+    background-image: -o-linear-gradient(top,#4b9cd7,#3892d3 50%,#358ac8 51%,#3892d3);
+    background-image: -ms-linear-gradient(top,#4b9cd7,#3892d3 50%,#358ac8 51%,#3892d3);
+    background-image: linear-gradient(top,#4b9cd7,#3892d3 50%,#358ac8 51%,#3892d3);
+    border-color: #126daf;
+}
+
+.BIAPerformanceTrackerSummaryDataRefreshButton:hover {
+    border-color: #1064a1;
+    background-image: none;
+    background-color: #3386c2;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#4792c8),color-stop(50%,#3386c2),color-stop(51%,#307fb8),color-stop(100%,#3386c2));
+    background-image: -webkit-linear-gradient(top,#4792c8,#3386c2 50%,#307fb8 51%,#3386c2);
+    background-image: -moz-linear-gradient(top,#4792c8,#3386c2 50%,#307fb8 51%,#3386c2);
+    background-image: -o-linear-gradient(top,#4792c8,#3386c2 50%,#307fb8 51%,#3386c2);
+    background-image: -ms-linear-gradient(top,#4792c8,#3386c2 50%,#307fb8 51%,#3386c2);
+    background-image: linear-gradient(top,#4792c8,#3386c2 50%,#307fb8 51%,#3386c2);
+}
+
+.BIAPerformanceTrackerSummaryDataRefreshButton:active {
+    -webkit-box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+    -moz-box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+    box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+}
+
+.PerformanceTrackerDetailTimelinePart i {
+    padding-left: 5px;
+    font-size: 15px;
+}
+
+.BIAPerformanceTrackerRequestAjaxTypeIcon {
+    background-color: #f1c769;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.BIAPerformanceTrackerRequestTypeIcon {
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+span.BIAPerformanceTrackerDetailIconLabel {
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+.BIAPerformanceTrackerRequestAjaxTypeIcon {
+    background-color: #f1c769;
+}
+
+.BIAPerformanceTrackerRequestStoreTypeIcon {    
+    background-color: #91c7e7;
+}
+
+.BIAPerformanceTrackerRequestTestTypeIcon {
+    background-color: #e1c8b0;
+}
+
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator {
+    border-radius: 5px;
+    padding: 4px 6px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C1 {
+    background-color: #f68B20;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C2 {
+    background-color: #40c1ac;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C3 {
+    background-color: #64a70b;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C4 {
+    background-color: #f8a24d;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C5 {
+    background-color: #66cdbd;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C6 {
+    background-color: #83b93c;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C7 {
+    background-color: #fab979;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C8 {
+    background-color: #8ddacd;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C9 {
+    background-color: #a2ca6d;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C10 {
+    background-color: #fbd1a6;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C11 {
+    background-color: #b2e6de;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C0 {
+    background-color: #c1dc9d;
+}
+
+.BIAPerformanceTrackerDetailTitle .DetailTitleRoute > .x-autocontainer-outerCt > .x-autocontainer-innerCt {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+/* \css\RedButton.css */
+/* Apply Button */
+.bia-red-btn {
+    border-color: #e57272;
+    background-image: none;
+    background-color: #e4f3ff;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffd0d0), color-stop(48%, #ffbfbf), color-stop(52%, #ff9f9f), color-stop(100%, #ff6f6f));
+    background-image: -webkit-linear-gradient(top, #ffd0d0, #ffbfbf 48%, #ff9f9f 52%, #ff6f6f);
+    background-image: -moz-linear-gradient(top, #ffd0d0, #ffbfbf 48%, #ff9f9f 52%, #ff6f6f);
+    background-image: -o-linear-gradient(top, #ffd0d0, #ffbfbf 48%, #ff9f9f 52%, #ff6f6f);
+    background-image: -ms-linear-gradient(top, #ffd0d0, #ffbfbf 48%, #ff9f9f 52%, #ff6f6f);
+    background-image: linear-gradient(top, #ffd0d0, #ffbfbf 48%, #ff9f9f 52%, #ff6f6f);
+}
+
+.x-nlg .bia-red-btn { /* Order matters - nlg before red */
+    background-repeat: repeat-x;
+    background-image: url('images/btn-red-small-bg.gif');
+}
+
+.bia-red-btn .x-btn-default-small-tl,
+.bia-red-btn .x-btn-default-small-bl,
+.bia-red-btn .x-btn-default-small-tr,
+.bia-red-btn .x-btn-default-small-br,
+.bia-red-btn .x-btn-default-small-tc,
+.bia-red-btn .x-btn-default-small-bc,
+.bia-red-btn .x-btn-default-small-ml,
+.bia-red-btn .x-btn-default-small-mr {
+    background-image: url('images/btn-red-small-corners.gif');
+}
+
+.bia-red-btn .x-btn-default-small-ml,
+.bia-red-btn .x-btn-default-small-mr {
+    background-image: url('images/btn-red-small-sides.gif');
+    background-position: 0 0;
+}
+
+.bia-red-btn .x-btn-default-small-mc {
+    padding: 0;
+    background-image: url('images/btn-red-small-bg.gif');
+    background-position: 0 0;
+}
+
+.bia-RedButton {
+    border-width: 1px;
+    border-style: solid;
+    background-image: none;
+    background-color: #f00;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#fb3232),color-stop(50%,#f00),color-stop(51%,#f91010),color-stop(100%,#f00));
+    background-image: -webkit-linear-gradient(top,#fb3232,#f00 50%,#f91010 51%,#f00);
+    background-image: -moz-linear-gradient(top,#fb3232,#f00 50%,#f91010 51%,#f00);
+    background-image: -o-linear-gradient(top,#fb3232,#f00 50%,#f91010 51%,#f00);
+    background-image: -ms-linear-gradient(top,#fb3232,#f00 50%,#f91010 51%,#f00);
+    background-image: linear-gradient(top,#fb3232,#f00 50%,#f91010 51%,#f00);
+    border-color: #e10202;
+}
+
+    .bia-RedButton.x-btn-disabled {
+        cursor: default;
+    }
+
+        .bia-RedButton.x-btn-disabled .x-btn-inner {
+            color: #d4bfbf;
+        }
+
+    .bia-RedButton:hover, .bia-RedButton.x-btn.x-btn-disabled {
+        border-color: #a60000;
+        background-image: none;
+        background-color: #D40000;
+        background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#d52828),color-stop(50%,#D40000),color-stop(51%,#d40d0d),color-stop(100%,#D40000));
+        background-image: -webkit-linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+        background-image: -moz-linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+        background-image: -o-linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+        background-image: -ms-linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+        background-image: linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+    }
+
+    .bia-RedButton:not(.x-btn-disabled):active {
+        -webkit-box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+        -moz-box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+        box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+    }
+
+/*
+.bia-RedButton.RedButtonHover {
+    border-color: #a60000;
+    background-image: none;
+    background-color: #D40000;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#d52828),color-stop(50%,#D40000),color-stop(51%,#d40d0d),color-stop(100%,#D40000));
+    background-image: -webkit-linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+    background-image: -moz-linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+    background-image: -o-linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+    background-image: -ms-linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+    background-image: linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+}
+
+.bia-RedButton.x-btn-RedButtonFocus.x-RedButtonFocus {
+    -webkit-box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+    -moz-box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+    box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+}
+
+.bia-RedButton.x-RedButtonFocus.x-btn-RedButtonFocus.x-btn-pressed {
+    background-image: none;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#A81E1E),color-stop(50%,#950101),color-stop(51%,#A20A0A),color-stop(100%,#950101));
+    background-image: -webkit-linear-gradient(top,#A81E1E,#950101 50%,#A20A0A 51%,#950101);
+    background-image: -moz-linear-gradient(top,#A81E1E,#950101 50%,#A20A0A 51%,#950101);
+    background-image: -o-linear-gradient(top,#A81E1E,#950101 50%,#A20A0A 51%,#950101);
+    background-image: -ms-linear-gradient(top,#A81E1E,#950101 50%,#A20A0A 51%,#950101);
+    background-image: linear-gradient(top,#A81E1E,#950101 50%,#A20A0A 51%,#950101);
+}
+*/
+
+/* \css\Trigger.css */
+.x-form-trigger-tag {
+  background-image: url('images/trigger-tag.gif');
+}
+.x-form-trigger-editor {
+  background-image: url('images/trigger-editor.gif');
+}
+/* \css\Chart\StatusPie.css */
+.StatusPie .x-legend-item-marker {
+    width: 1.3em;
+    height: 1.3em;
+    border-radius: 1.3em;
+    top: .6em;
+}
+
+.StatusPie .x-legend-item {
+    padding: .75em 1em .8em 2.5em;
+    cursor: pointer;
+}
+
+/* \css\FusionCharts\AngularGauge.css */
+.fusionChartsAngularGauge .highcharts-tickMark text {
+    font-size: 12px !important;
+    font-weight: bold;
+}
+
+/* \MyReports2\css\icons.css */
+.mricon
+{
+    display:inline-block;
+    width:16px;
+    height:16px;
+    background-repeat:no-repeat;
+}
+/* !important is an ext4-only thing */
+.mricon-app_error     { background-image:url('images/MyReports.png'); background-position: 0px    0px !important; }
+.mricon-app_start     { background-image:url('images/MyReports.png'); background-position: 0px  -16px !important; }
+.mricon-app_stop      { background-image:url('images/MyReports.png'); background-position: 0px  -32px !important; }
+.mricon-user          { background-image:url('images/MyReports.png'); background-position: 0px  -48px !important; }
+.mricon-group         { background-image:url('images/MyReports.png'); background-position: 0px  -64px !important; }
+.mricon-trash         { background-image:url('images/MyReports.png'); background-position: 0px  -80px !important; }
+.mricon-retry         { background-image:url('images/MyReports.png'); background-position: 0px  -96px !important; }
+.mricon-page_gear     { background-image:url('images/MyReports.png'); background-position: 0px -112px !important; }
+.mricon-page_lightning{ background-image:url('images/MyReports.png'); background-position: 0px -128px !important; }
+.mricon-page_error    { background-image:url('images/MyReports.png'); background-position: 0px -144px !important; }
+.mricon-page_excel    { background-image:url('images/MyReports.png'); background-position: 0px -160px !important; }
+.mricon-page_acrobat  { background-image:url('images/MyReports.png'); background-position: 0px -176px !important; }
+/* \MyReports2\css\MyReports.css */
+.BIA-MyReports-Processing {
+    color: purple;
+    font-style: italic;
+}
+.BIA-MyReports-Error {
+    color: brown; 
+}
+.BIA-MyReports-Complete {
+    color: Green;
+}
+.BIA-MyReports-NotApplicable {
+    color: #93915a;  
+}

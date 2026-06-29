@@ -1,0 +1,48 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Flote.WebSite.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FTPFilePathDev" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ftp://ftp3bia.ups.com</Value>
+    </Setting>
+    <Setting Name="FTPFilePathProd" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ftp://ftp2.ups.com/FLOTE/</Value>
+    </Setting>
+    <Setting Name="FTPUserIdDev" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">BIA_FTP_FLOTE</Value>
+    </Setting>
+    <Setting Name="FTPUserPSWDev" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">cover01</Value>
+    </Setting>
+    <Setting Name="FTPUserIdEMEA" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">eracapo0910</Value>
+    </Setting>
+    <Setting Name="FTPUserPSWEMEA" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">9nqrcyt</Value>
+    </Setting>
+    <Setting Name="FTPUserIdZA" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">eracapo0910</Value>
+    </Setting>
+    <Setting Name="FTPUserPSWZA" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">9nqrcyt</Value>
+    </Setting>
+    <Setting Name="FTPUserIdAPAC" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">2eracp0910</Value>
+    </Setting>
+    <Setting Name="FTPUserPSWAPAC" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">tqpss69</Value>
+    </Setting>
+    <Setting Name="FTPUserIdAmerica" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">eracapo0910</Value>
+    </Setting>
+    <Setting Name="FTPUserPSWAmerica" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">9nqrcyt</Value>
+    </Setting>
+    <Setting Name="FTPUserIdNAmerica" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">eracapp0910</Value>
+    </Setting>
+    <Setting Name="FTPUserPSWNAmerica" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">qqh5vac</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

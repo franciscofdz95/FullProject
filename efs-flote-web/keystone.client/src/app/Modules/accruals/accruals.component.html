@@ -1,0 +1,17 @@
+<div>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'accrual-monthly-details'" (click)="setActiveTab('accrual-monthly-details')" style="cursor: pointer;">Accrual Monthly Details</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'accrual-accuracy-report'" (click)="setActiveTab('accrual-accuracy-report')" style="cursor: pointer;">Accrual Accuracy Report</a>
+    </li>
+  </ul>
+
+  <div class="tab-content mt-2">
+    <app-accrual-monthly-det [style.display]="activeTab === 'accrual-monthly-details' ? 'block' : 'none'"></app-accrual-monthly-det>
+  </div>
+  <div class="tab-content mt-2">
+    <app-accrual-accuracy-rep [style.display]="activeTab === 'accrual-accuracy-report' ? 'block' : 'none'"></app-accrual-accuracy-rep>
+  </div>
+</div>

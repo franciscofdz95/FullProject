@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.upload-scrollable {
+  max-height: 400px; /* Adjust this value as needed */
+  overflow-y: auto;
+}
+
+.view-scrollable{
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.sfabra-dropdown-menu {
+  height: auto;
+  max-height: 300px;
+  overflow-x: hidden;
+}
+
+/* AG-Grid: no global scroll overrides - using container overflow approach */
+

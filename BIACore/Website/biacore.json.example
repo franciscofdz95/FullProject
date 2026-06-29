@@ -1,0 +1,12 @@
+﻿{
+	"appCode": "TEP",
+	"Logger": {
+		"enabled": true,
+		"console": true,
+		"debug": true,
+		"error": true
+	},
+	"Security": {
+		"enabled": true
+	}
+}

@@ -1,0 +1,80 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIACore", "BIACore\BIACore.csproj", "{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIACore.Website", "Website\BIACore.Website.csproj", "{C8434E19-38DD-4755-A0DE-4E7C83434F1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIACore.WebAPI", "WebAPI\BIACore.WebAPI.csproj", "{C25594C8-1C97-4979-A566-BFB87F8F1682}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		DEV|Any CPU = DEV|Any CPU
+		LocalTest|Any CPU = LocalTest|Any CPU
+		PROD|Any CPU = PROD|Any CPU
+		QA|Any CPU = QA|Any CPU
+		RC|Any CPU = RC|Any CPU
+		TestNet|Any CPU = TestNet|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.DEV|Any CPU.ActiveCfg = DEV|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.DEV|Any CPU.Build.0 = DEV|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.LocalTest|Any CPU.ActiveCfg = LocalTest|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.LocalTest|Any CPU.Build.0 = LocalTest|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.PROD|Any CPU.ActiveCfg = PROD|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.PROD|Any CPU.Build.0 = PROD|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.QA|Any CPU.ActiveCfg = PROD|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.QA|Any CPU.Build.0 = PROD|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.RC|Any CPU.ActiveCfg = RC|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.RC|Any CPU.Build.0 = RC|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.TestNet|Any CPU.ActiveCfg = TestNet|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.TestNet|Any CPU.Build.0 = TestNet|Any CPU
+		{C8434E19-38DD-4755-A0DE-4E7C83434F1B}.DEV|Any CPU.ActiveCfg = DEV|Any CPU
+		{C8434E19-38DD-4755-A0DE-4E7C83434F1B}.DEV|Any CPU.Build.0 = DEV|Any CPU
+		{C8434E19-38DD-4755-A0DE-4E7C83434F1B}.LocalTest|Any CPU.ActiveCfg = LocalTest|Any CPU
+		{C8434E19-38DD-4755-A0DE-4E7C83434F1B}.LocalTest|Any CPU.Build.0 = LocalTest|Any CPU
+		{C8434E19-38DD-4755-A0DE-4E7C83434F1B}.PROD|Any CPU.ActiveCfg = PROD|Any CPU
+		{C8434E19-38DD-4755-A0DE-4E7C83434F1B}.PROD|Any CPU.Build.0 = PROD|Any CPU
+		{C8434E19-38DD-4755-A0DE-4E7C83434F1B}.QA|Any CPU.ActiveCfg = QA|Any CPU
+		{C8434E19-38DD-4755-A0DE-4E7C83434F1B}.QA|Any CPU.Build.0 = QA|Any CPU
+		{C8434E19-38DD-4755-A0DE-4E7C83434F1B}.RC|Any CPU.ActiveCfg = RC|Any CPU
+		{C8434E19-38DD-4755-A0DE-4E7C83434F1B}.RC|Any CPU.Build.0 = RC|Any CPU
+		{C8434E19-38DD-4755-A0DE-4E7C83434F1B}.TestNet|Any CPU.ActiveCfg = TestNet|Any CPU
+		{C8434E19-38DD-4755-A0DE-4E7C83434F1B}.TestNet|Any CPU.Build.0 = TestNet|Any CPU
+		{C25594C8-1C97-4979-A566-BFB87F8F1682}.DEV|Any CPU.ActiveCfg = PROD|Any CPU
+		{C25594C8-1C97-4979-A566-BFB87F8F1682}.DEV|Any CPU.Build.0 = PROD|Any CPU
+		{C25594C8-1C97-4979-A566-BFB87F8F1682}.LocalTest|Any CPU.ActiveCfg = LocalTest|Any CPU
+		{C25594C8-1C97-4979-A566-BFB87F8F1682}.LocalTest|Any CPU.Build.0 = LocalTest|Any CPU
+		{C25594C8-1C97-4979-A566-BFB87F8F1682}.PROD|Any CPU.ActiveCfg = PROD|Any CPU
+		{C25594C8-1C97-4979-A566-BFB87F8F1682}.PROD|Any CPU.Build.0 = PROD|Any CPU
+		{C25594C8-1C97-4979-A566-BFB87F8F1682}.QA|Any CPU.ActiveCfg = PROD|Any CPU
+		{C25594C8-1C97-4979-A566-BFB87F8F1682}.QA|Any CPU.Build.0 = PROD|Any CPU
+		{C25594C8-1C97-4979-A566-BFB87F8F1682}.RC|Any CPU.ActiveCfg = RC|Any CPU
+		{C25594C8-1C97-4979-A566-BFB87F8F1682}.RC|Any CPU.Build.0 = RC|Any CPU
+		{C25594C8-1C97-4979-A566-BFB87F8F1682}.TestNet|Any CPU.ActiveCfg = TestNet|Any CPU
+		{C25594C8-1C97-4979-A566-BFB87F8F1682}.TestNet|Any CPU.Build.0 = TestNet|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6EFF89E6-2A77-436D-BFE7-82D069FE7EF8}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.ups.com/tfs/upsprod
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BIACore\\BIACore.csproj
+		SccProjectName1 = BIACore
+		SccLocalPath1 = BIACore
+		SccProjectUniqueName2 = WebAPI\\BIACore.WebAPI.csproj
+		SccProjectName2 = WebAPI
+		SccLocalPath2 = WebAPI
+		SccProjectUniqueName3 = Website\\BIACore.Website.csproj
+		SccProjectName3 = Website
+		SccLocalPath3 = Website
+	EndGlobalSection
+EndGlobal

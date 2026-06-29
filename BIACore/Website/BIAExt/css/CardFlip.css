@@ -1,0 +1,86 @@
+﻿
+/* entire container, keeps perspective */
+.flip-card {
+    -webkit-perspective: 3000px;
+    -moz-perspective: 3000px;
+    -o-perspective: 3000px;
+    -ms-perspective: 3000px;
+    perspective: 3000px;
+}
+.flip-card-ie {
+    -webkit-perspective: 200px;
+    -moz-perspective: 200px;
+    -o-perspective: 200px;
+    perspective: 200px;
+}
+
+/* flip the pane when hovered */
+.flip-card.hover .card-container.front,
+.flip-card-ie.hover .card-container.front {
+    -webkit-transform: perspective(7500px) rotateY( 90deg );
+    -moz-transform: perspective(7500px) rotateY( 90deg );
+    -o-transform: perspective(7500px) rotateY( 90deg );
+    transform: perspective(7500px) rotateY( 90deg );
+}
+.flip-card .card-container.front,
+.flip-card-ie .card-container.front {
+    -webkit-transform: perspective(7500px) rotateY( 0deg );
+    -moz-transform: perspective(7500px) rotateY( 0deg );
+    -o-transform: perspective(7500px) rotateY( 0deg );
+    transform: perspective(7500px) rotateY( 0deg );
+}
+.flip-card.hover .card-container.back,
+.flip-card-ie.hover .card-container.back {
+    -webkit-transform: perspective(7500px) rotateY( 270deg );
+    -moz-transform: perspective(7500px) rotateY( 270deg );
+    -o-transform: perspective(7500px) rotateY( 270deg );
+    transform: perspective(7500px) rotateY( 270deg );
+}
+.flip-card .card-container.back,
+.flip-card-ie .card-container.back {
+    -webkit-transform: perspective(7500px) rotateY( 360deg );
+    -moz-transform: perspective(7500px) rotateY( 360deg );
+    -o-transform: perspective(7500px) rotateY( 360deg );
+    transform: perspective(7500px) rotateY( 360deg );
+}
+/* flip speed goes here */
+.card-container {
+    -webkit-transition: -webkit-transform .3s;
+    -moz-transition: -moz-transform .3s;
+    -o-transition: -o-transform .3s;
+    transition: transform .3s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    position: relative;
+    backface-visibility: hidden;
+}
+.flip-card-ie .card-container {
+    -webkit-transition: -webkit-transform .3s;
+    -moz-transition: -moz-transform .3s;
+    -o-transition: -o-transform .3s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .card-container {
+        -ms-backface-visibility: visible;
+        backface-visibility: visible;
+    }
+}
+
+.CardFlipSideFooterButton .fa {
+    color: #555;
+    font-size: 25px;
+    cursor: pointer;
+}
+.CardFlipSideFooterButton .fa:hover {
+    color: #00698A;
+}
+.CardFlip .fa.clickableIcon {
+    cursor: pointer;
+}

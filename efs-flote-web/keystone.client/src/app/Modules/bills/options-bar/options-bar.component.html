@@ -1,0 +1,20 @@
+<div class="row" style="background-color: #DFE8F6;">
+  <div class="col-md-3">
+    <span *ngIf="!isPayment"><b>Bill Summary</b></span>
+    <span *ngIf="isPayment"><b>Payment Details</b></span>
+  </div>
+  <div class="col-md-3">
+    <button class="vendorbtn" (click)="toggle.emit()" *ngIf="!isPayment">Log Vendor Bill</button>
+  </div>
+  <div class="col-md-3 alert-box" [class.blink]="incInvoices > 0" style="text-align:center;" *ngIf="!isPayment">
+    <span><b>INCOMPLETE Invoices: {{incInvoices}}</b></span>
+  </div>
+  <div class="col-md-3">
+    <button (click)="export.emit()" style="margin-left:90%" *ngIf="!isPayment">
+      <img src="../../../assets/logo/excel_button.png" style="width:25px; height:25px;" />
+    </button>
+    <button (click)="export.emit()" style="margin-left:198%" *ngIf="isPayment">
+      <img src="../../../assets/logo/excel_button.png" style="width:25px; height:25px;" />
+    </button>
+  </div>
+</div>

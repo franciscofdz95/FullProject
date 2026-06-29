@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="ws.ups.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="ws.ups.com" name="UserMailbox" targetNamespace="ws.ups.com" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="ws.ups.com">
+      <xsd:element name="UserMailboxRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="appkey" type="xsd:string" />
+            <xsd:element name="MailboxID" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="UserMailboxRecord">
+        <xsd:all>
+          <xsd:element name="uuid" type="xsd:string" />
+          <xsd:element name="empid" type="xsd:string" />
+          <xsd:element name="racfid" type="xsd:string" />
+          <xsd:element name="lastname" type="xsd:string" />
+          <xsd:element name="firstname" type="xsd:string" />
+          <xsd:element name="email" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="UserMailboxResult">
+        <xsd:sequence>
+          <xsd:element name="version" type="xsd:string" />
+          <xsd:element name="count" type="xsd:int" />
+          <xsd:element maxOccurs="unbounded" name="record" type="tns:UserMailboxRecord" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="result" type="tns:UserMailboxResult" />
+    </xsd:schema>
+  </types>
+  <message name="Request">
+    <part name="parameters" element="tns:UserMailboxRequest" />
+  </message>
+  <message name="Result">
+    <part name="result" element="tns:result" />
+  </message>
+  <portType name="UserMailboxPort">
+    <operation name="getUserMailbox">
+      <input message="tns:Request" />
+      <output message="tns:Result" />
+    </operation>
+  </portType>
+  <binding name="UserMailboxBinding" type="tns:UserMailboxPort">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getUserMailbox">
+      <wsdlsoap:operation soapAction="" />
+      <input>
+        <wsdlsoap:body use="literal" />
+      </input>
+      <output>
+        <wsdlsoap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="UserMailboxService">
+    <port name="UserMailboxPort" binding="tns:UserMailboxBinding">
+      <wsdlsoap:address location="http://ws4id.inside.ups.com/ws4id/XML-SOAP/UserMailbox" />
+    </port>
+  </service>
+</definitions>

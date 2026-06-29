@@ -1,0 +1,25 @@
+﻿.BIA_Components_TagLookupEntry .x-form-trigger-wrap {
+    border: none !important;
+}
+
+.BIA_Components_TagEntry > .x-box-inner {
+    /*height: 30px !important;*/
+}
+
+.BIA_Components_AutocompleteDropdown {
+    background-color: #eeeeee;
+    border-radius: 5px 5px 0 0;
+}
+
+.BIA_Components_AutocompleteCardContainer{   
+    border: #eeeeee 2px solid;
+}
+
+.BIA_Components_AutocompleteCardContainer.hover {       
+    background-color: #dddddd;
+}
+
+.BIA_Components_TagAutocompleteLabel {
+    font-size: 16px;
+    font-weight: bold;
+}

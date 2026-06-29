@@ -1,0 +1,115 @@
+/* ===== Grid Container & Layout ===== */
+.grid-container {
+  width: 100%;
+  height: 550px;
+  min-height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== Title Bar ===== */
+.grid-title-bar {
+  background-color: #DFE8F6;
+  padding: 4px 8px;
+  border: 1px solid #99BBE8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ===== Export Button ===== */
+.export-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  float: right;
+}
+
+/* ===== AG-Grid Flote Theme Overrides ===== */
+
+/* Header: Blue background */
+.flote-grid .ag-header {
+  background-color: #1D598E !important;
+  border-bottom: 1px solid #15466E;
+}
+
+.flote-grid .ag-header-cell,
+.flote-grid .ag-header-group-cell {
+  background-color: #1D598E !important;
+  color: #FFFFFF !important;
+  font-size: 11px;
+  font-weight: bold;
+  border-right: 1px solid #15466E !important;
+  padding: 0 5px;
+}
+
+.flote-grid .ag-header-cell-label {
+  color: #FFFFFF !important;
+}
+
+/* Alternating row colors */
+.flote-grid .ag-row-odd {
+  background-color: #FFFFFF;
+}
+
+.flote-grid .ag-row-even {
+  background-color: #F0F5FA;
+}
+
+/* Row hover */
+.flote-grid .ag-row:hover {
+  background-color: #D6E4F0 !important;
+}
+
+/* Cell styling */
+.flote-grid .ag-cell {
+  font-size: 11px;
+  line-height: 25px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border-right: 1px solid #D4D4D4;
+}
+
+/* Grand total pinned row */
+.flote-grid .ag-row-pinned {
+  background-color: #1D598E !important;
+  color: #FFFFFF !important;
+  font-weight: bold;
+  font-size: 11px;
+}
+
+  .flote-grid .ag-row-pinned .ag-cell {
+    color: #FFD700 !important;
+    font-weight: bold;
+  }
+
+.flote-grid .ag-root-wrapper {
+  overflow: hidden !important;
+}
+
+.flote-grid .ag-body-viewport {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+/* Button style */
+.buttonGrid {
+  background-color: #1D598E;
+  width: 100px;
+  border-radius: 3px;
+  padding: 3px 3px 3px 3px;
+  border-width: 1px;
+  border-style: solid;
+  color: white;
+}
+
+/* ===== Pagination bar ===== */
+.flote-grid .ag-paging-panel {
+  border-top: 1px solid #BDC3C7;
+  background-color: #F5F5F5;
+  font-size: 11px;
+  height: 32px;
+  padding: 0 8px;
+  justify-content: center !important;
+}

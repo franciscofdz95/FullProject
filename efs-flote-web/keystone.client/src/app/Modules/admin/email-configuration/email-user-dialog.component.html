@@ -1,0 +1,61 @@
+<div class="modal-content position-relative">
+
+  <div class="modal-body" style="max-height: 75vh; overflow-y: auto;">
+    <div class="container mt-3">
+      <h3 class="mb-3">{{ data.process_Name }} ({{ data.process_Keyword }})</h3>
+
+      <div class="mb-4 p-3 border rounded bg-light">
+        <div><strong>From:</strong> {{ data.from_Email }}</div>
+        <div><strong>Subject:</strong> {{ data.sub }}</div>
+        <div><strong>Owner:</strong> {{ data.processOwner || '—' }}</div>
+        <div><strong>Body:</strong></div>
+        <pre class="bg-white p-2">{{ data.body_Content }}</pre>
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h5>Notification Recipients</h5>
+        <button class="btn btn-sm btn-success" (click)="openAddUser()">+ Add User</button>
+      </div>
+
+      <div *ngIf="isLoading" class="text-center text-muted mt-3">
+        <i class="fa fa-spinner fa-spin fa-2x"></i>
+        <br />Loading users...
+      </div>
+
+      <div *ngIf="!isLoading && users.length === 0" class="text-center text-muted mt-3">
+        <i class="fa fa-users fa-2x"></i>
+        <br />No associated users.
+      </div>
+
+      <div class="table-responsive">
+        <table *ngIf="!isLoading && users.length > 0" class="table table-sm table-striped mt-3">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Type</th>
+              <th class="text-end">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{ user.user_Name }}</td>
+              <td>{{ user.user_Email }}</td>
+              <td>{{ user.recipient_Type_Name }}</td>
+              <td class="text-end">
+                <button class="btn btn-outline-danger btn-sm" (click)="removeUser(user)">
+                  <i class="fa fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer sticky-footer">
+    <button class="btn btn-secondary" (click)="closeModal()">Close</button>
+  </div>
+
+</div>

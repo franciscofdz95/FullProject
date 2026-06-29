@@ -1,0 +1,25 @@
+﻿.Card {
+    box-shadow: rgba(0, 0, 0, 0.137255) 0px 2px 2px 1px, rgba(0, 0, 0, 0.117647) 0px 1px 5px 2px, rgba(0, 0, 0, 0.2) 0px 3px 1px 0px;
+    border-radius: 3px;
+    margin: 8px;
+    padding: 10px;
+}
+
+.ExporterIcon {
+    color: #157fcc;
+}
+
+.ExporterMessage {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 25px;
+}
+
+.ExporterLoadingAutoclose {
+    font-size: 12px;
+    font-style: italic;
+}
+
+.ExporterIconComplete {
+    color: #64A70B;
+}

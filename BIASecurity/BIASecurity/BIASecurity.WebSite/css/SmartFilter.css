@@ -1,0 +1,212 @@
+﻿.SmartFilter .Card {
+    box-shadow: rgba(0, 0, 0, 0.137255) 0px 2px 2px 1px, rgba(0, 0, 0, 0.117647) 0px 1px 5px 2px, rgba(0, 0, 0, 0.2) 0px 3px 1px 0px;
+}
+
+.SmartFilter {
+    background-color: #EBEBE6;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.SmartFilter .Clickable,
+.SmartFilterContainer .Clickable {
+    cursor: pointer;
+}
+
+.SmartFilterContainer .SmartFilterHeaderButtonGrow {
+    font-size: 16px;
+    background-color: #89BEE5;
+    color: #157FCC;
+    padding: 0px 3px 0 5px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.SmartFilterContainer .SmartFilterHeaderButtonShrink {
+    font-size: 16px;
+    background-color: #89BEE5;
+    color: #157FCC;
+    padding: 0px 5px 0 3px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.SmartFilter .SmartFilterSectionContainer {
+    border-radius: 4px;
+    background-color: #FFF;
+}
+
+.SmartFilter .SmartFilterSectionHeaderContainer {
+    font-size: 16px;
+    font-weight:bold;
+}
+
+.SmartFilter .SmartFilterSectionHeaderContainer hr {
+    height: 10px;
+    margin-top: 4px;
+    background-color: #000;
+}
+
+.SmartFilter .SmartFilterSortHeaderContainer hr {
+    background-color: #6EC0A2;
+}
+
+.SmartFilter .SmartFilterSortHeaderContainer hr {
+    background-color: #2DD20F;
+}
+
+.SmartFilter .SmartFilterGroupHeaderContainer hr {
+    background-color: #c98400;
+}
+
+.SmartFilter .SmartFilterFilterHeaderContainer hr {
+    background-color: #5EAAF6;
+}
+
+.SmartFilter .SmartFilterSectionItem {
+    padding: 4px;
+    background-color: #DDD;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 3px;
+    margin-bottom: 3px;
+}
+
+.SmartFilter .SmartFilterSectionItem i,
+.SmartFilter .SmartFilterFilterGroup i {
+    font-size: 15px;
+}
+
+.SmartFilter .SmartFilterSectionItem .SmartFilterSortItemDirection i {
+    font-size: 13px;
+}
+
+.SmartFilter .SmartFilterFilterGroup {
+    background-color: #CCC;
+    border-radius: 4px;
+}
+
+.SmartFilter .SmartFilterFilterGroup.Unapplied{
+    background-color: #CCC;
+}
+
+.SmartFilter .SmartFilterFilterGroup.Removed {
+    background-color: #CCC;
+}
+
+.SmartFilter .SmartFilterFilterGroup.Removed .SmartFilterFilterGroupName {
+    text-decoration: line-through;
+}
+
+.SmartFilter .SmartFilterFilterGroup.Applied {
+    background-color: #5EAAF6;
+}
+
+.SmartFilter .SmartFilterFilterGroupName {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.SmartFilter .SmartFilterSectionItem.Unapplied {
+    font-style: italic;
+    color: #666;
+}
+
+.SmartFilter .SmartFilterSectionItem.Removed {
+    font-style: italic;
+    color: #444;
+}
+
+.SmartFilter .SmartFilterSectionItem.Removed label {
+    text-decoration: line-through;
+}
+
+.SmartFilter .SmartFilterSectionItem.Applied i.Remove,
+.SmartFilter .SmartFilterSectionItem.Unapplied i.Remove, 
+.SmartFilter .SmartFilterSectionItem.Removed i.Readd,
+.SmartFilter .SmartFilterFilterGroup.Applied .SmartFilterFilterGroupRemove i.Remove,
+.SmartFilter .SmartFilterFilterGroup.Unapplied .SmartFilterFilterGroupRemove i.Remove, 
+.SmartFilter .SmartFilterFilterGroup.Removed .SmartFilterFilterGroupRemove i.Readd {
+    display: inline-block;
+}
+
+.SmartFilter .SmartFilterSectionItem.Applied i.Readd,
+.SmartFilter .SmartFilterSectionItem.Unapplied i.Readd, 
+.SmartFilter .SmartFilterSectionItem.Removed i.Remove,
+.SmartFilter .SmartFilterFilterGroup.Applied .SmartFilterFilterGroupRemove i.Readd,
+.SmartFilter .SmartFilterFilterGroup.Unapplied .SmartFilterFilterGroupRemove i.Readd, 
+.SmartFilter .SmartFilterFilterGroup.Removed .SmartFilterFilterGroupRemove i.Remove {
+    display: none;
+}
+
+.SmartFilter .SmartFilterFilterContainer .SmartFilterFilterItem.Applied {
+    background-color: #B5DEFB;
+}
+
+.SmartFilter .SmartFilterGroupContainer .SmartFilterGroupItem.Applied {
+    background-color: #F9CE7D;
+}
+
+.SmartFilter .SmartFilterSortContainer .SmartFilterSortItem.Applied {
+    background-color: #B6E1D1;
+}
+
+.SmartFilter .SmartFilterSortContainer .SmartFilterSortItem.Applied {
+    background-color: #8EFF79;
+}
+
+.SmartFilter .SmartFilterSearchButton {
+    color: #FFF;
+}
+
+.SmartFilter .SmartFilterSearchButtonsHistory .fa,
+.SmartFilter .SmartFilterSearchButtonsApply .fa {
+    font-size: 16px;
+    padding-left: 2px;
+}
+
+.SmartFilter .SmartFilterSearchButtonsReset .fa {
+    font-size: 16px;
+}
+
+.SmartFilter .SmartFilterSearchButtonsClear .fa {
+    font-size: 16px;
+    padding-left: 1px;
+}
+
+.SmartFilter .SmartFilterStatusMessage {
+    color:#444;
+}
+
+.SmartFilter .SmartFilterStatusMessage i {
+    font-size: 15px;
+    margin-right: 5px;
+}
+
+.SmartFilter .SmartFilterSectionItem .SmartFilterRemove {
+    margin-left: 6px;
+}
+
+.SmartFilter .SmartFilterSectionItem .SmartFilterRemovedIndicator {
+    margin-right: 6px;
+    color: red;
+}
+
+.dropOK {
+    color: blue;
+    background-color: red;
+}
+
+.SFSearchResultsDisplayItem i {
+    margin-left: 5px;
+}
+
+.SFSearchResultsDisplayItem i:hover {
+    cursor: pointer;
+}
+
+.SFSearchResultsDisplayItem.Hover {
+    background-color: black;
+    color: white;
+    cursor: default;
+}

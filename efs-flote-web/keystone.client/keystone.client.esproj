@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.1184077">
+  <PropertyGroup>
+    <StartupCommand>npm start</StartupCommand>
+    <JavaScriptTestFramework>Jasmine</JavaScriptTestFramework>
+    <!-- Allows the build (or compile) script located on package.json to run on Build -->
+    <ShouldRunBuildScript>false</ShouldRunBuildScript>
+    <!-- Folder where production build objects will be placed -->
+    <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\keystone.client\browser\</BuildOutputFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="src\app\Modules\adhoc-upload\**" />
+    <None Remove="src\app\Modules\fuel-rate\**" />
+    <None Remove="src\app\Modules\gateway-upload\**" />
+    <None Remove="src\app\Modules\listing\**" />
+    <None Remove="src\app\Modules\multi-upload\**" />
+    <None Remove="src\app\Modules\upload\**" />
+    <TypeScriptConfiguration Remove="src\app\Modules\adhoc-upload\**" />
+    <TypeScriptConfiguration Remove="src\app\Modules\fuel-rate\**" />
+    <TypeScriptConfiguration Remove="src\app\Modules\gateway-upload\**" />
+    <TypeScriptConfiguration Remove="src\app\Modules\listing\**" />
+    <TypeScriptConfiguration Remove="src\app\Modules\multi-upload\**" />
+    <TypeScriptConfiguration Remove="src\app\Modules\upload\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\CustomComponents\money-input.ts.txt" />
+    <None Remove="src\app\money-input.ts.txt" />
+    <None Remove="src\app\Service\sfabra-context-service.service.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\app\CustomComponents\" />
+    <Folder Include="src\app\Modules\admin\Service\" />
+    <Folder Include="src\app\Interfaces\" />
+    <Folder Include="src\app\Modules\bills\Services\" />
+  </ItemGroup>
+</Project>

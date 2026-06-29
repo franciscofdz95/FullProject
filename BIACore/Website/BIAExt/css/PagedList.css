@@ -1,0 +1,38 @@
+﻿.BIAPagedListPagingToolbar {
+    font-size: 20px;
+    color: #3366cc;
+    font-weight: bold;
+    background-color: #d4ccbf;
+    padding: 4px;
+}
+
+.BIAPagedListPagingToolbar .PagingToolbarButton.PageLinkCurrent, .BIAPagedListPagingToolbar .PagingToolbarButton.PageLinkCurrent.Hover {
+    background-color: #b0a696;
+    cursor: default;
+}
+
+.BIAPagedListPagingToolbar .PagedListRefresh {
+    color: #60513A;
+    cursor: pointer;
+}
+
+.BIAPagedListPagingToolbar .PagingToolbarButton {
+    cursor: pointer;
+}
+
+.BIAPagedListPagingToolbar .PagingToolbarButton.Hover {
+    background-color: #bfb5a4;
+}
+
+.BIA_Components_PagedList .ListItemDefault {
+    border-bottom: #000 1px solid !important;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.BIA_Components_PagedList .ListItemHeaderDefault {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
+}

@@ -1,0 +1,13 @@
+
+:host {
+  position: fixed; /* Makes the component stay in one place */
+  bottom: 0; /* Adjust position as needed */
+  width: 100%; /* Ensures the component covers the full width */
+  height: 17px;
+  background-color: #D4CCBF;
+  font-size: 11px;
+  border-top: #60513A 1px solid;
+  color: black;
+  text-align: center;
+  z-index: 8;
+}

@@ -1,0 +1,213 @@
+﻿#BH_Button_PerformanceTracker span {
+    font-size: 13px;
+    padding-left: 5px;
+}
+
+#BH_Button_PerformanceTracker i {
+    font-size: 16px;
+}
+
+.BIAPerformanceTrackerGrid .critical,
+.BIAPerformanceTrackerGrid .error,
+.BIAPerformanceTrackerGrid .sqlerror {
+    font-weight: bold;
+    background-color: #ddd;
+}
+
+.BIAPerformanceTrackerGrid .problemArea i {
+    color: #888;
+}
+
+.BIAPerformanceTrackerGrid i {
+    font-size: 20px;
+}
+
+.BIAPerformanceTrackerGrid .status i {
+    display: none;
+    padding-right: 5px;
+}
+
+.BIAPerformanceTrackerGrid .warning .status .warningIcon,
+.BIAPerformanceTrackerGrid .caution .status .cautionIcon,
+.BIAPerformanceTrackerGrid .critical .status .criticalIcon,
+.BIAPerformanceTrackerGrid .error .status .errorIcon,
+.BIAPerformanceTrackerGrid .sqlerror .status .sqlerrorIcon,
+.BIAPerformanceTrackerGrid .no-issues .status .noIssuesIcon,
+.BIAPerformanceTrackerGrid .no-issues-sql .status .noIssuesSqlIcon {
+    display: block;
+}
+
+.BIAPerformanceTrackerGrid .warning .status .warningIcon,
+.PerformanceTrackerDetailTimelinePart i.warningIcon,
+.BIAPerformanceTrackerDetailStatusDisplay i.warningIcon { 
+    color: #689ed7;
+}
+.BIAPerformanceTrackerGrid .caution .status .cautionIcon,
+.PerformanceTrackerDetailTimelinePart i.cautionIcon,
+.BIAPerformanceTrackerDetailStatusDisplay i.cautionIcon { 
+    color: #ef8f1a;
+}
+.BIAPerformanceTrackerGrid .critical .status .criticalIcon,
+.BIAPerformanceTrackerGrid .error .status .errorIcon,
+.BIAPerformanceTrackerGrid .sqlerror .status .sqlerrorIcon,
+.PerformanceTrackerDetailTimelinePart i.criticalIcon,
+.BIAPerformanceTrackerDetailStatusDisplay i.criticalIcon,
+.BIAPerformanceTrackerDetailStatusDisplay i.errorIcon,
+.BIAPerformanceTrackerDetailStatusDisplay i.sqlerrorIcon {
+    color: #f33;
+}
+.BIAPerformanceTrackerGrid .no-issues .status .noIssuesIcon,
+.BIAPerformanceTrackerDetailStatusDisplay i.noIssuesIcon { 
+    color: #00bc06;
+}
+
+.BIAPerformanceTrackerGrid .no-issues-sql .status .noIssuesSqlIcon,
+.BIAPerformanceTrackerDetailStatusDisplay i.noIssuesSqlIcon {
+    color: #c5c5c3;
+}
+
+.BIAPerformanceTrackerDetailStatusDisplay i {
+    font-size: 22px;
+}
+
+.BIAPerformanceTrackerGrid .problemArea i {
+    color: #888;
+    padding-right: 5px;
+}
+
+.BIAPerformanceTrackerSummary.x-window,
+.BIAPerformanceTrackerDetail.x-window {
+    border-width: 0px;
+    border-style: none;
+}
+
+.BIAPerformanceTrackerDetail pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    padding: 10px;
+    background-color: #eee;
+}
+
+.BIAPerformanceTrackerSummaryDataRefreshButton {
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    background-image: none;
+    background-color: #3892d3;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#4b9cd7),color-stop(50%,#3892d3),color-stop(51%,#358ac8),color-stop(100%,#3892d3));
+    background-image: -webkit-linear-gradient(top,#4b9cd7,#3892d3 50%,#358ac8 51%,#3892d3);
+    background-image: -moz-linear-gradient(top,#4b9cd7,#3892d3 50%,#358ac8 51%,#3892d3);
+    background-image: -o-linear-gradient(top,#4b9cd7,#3892d3 50%,#358ac8 51%,#3892d3);
+    background-image: -ms-linear-gradient(top,#4b9cd7,#3892d3 50%,#358ac8 51%,#3892d3);
+    background-image: linear-gradient(top,#4b9cd7,#3892d3 50%,#358ac8 51%,#3892d3);
+    border-color: #126daf;
+}
+
+.BIAPerformanceTrackerSummaryDataRefreshButton:hover {
+    border-color: #1064a1;
+    background-image: none;
+    background-color: #3386c2;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#4792c8),color-stop(50%,#3386c2),color-stop(51%,#307fb8),color-stop(100%,#3386c2));
+    background-image: -webkit-linear-gradient(top,#4792c8,#3386c2 50%,#307fb8 51%,#3386c2);
+    background-image: -moz-linear-gradient(top,#4792c8,#3386c2 50%,#307fb8 51%,#3386c2);
+    background-image: -o-linear-gradient(top,#4792c8,#3386c2 50%,#307fb8 51%,#3386c2);
+    background-image: -ms-linear-gradient(top,#4792c8,#3386c2 50%,#307fb8 51%,#3386c2);
+    background-image: linear-gradient(top,#4792c8,#3386c2 50%,#307fb8 51%,#3386c2);
+}
+
+.BIAPerformanceTrackerSummaryDataRefreshButton:active {
+    -webkit-box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+    -moz-box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+    box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+}
+
+.PerformanceTrackerDetailTimelinePart i {
+    padding-left: 5px;
+    font-size: 15px;
+}
+
+.BIAPerformanceTrackerRequestAjaxTypeIcon {
+    background-color: #f1c769;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.BIAPerformanceTrackerRequestTypeIcon {
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+span.BIAPerformanceTrackerDetailIconLabel {
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+.BIAPerformanceTrackerRequestAjaxTypeIcon {
+    background-color: #f1c769;
+}
+
+.BIAPerformanceTrackerRequestStoreTypeIcon {    
+    background-color: #91c7e7;
+}
+
+.BIAPerformanceTrackerRequestTestTypeIcon {
+    background-color: #e1c8b0;
+}
+
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator {
+    border-radius: 5px;
+    padding: 4px 6px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C1 {
+    background-color: #f68B20;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C2 {
+    background-color: #40c1ac;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C3 {
+    background-color: #64a70b;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C4 {
+    background-color: #f8a24d;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C5 {
+    background-color: #66cdbd;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C6 {
+    background-color: #83b93c;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C7 {
+    background-color: #fab979;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C8 {
+    background-color: #8ddacd;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C9 {
+    background-color: #a2ca6d;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C10 {
+    background-color: #fbd1a6;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C11 {
+    background-color: #b2e6de;
+}
+.BIAPerformanceTrackerGrid .MulticallGroupIndicator.C0 {
+    background-color: #c1dc9d;
+}
+
+.BIAPerformanceTrackerDetailTitle .DetailTitleRoute > .x-autocontainer-outerCt > .x-autocontainer-innerCt {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

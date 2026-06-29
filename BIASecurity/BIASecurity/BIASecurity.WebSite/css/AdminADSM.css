@@ -1,0 +1,246 @@
+﻿/* Admin Tool ADSM Specific Formatting */
+.ADSMListItem:hover {
+    background-color: #DDD;
+}
+
+.ADSMListHeader {
+    background-color: #bbdbf1;
+    font-weight: bold;
+}
+
+.ADSMListHeader .SortHeaderIcon {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.ADSMListHeader .Sorted {
+    color: #253ba5;
+}
+
+.ADSMProcessTitleEdit {
+    color: #AAA;
+}
+
+.ADSMProcessTitleEdit:hover {
+    cursor: pointer;
+    font-size: 22px;
+    color: #444;
+}
+
+.AddEditProcessFieldLabel {
+    width: 150px !important;
+}
+
+.text-danger {
+    color: #d9534f;
+}
+
+.BIA_Components_PagedList .ListAutoRefresh {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.BIA_Components_PagedList .ListAutoRefresh .x-form-item-label-inner {
+    margin-top: 4px;
+}
+
+.ADSMListItem.OutOfDate {
+    background-color: #fa7e7e;
+}
+.ADSMListItem.OutOfDate:hover {
+    background-color: #febcbc;
+}
+
+.ADSMListItem.PastAvg {
+    background-color: #ffcd72;
+}
+.ADSMListItem.PastAvg:hover {
+    background-color: #fca508;
+}
+
+.ADSMListItem.Remediated {
+    background-color: #e0aeff;
+}
+.ADSMListItem.Remediated:hover {
+    background-color: #d48eff;
+}
+
+.ADSMListItem.Inactive {
+    background-color: #D9D9D6;
+}
+.ADSMListItem.Inactive:hover {
+    background-color: #c7c7c7;
+}
+
+.ADSMListItem .SLAInfo {
+    color: #555555;
+}
+
+.CurrentStatusDisplay .fa {
+    font-size: 16px;
+    margin-top: 2px;
+}
+
+.ProcessInfo i,
+.ProcessHistory i {
+    font-size: 18px;
+}
+
+.ProcessDetail .ProcessInfo .ProcessInfoHeader.InSLA {
+    background-color: #64A70B;
+}
+
+.ProcessDetail .ProcessInfo .ProcessInfoHeader.Remediated {
+    background-color: #e0aeff;
+}
+
+.ProcessDetail .ProcessInfo .ProcessInfoHeader.OutOfDate {
+    background-color: #fa7e7e;
+}
+
+.ProcessDetail .ProcessInfo .ProcessInfoHeader.PastAvg {
+    background-color: #ffcd72;
+}
+
+.ProcessDetail .ProcessInfo .ProcessInfoHeader.Inactive {
+    background-color: #D9D9D6;
+}
+
+.ProcessDetail .ProcessHistory .InSLA {
+    color: #64A70B;
+    margin-left: -4px;
+}
+
+.ProcessDetail .ProcessHistory .OutOfDate {
+    color: #fa7e7e;
+    margin-left: -4px;
+}
+
+.ProcessDetail .ProcessHistory .PastAvg {
+    color: #ffcd72;
+    margin-left: -4px;
+}
+
+.ProcessDetail .ProcessHistory .Rerun {
+    color: #137bc4;
+    margin-left: -4px;
+}
+
+.ProcessDetail .ProcessHistory .Remediated {
+    color: #e0aeff;
+    margin-left: -4px;
+}
+
+.ProcessDetail .ProcessHistory .Inactive {
+    color: #D9D9D6;
+    margin-left: -4px;
+}
+
+.HistoryNoteAddEdit.x-window {
+    border-width: 0px;
+    border-style: none;
+}
+
+.HistoryNoteIndicator {
+    color: #777;
+    font-size: 18px !important;
+    cursor: pointer;
+}
+
+.HistoryNoteAddEdit .Title {
+    background-color: #D9D9D6;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.HistoryNoteAddEdit .Title.Remediated {
+    background-color: #e0aeff;
+    color: white;
+}
+
+.ADSMListItem .NotifyEmailSent {
+    margin-top: -2px;
+}
+
+.NotifyEmailSent .fa-stack {
+    height: 21px;
+    line-height: 21px;
+}
+
+.NotifyEmailSent .fa.fa-stack-2x {
+    font-size: 20px;
+}
+
+.NotifyEmailSent .fa.fa-stack-1x {
+    font-size: 13px;
+}
+
+.NotifyEmailSent .fa.fa-envelope {
+    color: #666;
+}
+
+.NotifyEmailSent .fa.fa-check-circle {
+    color: #83B93C;
+}
+
+.LateTimeline {
+    background-color: #E8E8E7;
+    padding: 2px;
+    margin-right: 5px;
+    border-width: 0px;
+}
+
+.LateTimeline .BeforeLateDateCnt, .LateTimeline .BeforeDueDateCnt {
+    border-width: 0px;
+}
+
+.LateTimeline .LateTimelineMarker {
+    background-color: #000;
+    width: 4px;
+    border-width: 0px;
+}
+
+.LateTimeline .LateTimelineTimeblock {
+    height: 4px;
+    margin-top: -2px !important;
+    border-width: 0px;
+}
+
+.LateTimeline .BeforeDueDateCnt .LateTimelineTimeblock {
+    background-color: #317400;
+}
+
+.LateTimeline .BeforeLateDateCnt .LateTimelineTimeblock {
+    background-color: #fca508;
+}
+
+.LateTimeline .BeforeLateDateCnt .LateTimelineTimeblock.Late {
+    background-color: #fa7e7e;
+    height: 8px;
+    margin-top: -4px !important;
+}
+
+.LateTimeline .LateTimelineMarker.Now {
+    background-color: #F31A12;
+    height: 100%;
+}
+
+.LateTimelineNow {
+    font-size: 12px;
+    font-weight: bold;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 2px;
+    border-radius: 3px;
+    margin: 2px 0;
+}
+
+.LateTimelineHoverDate {
+    border-bottom: black 1px solid;
+}
+
+.LateTimelineHoverDate.TopBorder {
+    border-top: black 1px solid;
+}

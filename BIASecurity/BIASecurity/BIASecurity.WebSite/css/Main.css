@@ -1,0 +1,156 @@
+﻿input[type=text]::-ms-clear {
+
+display: none;
+
+width: 0px;
+
+height: 0px;
+
+}
+
+input[type=password]::-ms-reveal {
+
+display: none;
+
+width: 0px;
+
+height: 0px;
+
+}
+
+/* Change to Card css */
+.Card {
+    box-shadow: rgba(0, 0, 0, 0.137255) 0px 1px 1px 1px, rgba(0, 0, 0, 0.117647) 0px 1px 1px 0px, rgba(0, 0, 0, 0.2) 0px 0px 0px 0px;
+    margin: 8px;
+    padding: 10px;
+}
+
+.BIA_Components_PagedList .ListItemDefault {
+    border-bottom: rgba(0, 0, 0, 0.2) 1px solid !important;
+}
+
+.Card:hover {
+    box-shadow: rgba(0, 0, 0, 0.137255) 0px 3px 3px 3px, rgba(0, 0, 0, 0.117647) 0px 2px 2px 2px, rgba(0, 0, 0, 0.2) 0px 1px 1px 1px;
+    border-bottom-color: rgba(0,0,0,.4) !important;
+}
+
+/* Chip Container CSS */
+
+.Chip {
+    min-height: 32px;
+    padding: 0 16px;
+    background-color: #E8E8E7;
+    border-radius: 16px;
+}
+.ChipSm {
+    min-height: 24px;
+    padding: 0 8px;
+    background-color: #E8E8E7;
+    border-radius: 12px;
+    font-size: 10px;
+}
+
+/* Fix BIACore apply button */
+.bia-red-btn:hover,
+.bia-red-btn:focus,
+.bia-red-btn.x-btn-over,
+.bia-red-btn.x-btn.focus{
+    border-color: #e36161;
+    background-image: none;
+    background-color: #e4f3ff;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fbb6b6), color-stop(48%, #fca0a0), color-stop(52%, #fc7e7e), color-stop(100%, #fc4c4c));
+    background-image: -webkit-linear-gradient(top, #fbb6b6, #fca0a0 48%, #fc7e7e 52%, #fc4c4c);
+    background-image: -moz-linear-gradient(top, #fbb6b6, #fca0a0 48%, #fc7e7e 52%, #fc4c4c);
+    background-image: -o-linear-gradient(top, #fbb6b6, #fca0a0 48%, #fc7e7e 52%, #fc4c4c);
+    background-image: -ms-linear-gradient(top, #fbb6b6, #fca0a0 48%, #fc7e7e 52%, #fc4c4c);
+    background-image: linear-gradient(top, #fbb6b6, #fca0a0 48%, #fc7e7e 52%, #fc4c4c);
+}
+.bia-red-btn:active,
+.x-btn.bia-red-btn.x-btn-focus.x-btn-pressed {
+    border-color: #d75454;
+    background-image: none;
+    background-color: #e4f3ff;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f9a3a3), color-stop(48%, #fa8787), color-stop(52%, #fa6c6c), color-stop(100%, #fc3838));
+    background-image: -webkit-linear-gradient(top, #f9a3a3, #fa8787 48%, #fa6c6c 52%, #fc3838);
+    background-image: -moz-linear-gradient(top, #f9a3a3, #fa8787 48%, #fa6c6c 52%, #fc3838);
+    background-image: -o-linear-gradient(top, #f9a3a3, #fa8787 48%, #fa6c6c 52%, #fc3838);
+    background-image: -ms-linear-gradient(top, #f9a3a3, #fa8787 48%, #fa6c6c 52%, #fc3838);
+    background-image: linear-gradient(top, #f9a3a3, #fa8787 48%, #fa6c6c 52%, #fc3838);
+}
+
+/* Fix Neptune Panel Default border */
+.x-panel-body-default {
+    border: none;
+}
+
+.Card {
+    box-shadow: rgba(0, 0, 0, 0.137255) 0px 2px 2px 1px, rgba(0, 0, 0, 0.117647) 0px 1px 5px 2px, rgba(0, 0, 0, 0.2) 0px 3px 1px 0px;
+    margin: 8px;
+    padding: 10px;
+}
+.Card.CardSlim {
+    margin: 5px;
+    padding: 3px;
+}
+
+/* Initial Content Specific Formatting */
+.InitialAvailableArea {
+    cursor: pointer;   
+    padding: 4px 8px; 
+    border-radius: 10px;
+    border: solid #AAA 3px;
+}
+.InitialAvailableArea:hover {
+    background-color: #DDD;
+    border-radius: 10px;
+}
+
+/* Component List TypeToggle Formatting */
+.appViewComponentListTypetogglebuttons {
+    font-size: 20px;
+}
+
+.ClickableIcon i {
+    cursor: pointer;
+}
+
+label.CenterLabelText {
+    text-align: center;
+}
+
+label.RightLabelText {
+    text-align: right;
+}
+
+/*.ListItem:not(.ListItemHeader) label.RightLabelText,
+.ListItem label.RightLabelText:not(.ListItemHeaderSort) {
+    padding-right: 17px;
+}*/
+
+label.RightLabelText .headerSortFloat, label.CenterLabelText .headerSortFloat {
+    float: none !important;
+}
+
+.headerSortFloat {
+    margin-right: 3px;
+}
+
+.BIA_Components_PagedList .appViewComponentListTypetogglebuttons .ListTypeToggleButtonLabel {
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 6px !important;
+}
+
+/* MDTextField Update */
+.BIASecurity .NavigationNavBar .x-field.x-form-item.x-form-type-text, .BIASecurity .NavigationNavBar .x-field.x-form-item.x-form-type-password,
+.BIASecurity .NavigationNavBar .x-field.x-form-item.x-form-type-text .x-form-text-field-body .x-form-text, 
+.BIASecurity .NavigationNavBar .x-field.x-form-item.x-form-type-password .x-form-text-field-body .x-form-text {
+    background-color: white;
+}
+
+/* Generic CSS */
+.NoWrapContent {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

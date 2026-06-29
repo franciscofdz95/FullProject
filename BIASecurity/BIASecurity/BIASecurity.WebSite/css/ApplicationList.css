@@ -1,0 +1,62 @@
+﻿.ApplicationList .appListItemIcon {
+    color: #1363b1;
+}
+
+.ApplicationList .ApplicationListToolbar .ApplicationListLevelToggle .ApplicationListLevelToggleSection {
+    cursor: pointer;
+}
+
+.ApplicationList .ApplicationListToolbar .ApplicationListLevelToggle .ApplicationListLevelToggleSection.Disabled {
+    color: #79b4de; /*ExtJS Titlebar background-color grayed*/
+}
+
+.ApplicationList .ApplicationListIcon i {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.ApplicationList .ApplicationListStatus i {
+    margin-right: 10px;
+}
+
+.ApplicationList .ApplicationListItemStatusOnline .Online {
+    color: #64a70b; /*Grass*/
+}
+
+.ApplicationList .ApplicationListItemStatusOnline .Offline {
+    color: #f31a12; /*Fire*/
+}
+
+.ApplicationList .ApplicationListItemStatusOnline .Inactive {
+    color: #a6a6a3; /*Stone Dark*/
+}
+
+.ApplicationList .ApplicationListItemStatusRequestable .Requestable {
+    color: #33b0ca; /*Azure Medium*/
+}
+
+.ApplicationList .ApplicationListItemStatusRequestable .NotRequestable {
+    color: #a6a6a3; /*Stone Dark*/
+}
+
+.ApplicationList .ApplicationListItemStatusVisible .Visible {
+    color: #33b0ca; /*Azure Medium*/
+}
+
+.ApplicationList .ApplicationListItemStatusVisible .NotVisible {
+    color: #a6a6a3; /*Stone Dark*/
+}
+
+.ApplicationList .applicationListItemAppname i {
+    color: #444;
+}
+
+.ApplicationList .ApplicationListStats .UsersOnlinePercent {
+    text-align: right;
+}
+
+.ApplicationList .ApplicationItemDescriptionLabel {
+    font-size: 12px;
+    line-height: 14px;
+    font-style: italic;
+}

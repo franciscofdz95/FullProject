@@ -1,0 +1,192 @@
+﻿.LogsFilter .FilterHeader {
+    padding: 5px 10px;
+    background-color: #3892d3;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.LogsFilter .FilterDisplay {
+    background-color: #E8E8E7;
+    text-align: center;
+    padding: 3px;
+}
+
+.LogsFilter .FilterDisplay .FilterName {
+    font-weight: bold;
+}
+
+.LogsList.BIA_Components_PagedList .componentListToolbarContainer {
+    font-size: 14px;
+}
+
+.LogsList.BIA_Components_PagedList .ListItemDefault {
+    font-size: 11px;
+    line-height: 13px;
+}
+
+.LogsList.BIA_Components_PagedList .ListItemHeaderDefault {
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.LogsList .ListItemHeader,
+.GroupedItemList .ListItemHeader {
+    background-color: #E8E8E7;
+}
+
+.LogsList .LogsGroupedItem .CountExist {
+    font-weight: bold;
+    background-color: #D9D9D6;
+}
+
+.LogsList .LogsGroupedItem .ErrorsExist {
+    background-color: #F31A12;
+    color: white;
+}
+
+.LogsList .LogsGroupedItem .MessagesExist {
+    background-color: #99DCFF;
+}
+
+.LogsList .LogsGroupedItem .SQLExist {
+    background-color: #C1DC9D;
+}
+
+.LogsList .LogsGroupedItem .OtherExist {
+    background-color: #FFF2AC;
+}
+
+.LogsList .LogsHeaderToggleView,
+.GroupedItemList .LogsHeaderToggleView {
+    font-size: 18px;
+    background-color: #fff;
+    padding: 3px 4px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.LogsList .LogsItem i.fa,
+.GroupedItemList .LogsItem i.fa {
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.LogsList .LogsItem .NoWrapContent,
+.LogsList .LogsItem .NoWrapContent .x-autocontainer-innerCt,
+.GroupedItemList .LogsItem .NoWrapContent,
+.GroupedItemList .LogsItem .NoWrapContent .x-autocontainer-innerCt {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.GroupedItemList {
+    background-color: #F0F0EF;
+}
+
+.GroupedItemList .GroupedItemListHeader {
+    background-color: #D9D9D6;
+}
+
+.x-tip .x-tip-body .x-autocontainer-innerCt {
+    word-wrap: break-word;
+}
+
+.LogsList .LogsItem .LogsListItemFilterOn {
+    color: #A6A6A3;
+}
+
+.LogsList .LogsItem.ExceptionRow,
+.GroupedItemList .LogsItem.ExceptionRow {
+    background-color: #ffe8b6;
+}
+.LogDetailField .LogDetailFieldContents {
+    word-wrap: break-word;
+}
+
+.GroupedItemList .LogsItem.CurrentViewLog {
+    font-weight: bold;
+    border: 3px solid #333 !important;
+    padding: 5px 2px !important;
+}
+.ListItem.ListItemHeader .GroupMessage {
+    color: black;
+}
+
+.ListItem .GroupMessage {
+    color: #d01717;
+    font-weight: bold;
+}
+
+.GroupedItemList .LogsGroupedItemListPagingCnt {
+    background-color: #d9d9d6;
+}
+
+.GroupedItemList .LogsGroupedItemListPagingCnt .x-toolbar-text-default,
+.GroupedItemList .LogsGroupedItemListPagingCnt input {
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 15px;
+}
+.GroupedItemList .LogsGroupedItemListPagingCnt .x-btn {
+    border-width: 0px;
+    padding: 0px 3px;
+    margin: 0px;
+}
+
+.GroupedItemList .LogsGroupedItemListPagingCnt input {
+    text-align: center;
+    height: 15px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    min-height: 15px;
+}
+
+.GroupedItemList .LogsGroupedItemListPagingCnt .x-toolbar-separator {
+    border-color: white;
+}
+
+.TranGroupMsg {
+    padding: 5px;
+    background-color: #908474;
+    color: white;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: bold;
+}
+
+.LogNoAccess {
+    background-color: white;
+}
+
+.LogNoAccess .LogNoAccessMessage {
+    background-color: #B0A696;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 22px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.ClipboardCopyIcon {
+    color: #777777;
+    cursor: pointer;
+}
+
+.ListSortIcon .fa-sort {
+    color: #888888;
+}
+
+.adminLogMenuItem {
+    cursor: pointer;
+    color: gray;
+    font: bold 14px arial, sans-serif;
+}
+
+.adminLogMenuItem:hover {
+   background-color: #A6A6A3;
+   color: white;
+   border-radius: 15px;
+}

@@ -1,0 +1,40 @@
+<div>
+  <div class="row grid-title-bar">
+    <div class="col">
+      <span><b>Local Shipment Summary</b></span>
+      <span *ngIf="totalRows > 0" style="margin-left: 10px; font-size: 12px;">({{totalRows}} records)</span>
+    </div>
+    <div class="col-auto">
+      <button class="export-btn" (click)="exportToExcel()" title="Export to Excel">
+        <img src="../../../assets/logo/excel_button.png" style="width:25px; height:25px;"/>
+      </button>
+    </div>
+  </div>
+  <div class="grid-container">
+    <ag-grid-angular #agGrid
+                     style="width: 100%; height: 100%;"
+                     class="ag-theme-balham flote-grid"
+                     [rowData]="rowData"
+                     [columnDefs]="columnDefs"
+                     [defaultColDef]="defaultColDef"
+                     [rowHeight]="25"
+                     [headerHeight]="32"
+                     [getRowClass]="getRowClass"
+                     [pagination]="true"
+                     [paginationPageSize]="20"
+                     [paginationPageSizeSelector]="[20, 50, 100]"
+                     [overlayLoadingTemplate]="overlayLoadingTemplate"
+                     overlayNoRowsTemplate="<span>No matches found or Data set too large</span>"
+                     (gridReady)="onGridReady($event)"
+                     (cellClicked)="onCellClicked($event)"
+                     (paginationChanged)="onPaginationChanged()">
+    </ag-grid-angular>
+  </div>
+  <div class="row legend-bar">
+    <div class="col-md-12">
+      <span>O/D - Origin/Destination</span> &nbsp;&nbsp;
+      <span>I/U - Charge Status: Billed or Unreleased</span> &nbsp;&nbsp;
+      <span>O/A - Bill Status: Open or Approved</span>
+    </div>
+  </div>
+</div>

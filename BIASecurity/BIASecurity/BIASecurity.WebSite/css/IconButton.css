@@ -1,0 +1,113 @@
+﻿/* FontAwesome Icon Add-ons */
+:root .fa-rotate-45, :root .fa-rotate-135, :root .fa-rotate-225, :root .fa-rotate-315 {
+    filter: none;
+}
+
+.fa-rotate-45 {
+    transform: rotate(45deg);
+}
+
+.fa-rotate-135 {
+    transform: rotate(135deg);
+}
+
+.fa-rotate-225 {
+    transform: rotate(225deg);
+}
+
+.fa-rotate-315 {
+    transform: rotate(315deg);
+}
+
+/* BIAIconButton Overall Styles */
+.BIAIconButton {
+    font-size: 18px;
+    padding: 2px 1px 0 2px;    
+}
+
+.BIAIconButton i{
+    cursor: pointer;
+}
+
+.BIAIconButton.x-item-disabled .x-mask {
+    background-color: transparent;
+}
+
+.BIAIconButton.x-item-disabled i {
+    opacity: .5;
+}
+
+.BIAIconButton.LargeScale {
+    font-size: 34px;
+    line-height: 33px;
+    margin-top: 0px !important;
+}
+
+.BIAIconButton.LargeScale.ButtonEnabled {
+    font-size: 29px;
+    line-height: 28px;
+    padding: 0 1px;
+}
+
+
+
+/* Default Theme */
+.BIAIconButton.Default i {
+    color: #3892d3;
+}
+
+.BIAIconButton.Default i.fa-stack-2x {
+    color: #f0f0ef;
+}
+
+.BIAIconButton.Default i:hover {
+    color: #3386c2
+}
+
+.BIAIconButton.Default i:active {
+    color: #2a6d9e;
+    margin: 1px 0 0 1px;
+}
+
+.BIAIconButton.Default i.fa-stack-2x:active {
+    margin: 0;
+}
+
+/* Orange Theme */
+.BIAIconButton.Orange i {
+    color: #c98400;
+}
+
+.BIAIconButton.Orange i:hover {
+    color: #BA7B02;
+}
+
+.BIAIconButton.Orange i:active {
+    color: #A56D01;
+}
+
+/* Grass (Green) Theme */
+.BIAIconButton.Grass i {
+    color: #009700;
+}
+
+.BIAIconButton.Green i:hover {
+    color: #006D00;
+}
+
+.BIAIconButton.Green i:active {
+    color: #00D300;
+}
+
+/* Fire(Red/Orange/Yello) Theme */
+.BIAIconButton.Fire i {
+    color: #c98400;
+}
+
+.BIAIconButton.Fire i:hover {
+    color: #BA7B02;
+}
+
+.BIAIconButton.Fire i:active {
+    color: #A56D01;
+}

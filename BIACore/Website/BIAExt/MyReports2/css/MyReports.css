@@ -1,0 +1,13 @@
+﻿.BIA-MyReports-Processing {
+    color: purple;
+    font-style: italic;
+}
+.BIA-MyReports-Error {
+    color: brown; 
+}
+.BIA-MyReports-Complete {
+    color: Green;
+}
+.BIA-MyReports-NotApplicable {
+    color: #93915a;  
+}

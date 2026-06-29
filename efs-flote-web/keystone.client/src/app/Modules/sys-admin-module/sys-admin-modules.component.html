@@ -1,0 +1,14 @@
+<div class="container mt-2">
+  <ul class="nav nav-tabs" style="margin-top:15px">    
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'email-config-admin'" (click)="setActiveTab('uploaded-contracts')" style="cursor: pointer;">Uploaded Contracts</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'email-config-admin'" (click)="setActiveTab('email-config-admin')" style="cursor: pointer;">Email Configuration</a>
+    </li>
+  </ul>
+
+  <div class="tab-content mt-2">
+    <app-email-config [style.display]="activeTab === 'email-config-admin' ? 'block' : 'none'"></app-email-config>
+  </div>
+</div>

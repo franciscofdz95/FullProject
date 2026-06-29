@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="ws.ups.com" xmlns:ns2="ws.ups.com" name="UserProfile" targetNamespace="ws.ups.com" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="ws.ups.com">
+      <xsd:element name="UserProfileRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="appkey" type="xsd:string" />
+            <xsd:element name="UserID" type="xsd:string" />
+            <xsd:element minOccurs="0" name="IDType" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="UserProfileRecord">
+        <xsd:all>
+          <xsd:element name="uuid" type="xsd:string" />
+          <xsd:element name="empid" type="xsd:string" />
+          <xsd:element name="racfid" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="lastname" type="xsd:string" />
+          <xsd:element name="firstname" type="xsd:string" />
+          <xsd:element name="jgroup" type="xsd:string" />
+          <xsd:element name="jclass" type="xsd:string" />
+          <xsd:element name="center" type="xsd:string" />
+          <xsd:element name="emptype" type="xsd:string" />
+          <xsd:element name="jfunction" type="xsd:string" />
+          <xsd:element name="country" type="xsd:string" />
+          <xsd:element name="district" type="xsd:string" />
+          <xsd:element name="region" type="xsd:string" />
+          <xsd:element name="language" type="xsd:string" />
+          <xsd:element name="upsEmail" type="xsd:string" />
+          <xsd:element name="title" type="xsd:string" />
+          <xsd:element name="department" type="xsd:string" />
+          <xsd:element name="company" type="xsd:string" />
+          <xsd:element name="office" type="xsd:string" />
+          <xsd:element name="street" type="xsd:string" />
+          <xsd:element name="city" type="xsd:string" />
+          <xsd:element name="state" type="xsd:string" />
+          <xsd:element name="zip" type="xsd:string" />
+          <xsd:element name="telephone" type="xsd:string" />
+          <xsd:element name="pager" type="xsd:string" />
+          <xsd:element name="mobile" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="UserProfileResult">
+        <xsd:sequence>
+          <xsd:element name="version" type="xsd:string" />
+          <xsd:element name="count" type="xsd:int" />
+          <xsd:element maxOccurs="unbounded" name="record" type="ns2:UserProfileRecord" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="result" type="ns2:UserProfileResult" />
+    </xsd:schema>
+  </types>
+  <message name="Request">
+    <part name="parameters" element="ns2:UserProfileRequest" />
+  </message>
+  <message name="Result">
+    <part name="result" element="ns2:result" />
+  </message>
+  <portType name="UserProfilePort">
+    <operation name="getUserProfile">
+      <input message="ns2:Request" />
+      <output message="ns2:Result" />
+    </operation>
+  </portType>
+  <binding name="UserProfileBinding" type="ns2:UserProfilePort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getUserProfile">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="UserProfileService">
+    <port name="UserProfilePort" binding="ns2:UserProfileBinding">
+      <soap:address location="https://ws4id.inside.ups.com/ws4id/XML-SOAP/UserProfile" />
+    </port>
+  </service>
+</definitions>

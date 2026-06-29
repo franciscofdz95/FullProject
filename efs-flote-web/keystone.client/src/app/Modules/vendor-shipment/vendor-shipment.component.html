@@ -1,0 +1,57 @@
+<div>
+  <div class="row" style="background-color: #DFE8F6;">
+    <div class="col-md-8">
+      <span><b>Vendor Shipment</b></span>
+    </div>
+    <div class="col-md-4">
+      <button style="margin-left:90%;">
+        <img src="../../../assets/logo/excel_button.png" style="width:25px; height:25px;" />
+      </button>
+    </div>
+  </div>
+  <div class="row" style="height:650px;">
+    <div class="col-md-12">
+      <ag-grid-angular #agGrid
+                       style="width: 100%; height: 90%;"
+                       class="ag-theme-balham text-end cell-text-align mt-3"
+                       [columnDefs]="columnDefs"
+                       [defaultColDef]="defaultColDef"
+                       [rowHeight]="40"
+                       [overlayLoadingTemplate]="overlayLoadingTemplate"
+                       overlayNoRowsTemplate="<span>Not matches found or Data set to large</span>"
+                       (gridReady)="onGridReady($event)">
+      </ag-grid-angular>
+    </div>
+  </div>
+  <div class="row" style="align-items:center; align-content:center; ">
+    <div class="col-md-6" style="display:flex; justify-content:flex-end;">
+      <button class="buttonGrid">link</button>
+    </div>
+    <div class="col-md-6">
+      <button class="buttonGrid">add</button>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-md-2">
+      <img src="../../../assets/customersolutions.uikit/dist/image/info.png"/>
+      Regular Invoice
+    </div>
+    <div class="col-md-2">
+      Shipco Statement Invoice
+    </div>
+    <div class="col-md-2">
+      Ocean PUD/CSI
+    </div>
+    <div class="col-md-2">
+      Ocean ChargeBacks/NAAF
+    </div>
+    <div class="col-md-2">
+      UPS Freight
+    </div>
+    <div class="col-md-2">
+      Coyote
+    </div>
+  </div>
+
+</div>

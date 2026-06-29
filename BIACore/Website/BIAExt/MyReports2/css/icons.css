@@ -1,0 +1,20 @@
+﻿.mricon
+{
+    display:inline-block;
+    width:16px;
+    height:16px;
+    background-repeat:no-repeat;
+}
+/* !important is an ext4-only thing */
+.mricon-app_error     { background-image:url('images/MyReports.png'); background-position: 0px    0px !important; }
+.mricon-app_start     { background-image:url('images/MyReports.png'); background-position: 0px  -16px !important; }
+.mricon-app_stop      { background-image:url('images/MyReports.png'); background-position: 0px  -32px !important; }
+.mricon-user          { background-image:url('images/MyReports.png'); background-position: 0px  -48px !important; }
+.mricon-group         { background-image:url('images/MyReports.png'); background-position: 0px  -64px !important; }
+.mricon-trash         { background-image:url('images/MyReports.png'); background-position: 0px  -80px !important; }
+.mricon-retry         { background-image:url('images/MyReports.png'); background-position: 0px  -96px !important; }
+.mricon-page_gear     { background-image:url('images/MyReports.png'); background-position: 0px -112px !important; }
+.mricon-page_lightning{ background-image:url('images/MyReports.png'); background-position: 0px -128px !important; }
+.mricon-page_error    { background-image:url('images/MyReports.png'); background-position: 0px -144px !important; }
+.mricon-page_excel    { background-image:url('images/MyReports.png'); background-position: 0px -160px !important; }
+.mricon-page_acrobat  { background-image:url('images/MyReports.png'); background-position: 0px -176px !important; }

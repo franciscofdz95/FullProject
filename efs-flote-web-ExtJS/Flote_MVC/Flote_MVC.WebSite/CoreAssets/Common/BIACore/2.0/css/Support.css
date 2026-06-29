@@ -1,0 +1,97 @@
+﻿body {
+    font-family: Helvetica, sans-serif;
+}
+
+.Card {
+    box-shadow: rgba(0, 0, 0, 0.137255) 0px 2px 2px 1px, rgba(0, 0, 0, 0.117647) 0px 1px 5px 2px, rgba(0, 0, 0, 0.2) 0px 3px 1px 0px;
+    margin: 5px;
+    padding: 10px;
+}
+
+.Title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #e1e1de;
+    padding: 5px;
+}
+.Description {
+    font-size: 12px;
+    padding-top: 5px;
+}
+
+.TestInfo {
+    font-size: 10px;
+}
+.General {
+}
+.Cookies {
+}
+.Session {
+}
+.BIACoreValidation {
+}
+.JavascriptValidation {
+}
+.ExtJSValidation {
+}
+.Explanation {
+    width: 1080px;
+}
+
+.FloatLeft {
+    float: left;
+    width: 535px;
+}
+.ClearFloat {
+    clear: both;
+}
+.CardTitle {
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #66A9FF;
+    padding: 5px;
+    margin-bottom: 4px;
+}
+
+.TestInfo .InfoField {
+    height: 15px;
+}
+.TestInfo .InfoField div {
+    float: left;
+}
+.TestInfo .FloatLeft div:last-of-type {
+    height: 0px;
+}
+.TestInfo .InfoField .Label {
+    width: 150px;
+}
+.TestInfo .InfoField .Value {
+    max-width: 365px;
+    word-wrap: normal;
+}
+
+.JavascriptValidation .Value {
+    width: 106px;
+}
+
+.JavascriptValidation .InfoField {
+    float: left;
+}
+
+.JavascriptValidation > div:last-of-type {
+    float: none;
+}
+
+.FailureExplanation .ValidationFailureWarning {
+    color: #ffb500;
+}
+
+.FailureExplanation .ValidationFailureWarning {
+    font-weight: bold;
+    color: #f31a12;
+}
+
+.TestInfo .InfoField.DeviceProperty {
+    color: #00698A;
+}

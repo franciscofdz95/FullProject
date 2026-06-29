@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>BIA Security Quick Guide</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        li {
+            text-align: left;
+        }
+
+        .header {
+            height: 70px;
+            width: 100%;
+            background-color: #2C0000;
+            color: white;
+            border-bottom: solid 2px #DFB42C;
+            position: absolute;
+            top: 0px;
+        }
+
+        .biaTitle {
+            padding-left: 8px;
+            display: table-cell;
+            vertical-align: middle;
+            font-size: 18.6667px;
+            font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+        }
+
+        .upsLogo {
+            width: 60px;
+            padding: 8px;
+            vertical-align: middle;
+            display: table-cell;
+        }
+
+        .biaLogo {
+            padding-top: 4px;
+            color: #EBEBE6;
+            display: inline-block;
+            float: right;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 2px;
+            background-color: #D4CCBF;
+        }
+
+        .mainContainer {
+            overflow: auto;
+            position: absolute;
+            top: 70px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+        }
+
+        .Card {
+            box-shadow: rgba(0, 0, 0, 0.137255) 0px 2px 2px 1px, rgba(0, 0, 0, 0.117647) 0px 1px 5px 2px, rgba(0, 0, 0, 0.2) 0px 3px 1px 0px;
+            border-radius: 3px;
+        }
+
+        .MessageBox {
+            padding: 7px;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: bold;
+            background-color: rgba(255, 246, 179, 0.4);
+            text-align: center;
+        }
+
+            .MessageBox .MessageHeader {
+                font-size: 30px;
+                margin-bottom: 10px;
+                line-height: 36px;
+            }
+
+        .messageContainer {
+            margin: auto;
+            width: 800px;
+            margin-top: 40px;
+        }
+
+        .instructionsContainer {
+            margin-top: 25px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 800px;
+            font-size: large;
+            line-height: 40px;
+        }
+
+        .instructionsTitle {
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 800px;
+            font-weight: bold;
+            font-size: large;
+            line-height: 40px;
+        }
+
+        .instructionsContainer2 {
+            margin-top: 25px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 800px;
+            font-size: large;
+            line-height: 40px;
+        }
+
+        .instructionsContainer2 {
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 800px;
+            font-weight: bold;
+            font-size: large;
+            line-height: 40px;
+        }
+
+        .instructionsContainer3 {
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 25px;
+            width: 800px;
+            font-size: large;
+            line-height: 30px;
+        }
+
+        .imageContainer {
+            width: 100%;
+            text-align: center;
+        }
+
+            .imageContainer img {
+                width: 700px;
+            }
+
+        #scroll {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            background-color: #3498db;
+            text-indent: -9999px;
+            display: none;
+            -webkit-border-radius: 60px;
+            -moz-border-radius: 60px;
+            border-radius: 60px
+        }
+    </style>
+
+</head>
+<body>
+    <div class="header">
+        <span class="biaLogo">
+            <img src="../images/BIA_Logo.png" />
+        </span>
+        <span class="upsLogo">
+            <img src="../images/UPS_Logo.png" />
+        </span>
+        <span class="biaTitle">Business Intelligence &amp; Analysis</span>
+    </div>
+    <div class="mainContainer">
+        <div class="instructionsContainer">
+            <div class="imageContainer">
+                <img src="../images/quick_overview.png" />
+            </div>
+            <div class="instructionsContainer3">
+                By default everyone has access to BIA Security.  Users and admins can request/approve access, check user details, edit access and edit application details.  The search boxes highlighted in red can be used to filter down to any user or app.
+            </div>
+            <div class="imageContainer">
+                <img src="../images/quick_request.png" />
+            </div>
+            <div class="instructionsContainer3">
+                To request access a user can click the blue + button next to an app code to generate a popup.
+            </div>
+            <div class="imageContainer">
+                <img src="../images/quick_request_popup.png" />
+            </div>
+            <div class="instructionsContainer3">
+                This popup will have some fields automatically generated.  The user will need to fill the Request Geo field from a searchable dropdown (Geo Group and Geo Code will generated based on selection) and Reason.  These fields cannot be left blank.  Hit Request.  The app admin will receive an email about the request.
+            </div>
+            <div class="imageContainer">
+                <img src="../images/quick_access_check.png" />
+            </div>
+            <div class="imageContainer">
+                <img src="../images/quick_access_check2.png" />
+            </div>
+            <div class="instructionsContainer3">
+                There are several ways for a user to check their own access.  First, click Users and then then the Application # on the right side of any row.  This will prompt a popup with all app access and levels.  Second, click and based on the icons on the left side a user can quick determine if they have access.  The user icon with display a check mark if you have current access and the request blue + button will be hidden.
+            </div>
+            <div class="imageContainer">
+                <img src="../images/quick_access_approve.png" />
+            </div>
+            <div class="instructionsContainer3">
+                To approve or deny access an admin will click Access in the top right and then use the search to filter down to the specific user or app. Make sure the Pending toggle is selected at the top of the grid.  The actions column can be used to deny or approve the request.
+            </div>
+            <div class="imageContainer">
+                <img src="../images/quick_user_profile_access.png" />
+            </div>
+            <div class="instructionsContainer3">
+                Selecting the My Profile option under Users will show detailed user information.  At a glance users can also view all of their access and admins will be able to approve, deny and modify access levels and request.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

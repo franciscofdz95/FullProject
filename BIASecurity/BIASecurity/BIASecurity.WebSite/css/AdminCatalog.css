@@ -1,0 +1,11 @@
+﻿.adminCatalogMenuItem {
+    cursor: pointer;
+    color: gray;
+    font: bold 14px arial, sans-serif;
+}
+
+.adminCatalogMenuItem:hover {
+   background-color: #A6A6A3;
+   color: white;
+   border-radius: 15px;
+}

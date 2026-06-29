@@ -1,0 +1,11 @@
+<input [id]="inputId"
+       type="text"
+       [value]="text"
+       (input)="handleInput($event)"
+       (blur)="handleBlur()"
+       (focus)="handleFocus()"
+       [disabled]="disabled"
+       [attr.inputmode]="'decimal'"
+       [attr.placeholder]="placeholder || nf.format(0)"
+       [attr.aria-label]="ariaLabel"
+       autocomplete="off" />

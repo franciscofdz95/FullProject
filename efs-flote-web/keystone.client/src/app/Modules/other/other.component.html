@@ -1,0 +1,90 @@
+<div>
+
+
+<p>other works2323!</p>
+<div class="tree">
+<ul *ngFor="let group of arr; index as i">
+  <span class="font-weight-bold text-primary">{{group.name}}</span>
+  <!-- Parent  -->
+  <li *ngFor="let item of group.items; index as j">
+    <span class="cursor-pointer caret"
+      [ngClass]="item.expand ? 'fas fa-solid fa-minus' : 'fas fa-regular fa-plus'"
+      (click)="item.expand = !item.expand"></span>
+    
+    <span class="mx-1" [ngClass]="item.checkedItem ? 'fas fa-check-square' : 
+      (checkMinusSquare(item) ? 'fas fa-minus-square' : 'far fa-square')"
+      (click)="checkParent(i, j)">
+    
+    </span>
+    <span  class="cursor-pointer treechild" placement="top" ngbTooltip="{{item.empName}}">&nbsp;{{ item.name}}</span> 
+           <!-- Child1 Tree -->
+        <ul [class.d-none]="!item.expand">
+          <li *ngFor="let child of item.childTrees; index as k">
+            <span class="cursor-pointer caret"
+            [ngClass]="child.expand ? 'fas fa-solid fa-minus' : 'fas fa-regular fa-plus'"
+            (click)="child.expand = !child.expand"></span>&nbsp;
+
+            <span class="mr-1" [ngClass]="child.checkedchild ? 'fas fa-check-square' : 'far fa-square'"
+            (click)="checkChild(i, j, k)">
+            </span>
+            <span class="cursor-pointer" (click)="checkChild(i, j, k)">&nbsp;{{ child.name}}</span>
+                <!-- Child2 Tree -->
+                <ul [class.d-none]="!child.expand">
+                  <li *ngFor="let child2 of child.childTrees2; index as l">
+                    <span class="mr-1" [ngClass]="child2.checkedchild ? 'fas fa-check-square' : 'far fa-square'"
+                    (click)="checkChild2(i, j, k,l)">
+                    </span>
+                   <span class="cursor-pointer" (click)="checkChild2(i, j, k,l)">&nbsp;{{ child2.name}}</span>
+                  </li>
+                </ul>
+          </li>
+        </ul>
+  </li>
+</ul>
+</div>
+<!-- Modal Update Report-->
+<div class="modal fade border border-1" class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':treeviewModals}" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content border border-dark">
+      <div class="modal-body text-center">
+              {{treeempName}}           
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btnCustome"  (click)="treeViewClose()" data-dismiss="modal">close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <ul *ngFor="let group of arr; index as i">
+  <span class="font-weight-bold text-primary">{{group.name}}</span>
+  <li *ngFor="let item of group.items; index as j">
+    <span class="cursor-pointer caret"
+      [ngClass]="item.expand ? 'fas fa-caret-down' : 'fas fa-caret-right'"
+      (click)="item.expand = !item.expand"></span>
+    <span class="mx-1" [ngClass]="item.checked ? 'fas fa-check-square' : 
+      (checkMinusSquare(item) ? 'fas fa-minus-square' : 'far fa-square')"
+      (click)="checkParent(i, j)">
+    </span>
+    <span class="cursor-pointer" (click)="item.expand = !item.expand">{{item.name}}</span>
+    <ul [class.d-none]="!item.expand">
+      <li *ngFor="let child of item.childs; index as k">
+        <span class="mr-1" [ngClass]="child.checked ? 'fas fa-check-square' : 'far fa-square'"
+          (click)="checkChild(i, j, k)">
+        </span>
+        <span class="cursor-pointer" (click)="checkChild(i, j, k)">{{child.name}}</span>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<button type="button" class="btn btn-primary btn-sm get-list-child-changed"
+  (click)="getListChildChanged()">
+  Get list child changed <i class="fab fa-joget ml-1"></i>
+</button>
+
+<div class="show-list-child-changed">
+  <div *ngFor="let child of listChildChanged; index as i">
+    {{child.id}} - {{child.checked}}
+  </div>
+</div> -->

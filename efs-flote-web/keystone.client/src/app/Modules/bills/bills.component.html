@@ -1,0 +1,247 @@
+<div>
+  <ul class="nav nav-tabs" style="background: #ADD2ED;">
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'logged'" (click)="setActiveTab('logged')" style="cursor: pointer;">Logged ({{loggedqty}})</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'pending'" (click)="setActiveTab('pending')" style="cursor: pointer;">Pending ({{pendingqty}})</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'verified'" (click)="setActiveTab('verified')" style="cursor: pointer;">Verified ({{verifiedqty}})</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'approved'" (click)="setActiveTab('approved')" style="cursor: pointer;">Approved ({{approvedqty}})</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'printed'" (click)="setActiveTab('printed')" style="cursor: pointer;">Printed ({{printedqty}})</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'scanned'" (click)="setActiveTab('scanned')" style="cursor: pointer;">Scanned ({{scannedqty}})</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'queued'" (click)="setActiveTab('queued')" style="cursor: pointer;">Queued ({{queuedqty}})</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'sent'" (click)="setActiveTab('sent')" style="cursor: pointer;">Sent ({{sentqty}})</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'archived'" (click)="setActiveTab('archived')" style="cursor: pointer;">Archived ({{archivedqty}})</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'payment-details'" (click)="setActiveTab('payment-details')" style="cursor: pointer;">Payment Details </a>
+    </li>
+  </ul>
+
+  <div class="tab-content mt-1">
+    <app-logged [style.display]="activeTab === 'logged' ? 'block' : 'none'" (toggleModal)="toggleModal()"></app-logged>
+  </div>
+  <div class="tab-content mt-2">
+    <app-pending [style.display]="activeTab === 'pending' ? 'block' : 'none'"></app-pending>
+  </div>
+  <div class="tab-content mt-2">
+    <app-verified [style.display]="activeTab === 'verified' ? 'block' : 'none'"></app-verified>
+  </div>
+  <div class="tab-content mt-2">
+    <app-approved [style.display]="activeTab === 'approved' ? 'block' : 'none'"></app-approved>
+  </div>
+  <div class="tab-content mt-2">
+    <app-printed [style.display]="activeTab === 'printed' ? 'block' : 'none'"></app-printed>
+  </div>
+  <div class="tab-content mt-2">
+    <app-scanned [style.display]="activeTab === 'scanned' ? 'block' : 'none'"></app-scanned>
+  </div>
+  <div class="tab-content mt-2">
+    <app-queued [style.display]="activeTab === 'queued' ? 'block' : 'none'"></app-queued>
+  </div>
+  <div class="tab-content mt-2">
+    <app-sent [style.display]="activeTab === 'sent' ? 'block' : 'none'"></app-sent>
+  </div>
+  <div class="tab-content mt-2">
+    <app-archived [style.display]="activeTab === 'archived' ? 'block' : 'none'"></app-archived>
+  </div>
+  <div class="tab-content mt-2">
+    <app-payment-details [style.display]="activeTab === 'payment-details' ? 'block' : 'none'"></app-payment-details>
+  </div>
+
+</div>
+
+
+<div class="modal fade"
+     [ngClass]="{ 'show': isModalOpen, 'd-block': isModalOpen }"
+     tabindex="-1"
+     aria-labelledby="advancedFilterModalLabel"
+     [attr.aria-hidden]="!isModalOpen"
+     >
+
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 1800px;">
+    <div class="modal-content">
+      <div class="modal-header  modal-border">
+        <h5 class="modal-title modal-label" id="advancedFilterModalLabel">Log Vendor Bill</h5>
+        <button type="button" class="btn-close modal-label" aria-label="Close" (click)="toggleModal()"></button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Modal Fields -->
+        <div class="row">
+          <div class="col-md-2">
+            <label for="vendorbillprocloc" class="modal-label">Vendor Bill Processing Location:</label>
+          </div>
+          <div class="col-md-2">
+            <input type="text" id="vendorbillprocloc" name="vendorbillprocloc" class="modalInputStyle" placeholder="Vendor Bill Processing Location" />
+          </div>
+          <div class="col-md-2">
+            <label for="vendor" class="modal-label">Vendor:</label>
+          </div>
+          <div class="col-md-2">
+            <input type="text" id="vendor" name="vendor" class="modalInputStyle" placeholder="Vendor" />
+          </div>
+          <div class="col-md-2">
+            <label for="supplieridsitecod" class="modal-label">Supplier Id Site Code:</label>
+          </div>
+          <div class="col-md-2">
+            <input type="text" id="supplieridsitecod" name="supplieridsitecod" class="modalInputStyle" placeholder="Supplier Id Site Code" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <label for="vendorinvoice" class="modal-label">Vendor Invoice / Bill Ref No:</label>
+          </div>
+          <div class="col-md-2">
+            <input type="text" id="vendorinvoice" name="vendorinvoice" class="modalInputStyle" placeholder="Vendor Invoice / Bill Ref No" />
+          </div>
+          <div class="col-md-2">
+            <label for="stampnumber" class="modal-label">Stamp Number:</label>
+          </div>
+          <div class="col-md-2">
+            <input type="text" id="stampnumber" name="stampnumber" class="modalInputStyle" placeholder="Stamp Number" />
+          </div>
+          <div class="col-md-2">
+            <label for="otherreference" class="modal-label">Other Reference/KID/RUC:</label>
+          </div>
+          <div class="col-md-2">
+            <input type="text" id="otherreference" name="otherreference" class="modalInputStyle" placeholder="Other Reference/KID/RUC" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <label for="" class="modal-label">Bill Date (mm/dd/yyyy):</label>
+            <mat-form-field appearance="fill" style="width: 90%; height: 90%;" id="billdate">
+              <mat-label>Select a date</mat-label>
+
+              <input matInput
+                     [matDatepicker]="billdate"
+                     [(ngModel)]="selectedDate"
+                     (dateChange)="onDateChange()">
+
+              <mat-datepicker-toggle matSuffix [for]="billdate"></mat-datepicker-toggle>
+              <mat-datepicker #billdate></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <label for="" class="modal-label">Bill Due Date (mm/dd/yyyy):</label>
+            <mat-form-field appearance="fill" style="width: 90%; height: 90%;" id="billduedate">
+              <mat-label>Select a date</mat-label>
+
+              <input matInput
+                     [matDatepicker]="billduedate"
+                     [(ngModel)]="selectedDate"
+                     (dateChange)="onDateChange()">
+
+              <mat-datepicker-toggle matSuffix [for]="billduedate"></mat-datepicker-toggle>
+              <mat-datepicker #billduedate></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-md-4">
+            <label for="" class="modal-label">Bill Currency:</label>
+            <ng-select bindLabel="name"
+                       bindValue="id"
+                       placeholder="Select Bill Currency"
+                       [clearable]="true"
+                       [searchable]="true"
+                       class="custom-ng-select"
+                       style="width:90%;">
+            </ng-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-1">
+            <label for="" class="modal-label">Tax Exempt Amount:</label>
+          </div>
+          <div class="col-md-2">
+            <input type="text" id="" name="" class="modalInputStyle" placeholder="" />
+          </div>
+          <div class="col-md-3">
+            <label for="" class="modal-label">ACC Name:</label>
+            <ng-select bindLabel="name"
+                       bindValue="id"
+                       placeholder="Select ACC Name"
+                       [clearable]="true"
+                       [searchable]="true"
+                       class="custom-ng-select"
+                       style="width:90%;">
+            </ng-select>
+          </div>
+          <div class="col-md-3">
+            <label for="" class="modal-label">UPS Reference Type:</label>
+            <ng-select bindLabel="name"
+                       bindValue="id"
+                       placeholder="Select UPS Reference Type"
+                       [clearable]="true"
+                       [searchable]="true"
+                       class="custom-ng-select"
+                       style="width:90%;">
+            </ng-select>
+          </div>
+          <div class="col-md-3">
+            <label for="" class="modal-label">UPS Reference:</label>
+            <ng-select bindLabel="name"
+                       bindValue="id"
+                       placeholder="Select UPS Reference"
+                       [clearable]="true"
+                       [searchable]="true"
+                       class="custom-ng-select"
+                       style="width:90%;">
+            </ng-select>
+          </div>
+        </div>
+        <div class="row">
+            <ag-grid-angular #agGrid
+                             style="width: 100%;min-height:300px;"
+                             class="ag-theme-balham text-end cell-text-align mt-3"
+                             [columnDefs]="columnDefs"
+                             [defaultColDef]="defaultColDef"
+                             [rowHeight]="40"
+                             [overlayLoadingTemplate]="overlayLoadingTemplate"
+                             overlayNoRowsTemplate="<span>Not matches found</span>"
+                             (gridReady)="onGridReady($event)">
+            </ag-grid-angular>
+        </div>
+        
+
+        <div class="row">
+          <div class="col-md-12 modal-label" style="text-align:center; border:3px; border-color:black;
+                  background-color:yellow; width:30%; margin-left:35%; border-style:solid;">
+            <span >STOP – Is Correct SITE CODE Selected?</span>
+            <br />
+            <span>Otherwise Payment will be Held or Delayed</span>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="errorMessage" style="color: red; margin-top: 5px;">
+          {{ errorMessage }}
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="d-flex justify-content-around w-100">
+          <button type="button" class="btn btn-secondary" (click)="toggleModal()">Save & Process</button>
+          <button type="button" class="btn btn-warning">Log Next</button>
+          <button type="button" class="btn btn-primary" (click)="toggleModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isModalOpen" class="modal-backdrop fade show"></div>
+

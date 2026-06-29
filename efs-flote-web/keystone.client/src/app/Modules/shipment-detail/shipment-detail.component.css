@@ -1,0 +1,300 @@
+/* =====================================================================
+   Shipment Detail modal — pixel parity with legacy ExtJS ShipmentSummary
+   Colors:
+     Olive header bars  : #A9B086 / #9CA579 (UPS_Greenish_1)
+     Blue grid headers  : #1D598E  (UBlue)
+     Total/group bars   : #3F7CB6 / #5B9BD5
+     Alt row            : #EAF1F8
+   ===================================================================== */
+
+.shipment-detail-modal {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  background: #ffffff;
+  display: block;
+  height: auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: visible;
+  border: 3px solid #3D8BC8;
+  box-sizing: border-box;
+}
+
+/* ===== Modal title bar ===== */
+.sd-modal-title {
+  background: #4f81bd;
+  color: #0d0d0c;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 4px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sd-close-x {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 1;
+}
+.sd-close-x:hover { color: #ffd700; }
+
+/* ===== Olive collapsible panels ===== */
+.sd-panel { margin: 5px; }
+.sd-olive { border: 1px solid #8f9b75; }
+.sd-olive-bar {
+  background: #A1AC86;
+  padding: 4px 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #8f9b75;
+}
+.sd-collapse-icon { color: #333; font-size: 10px; margin-right: 6px; }
+.sd-olive-title { color: #0d0d0c; font-weight: bold; font-size: 12px; }
+
+/* ===== Header body (Customer / Container / MBL) ===== */
+.sd-header-body { background: #A1AC86; padding: 5px; }
+.sd-info-row { display: flex; gap: 6px; align-items: stretch; }
+.sd-info-box {
+  background: #ddd;
+  border: 1px solid #c7c7c7;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.sd-info-header {
+  background: #DFE8F6;
+  color: #0d0d0c;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 3px 6px;
+  border-bottom: 1px solid #c7d4e7;
+}
+.sd-info-content { padding: 4px 6px; }
+
+/* Customer fields */
+.sd-field { margin: 3px 0; display: flex; }
+.sd-flabel {
+  color: #292984;
+  font-weight: bold;
+  font-size: 11px;
+  min-width: 95px;
+  flex-shrink: 0;
+}
+.sd-fvalue { font-weight: bold; font-size: 11px; color: #222; }
+
+/* ===== Fact grids (Container / MBL / Notes) ===== */
+.sd-grid-wrap {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.sd-fact-grid {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 11px;
+}
+.sd-fact-grid th {
+  background: #1D598E;
+  color: #fff;
+  font-weight: bold;
+  text-align: left;
+  padding: 3px 5px;
+  border: 1px solid #15466E;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+.sd-fact-grid td {
+  padding: 2px 5px;
+  border: 1px solid #D4D4D4;
+  white-space: nowrap;
+  background: #fff;
+}
+.sd-fact-grid tbody tr:nth-child(even) td { background: #EAF1F8; }
+
+/* ===== Charge grid toolbar ===== */
+.sd-charge-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  background: #ffffff;
+  border: 1px solid #99BBE8;
+  margin: 0 5px;
+}
+.sd-spacer { flex: 1 1 auto; }
+.sd-currency {
+  height: 24px;
+  min-width: 150px;
+  font-size: 12px;
+  border: 1px solid #99BBE8;
+  margin-right: 6px;
+}
+.sd-export-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ===== Charge detail grid ===== */
+.sd-charge-grid-wrap {
+  margin: 0 5px 5px 5px;
+  border: 1px solid #99BBE8;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+}
+.sd-charge-grid {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 11px;
+  table-layout: fixed;
+}
+.sd-charge-grid th {
+  background: #255f93;
+  color: #fff;
+  font-weight: bold;
+  text-align: left;
+  padding: 3px 5px;
+  border: 1px solid #15466E;
+  vertical-align: bottom;
+  white-space: normal;
+}
+.sd-charge-grid td {
+  padding: 2px 5px;
+  border: 1px solid #D4D4D4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: #fff;
+}
+.sd-charge-grid tbody tr:nth-child(even):not(.sd-group-header):not(.sd-group-total) td {
+  background: #EAF1F8;
+}
+.sd-right { text-align: right; }
+.sd-center { text-align: center; }
+.sd-italic { font-style: italic; }
+
+/* Master Bill rows → italic (legacy) */
+.sd-mbl-row td { font-style: italic; }
+/* Billed rows → bold black (legacy) */
+.sd-billed-row td { font-weight: bold; color: #000; }
+
+/* Group header bar (collapsible) */
+.sd-group-header td {
+  background: #85bcdd !important;
+  color: #545454;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 3px 6px;
+}
+.sd-group-icon { margin-right: 6px; }
+.sd-group-rank { color: #1D598E; margin-right: 2px; display: none; }
+
+/* Group subtotal bar */
+.sd-group-total td {
+  background: #3d88c2 !important;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Grand total bar */
+.sd-grand-total td {
+  background: #3d88c2 !important;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Empty / loading */
+.sd-empty { text-align: center; color: #666; padding: 10px; font-style: italic; }
+.sd-loading {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  color: #1D598E;
+  font-weight: bold;
+}
+
+/* ===== Notes panel ===== */
+.sd-notes-body { background: #A1AC86; padding: 5px; }
+.sd-notes-toolbar { margin-bottom: 6px; }
+.sd-note-add-btn {
+  background-color: #3d8bc8 !important;
+  background-image: none !important;
+  color: #fff !important;
+  font-weight: bold;
+  border: 1px solid #2f6fa0 !important;
+  border-radius: 3px;
+  padding: 5px 12px;
+  min-width: 180px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.sd-note-add-btn:hover {
+  background-color: #2f79b5 !important;
+  background-image: none !important;
+}
+.sd-notes-grid { max-width: 700px; }
+.sd-note-del {
+  background: transparent;
+  border: none;
+  color: #3a3a3a;
+  cursor: pointer;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.sd-note-del-icon {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+.sd-note-del-disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* ===== Legend / footer ===== */
+.sd-legend {
+  margin: 5px;
+  padding: 6px 8px;
+  font-size: 11px;
+  color: #222;
+  line-height: 1.5;
+}
+.sd-footer {
+  background: #A1AC86;
+  color: #0d0d0c;
+  text-align: center;
+  font-size: 11px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+/* ===== MatDialog panel overrides (make modal ~98% like legacy) ===== */
+.shipment-detail-dialog .mat-mdc-dialog-surface,
+.shipment-detail-dialog .mdc-dialog__surface {
+  padding: 0 !important;
+  height: 98vh !important;
+  max-height: 98vh !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  border: 2px solid #3D8BC8;
+}
+.shipment-detail-dialog .mat-mdc-dialog-container {
+  padding: 0 !important;
+  height: 98vh !important;
+  max-height: 98vh !important;
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="ws.ups.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="ws.ups.com" name="UserList" targetNamespace="ws.ups.com" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="ws.ups.com">
+      <xsd:element name="UserListRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="appkey" type="xsd:string" />
+            <xsd:element name="LastName" type="xsd:string" />
+            <xsd:element minOccurs="0" name="FirstName" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="IDType" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="RRDD" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="0" name="Center" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="UserListRecord">
+        <xsd:all>
+          <xsd:element name="empid" type="xsd:string" />
+          <xsd:element name="lastname" type="xsd:string" />
+          <xsd:element name="firstname" type="xsd:string" />
+          <xsd:element name="uuid" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="UserListResult">
+        <xsd:sequence>
+          <xsd:element name="version" type="xsd:string" />
+          <xsd:element name="count" type="xsd:int" />
+          <xsd:element maxOccurs="unbounded" name="record" type="tns:UserListRecord" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="result" type="tns:UserListResult" />
+    </xsd:schema>
+  </types>
+  <message name="Request">
+    <part name="parameters" element="tns:UserListRequest" />
+  </message>
+  <message name="Result">
+    <part name="result" element="tns:result" />
+  </message>
+  <portType name="UserListPort">
+    <operation name="getUserList">
+      <input message="tns:Request" />
+      <output message="tns:Result" />
+    </operation>
+  </portType>
+  <binding name="UserListBinding" type="tns:UserListPort">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getUserList">
+      <wsdlsoap:operation soapAction="" />
+      <input>
+        <wsdlsoap:body use="literal" />
+      </input>
+      <output>
+        <wsdlsoap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="UserListService">
+    <port name="UserListPort" binding="tns:UserListBinding">
+      <wsdlsoap:address location="https://ws4id.inside.ups.com/ws4id/XML-SOAP/UserList" />
+    </port>
+  </service>
+</definitions>

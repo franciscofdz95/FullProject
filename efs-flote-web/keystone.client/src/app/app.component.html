@@ -1,0 +1,8 @@
+<app-header [userName]="userName" [userAccount]="userAccount"></app-header>
+<div *ngIf="!hasSupportedRole()" class="alert alert-warning text-center role-alert">
+  You do not have a supported role assigned for this application. Please request the necessary role in SailPoint IIQ.
+</div>
+<ng-container *ngIf="hasSupportedRole()">
+  <app-navigation></app-navigation>
+</ng-container>
+<app-footer></app-footer>

@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BIACore.Website.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="LogActivity" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MyReportsUser" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">BIA_FTP_TEP</Value>
+    </Setting>
+    <Setting Name="ExternalSecurity" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ExternalSecurityLogin" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/bia/apps/BIASecurity/unsecure/index.cfm</Value>
+    </Setting>
+    <Setting Name="ExternalSecurityLogout" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/bia/CustomTag/BIA_Logout.cfm</Value>
+    </Setting>
+    <Setting Name="RouterKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">U2FsZXM4NTVzZWNyZXQu</Value>
+    </Setting>
+    <Setting Name="NewDefaultSecurityConnection" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">{"ConnectionName":"Security","ServerName":"CSVP000585C7","InstanceName":"WWBIAC03E018","ServerType":"SQL","ServerVersion":"2014","DatabaseName":"Dasa_Guestbook","Provider":"System.Data.SqlClient","IncludeProvider":0,"Username":"bia_security_app_dev","AuthKey":"EncryptedString"}</Value>
+    </Setting>
+    <Setting Name="MyReportsPass" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DEC_BIA_FTP_TEP_2019</Value>
+    </Setting>
+    <Setting Name="MyReportsPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ftp://BIAFTPV.UPS.COM/</Value>
+    </Setting>
+    <Setting Name="DefaultSecurityConnection" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">
+          {
+          "ConnectionName":"NewSecurity","ServerName":"CSVP000585C7","InstanceName":"WWBIAC03E018","ServerType":"SQL","ServerVersion":"2014",
+          "DatabaseName":"BIASecurity","Provider":"System.Data.SqlClient","Username":"bia_security_app_dev",
+          "AuthKey":"000001aVEyAQACAAA=DTwL4xRhBuq+eNIes7F/pZ/O74A="
+          }
+        </Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

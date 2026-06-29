@@ -1,0 +1,1142 @@
+/* ====================================================================================================
+NAME:			[Common CSS for Flote Application]
+BEHAVIOR:		Show Common CSS for Flote Application.
+_______________________________________________________________________________________________________
+REVISION HISTORY
+-------------------------------------------------------------------------------------------------------
+Date			    Modified By			  Modifications
+-------------------------------------------------------------------------------------------------------
+07/26/2016        Sudhir Dandale		 Created.
+ ======================================================================================================*/
+BODY {
+    font-family: Verdana, Arial,sans-serif;
+    font-size: 10px;
+    color: #000000;
+}
+
+A {
+    font-family: Verdana, Arial,sans-serif;
+}
+
+    A:link, A:active {
+        font-size: 11px;
+        color: #3366CC;
+        text-decoration: none;
+    }
+
+    A:visited {
+        font-size: 11px;
+        color: #850600;
+        text-decoration: none;
+    }
+
+    A:hover {
+        color: Blue;
+        text-decoration: underline;
+    }
+
+pre, pre p {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Alignment classes */
+.right {
+    text-align: right;
+}
+
+/* Tab styles */
+A.tabA {
+    font-size: 13px;
+    color: #000000;
+}
+
+A:link.tabA, A:active.tabA {
+    font-size: 13px;
+    color: #000000;
+}
+
+A:visited.tabA {
+    font-size: 13px;
+    color: #000000;
+}
+
+A:hover.tabA {
+    font-weight: bold;
+    color: #000000;
+    text-decoration: none;
+}
+
+.clickable {
+    cursor: pointer;
+    text-decoration: underline;
+    color: blue;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.actTab {
+    border-left: solid 1px #FFF;
+    border-right: solid 1px #FFF;
+}
+
+.actTabR {
+    border-left: solid 1px #FFF;
+}
+
+.actTabL {
+    border-right: solid 1px #FFF;
+}
+
+.actTabN {
+    border-right: solid 1px #FFF;
+    border-left: solid 1px #FFF;
+    border-bottom: solid 1px #825300;
+}
+
+.inaTabR {
+    border-left: solid 1px #FFF;
+    border-bottom: solid 1px #825300;
+}
+
+.inaTabL {
+    border-right: solid 1px #FFF;
+    border-bottom: solid 1px #825300;
+}
+
+.inaTabN {
+    border-right: solid 1px #FFF;
+    border-left: solid 1px #FFF;
+    border-bottom: solid 1px #825300;
+}
+
+.inaTab {
+    border-bottom: solid 1px #FFF;
+}
+
+
+
+.BR {
+    font-family: Verdana, Arial,sans-serif;
+    font-size: 14px;
+}
+
+BR.small {
+    font-size: 10px;
+}
+
+TR {
+    font-size: 10px;
+}
+
+    TR.HeaderBlack {
+        font-size: 10px;
+        color: #000000;
+        font-weight: bold;
+    }
+
+TD {
+    font-size: 11px;
+    font-family: Verdana, Arial,sans-serif;
+}
+
+/* UPS Color Palette TD Section */
+.UPS_White_1 {
+    background-color: #FFFFFF;
+}
+
+.UPS_Brown {
+    background-color: #330000;
+}
+
+.UPS_Golden {
+    background-color: #DFB42C;
+}
+
+.UPS_Red_4 {
+    background-color: #850600;
+}
+
+.UPS_Red_3 {
+    background-color: #F31A12;
+}
+
+.UPS_Red_2 {
+    background-color: #FF7800;
+}
+
+.UPS_Red_1 {
+    background-color: #FED172;
+}
+
+.UPS_Red_0 {
+    background-color: #FFF2AC;
+}
+
+.UPS_Gold_4 {
+    background-color: #825300;
+}
+
+.UPS_Gold_3 {
+    background-color: #C98400;
+}
+
+.UPS_Gold_2 {
+    background-color: #FFD124;
+}
+
+.UPS_Gold_1 {
+    background-color: #FFED7B;
+}
+
+.UPS_Gold_0 {
+    background-color: #FFF2AC;
+}
+
+.UPS_PaleYellow {
+    background-color: #FFF2AC;
+}
+
+.UPS_YGreen_4 {
+    background-color: #364505;
+}
+
+.UPS_YGreen_3 {
+    background-color: #93A708;
+}
+
+.UPS_YGreen_2 {
+    background-color: #D0E92F;
+}
+
+.UPS_YGreen_1 {
+    background-color: #E8F578;
+}
+
+.UPS_YGreen_0 {
+    background-color: #F2F2CE;
+}
+
+.UPS_Green_4 {
+    background-color: #042C50 !important;
+}
+
+.UPS_Green_3 {
+    background-color: #D6E3EF !important;
+}
+
+.UPS_Green_2 {
+    background-color: #8CCB3C;
+}
+
+.UPS_Green_1 {
+    background-color: #A1AC86 !important;
+}
+
+.UPS_Green_0 {
+    background-color: #F2F2CE;
+}
+
+.UPS_PaleGreen {
+    background-color: #F2F2CE;
+}
+
+.UPS_Blue_2 {
+    background-color: #1D598E !important;
+}
+
+.UPS_Blue_3 {
+    background-color: white !important;
+}
+
+.UPS_Gray_1 {
+    background-color: #ddd;
+}
+
+.UPS_Blue_0 {
+    background-color: #DCEDE5;
+}
+
+.UPS_PaleBlue {
+    background-color: #DCEDE5;
+}
+
+.UPS_Blue_0_5 {
+    background-color: #C0EAD6;
+}
+
+.UPS_Brown_4 {
+    background-color: #DBD8B9;
+}
+
+.UPS_Brown_3 {
+    background-color: #908474 !important;
+}
+
+.UPS_Blue_1 {
+    background-color: #DFE8F6 !important;
+}
+
+.UPS_Greenish_1 {
+    background-color: #A1AC86 !important;
+}
+
+.UPS_Brown_0 {
+    background-color: #EEEEEE;
+}
+
+.UPS_Table_1 {
+    background-color: #EBEBE6;
+}
+
+.UPS_Table_2 {
+    background-color: #D4CCBF;
+}
+
+.UPS_Table_3 {
+    background-color: #B0A696;
+}
+
+.UPS_Table_4 {
+    background-color: #908474;
+}
+
+.UPS_Table_5 {
+    background-color: #60513A;
+}
+
+.UPS_Table_6 {
+    background-color: #EBEBE6;
+}
+
+.UPS_PaleRed {
+    background-color: #ffe4e1;
+}
+
+.UPS_White {
+    font-size: 11px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.UPS_Black {
+    font-size: 11px;
+    color: #0D0D0C !important;
+    font-weight: bold;
+}
+
+.UPS_BlackLeft {
+    font-size: 16px;
+    color: #0D0D0C !important;
+    font-weight: bold;
+    float: left;
+}
+
+.UPS_BlackRight {
+    font-size: 16px;
+    color: #0D0D0C !important;
+    font-weight: bold;
+    float: right;
+}
+
+.UPS_WhiteLeft {
+    font-size: 16px;
+    color: #FFFFFF;
+    font-weight: bold;
+    float: left;
+}
+
+.UPS_WhiteRight {
+    font-size: 16px;
+    color: #FFFFFF;
+    font-weight: bold;
+    float: right;
+}
+
+.qtip {
+    max-width: 1200px !important;
+}
+
+.UPS_Link {
+    color: #3366CC;
+}
+
+.MME_Red_1 {
+    color: #dc143c;
+    font-weight: bold;
+}
+
+TD.tightmargin {
+    padding: 0px 2px 0px 2px;
+    font-size: 7pt;
+}
+
+TD.small {
+    font-size: 9px;
+}
+
+TD.CellWhite {
+    font-size: 9px;
+    color: #FFFFFF;
+}
+
+TD.Header663300 {
+    font-size: 10px;
+    color: #996633;
+    font-weight: bold;
+}
+
+TD.UPS_Brown {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 3px;
+    margin-left: 4px;
+    margin-top: 3px;
+}
+
+TD.UPS_Table_1 {
+    font-size: 10px;
+    color: #000000;
+}
+
+TD.UPS_Table_2 {
+    font-size: 10px;
+    color: #000000;
+}
+
+TD.UPS_PaleBlue {
+    font-size: 10px;
+    color: #000000;
+}
+
+TD.Header3366CC {
+    font-size: 10px;
+    color: #3366CC;
+    font-weight: bold;
+}
+
+TD.Header99CCFF {
+    font-size: 10px;
+    color: #99CCFF;
+    font-weight: bold;
+}
+
+TD.Header666699 {
+    font-size: 9px;
+    color: #666699;
+    font-weight: bold;
+}
+
+TD.HeaderWhite {
+    font-size: 10px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+TD.HeaderBlack {
+    font-size: 10px;
+    color: #000000;
+    font-weight: bold;
+}
+
+TD.ghantRL {
+    border-right: 1px solid gray;
+}
+
+TD.topBlack {
+    border-top-style: solid;
+    border-top-color: gray;
+    border-top-width: 1px;
+}
+
+DIV {
+    font-size: 11px;
+    color: Black;
+    font-weight: normal;
+}
+
+    DIV.white {
+        color: #FFFFFF;
+        font-size: 10px;
+    }
+
+    DIV.small {
+        font-size: 9px;
+    }
+
+    DIV.detail {
+        color: #333333;
+    }
+
+    DIV.Redirect {
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    DIV.error {
+        color: #CC0000;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    DIV.title {
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    DIV.largeWhite {
+        font-size: 14px;
+        font-weight: bold;
+        color: #FFFFFF;
+    }
+
+    DIV.ContentTitle {
+        color: #993300;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    DIV.titleBrown {
+        font-size: 11px;
+        font-weight: bold;
+        color: #996633;
+    }
+
+SPAN.titleBrown {
+    font-size: 11px;
+    font-weight: bold;
+    color: #996633;
+}
+
+DIV.Header {
+    color: #663300;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+DIV.HeaderWhite {
+    font-size: 12px;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+TABLE.BorderTopFFED7B {
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: #FFED7B;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #FFED7B;
+}
+
+TABLE.BorderLeftFFED7B {
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: #FFED7B;
+}
+
+TABLE.BorderTop3366CC {
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: #3366CC;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #3366CC;
+}
+
+TABLE.BorderLeft3366CC {
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: #3366CC;
+}
+
+TABLE.BorderTop666699 {
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: #666699;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #666699;
+}
+
+TABLE.BorderLeft666699 {
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: #666699;
+}
+
+TABLE.BorderTop996633 {
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: #996633;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #996633;
+}
+
+INPUT {
+    font-size: 12px;
+    color: #000000;
+    font-weight: normal;
+}
+
+    INPUT.normal {
+        font-family: 'Courier New',Courier,monospace;
+        font-size: 12px;
+    }
+
+    INPUT.small {
+        font-size: 9px;
+        color: #000000;
+        font-weight: normal;
+    }
+
+SELECT.small {
+    font-size: 9px;
+    color: #000000;
+    font-weight: normal;
+}
+
+
+.bold {
+    font-weight: bold;
+}
+
+.textmiddle {
+    vertical-align: middle;
+}
+
+.toLong {
+    position: absolute;
+    display: none;
+    background-color: silver;
+    padding-right: 2px;
+    color: blue;
+}
+
+.ui-autocomplete-loading {
+    background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat;
+}
+
+.ui-tabDiv {
+    padding: 0 !important;
+    margin: 0px !important;
+}
+
+.ui-tabs {
+    padding: 0px !important;
+}
+
+.ui-tabs-hide {
+    display: none;
+}
+
+.ui-tabs-nav {
+    margin: 1px 0px 1px 2px !important;
+}
+
+.ui-tabs-panel {
+    margin: -10px 0px 0px -14px !important;
+}
+
+.filterHover {
+    position: absolute;
+    display: none;
+    background-color: silver;
+    padding-right: 2px;
+    color: blue;
+}
+
+    .filterHover UL {
+        display: none;
+    }
+
+.toUpperCase {
+    text-transform: uppercase;
+}
+
+span.toggleBtn {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 4px;
+}
+
+
+
+div.MaskedDiv {
+    visibility: hidden;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
+    font-weight: bold;
+    padding: 40px;
+    z-index: 100;
+    background-image: url('images/fade.gif');
+    opacity: 0.5;
+    filter: opacity();
+    overflow: hidden;
+    display: none;
+}
+
+.showScanSearch {
+    cursor: move;
+    cursor: pointer;
+}
+
+.btnViewInvoiceDetail {
+    cursor: move;
+    cursor: pointer;
+}
+
+.fAction.actionButton {
+    position: relative;
+    float: left;
+    margin-left: 4px;
+    border: 1px solid black;
+    padding: 3px;
+    text-align: center;
+}
+
+.rejectButton {
+    position: relative;
+    float: left;
+    margin-left: 4px;
+    border: 1px solid black;
+    padding: 3px;
+    text-align: center;
+}
+
+.resendButton {
+    position: relative;
+    float: left;
+    margin-left: 4px;
+    border: 1px solid black;
+    padding: 3px;
+    text-align: center;
+}
+
+.QueuedBills {
+    position: relative;
+    float: left;
+    margin-left: 4px;
+    border: 1px solid black;
+    padding: 3px;
+    text-align: center;
+}
+
+.icon_reimport {
+    background-image: url(../images/Button-Import-16x16.png) !important;
+}
+
+.icon_cancel {
+    background-image: url(../images/Cancel_16x16.png) !important;
+}
+
+.icon_validate {
+    background-image: url(../images/Check_16x16.png) !important;
+}
+
+.icon_toggle {
+    background-image: url(../images/Error-16x16.png) !important;
+}
+
+.icon_home {
+    background-image: url(../images/home-16x16.png) !important;
+}
+
+.icon_ExportExcel {
+    background-image: url(../images/DownloadExcel-icon.png) !important;
+}
+
+.icon_ProcessToFlote {
+    background-image: url(../images/Process.png) !important;
+}
+
+.icon_delete {
+    background-image: url(../images/delete_16x16.jpg) !important;
+}
+
+.icon_deleteAll {
+    background-image: url(../images/deleteAll.png) !important;
+}
+
+.jqstooltip {
+    box-sizing: content-box;
+    height: auto !important;
+    width: auto !important;
+    z-index: 999999 !important;
+}
+
+#tblExcelBody .header {
+    padding: 1px;
+}
+
+.cursor_finger {
+    cursor: pointer;
+}
+
+.x-grid3-row-missing {
+    background-color: red !important;
+    color: red;
+    font-weight: bold;
+}
+
+.ExcelHeader {
+    font-weight: bold;
+}
+
+.ExcelDataStartRow {
+    background-color: #f6ae42 !important;
+}
+
+.ExcelCell {
+    border-left: 1px solid black;
+    border-bottom: 1px dashed grey;
+    padding-left: 1px;
+}
+
+.JumpHeader {
+    font-size: 15pt;
+    font-weight: bold;
+    margin-left: 15px;
+    margin-right: 15px;
+    text-decoration: underline;
+}
+
+.JumpItem {
+    font-size: 12pt;
+    font-weight: bold;
+    width: 300px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.JumpIcon {
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.price-fall {
+    background-color: #FFB0C4 !important;
+    color: red !important;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.price-rise {
+    background-color: #B0FFC5 !important;
+    color: green !important;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.titlLabel {
+    color: #1D598E !important;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.hide-row {
+    display: none;
+}
+
+
+input[type=text]::-ms-clear {
+    display: none;
+    width: 0px;
+    height: 0px;
+}
+
+input[type=password]::-ms-reveal {
+    display: none;
+    width: 0px;
+    height: 0px;
+}
+
+.Card {
+    box-shadow: rgba(0, 0, 0, 0.137255) 0px 2px 2px 1px, rgba(0, 0, 0, 0.117647) 0px 1px 5px 2px, rgba(0, 0, 0, 0.2) 0px 3px 1px 0px;
+}
+
+
+.foo div a span {
+    font-weight: bold;
+}
+
+
+.tabpanel .x-tab-default .x-tab-inner {
+    font-weight: normal;
+}
+
+
+
+.tabpanel .x-tab-active .x-tab-inner {
+    font-weight: bold !important;
+    color: white;
+}
+
+.tabpanel .x-tab-active {
+    font-weight: bold !important;
+    color: white;
+    background-color: #1D598E !important;
+}
+
+.UBlue .x-box-inner .x-column-header-inner {
+    background-color: #1D598E !important;
+    color: white;
+    border-color: white;
+    border-Style: initial;
+}
+
+.UBlue .x-box-inner .x-column-header-text {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: white;
+}
+
+.x-tab-inner-default {
+    color: white;
+}
+
+.x-column-header-text-inner {
+    color: white;
+}
+
+.x-form-cb-label-default {
+    font-family: Verdana, Arial,sans-serif;
+}
+
+.x-fieldset-default {
+    padding: 17px 0 0 10px;
+}
+
+
+
+.UBlue1 .x-box-inner .x-column-header-inner {
+    background-color: #1D598E !important;
+    color: white;
+    border-color: white;
+    border-Style: initial;
+}
+
+.UBlue1 .x-grid-row {
+    line-height: 6px;
+}
+
+.UBlue1 .x-grid-td {
+    line-height: 6px;
+}
+
+.uButton {
+    background-color: #CEB303 !important;
+    background-image: none;
+}
+
+.btn {
+    background-color: #CEB303 !important;
+    background-image: none;
+    font-weight: bold;
+    color: white;
+}
+
+.price-fall .x-change-cell {
+    background-color: #D4CCBF;
+}
+
+.price-rise .x-change-cell {
+    background-color: #FFFFFF;
+}
+
+.iconLaunchCol {
+    margin: 0;
+    padding: 0; /*background-color:#CCFFCC !important;*/
+    width: 14px;
+    height: 14px;
+}
+
+.rowNormal .x-grid-cell {
+    background-color: #D6DADC !important;
+    color: white !important;
+}
+
+.rowUnbezahlt .x-grid-cell {
+    color: red;
+}
+
+.rowIncompleteInvoices .x-grid-cell {
+    background-color: #C5B97E !important;
+    color: white;
+}
+
+.rowHideVat .x-grid-cell {
+    display: none;
+    visibility: hidden;
+}
+
+.rowVat .x-grid-cell {
+    background: #DFE8F6;
+}
+
+.Editable {
+    background-color: lightgreen !important;
+}
+
+.x-grid-row-editor .x-panel-body, .x-grid-row-editor-buttons-default-bottom, .x-grid-row-editor-buttons-default-top {
+    background-color: #358ac8 !important;
+}
+
+.x-btn-default-toolbar-small x-btn-over, .x-row-editor-cancel-button, .x-row-editor-update-button {
+    background-color: #358ac8 !important;
+}
+
+.x-tip, .x-tip-body {
+    background-color: #358ac8 !important;
+    border-color: black;
+    border-Style: initial;
+}
+
+body {
+    padding: 50px 20px 0 20px;
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+#test {
+    width: 400px;
+}
+
+    #test img {
+        float: left;
+        margin-right: 10px;
+    }
+
+.colColBlueBorderThin {
+    border-color: #1D598E;
+    border-Style: initial;
+}
+
+.BBarCls {
+    background-color: #1D598E !important;
+    color: white;
+    border-color: white;
+    border-Style: initial;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.tbBorder {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.x-grid-row-summary .x-grid-cell, .x-grid-row-summary .x-grid-cell-rowbody, .x-grid-row-summary .x-grid-cell-inner {
+    background-color: #358ac8 !important;
+    border: 0px !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.x-grid-group-hd {
+    background-color: #99DCFF !important;
+    border: 0px !important;
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 12px !important;
+}
+
+.x-form-cb-input {
+    position: absolute !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    opacity: 1 !important;
+}
+
+.x-grid-row-checker {
+    height: 15px;
+    width: 15px;
+    background-image: url(../images/checkbox.png);
+    line-height: 15px;
+}
+
+.x-grid-hd-checker-on .x-column-header-text,
+.x-grid-item-selected .x-grid-row-checker {
+    background-position: 0 -15px;
+}
+
+.x-form-checkbox-default {
+    background: url(../images/checkbox.png) no-repeat;
+}
+
+.x-form-cb-checked .x-form-checkbox-default {
+    background-position: 0 -15px;
+}
+
+.UPS_WhiteLeft a {
+    color: white !important;
+}
+
+.textBlackItalic {
+    font-style: italic !important;
+}
+
+.textBlackBold {
+    font-weight: bold !important;
+}
+
+.textBlueBold {
+    color: blue !important;
+    font-weight: bold !important;
+}
+
+.imgAccrual {
+    background-image: url('../images/accrual.png') !important;
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.imgInfo {
+    background-image: url('../images/info.png') !important;
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.imgAdd {
+    background-image: url('../images/add-16x16.png') !important;
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.x-hide-display {
+    display: none !important;
+}
+
+.x-tip {
+    width: auto !important;
+}
+
+.x-tip-body {
+    width: auto !important;
+}
+
+    .x-tip-body span {
+        width: auto !important;
+    }
+
+.disabledListItem {
+    color: gray
+}

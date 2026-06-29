@@ -1,0 +1,24 @@
+﻿.ActiveUserSummaryLabel {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.adminActiveuserComponentSummaryItem {
+    background-color: #EDDED0;
+}
+
+.adminActiveuserComponentSummaryItem .ServerLabel {
+    font-weight: bold;
+}
+
+.activeUserMenuItem {
+    cursor: pointer;
+    color: gray;
+    font: bold 14px arial, sans-serif;
+}
+
+.activeUserMenuItem:hover {
+   background-color: #A6A6A3;
+   color: white;
+   border-radius: 15px;
+}

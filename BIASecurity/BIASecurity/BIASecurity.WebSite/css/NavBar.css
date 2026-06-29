@@ -1,0 +1,156 @@
+﻿.NavigationNavBar .bia-RedButton {
+    border-width: 1px;
+    border-style: solid;
+    background-image: none;
+    background-color: #f00;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#fb3232),color-stop(50%,#f00),color-stop(51%,#f91010),color-stop(100%,#f00));
+    background-image: -webkit-linear-gradient(top,#fb3232,#f00 50%,#f91010 51%,#f00);
+    background-image: -moz-linear-gradient(top,#fb3232,#f00 50%,#f91010 51%,#f00);
+    background-image: -o-linear-gradient(top,#fb3232,#f00 50%,#f91010 51%,#f00);
+    background-image: -ms-linear-gradient(top,#fb3232,#f00 50%,#f91010 51%,#f00);
+    background-image: linear-gradient(top,#fb3232,#f00 50%,#f91010 51%,#f00);
+    border-color: #e10202;
+}
+
+.NavigationNavBar .bia-RedButton:hover {
+    border-color: #a60000;
+    background-image: none;
+    background-color: #D40000;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#d52828),color-stop(50%,#D40000),color-stop(51%,#d40d0d),color-stop(100%,#D40000));
+    background-image: -webkit-linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+    background-image: -moz-linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+    background-image: -o-linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+    background-image: -ms-linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+    background-image: linear-gradient(top,#d52828,#D40000 50%,#d40d0d 51%,#D40000);
+}
+
+.NavigationNavBar .bia-RedButton:active {
+    -webkit-box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+    -moz-box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+    box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+}
+
+.NavigationNavBar .ButtonEnabled {
+    border-width: 1px;
+    border-style: solid;
+    background-image: none;
+    background-color: #7accdd;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#66c4d7),color-stop(50%,#7accdd),color-stop(51%,#8bd4e3),color-stop(100%,#99d7e4));
+    background-image: -webkit-linear-gradient(top,#66c4d7,#7accdd 50%,#8bd4e3 51%,#99d7e4);
+    background-image: -moz-linear-gradient(top,#66c4d7,#7accdd 50%,#8bd4e3 51%,#99d7e4);
+    background-image: -o-linear-gradient(top,#66c4d7,#7accdd 50%,#8bd4e3 51%,#99d7e4);
+    background-image: -ms-linear-gradient(top,#66c4d7,#7accdd 50%,#8bd4e3 51%,#99d7e4);
+    background-image: linear-gradient(top,#66c4d7,#7accdd 50%,#8bd4e3 51%,#99d7e4);
+    border-color: #009cbd;
+}
+
+.NavigationNavBar .ButtonEnabled:hover, .x-btn.ButtonEnabled.x-btn-focus {
+    border-color: #009cbd;
+    background-image: none;
+    background-color: #66c4d7;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#33b0ca),color-stop(50%,#44bad2),color-stop(51%,#57bdd2),color-stop(100%,#66c4d7));
+    background-image: -webkit-linear-gradient(top,#33b0ca,#44bad2 50%,#57bdd2 51%,#66c4d7);
+    background-image: -moz-linear-gradient(top,#33b0ca,#44bad2 50%,#57bdd2 51%,#66c4d7);
+    background-image: -o-linear-gradient(top,#33b0ca,#44bad2 50%,#57bdd2 51%,#66c4d7);
+    background-image: -ms-linear-gradient(top,#33b0ca,#44bad2 50%,#57bdd2 51%,#66c4d7);
+    background-image: linear-gradient(top,#33b0ca,#44bad2 50%,#57bdd2 51%,#66c4d7);
+}
+
+.NavigationNavBar .ButtonEnabled:active, .x-btn.ButtonEnabled.x-btn-pressed {
+    border-color: #009cbd;
+    background-image: none;
+    background-color: #33b0ca;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#33b0ca),color-stop(50%,#33b0ca),color-stop(51%,#33b0ca),color-stop(100%,#33b0ca));
+    background-image: -webkit-linear-gradient(top,#33b0ca,#33b0ca 50%,#33b0ca 51%,#33b0ca);
+    background-image: -moz-linear-gradient(top,#33b0ca,#33b0ca 50%,#33b0ca 51%,#33b0ca);
+    background-image: -o-linear-gradient(top,#33b0ca,#33b0ca 50%,#33b0ca 51%,#33b0ca);
+    background-image: -ms-linear-gradient(top,#33b0ca,#33b0ca 50%,#33b0ca 51%,#33b0ca);
+    background-image: linear-gradient(top,#33b0ca,#33b0ca 50%,#33b0ca 51%,#33b0ca);
+    -webkit-box-shadow: #33b0ca 0 1px 0 0 inset,#33b0ca 0 -1px 0 0 inset,#33b0ca -1px 0 0 0 inset,#33b0ca 1px 0 0 0 inset;
+    -moz-box-shadow: #33b0ca 0 1px 0 0 inset,#33b0ca 0 -1px 0 0 inset,#33b0ca -1px 0 0 0 inset,#33b0ca 1px 0 0 0 inset;
+    box-shadow: #33b0ca 0 1px 0 0 inset,#33b0ca 0 -1px 0 0 inset,#33b0ca -1px 0 0 0 inset,#33b0ca 1px 0 0 0 inset;
+    -webkit-box-shadow: #d4e1eb 0 1px 0 0 inset, #d4e1eb 0 -1px 0 0 inset, #d4e1eb -1px 0 0 0 inset, #d4e1eb 1px 0 0 0 inset;
+    -moz-box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+    box-shadow: #d4e1eb 0 1px 0 0 inset, #d4e1eb 0 -1px 0 0 inset, #d4e1eb -1px 0 0 0 inset, #d4e1eb 1px 0 0 0 inset;
+}
+
+.NavigationNavBar input[type=text] {
+    font-size: 18px;
+    line-height: 18px;
+    padding: 6px 6px 3px;
+}
+
+.NavigationNavBar .x-form-type-text .x-form-trigger-wrap {
+    border: none;
+}
+
+.NavigationNavBar .FlatOrangeButton {
+    background-image: none;
+    background-color: #c98400;
+    border-color: #926001;
+}
+
+.NavigationNavBar .FlatOrangeButton:hover {
+    background-color: #BA7B02 !important;
+}
+
+.NavigationNavBar .FlatOrangeButton.x-btn-pressed {
+    background-image: none;
+    background-color: #A56D01 !important;
+    border-color: #c98400;
+}
+
+.NavigationNavBar .NavBarAddButton {
+    color: white;
+    font-size: 22px;
+    border-radius: 16px;
+}
+
+.NavigationNavBar .NavBarIconButton {
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 6px 3px 0 6px;
+}
+
+.x-menu .x-menu-item.SectionSeperator {
+    border-top: #888888 1px solid;
+    padding-top: 2px;
+    margin-top: 2px;
+}
+
+.NavigationNavBar .BIAIconButton {
+    font-size: 30px;
+    line-height: 30px;
+    padding: 0;
+}
+
+.NavigationNavBar .BIAIconButton.LargeScale {
+    font-size: 34px;
+    line-height: 33px;
+    margin-top: 0px !important;
+}
+
+.NavigationNavBar .BIAIconButton.SmallScale {
+    font-size: 26px;
+    line-height: 25px;
+    margin-top: 2px !important;
+}
+
+.NavigationNavBar .BIAIconButton.ButtonEnabled {
+    font-size: 27px;
+    line-height: 26px;
+    padding: 1px;
+}
+
+.NavigationNavBar .BIAIconButton.LargeScale.ButtonEnabled {
+    font-size: 29px;
+    line-height: 28px;
+    padding: 0 1px;
+}
+
+.NavigationNavBar .BIAIconButton.SmallScale.ButtonEnabled {
+    font-size: 25px;
+    line-height: 24px;
+    padding: 0 1px;
+}

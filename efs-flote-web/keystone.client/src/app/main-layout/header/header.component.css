@@ -1,0 +1,154 @@
+.navbar.navbar-dark .navbar-nav .nav-item .nav-link {
+  color: white;
+  font-weight: 500;
+  border-top: 1px solid #09238d;
+  border-bottom: 1px solid #09238d;
+}
+
+  .navbar.navbar-dark .navbar-nav .nav-item .nav-link:hover {
+    color: yellow;
+    border-top: 1px solid yellow;
+    border-bottom: 1px solid yellow;
+  }
+
+.nga-navbar {
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 11px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 11px 10px 0 rgba(0, 0, 0, 0.12);
+  background-color: #908474;
+}
+
+.nga-navbar-logo {
+  font-weight: 700;
+}
+
+  .nga-navbar-logo:hover {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+.nga-logo {
+  font-weight: 700;
+}
+
+  .nga-logo:hover {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+.nga-footer {
+  background-color: #908474;
+  color: white;
+}
+
+  .nga-footer a {
+    color: white;
+    text-decoration: none
+  }
+
+    .nga-footer a:hover,
+    .nga-footer a:focus {
+      color: yellow;
+      text-decoration: underline;
+    }
+
+  .nga-footer .hint {
+    background-color: #908474;
+  }
+
+    .nga-footer .hint:hover {
+      opacity: 0.8;
+    }
+
+:host {
+  position: fixed; /* Makes the component stay in one place */
+  top: 0; /* Adjust position as needed */
+  left: 0;
+  width: 100%; /* Ensures the component covers the full width */
+  height: 60px;
+  overflow: hidden; /* Prevents any scrolling inside the component */
+}
+
+.icon-clickable {
+  cursor: pointer;
+}
+/* Existing styles remain */
+
+/* Right side (user info + logo) flex formatting */
+.right-pane {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.right-pane .user-info-block {
+  display: flex;
+  flex-direction: column;
+  max-width: 220px;
+  line-height: 1.15;
+}
+
+.right-pane .user-info-block .user-line,
+.right-pane .user-info-block .meta-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Slightly reduce default font sizing for tight spaces */
+@media (max-width: 992px) {
+  .right-pane {
+    gap: 0.9rem;
+  }
+  .right-pane .user-info-block {
+    max-width: 180px;
+  }
+  .right-pane .profile-logo {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
+
+/* Compact layout for small screens */
+@media (max-width: 768px) {
+  .right-pane {
+    gap: 0.65rem;
+  }
+  .right-pane .user-info-block {
+    max-width: 150px;
+    font-size: 0.72rem;
+  }
+  .right-pane .profile-logo {
+    width: 44px !important;
+    height: 44px !important;
+  }
+}
+
+/* Ultra small: stack user info below logo without breaking structure */
+@media (max-width: 520px) {
+  .right-pane {
+    flex-wrap: wrap;
+  }
+  .right-pane .profile-logo {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  .right-pane .user-info-block {
+    flex: 1 1 100%;
+    order: 2;
+    max-width: 100%;
+    margin-top: 0.15rem;
+  }
+  .right-pane .user-info-block .user-line,
+  .right-pane .user-info-block .meta-line {
+    font-size: 0.65rem;
+  }
+}
+
+/* Prevent header from clipping tooltips or modals */
+:host {
+  overflow: visible;
+}
+
+/* (Retain existing .icon-clickable rule) */
+
+.container-header {
+  background-color: #908474;
+}

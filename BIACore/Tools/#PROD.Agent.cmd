@@ -1,0 +1,8 @@
+@SET SERVER=\\wksp000286c8
+@SET SVCNAME=biaservice
+@SET SOURCEPATH=..\Service\bin\PROD
+@SET DEPLOYPATH=..\..\..\..\PROD\BIA.agent
+
+@CALL DeployAgent.cmd %SERVER% %SVCNAME% %SOURCEPATH% %DEPLOYPATH%
+
+@PAUSE

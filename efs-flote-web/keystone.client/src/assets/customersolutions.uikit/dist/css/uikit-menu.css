@@ -1,0 +1,141 @@
+﻿:root {
+    /* root vaiables*/
+    --color-blue: blue;
+    --color-brown: #330000;
+    --color-brown-1: #582c06;
+    --color-brown-2: #321011;
+    --color-brown-3: #5E544B;
+    --color-white: #FFF;
+    --color-light-gray: #CCC;
+    --color-dark-gray: #212121;
+    --color-black-35: rgba(0,0,0,0.35);
+    --color-light-blue: #2196F3;
+    --color-light-brown: #90867F;
+    --color-light-brown-1: #BBB0A2;
+    --color-light-brown-2: #E0B78D;
+    /* component vaiables*/
+
+    --header-bgcolor: var(--color-brown);
+    --title-color: var(--color-white);
+    --navtop-border-color: var(--color-light-gray);
+    --navtop-item-color: var(--color-dark-gray);
+    --navtop-item-bgcolor: var(--color-white);
+    --navtop-item-color-hover: var(--color-white);
+    --navtop-item-bgcolor-hover: var(--color-light-blue);
+    --navtop-9dot-color: var(--color-white);
+    --navtop-9dot-bgcolor: var(--color-brown);
+    --navtop-9dot-title-color: var(--color-brown);
+    --navtop-9dot-title-bgcolor: var(--color-white);
+    --navtop-9dot-title-border-color: var(--color-brown);
+    --navapp-item-color: var(--color-white);
+    --navapp-item-bgcolor: var(--color-brown-3);
+    --navapp-item-color-hover: var(--color-brown);
+    --navapp-item-bgcolor-hover: var(--color-light-brown-1);
+    --navapp-item-bgcolor-focus: var(--color-light-brown);
+    --navapp-sub-item-color: var(--color-white);
+    --navapp-sub-item-bgcolor: var(--color-light-brown);
+    --navapp-sub-sub-item-color: var(--color-brown);
+    --navapp-sub-sub-item-bgcolor: var(--color-light-brown-1);
+    --footer-bgcolor: var(--color-brown);
+    --footer-color: var(--color-white);
+    --footer-link-color: var(--color-white);
+    --footer-link-color-hover: var(--color-light-brown-2);
+}
+/***** Application Navigation Bar Large screen design *****/
+nav.appbar {
+    background-color: #99bce8;
+    height: 35px;
+    margin-top: 4px;
+}
+    nav.appbar ul {
+        background-color: var(--navapp-sub-item-bgcolor);
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+        nav.appbar ul:first-child {
+            background-color: #9fafc4;
+            height: 35px;
+            overflow: inherit;
+            margin: -4px 0 0 0;
+        }
+            nav.appbar ul:first-child a {
+                width: 100% !important;
+                display: inline-block;
+                color: white;
+                background-color: var(--navapp-item-bgcolor);
+                text-decoration: none;
+                padding: 13px 22px;
+                min-width: 110px;
+                white-space: nowrap;
+                font-family: inherit;
+                font-size: 16px;
+                font-weight: 400;
+                /* text-transform: uppercase; */
+                text-align: left;
+            }
+            nav.appbar ul:first-child > li > ul a {
+                text-align: left;
+            }
+            nav.appbar ul:first-child li a.submenu.active {
+                background-color: var(--navapp-sub-item-bgcolor);
+                color: var(--navapp-sub-item-color);
+            }
+            nav.appbar ul:first-child li a.submenu::after {
+                content: url('../image/icon/icon-arrow-triangle-down.svg');
+                filter: invert(100%) sepia(0%) saturate(617%) hue-rotate(135deg) brightness(105%) contrast(101%) !important;
+                display: inherit;
+                height: 15px;
+                width: 15px;
+                margin-left: 5px;
+            }
+            nav.appbar ul:first-child li a.submenu.active::after {
+                content: url('../image/icon/icon-arrow-triangle-down.svg');
+                filter: invert(6%) sepia(52%) saturate(3526%) hue-rotate(351deg) brightness(105%) contrast(111%) !important;
+            }
+            nav.appbar ul:first-child li > ul > li > a.submenu::after {
+                content: url('../image/icon/icon-arrow-triangle-right.svg');
+                float: right;
+            }
+            nav.appbar ul:first-child li > ul > li > a.submenu.active:hover::after,
+            nav.appbar ul:first-child li > ul > li > a.submenu.active::after {
+                content: url('../image/icon/icon-arrow-triangle-right.svg');
+                float: right;
+            }
+            nav.appbar ul:first-child > li ul a {
+                background-color: var(--nav-sub-item-bgcolor);
+            }
+            nav.appbar ul:first-child > li {
+                float: left;
+            }
+                nav.appbar ul:first-child > li ul {
+                    display: none;
+                    position: absolute;
+                    min-width: 20%;
+                    background-color: var(--navapp-sub-item-bgcolor);
+                    z-index: 500;
+                    border-radius: 0 0 4px 4px;
+                    box-shadow: 2px 2px 3px 0 var(--color-black-35);
+                }
+                    nav.appbar ul:first-child a:hover,
+                    nav.appbar ul:first-child a.submenu:hover,
+                    nav.appbar ul:first-child > li ul a.submenu.active,
+                    nav.appbar ul:first-child a.submenu.active:hover {
+                        background-color: var(--navapp-item-bgcolor-hover);
+                        color: var(--navapp-item-color-hover);
+                    }
+            nav.appbar ul:first-child a.submenu.active:hover {
+                background-color: var(--navapp-item-bgcolor-hover);
+                color: var(--navapp-item-color-hover);
+            }
+            nav.appbar ul:first-child li:has(> ul > li > a.submenu.active) {
+                background-color: var(--navapp-item-bgcolor-hover);
+                color: var(--navapp-item-color-hover);
+            }
+            nav.appbar ul:first-child li > ul > li > a.submenu:hover::after {
+                content: url('../image/icon/icon-arrow-triangle-right.svg');
+            }
+            nav.appbar ul:first-child > li > ul > li > ul {
+                left: 100%;
+                margin-top: -50px;
+            }

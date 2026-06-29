@@ -1,0 +1,106 @@
+﻿.BIASecurity .x-tab-bar, .BIASecurity .x-tab-bar.x-tab-bar-plain {
+    background: transparent !important;
+}
+
+.BIASecurity .x-tab-bar-body {
+    min-height: 48px;
+    padding-bottom: 10px;
+}
+
+.BIASecurity .x-tab {
+    padding: 12px 16px;
+    min-width: 90px;
+    background-color: transparent;
+    border-color: transparent;
+    color: #A6A6A3;
+}
+
+.BIASecurity .x-tab.x-tab-default-top,.BIASecurity .x-tab.x-tab-default-bottom,.BIASecurity .x-tab.x-tab-default-left,.BIASecurity .x-tab.x-tab-default-right {    
+    -moz-border-radius-topleft: 0px;
+    -webkit-border-top-left-radius: 0px;
+    border-top-left-radius: 0px;
+    -moz-border-radius-topright: 0px;
+    -webkit-border-top-right-radius: 0px;
+    border-top-right-radius: 0px;
+    -moz-border-radius-bottomright: 0;
+    -webkit-border-bottom-right-radius: 0;
+    border-bottom-right-radius: 0;
+    -moz-border-radius-bottomleft: 0;
+    -webkit-border-bottom-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-width: 0;
+    border-style: none;
+}
+
+.BIASecurity .x-tab.x-tab-over, .BIASecurity .x-tab.x-tab-active.x-tab-over/*, .BIASecurity .x-tab.x-tab-focus, .BIASecurity .x-tab.x-tab-active.x-tab-focus*/ {
+    background-color: #E8E8E7;
+}
+
+.BIASecurity .x-tab.x-tab-pressed, .BIASecurity .x-tab.x-tab-active.x-tab-pressed {
+    bacKground-color: #D9D9D6;
+}
+
+.BIASecurity .x-tab.x-tab-active {
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom: 2px solid #3892d3;
+    color: #3892d3;
+    box-shadow: none;
+}
+
+.BIASecurity .x-tab.x-tab-active.x-tab-over/*, .BIASecurity .x-tab.x-tab-active.x-tab-focus*/ {
+    color: #3386c2;
+    border-bottom-color: #3386c2;
+}
+
+.BIASecurity .x-tab.x-tab-active.x-tab-pressed {
+    color: #2a6d9e;
+    border-bottom-color: #2a6d9e;
+}
+
+.BIASecurity .x-tab .x-tab-inner {
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: bold;
+    color: inherit;
+}
+
+.BIASecurity .x-tab.x-tab-active.x-tab-default .x-tab-inner-default {
+    color: inherit;
+}
+
+.BIASecurity .x-tab-bar-top > .x-tab-bar-strip-default,
+.BIASecurity .x-tab-bar-bottom > .x-tab-bar-strip-default {
+    height: 0;
+}
+
+.BIASecurity .x-tab-bar-left > .x-tab-bar-strip-default,
+.BIASecurity .x-tab-bar-right > .x-tab-bar-strip-default {
+    width: 0;
+}
+
+.BIASecurity .x-tab-bar {
+    box-shadow: rgba(0, 0, 0, 0.137255) 0px 0px 2px 0px, rgba(0, 0, 0, 0.117647) 0px 0px 5px 0px, rgba(0, 0, 0, 0.2) 0px 0px 1px 0px;
+    margin-bottom: 8px;
+    padding-bottom: 0px;
+}
+
+.BIASecurity .x-tab-bar-top {
+    margin-bottom: 8px;
+    padding-bottom: 0px;
+}
+
+.BIASecurity .x-tab-bar-left {
+    margin-right: 8px;
+    padding-right: 0px;
+}
+
+.BIASecurity .x-tab-bar-right {
+    margin-left: 8px;
+    padding-left: 0px;
+}
+
+.BIASecurity .x-tab-bar-bottom {
+    margin-top: 8px;
+    padding-top: 0px;
+}

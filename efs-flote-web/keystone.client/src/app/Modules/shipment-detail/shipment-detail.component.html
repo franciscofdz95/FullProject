@@ -1,0 +1,280 @@
+<div class="shipment-detail-modal">
+
+  <!-- ===== Modal title bar ===== -->
+  <div class="sd-modal-title">
+    <span>Shipment Detail</span>
+    <button class="sd-close-x" (click)="close()" title="Close">&#10005;</button>
+  </div>
+
+  <!-- ===== 1. Collapsible header panel (olive) ===== -->
+  <div class="sd-panel sd-olive">
+    <div class="sd-olive-bar" (click)="headerCollapsed = !headerCollapsed">
+      <span class="sd-collapse-icon">{{ headerCollapsed ? '&#9654;' : '&#9660;' }}</span>
+      <span class="sd-olive-title" [innerHTML]="headerTitleHtml"></span>
+    </div>
+
+    <div class="sd-header-body" *ngIf="!headerCollapsed">
+      <div class="sd-info-row">
+
+        <!-- Customer -->
+        <div class="sd-info-box sd-customer" style="flex:2;">
+          <div class="sd-info-header">Customer</div>
+          <div class="sd-info-content">
+            <div class="sd-field">
+              <span class="sd-flabel">Customer Group:</span>
+              <span class="sd-fvalue">{{ customer.CUSTOMER_GROUP }}</span>
+            </div>
+            <div class="sd-field">
+              <span class="sd-flabel">Shipper:</span>
+              <span class="sd-fvalue" [innerHTML]="shipperHtml"></span>
+            </div>
+            <div class="sd-field">
+              <span class="sd-flabel">Consignee:</span>
+              <span class="sd-fvalue" [innerHTML]="consigneeHtml"></span>
+            </div>
+            <div class="sd-field">
+              <span class="sd-flabel">Freight Payer:</span>
+              <span class="sd-fvalue" [innerHTML]="freightPayerHtml"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Container Fact -->
+        <div class="sd-info-box" style="flex:1;">
+          <div class="sd-info-header">Container Fact</div>
+          <div class="sd-grid-wrap">
+            <table class="sd-fact-grid">
+              <thead>
+                <tr>
+                  <th>Container Number</th>
+                  <th>Container Type<br/>Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let c of containerRows">
+                  <td [title]="c.container_busid">{{ c.container_busid }}</td>
+                  <td>{{ c.container_type }}</td>
+                </tr>
+                <tr *ngIf="containerRows.length === 0">
+                  <td colspan="2" class="sd-empty">No Matches Found!</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- MBL Fact -->
+        <div class="sd-info-box" style="flex:3;">
+          <div class="sd-info-header">MBL Fact</div>
+          <div class="sd-grid-wrap">
+            <table class="sd-fact-grid">
+              <thead>
+                <tr>
+                  <th>MBL Number</th>
+                  <th>Mode</th>
+                  <th>E2K<br/>Carrier<br/>Code</th>
+                  <th>Carrier BOL</th>
+                  <th>Depart Date</th>
+                  <th>MBL<br/>Origin</th>
+                  <th>MBL<br/>Destination</th>
+                  <th>Cost<br/>Basis<br/>Code</th>
+                  <th class="sd-right">Total<br/>MBL Cost<br/>USD</th>
+                  <th>Closed Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let m of mblRows">
+                  <td [title]="m.mbl_nbr">{{ m.mbl_nbr }}</td>
+                  <td>{{ m.mode }}</td>
+                  <td>{{ m.vendor_code }}</td>
+                  <td [title]="m.carrier_bol">{{ m.carrier_bol }}</td>
+                  <td>{{ formatDate(m.mbl_depart_date) }}</td>
+                  <td>{{ m.orig_tp }}</td>
+                  <td>{{ m.dest_tp }}</td>
+                  <td>{{ m.mbl_cost_basis }}</td>
+                  <td class="sd-right">{{ formatNumber(+m.Total_buy_USD) }}</td>
+                  <td>{{ formatDate(m.mbl_closed_date) }}</td>
+                </tr>
+                <tr *ngIf="mblRows.length === 0">
+                  <td colspan="10" class="sd-empty">No Matches Found!</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 2. Charge grid toolbar (currency + export) ===== -->
+  <div class="sd-charge-toolbar">
+    <span class="sd-spacer"></span>
+    <select class="sd-currency" [(ngModel)]="displayCurrency" (change)="onCurrencyChanged()">
+      <option *ngFor="let c of currencyOptions" [value]="c['currency_code']">{{ c['currency_code'] }}</option>
+    </select>
+    <button class="sd-export-btn" (click)="exportToExcel()" title="Export to Excel">
+      <img src="../../../assets/logo/excel_button.png" style="width:22px; height:22px;" />
+    </button>
+  </div>
+
+  <!-- ===== 3. Charge detail grid (collapsible groups) ===== -->
+  <div class="sd-charge-grid-wrap">
+    <div class="sd-loading" *ngIf="isLoading">
+      <i class="fa fa-spinner fa-spin fa-2x"></i><br/>Query in progress, please wait...
+    </div>
+
+    <table class="sd-charge-grid">
+      <thead>
+        <tr>
+          <th style="width:75px;">Location</th>
+          <th style="width:60px;">Row<br/>Type</th>
+          <th style="width:90px;">Status</th>
+          <th style="width:110px;">Vendor Code</th>
+          <th style="width:130px;">MBL<br/>Number</th>
+          <th style="width:90px;">Charge Code</th>
+          <th style="width:250px;">Charge Desc</th>
+          <th style="width:100px;">Charge Split</th>
+          <th style="width:65px;">Rev Top<br/>Ind</th>
+          <th class="sd-right" style="width:100px;">Sell<br/>Amount</th>
+          <th style="width:50px;">Sell<br/>Curr.</th>
+          <th class="sd-right" style="width:120px;">Sell<br/>Amt<br/>({{ displayCurrency }})</th>
+          <th class="sd-right" style="width:100px;">Buy<br/>Amount</th>
+          <th style="width:50px;">Buy<br/>Curr.</th>
+          <th class="sd-right" style="width:120px;">Buy<br/>Amt<br/>({{ displayCurrency }})</th>
+          <th class="sd-right" style="width:120px;">Margin<br/>Amt<br/>({{ displayCurrency }})</th>
+          <th class="sd-right" style="width:90px;">Margin<br/>Pct</th>
+        </tr>
+      </thead>
+
+      <tbody *ngFor="let g of groups">
+        <!-- group header (collapsible) -->
+        <tr class="sd-group-header" (click)="toggleGroup(g)">
+          <td colspan="17">
+            <span class="sd-group-icon">{{ g.collapsed ? '&#9658;' : '&#9472;' }}</span>
+            <span class="sd-group-rank">{{ g.rank }}</span>{{ g.type }} - {{ g.recordCount }} Records
+          </td>
+        </tr>
+
+        <!-- group rows -->
+        <ng-container *ngIf="!g.collapsed">
+          <tr *ngFor="let r of g.rows"
+              [class.sd-mbl-row]="isMasterBill(r)"
+              [class.sd-billed-row]="isBilled(r)">
+            <td>{{ r.location_code }}</td>
+            <td>{{ r.rowtype }}</td>
+            <td>{{ r.CHARGE_STATUS }}</td>
+            <td>{{ r.vendor_name }}</td>
+            <td [title]="r.mbl_nbr">{{ r.mbl_nbr }}</td>
+            <td>{{ r.charge_code }}</td>
+            <td [title]="r.CHARGE_DESCRIPTION">{{ r.CHARGE_DESCRIPTION }}</td>
+            <td>{{ r.rev_split }}</td>
+            <td>{{ r.intl_ahl_topline_ind }}</td>
+            <td class="sd-right">{{ formatNumber(rowSell(r)) }}</td>
+            <td>{{ r.sell_cid }}</td>
+            <td class="sd-right" [class.sd-italic]="isMasterBill(r)">{{ formatNumber(rowSell(r)) }}</td>
+            <td class="sd-right">{{ formatNumber(+r.buy_amt) }}</td>
+            <td>{{ r.buy_cid }}</td>
+            <td class="sd-right" [class.sd-italic]="isMasterBill(r)">{{ formatNumber(rowBuy(r)) }}</td>
+            <td class="sd-right">{{ formatNumber(rowMargin(r)) }}</td>
+            <td class="sd-right">{{ formatPercent(rowMarginPct(r)) }}</td>
+          </tr>
+        </ng-container>
+
+        <!-- group subtotal -->
+        <tr class="sd-group-total">
+          <td>{{ groupSubtotalLabel(g.type) }}</td>
+          <td colspan="10"></td>
+          <td class="sd-right">{{ formatNumber(g.sellTotal) }}</td>
+          <td colspan="2"></td>
+          <td class="sd-right">{{ formatNumber(g.buyTotal) }}</td>
+          <td class="sd-right">{{ formatNumber(g.marginTotal) }}</td>
+          <td class="sd-right">{{ formatPercent(g.marginPct) }}</td>
+        </tr>
+      </tbody>
+
+      <!-- no results -->
+      <tbody *ngIf="noResults && !isLoading">
+        <tr>
+          <td colspan="17" class="sd-empty">No Matches Found! Verify the selected filter criteria.</td>
+        </tr>
+      </tbody>
+
+      <!-- grand total (single, non-collapsible) -->
+      <tfoot *ngIf="!noResults">
+        <tr class="sd-grand-total">
+          <td>Grand T...</td>
+          <td colspan="10"></td>
+          <td class="sd-right">{{ formatNumber(grandSellTotal) }}</td>
+          <td colspan="2"></td>
+          <td class="sd-right">{{ formatNumber(grandBuyTotal) }}</td>
+          <td class="sd-right">{{ formatNumber(grandMarginTotal) }}</td>
+          <td class="sd-right">{{ formatPercent(grandMarginPct) }}</td>
+        </tr>
+      </tfoot>
+
+    </table>
+  </div>
+
+  <!-- ===== 4. Collapsible Shipment Notes panel (olive) ===== -->
+  <div class="sd-panel sd-olive">
+    <div class="sd-olive-bar" (click)="notesCollapsed = !notesCollapsed">
+      <span class="sd-collapse-icon">{{ notesCollapsed ? '&#9654;' : '&#9660;' }}</span>
+      <span class="sd-olive-title"><b>Shipment Notes</b></span>
+    </div>
+
+    <div class="sd-notes-body" *ngIf="!notesCollapsed">
+      <div class="sd-notes-toolbar">
+        <button class="sd-note-add-btn" (click)="openAddNote()">Add/View Shipment Note</button>
+      </div>
+      <div class="sd-grid-wrap">
+        <table class="sd-fact-grid sd-notes-grid">
+          <thead>
+            <tr>
+              <th style="width:40px;"></th>
+              <th style="width:150px;">Date</th>
+              <th style="width:120px;">User</th>
+              <th style="width:350px;">Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let n of noteRows">
+              <td class="sd-center">
+                <button class="sd-note-del"
+                        [class.sd-note-del-disabled]="!canDeleteNotes"
+                        [disabled]="!canDeleteNotes"
+                        (click)="deleteNote(n)"
+                        title="Delete note">
+                  <img class="sd-note-del-icon"
+                       src="../../../assets/customersolutions.uikit/dist/img/icon-trash-brown.svg"
+                       alt="Delete" />
+                </button>
+              </td>
+              <td>{{ n.frn_created }}</td>
+              <td>{{ n.usr_name }}</td>
+              <td>{{ n.frn_note }}</td>
+            </tr>
+            <tr *ngIf="noteRows.length === 0">
+              <td colspan="4" class="sd-empty">No notes.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 5. Legend / instructions ===== -->
+  <div class="sd-legend">
+    <span style="font-style:italic;">Italic</span> amounts are from the Master Bill<br/>
+    Currency conversions at UPS Treasurys most recent monthly average rate.<br/>
+    <span style="font-weight:bold; color:blue;">Bold Blue</span> items are calculated based on a Container Allocation process.<br/>
+    <span style="font-weight:bold; color:black;">Bold Black</span> items have been Billed in Flote.<br/>
+    Note(s): FLOTE does not reflect the same complete financial period as GPR, Khalix or other financial reports.
+  </div>
+
+  <!-- ===== Footer (copyright) ===== -->
+  <div class="sd-footer">
+    Copyright &copy; {{ year }}, United Parcel Service of America, Inc. All Rights Reserved.
+  </div>
+
+</div>

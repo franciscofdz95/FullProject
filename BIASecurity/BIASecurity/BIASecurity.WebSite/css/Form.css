@@ -1,0 +1,11 @@
+﻿.RedButton {
+    background-color: red !important;
+    border-color: darkred !important;
+    background-image: -webkit-linear-gradient(top, #ff6666, #ff5050 50%, #ff5050 51%, #ff5050) !important;
+}
+
+.GreenButton {
+    background-color: green !important;
+    border-color: darkgreen !important;
+    background-image: -webkit-linear-gradient(top, #A2CA6D, #83B93C 50%, #83B93C 51%, #83B93C) !important;
+}

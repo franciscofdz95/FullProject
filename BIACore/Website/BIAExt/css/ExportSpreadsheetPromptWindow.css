@@ -1,0 +1,10 @@
+﻿.PromptWindowOptionsCheckboxLabels .x-form-cb-label{
+    font-style: italic; 
+    font-size: 14px; 
+    padding-left: 25px;
+}
+
+.BIAExportSpreadsheetPromptWindow.x-window {
+    border-width: 0px;
+    border-style: none;
+}

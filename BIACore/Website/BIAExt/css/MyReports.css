@@ -1,0 +1,16 @@
+﻿.MyReports .Processing {
+    color: purple;
+    font-style: italic;
+}
+.MyReports .Error {
+    color: brown; 
+    font-weight: bold;
+}
+.MyReports .Complete {
+    color: Green;
+}
+.MyReports .NotApplicable {
+    color: #93915a;  
+    font-weight: bold;
+}
+.icon-trash_can { background-image:url('images/trash-can.png'); }

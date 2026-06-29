@@ -1,0 +1,1165 @@
+
+  <div class="layout">
+
+    <!-- Left container -->
+    <div class="left-panel" [class.collapsed]="isCollapsed" style="border: 1px; border-color: #157FCC; background-color: #157FCC;">
+
+      <!-- Toggle button -->
+      <button class="toggle-btn" (click)="toggle()">
+        {{ isCollapsed ? '▶' : '◀' }}
+      </button>
+
+      <!-- Content -->
+      <div class="left-content" *ngIf="!isCollapsed">
+        <div class="row" style="border: 1px; border-color: #157FCC; background-color: #157FCC;">
+          <div class="col-md-10">
+            <h3>Filter Criteria</h3>
+          </div>
+          <div class="col-md-2" (click)="toggle()"></div>
+        </div>
+        <div *ngIf="paiddifferentlyhid">
+          <div class="row" style="background-color:#1D598E;">
+            <div class="col-md-6">
+              <label>Accounting Year:</label>
+            </div>
+            <div class="col-md-6">
+              <ng-select [items]="accountingYearOptions"
+                         bindLabel="Accounting_Year"
+                         bindValue="Accounting_Year"
+                         id="accountingyear"
+                         name="accountingyear"
+                         placeholder="Select an option"
+                         [readonly]="accountingyeardis"
+                         [(ngModel)]="filterAcctYear"
+                         (ngModelChange)="onAcctYearChange($event)">
+              </ng-select>
+
+            </div>
+          </div>
+          <div class="row" style="background-color:#1D598E;">
+            <div class="col-md-6">
+              <label>Accounting Month:</label>
+            </div>
+            <div class="col-md-6">
+              <ng-select [items]="accountingMonthFilteredOptions"
+                         bindLabel="Accounting_Month"
+                         bindValue="Accounting_Month"
+                         id="accountingmonth"
+                         name="accountingmonth"
+                         placeholder="Select an option"
+                         [readonly]="accountingmonthdis"
+                         [(ngModel)]="filterAcctMonth">
+              </ng-select>
+            </div>
+          </div>
+          <div class="row" style="background-color:#1D598E;">
+            <div class="col-md-6">
+              <label>Display Currency:</label>
+            </div>
+            <div class="col-md-6">
+              <ng-select [items]="displayCurrencyOptions"
+                         bindLabel="currency_code"
+                         bindValue="currency_code"
+                         id="displaycurrency"
+                         name="displaycurrency"
+                         placeholder="Select an option"
+                         [readonly]="displaycurrentdis"
+                         [(ngModel)]="filterDisplayCurr">
+              </ng-select>
+            </div>
+          </div>
+          <!--Accrual Status-->
+          <div class="row" style="background-color:#1D598E;" [hidden]="accrualtstathid">
+            <div class="col-md-6">
+              <label>Accrual Status:</label>
+            </div>
+            <div class="col-md-6">
+              <ng-select bindLabel="accrualstatus"
+                         bindValue="accrualstatus"
+                         id="accrualstatus"
+                         name="accrualstatus"
+                         placeholder="Select an option"
+                         [readonly]="accrualstatdis"
+                         [(ngModel)] = "paramsList.accrualstatval">
+              </ng-select>
+            </div>
+          </div>
+          <!--Cost type-->
+          <div class="row" style="background-color:#1D598E;" [hidden]="costtypehid">
+            <div class="col-md-6">
+              <label>Cost Type:</label>
+            </div>
+            <div class="col-md-6">
+              <ng-select bindLabel="costtype"
+                         bindValue="costtype"
+                         id="costtype"
+                         name="costtype"
+                         placeholder="Select an option"
+                         [readonly]="costtypedis"
+                         [(ngModel)] = "paramsList.costtypeval">
+              </ng-select>
+            </div>
+          </div>
+          <div class="row" style="background-color:#1D598E;">
+            <div class="col-md-6">
+              <label>Location Type:</label>
+            </div>
+            <div class="col-md-6">
+              <ng-select [items]="locationTypeOptions"
+                         bindLabel="text"
+                         bindValue="value"
+                         id="locationtype"
+                         name="locationtype"
+                         placeholder="Select an option"
+                         [readonly]="locationtypedis"
+                         [(ngModel)]="filterLocType">
+              </ng-select>
+            </div>
+          </div>
+          <!--Location Code (autocomplete, min 3 chars)-->
+          <div class="row" style="background-color:#1D598E;">
+            <div class="col-md-6">
+              <label>Location Code:</label>
+            </div>
+            <div class="col-md-6">
+              <ng-select [items]="locationCodeOptions"
+                         bindLabel="location_code"
+                         bindValue="location_code"
+                         id="locationcode"
+                         name="locationcode"
+                         placeholder="Type min 3 chars..."
+                         [readonly]="locationcodedis"
+                         [(ngModel)]="filterLocCode"
+                         [typeahead]="locationCodeTypeahead$"
+                         [minTermLength]="3"
+                         [loading]="locationCodeLoading"
+                         typeToSearchText="Type 3+ chars to search"
+                         [clearable]="true"
+                         (change)="onLocationCodeChanged($event)">
+              </ng-select>
+            </div>
+          </div>
+          <!--Origin - Destination-->
+          <div class="row" style="background-color:#1D598E;" [hidden]="origdesthid">
+            <div class="col-md-6">
+              <label>Orig / Dest:</label>
+            </div>
+            <div class="col-md-6">
+              <ng-select bindLabel="origdest"
+                         bindValue="origdest"
+                         id="origdest"
+                         name="origdest"
+                         placeholder="Select an option"
+                         [readonly]="origdestdis"
+                         [(ngModel)] = "paramsList.origdestval">
+              </ng-select>
+            </div>
+          </div>
+          <!--Invoice Status-->
+          <div class="row" style="background-color:#1D598E;" [hidden]="invoicestathid">
+            <div class="col-md-6">
+              <label>Invoice Status:</label>
+            </div>
+            <div class="col-md-6">
+              <ng-select bindLabel="invoicestat"
+                         bindValue="invoicestat"
+                         id="invoicestat"
+                         name="invoicestat"
+                         placeholder="Select an option"
+                         [readonly]="invoicestatdis"
+                         [(ngModel)] = "paramsList.invoicestatval">
+              </ng-select>
+            </div>
+          </div>
+          <!--Paid Status-->
+          <div class="row" style="background-color:#1D598E;" [hidden]="paidstatushid">
+            <div class="col-md-6">
+              <label>Paid Status:</label>
+            </div>
+            <div class="col-md-6">
+              <ng-select bindLabel="paidstatus"
+                         bindValue="paidstatus"
+                         id="paidstatus"
+                         name="paidstatus"
+                         placeholder="Select an option"
+                         [readonly]="paidstatusdis"
+                         [(ngModel)] = "paramsList.paidstatusval">
+              </ng-select>
+            </div>
+          </div>
+          <!--Vendor Code-->
+          <div class="row" style="background-color:#1D598E;" [hidden]="vendorcodehid">
+            <div class="col-md-6">
+              <label>Vendor Code:</label>
+            </div>
+            <div class="col-md-6">
+              <ng-select bindLabel="vendorcode"
+                         bindValue="vendorcode"
+                         id="vendorcode"
+                         name="vendorcode"
+                         placeholder="Select an option"
+                         [readonly]="vendorcodedis"
+                         [(ngModel)] = "paramsList.vendorcodeval">
+              </ng-select>
+            </div>
+          </div>
+          <!--Scan Dest-->
+          <div class="row" style="background-color:#1D598E;" [hidden]="scandesthid">
+            <div class="col-md-6">
+              <label>Scan Dest:</label>
+            </div>
+            <div class="col-md-6">
+              <ng-select bindLabel="scandest"
+                         bindValue="scandest"
+                         id="scandest"
+                         name="scandest"
+                         placeholder="Select an option"
+                         [readonly]="scandestdis"
+                         [(ngModel)] = "paramsList.scandestval">
+              </ng-select>
+            </div>
+          </div>
+          <div class="row" style="background-color:#1D598E;">
+            <div class="col-sm-6">
+              <input type="text" style="width:100%" />
+            </div>
+            <div class="col-md-3">
+              <button class="buttonHome" style="width:30px; " (click)="executeTab()">Go</button>
+            </div>
+            <div class="col-md-3">
+              <button (click)="activeFilter($event)" class="buttonHome" style="width:30px;">...</button>
+            </div>
+          </div>
+        </div>
+        <!--Paid differently-->
+        <div *ngIf="!paiddifferentlyhid">
+          <!--Location Code-->
+          <div class="row" style="background-color:#1D598E;">
+            <div class="col-md-3">
+              <label>Location Code:</label>
+            </div>
+            <div class="col-md-9">
+              <input type="text" style="width:100%" class="inputFilter" [(ngModel)] = "paramsList.locationcodeval"/>
+            </div>
+          </div>
+          <!--Location Country-->
+          <div class="row" style="background-color:#1D598E;">
+            <div class="col-md-3">
+              <label>Location Country:</label>
+            </div>
+            <div class="col-md-9">
+              <input type="text" style="width:100%" class="inputFilter" [(ngModel)] = "paramsList.loccountrypaidval"/>
+            </div>
+          </div>
+          <!--Location Region-->
+          <div class="row" style="background-color:#1D598E;">
+            <div class="col-md-3">
+              <label>Location Region:</label>
+            </div>
+            <div class="col-md-9">
+              <ng-select bindLabel="locationreg"
+                         bindValue="locationreg"
+                         id="locationreg"
+                         name="locationreg"
+                         placeholder="Select an option"
+                         [(ngModel)] = "paramsList.locationregval">
+              </ng-select>
+            </div>
+          </div>
+          <!--Shipment Orig-->
+          <div class="row" style="background-color:#1D598E;">
+            <div class="col-md-3">
+              <label>Shipment - Orig:</label>
+            </div>
+            <div class="col-md-9">
+              <input type="text" style="width:100%" class="inputFilter" [(ngModel)] = "paramsList.shipmentOrigval"/>
+            </div>
+          </div>
+          <!--Shipment Dest-->
+          <div class="row" style="background-color:#1D598E;">
+            <div class="col-md-3">
+              <label>Shipment - Dest:</label>
+            </div>
+            <div class="col-md-9">
+              <input type="text" style="width:100%" class="inputFilter" [(ngModel)] = "paramsList.shipmentDestval"/>
+            </div>
+          </div>
+          <!--Reason-->
+          <div class="row" style="background-color:#1D598E;">
+            <div class="col-md-3">
+              <label>Reason:</label>
+            </div>
+            <div class="col-md-9">
+              <ng-select bindLabel="reason"
+                         bindValue="reason"
+                         id="reason"
+                         name="reason"
+                         placeholder="Select an option"
+                         [(ngModel)] = "paramsList.reasonval">
+              </ng-select>
+            </div>
+          </div>
+          <!--Service-->
+          <div class="row" style="background-color:#1D598E;">
+            <div class="col-md-3">
+              <label>Service:</label>
+            </div>
+            <div class="col-md-9">
+              <ng-select bindLabel="service"
+                         bindValue="service"
+                         id="service"
+                         name="service"
+                         placeholder="Select an option"
+                         [(ngModel)] = "paramsList.serviceval">
+              </ng-select>
+            </div>
+          </div>
+          <!--Start Date-->
+          <div class="row" style="background-color:#1D598E;">
+            <div class="col-md-3">
+              <label>Start Date:</label>
+            </div>
+            <div class="col-md-9">
+              <mat-form-field appearance="fill" style="width: 90%; height: 90%;" id="startdatepaid">
+                <mat-label>Select a date</mat-label>
+
+                <input matInput
+                       [matDatepicker]="startdatepaidpicker"
+                       [(ngModel)]="paramsList.startdateval"
+                       (dateChange)="onDateChange()"
+                       >
+
+                <mat-datepicker-toggle matSuffix [for]="startdatepaidpicker"></mat-datepicker-toggle>
+                <mat-datepicker #startdatepaidpicker></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+          <!--End Date-->
+          <div class="row" style="background-color:#1D598E;">
+            <div class="col-md-3">
+              <label>End Date:</label>
+            </div>
+            <div class="col-md-9">
+              <mat-form-field appearance="fill" style="width: 90%; height: 90%;" id="enddatepaid">
+                <mat-label>Select a date</mat-label>
+
+                <input matInput
+                       [matDatepicker]="enddatepaidpicker"
+                       [(ngModel)]="paramsList.enddateval"
+                       (dateChange)="onDateChange()">
+
+                <mat-datepicker-toggle matSuffix [for]="enddatepaidpicker"></mat-datepicker-toggle>
+                <mat-datepicker #enddatepaidpicker></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+          <!--Vendor Name-->
+          <div class="row" style="background-color:#1D598E;">
+            <div class="col-md-3">
+              <label>Vendor Name:</label>
+            </div>
+            <div class="col-md-9">
+              <input type="text" style="width:100%" class="inputFilter" [(ngModel)] = "paramsList.vendorNameval"/>
+            </div>
+          </div>
+          <!--Masterbill Change-->
+          <div class="row" style="background-color:#1D598E;">
+            <div class="col-md-3">
+              <label>Masterbill Change:</label>
+            </div>
+            <div class="col-md-9">
+              <ng-select bindLabel="masterbill"
+                         bindValue="masterbill"
+                         id="masterbill"
+                         name="masterbill"
+                         placeholder="Select an option"
+                         [(ngModel)] = "paramsList.masterbillval">
+              </ng-select>
+            </div>
+          </div>
+          <!--End menu-->
+          <div class="row" style="background-color:#1D598E;">
+            <div class="col-md-6">
+              <button class="buttonHome" style="width:30px;" (click)="executeTab()">Go</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right container -->
+    <div class="right-panel">
+      <!--main container-->
+      <ng-container *ngIf="!showNoAccessMessage; else noAccessMsg">
+        <div class="d-none d-md-block" *ngIf="hasViewAccess">
+          <nav class="appbar">
+
+            <div class="tab-scroll-container" >
+
+              <div class="tab-wrapper" #tabWrapper>
+                <ul #tabList class="nav nav-tabs mb-3" id="mainTabs" role="tablist" style="margin-bottom: 3px !important; background: #157FCC">
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link tab-btn"
+                       [class.active]="getFirstAccessibleTabId() === 'home-tab'"
+                       id="home-tab"
+                       data-bs-toggle="tab"
+                       href="#home-pane"
+                       role="tab"
+                       aria-controls="home-pane"
+                       [attr.aria-selected]="getFirstAccessibleTabId() === 'home-tab'">Home</a>
+                  </li>
+
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link"
+                       [class.active]="getFirstAccessibleTabId() === 'local-shipment-tab'"
+                       id="local-shipment-tab"
+                       data-bs-toggle="tab"
+                       href="#local-shipment-pane"
+                       role="tab"
+                       aria-controls="local-shipment-pane"
+                       [attr.aria-selected]="getFirstAccessibleTabId() === 'local-shipment-tab'">Local Shipment</a>
+                  </li>
+
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link"
+                       [class.active]="getFirstAccessibleTabId() === 'location-oceanmbl-tab'"
+                       id="location-oceanmbl-tab"
+                       data-bs-toggle="tab"
+                       href="#location-oceanmbl-pane"
+                       role="tab"
+                       aria-controls="location-oceanmbl-pane"
+                       [attr.aria-selected]="getFirstAccessibleTabId() === 'location-oceanmbl-tab'">Location OCEAN MBL</a>
+                  </li>
+
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link"
+                       [class.active]="getFirstAccessibleTabId() === 'bills-tab'"
+                       id="bills-tab"
+                       data-bs-toggle="tab"
+                       href="#bills-pane"
+                       role="tab"
+                       aria-controls="bills-pane"
+                       [attr.aria-selected]="getFirstAccessibleTabId() === 'admin-updates-tab'">Bills</a>
+                  </li>
+
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link"
+                       [class.active]="getFirstAccessibleTabId() === 'location-vendor-tab'"
+                       id="location-vendor-tab"
+                       data-bs-toggle="tab"
+                       href="#location-vendor-pane"
+                       role="tab"
+                       aria-controls="location-vendor-pane"
+                       [attr.aria-selected]="getFirstAccessibleTabId() === 'location-vendor-tab'">Location Vendor</a>
+                  </li>
+
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link"
+                       [class.active]="getFirstAccessibleTabId() === 'vendors-shipment-tab'"
+                       id="vendors-shipment-tab"
+                       data-bs-toggle="tab"
+                       href="#vendors-shipment-pane"
+                       role="tab"
+                       aria-controls="vendors-shipment-pane"
+                       [attr.aria-selected]="getFirstAccessibleTabId() === 'vendors-shipment-tab'">Vendors Shipment</a>
+                  </li>
+
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link"
+                       [class.active]="getFirstAccessibleTabId() === 'vendors-tab'"
+                       id="vendors-tab"
+                       data-bs-toggle="tab"
+                       href="#vendors-pane"
+                       role="tab"
+                       aria-controls="vendors-pane"
+                       [attr.aria-selected]="getFirstAccessibleTabId() === 'vendors-tab'">Vendors</a>
+                  </li>
+
+                  <!--ESE-1025-1,2-->
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link"
+                       [class.active]="getFirstAccessibleTabId() === 'accruals-tab'"
+                       id="accruals-tab"
+                       data-bs-toggle="tab"
+                       href="#accruals-pane"
+                       role="tab"
+                       aria-controls="airline-finance-pane"
+                       [attr.aria-selected]="getFirstAccessibleTabId() === 'accruals-tab'">Accruals</a>
+                  </li>
+
+                  <!--ESE-0526-1 vendor statement summary disabled-->
+                  <li class="nav-item" role="presentation"
+                      hidden="hidden">
+                    <a class="nav-link"
+                       [class.active]="getFirstAccessibleTabId() === 'admin-modules-tab'"
+                       id="admin-modules-tab"
+                       data-bs-toggle="tab"
+                       href="#admin-modules-pane"
+                       role="tab"
+                       aria-controls="admin-modules-pane"
+                       [attr.aria-selected]="getFirstAccessibleTabId() === 'admin-modules-tab'"
+                       disabled="true">Vendor Statement Summary</a>
+                  </li>
+                  <!--ESE-0526-1 vendor statement summary disabled-->
+                  <li class="nav-item" role="presentation" hidden="hidden">
+                    <a class="nav-link"
+                       [class.active]="getFirstAccessibleTabId() === 'admin-modules-tab'"
+                       id="reports-tab"
+                       data-bs-toggle="tab"
+                       href="#reports-pane"
+                       role="tab"
+                       aria-controls="reports-pane"
+                       [attr.aria-selected]="getFirstAccessibleTabId() === 'admin-modules-tab'">Invoice Processing</a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link"
+                       [class.active]="getFirstAccessibleTabId() === 'paid-differently-tab'"
+                       id="paid-differently-tab"
+                       data-bs-toggle="tab"
+                       href="#paid-differently-pane"
+                       role="tab"
+                       aria-controls="paid-differently-pane"
+                       [attr.aria-selected]="getFirstAccessibleTabId() === 'paid-differently-tab'">Paid Differently</a>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <a class="nav-link"
+                       [class.active]="getFirstAccessibleTabId() === 'sys-admin-modules-tab'"
+                       id="sys-admin-modules-tab"
+                       data-bs-toggle="tab"
+                       href="#sys-admin-modules-pane"
+                       role="tab"
+                       aria-controls="sys-admin-modules-pane"
+                       [attr.aria-selected]="getFirstAccessibleTabId() === 'sys-admin-modules-tab'">Sys Admin Modules</a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+          </nav>
+        </div>
+
+        <div #mainTabContent class="tab-content" id="mainTabContent" *ngIf="hasViewAccess"
+             style="margin-bottom:5px; height:100%">
+          <!-- ✅ UPDATED: Dynamic show/active classes based on first accessible tab -->
+          <div class="tab-pane fade"
+               [class.show]="getFirstAccessibleTabPaneId() === 'home-pane'"
+               [class.active]="getFirstAccessibleTabPaneId() === 'home-pane'"
+               id="home-pane"
+               role="tabpanel"
+               aria-labelledby="home-tab"
+               style="background-color:#1D598E; height:100%">
+            <app-home></app-home>
+          </div>
+
+          <div class="tab-pane fade"
+               [class.show]="getFirstAccessibleTabPaneId() === 'local-shipment-pane'"
+               [class.active]="getFirstAccessibleTabPaneId() === 'local-shipment-pane'"
+               id="local-shipment-pane"
+               role="tabpanel"
+               aria-labelledby="local-shipment-tab">
+            <app-local-shipment></app-local-shipment>
+          </div>
+
+          <div class="tab-pane fade"
+               [class.show]="getFirstAccessibleTabPaneId() === 'location-oceanmbl-pane'"
+               [class.active]="getFirstAccessibleTabPaneId() === 'location-oceanmbl-pane'"
+               id="location-oceanmbl-pane"
+               role="tabpanel"
+               aria-labelledby="location-oceanmbl-tab">
+            <app-location-oceanmbl></app-location-oceanmbl>
+          </div>
+
+          <div class="tab-pane fade"
+               [class.show]="getFirstAccessibleTabPaneId() === 'bills-pane'"
+               [class.active]="getFirstAccessibleTabPaneId() === 'bills-pane'"
+               id="bills-pane"
+               role="tabpanel"
+               aria-labelledby="bills-tab">
+            <app-bills></app-bills>
+          </div>
+
+          <div class="tab-pane fade"
+               [class.show]="getFirstAccessibleTabPaneId() === 'location-vendor-pane'"
+               [class.active]="getFirstAccessibleTabPaneId() === 'location-vendor-pane'"
+               id="location-vendor-pane"
+               role="tabpanel"
+               aria-labelledby="location-vendor-tab">
+            <app-location-vendor></app-location-vendor>
+          </div>
+
+          <div class="tab-pane fade"
+               [class.show]="getFirstAccessibleTabPaneId() === 'vendors-shipment-pane'"
+               [class.active]="getFirstAccessibleTabPaneId() === 'vendors-shipment-pane'"
+               id="vendors-shipment-pane"
+               role="tabpanel"
+               aria-labelledby="vendors-shipment-tab">
+            <app-vendor-shipment></app-vendor-shipment>
+          </div>
+
+          <div class="tab-pane fade"
+               [class.show]="getFirstAccessibleTabPaneId() === 'vendors-pane'"
+               [class.active]="getFirstAccessibleTabPaneId() === 'vendors-pane'"
+               id="vendors-pane"
+               role="tabpanel"
+               aria-labelledby="vendors-tab">
+            <app-vendors></app-vendors>
+          </div>
+
+          <div class="tab-pane fade"
+               [class.show]="getFirstAccessibleTabPaneId() === 'accruals-pane'"
+               [class.active]="getFirstAccessibleTabPaneId() === 'accruals-pane'"
+               id="accruals-pane"
+               role="tabpanel"
+               aria-labelledby="accruals-tab">
+            <app-accruals></app-accruals>
+          </div>
+
+          <!--ESE-0526-1 Vendor Statement Summary disabled-->
+          <div class="tab-pane fade"
+               [class.show]="getFirstAccessibleTabPaneId() === 'admin-modules-pane'"
+               [class.active]="getFirstAccessibleTabPaneId() === 'admin-modules-pane'"
+               id="admin-modules-pane"
+               role="tabpanel"
+               aria-labelledby="admin-modules-tab">
+          </div>
+          <!--ESE-0526-1 Invoice Processing disabled-->
+          <div class="tab-pane fade"
+               [class.show]="getFirstAccessibleTabPaneId() === 'reports-pane'"
+               [class.active]="getFirstAccessibleTabPaneId() === 'reports-pane'"
+               id="reports-pane"
+               role="tabpanel"
+               aria-labelledby="reports-tab"
+               *ngIf="hasTabAccess('Reports')">
+            <app-reports></app-reports>
+          </div>
+          <div class="tab-pane fade"
+               [class.show]="getFirstAccessibleTabPaneId() === 'paid-differently-pane'"
+               [class.active]="getFirstAccessibleTabPaneId() === 'paid-differently-pane'"
+               id="paid-differently-pane"
+               role="tabpanel"
+               aria-labelledby="paid-differently-tab"
+               *ngIf="hasTabAccess('Reports')">
+            <app-paid-differently></app-paid-differently>
+          </div>
+          <div class="tab-pane fade"
+               [class.show]="getFirstAccessibleTabPaneId() === 'sys-admin-modules-pane'"
+               [class.active]="getFirstAccessibleTabPaneId() === 'sys-admin-modules-pane'"
+               id="sys-admin-modules-pane"
+               role="tabpanel"
+               aria-labelledby="sys-admin-modules-tab"
+               *ngIf="hasTabAccess('Sys Admin Modules')">
+            <app-sys-admin-modules></app-sys-admin-modules>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #noAccessMsg>
+        <div class="container mt-4">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="alert alert-warning" role="alert">
+                <h5 class="alert-heading">
+                  <i class="fas fa-exclamation-triangle me-2"></i>
+                  Access Restricted
+                </h5>
+                <p class="mb-3">{{ noAccessMessage }}</p>
+
+                <div class="mb-3" *ngIf="userRoles.length > 0">
+                  <strong>Your current role(s):</strong>
+                  <span class="badge bg-secondary ms-2">{{ formattedUserRoles }}</span>
+                </div>
+
+                <div class="mb-3" *ngIf="accessibleTabCount === 0 && userRoles.length > 0">
+                  <strong>Available tabs:</strong> None with your current permissions
+                </div>
+
+                <hr>
+                <p class="mb-0">
+                  <small class="text-muted">
+                    If you believe this is an error or need access to additional features,
+                    please contact your system administrator with your role information.
+                  </small>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+
+      <!--end main container-->
+    </div>
+
+  </div>
+
+
+  <div class="tab-content">
+    <div class="modal fade"
+         [ngClass]="{ 'show': isModalActive, 'd-block': isModalActive }"
+         tabindex="-1"
+         aria-labelledby="advancedFiltersModalLabel"
+         aria-hidden="true">
+
+      <div class="modal-dialog">
+        <div class="modal-content" style="width:1500px; margin-left:-70%">
+          <div class="modal-header modalHeader">
+            <h5 class="modal-title" id="advancedFilterModalLabel">Advanced Filter Panel</h5>
+            <button type="button" class="btn-close" aria-label="Close" (click)="closeForm()"></button>
+          </div>
+
+          <div class="modal-body modalBackground">
+            <div class="form-check">
+
+              <!-- Row 1: Country | MBL Number | Service Code -->
+              <div class="row" style="margin-bottom:5px;">
+                <div class="col-md-2">
+                  <label>Country:</label>
+                </div>
+                <div class="col-md-2">
+                  <ng-select [items]="advCountryOptions"
+                             bindLabel="country_code"
+                             bindValue="country_code"
+                             [(ngModel)]="paramsList.countryval"
+                             [clearable]="true"
+                             [searchable]="true"
+                             [typeahead]="advCountryTypeahead$"
+                             [minTermLength]="2"
+                             [loading]="advCountryLoading"
+                             typeToSearchText="Type 2+ chars"
+                             placeholder="Country"
+                             class="custom-ng-select"
+                             style="width:90%;"
+                             [readonly]="countrydis">
+                    <!-- Dropdown list shows "code - name" (ExtJS getInnerTpl {Country});
+                         selected value shows only the code (ExtJS displayField: country_code). -->
+                    <ng-template ng-option-tmp let-item="item">
+                      {{ item.Country || (item.country_code + (item.country_name ? ' - ' + item.country_name : '')) }}
+                    </ng-template>
+                  </ng-select>
+                </div>
+                <div class="col-md-2">
+                  <label>MBL Number:</label>
+                </div>
+                <div class="col-md-2">
+                  <ng-select [items]="advMblNumberOptions"
+                             bindLabel="mbl_busid"
+                             bindValue="mbl_busid"
+                             [(ngModel)]="paramsList.mblnumberval"
+                             [clearable]="true"
+                             [searchable]="true"
+                             [typeahead]="advMblNumberTypeahead$"
+                             [minTermLength]="3"
+                             [loading]="advMblNumberLoading"
+                             typeToSearchText="Type 3+ chars"
+                             placeholder="MBL Number"
+                             class="custom-ng-select"
+                             style="width:90%;"
+                             [readonly]="mblnumberdis">
+                  </ng-select>
+                </div>
+                <div class="col-md-2">
+                  <label>Service Code:</label>
+                </div>
+                <div class="col-md-2">
+                  <ng-select [items]="advServiceCodeOptions"
+                             bindLabel="SERVICE_CODE"
+                             bindValue="SERVICE_CODE"
+                             [(ngModel)]="paramsList.servicecodeval"
+                             [clearable]="true"
+                             placeholder="Service Code"
+                             class="custom-ng-select"
+                             style="width:90%;"
+                             [readonly]="servicecodedis">
+                    <!-- Selected box: show code only (mirrors ExtJS displayField='SERVICE_CODE') -->
+                    <ng-template ng-label-tmp let-item="item">
+                      {{ item.SERVICE_CODE }}
+                    </ng-template>
+                    <!-- Dropdown list: show "CODE - Description" (mirrors ExtJS listConfig template) -->
+                    <ng-template ng-option-tmp let-item="item">
+                      {{ item.SERVICE_CODE }} - {{ item.Service_Desc }}
+                    </ng-template>
+                  </ng-select>
+                </div>
+              </div>
+
+              <!-- Row 2: Company Code | Container Number | Charge Status -->
+              <div class="row" style="margin-bottom:5px;">
+                <div class="col-md-2">
+                  <label>Company Code:</label>
+                </div>
+                <div class="col-md-2">
+                  <ng-select [items]="advCompanyCodeOptions"
+                             bindLabel="cmp_company"
+                             bindValue="cmp_company"
+                             [(ngModel)]="paramsList.companycodeval"
+                             [clearable]="true"
+                             [searchable]="true"
+                             [typeahead]="advCompanyCodeTypeahead$"
+                             [minTermLength]="2"
+                             [loading]="advCompanyCodeLoading"
+                             typeToSearchText="Type 2+ chars"
+                             placeholder="Company Code"
+                             class="custom-ng-select"
+                             style="width:90%;"
+                             [readonly]="companycodedis">
+                  </ng-select>
+                </div>
+                <div class="col-md-2">
+                  <label>Container Number:</label>
+                </div>
+                <div class="col-md-2">
+                  <ng-select [items]="advContainerNumberOptions"
+                             bindLabel="container_busid"
+                             bindValue="container_busid"
+                             [(ngModel)]="paramsList.containernumberval"
+                             [clearable]="true"
+                             [searchable]="true"
+                             [typeahead]="advContainerTypeahead$"
+                             [minTermLength]="3"
+                             [loading]="advContainerLoading"
+                             typeToSearchText="Type 3+ chars"
+                             placeholder="Container Number"
+                             class="custom-ng-select"
+                             style="width:90%;"
+                             [readonly]="containernumberdis">
+                  </ng-select>
+                </div>
+                <div class="col-md-2">
+                  <label>Charge Status:</label>
+                </div>
+                <div class="col-md-2">
+                  <ng-select [items]="advChargeStatusOptions"
+                             bindLabel="text"
+                             bindValue="value"
+                             [(ngModel)]="paramsList.chargestatusval"
+                             [clearable]="true"
+                             placeholder="Charge Status"
+                             class="custom-ng-select"
+                             style="width:90%;"
+                             [readonly]="chargestatusdis">
+                  </ng-select>
+                </div>
+              </div>
+
+              <!-- Row 3: Location Code | Shipment Number | Cost Type -->
+              <div class="row" style="margin-bottom:5px;">
+                <div class="col-md-2">
+                  <label>Location Code:</label>
+                </div>
+                <div class="col-md-2">
+                  <ng-select [items]="locationCodeOptions"
+                             bindLabel="location_code"
+                             bindValue="location_code"
+                             [(ngModel)]="paramsList.locationcodeval"
+                             [clearable]="true"
+                             [searchable]="true"
+                             [typeahead]="locationCodeTypeahead$"
+                             [minTermLength]="3"
+                             [loading]="locationCodeLoading"
+                             typeToSearchText="Type 3+ chars"
+                             placeholder="Location Code"
+                             class="custom-ng-select"
+                             style="width:90%;"
+                             [readonly]="locationcodedis">
+                  </ng-select>
+                </div>
+                <div class="col-md-2">
+                  <label>Shipment Number:</label>
+                </div>
+                <div class="col-md-2">
+                  <ng-select [items]="advShipmentNumberOptions"
+                             bindLabel="shpmnt_nbr"
+                             bindValue="shpmnt_nbr"
+                             [(ngModel)]="paramsList.shipmentnumval"
+                             [clearable]="true"
+                             [searchable]="true"
+                             [typeahead]="advShipmentTypeahead$"
+                             [minTermLength]="3"
+                             [loading]="advShipmentLoading"
+                             typeToSearchText="Type 3+ chars"
+                             placeholder="Shipment Number"
+                             class="custom-ng-select"
+                             style="width:90%;"
+                             [readonly]="shipmentnumdis">
+                  </ng-select>
+                </div>
+                <div class="col-md-2">
+                  <label>Cost Type:</label>
+                </div>
+                <div class="col-md-2">
+                  <ng-select [items]="advCostTypeOptions"
+                             bindLabel="text"
+                             bindValue="value"
+                             [(ngModel)]="paramsList.costtypeadvval"
+                             [clearable]="true"
+                             placeholder="Cost Type"
+                             class="custom-ng-select"
+                             style="width:90%;"
+                             [readonly]="costtypeadvdis">
+                  </ng-select>
+                </div>
+              </div>
+
+              <!-- Row 4: Origin | Carrier BOL | Vendor -->
+              <div class="row" style="margin-bottom:5px;">
+                <div class="col-md-2">
+                  <label>Origin:</label>
+                </div>
+                <div class="col-md-2">
+                  <input type="text" class="inputStyle" [(ngModel)]="paramsList.originval" [readonly]="origindis"/>
+                </div>
+                <div class="col-md-2">
+                  <label>Carrier BOL:</label>
+                </div>
+                <div class="col-md-2">
+                  <ng-select [items]="advCarrierBolOptions"
+                             bindLabel="mbl_iata_busid"
+                             bindValue="mbl_iata_busid"
+                             [(ngModel)]="paramsList.carrierbolval"
+                             [clearable]="true"
+                             [searchable]="true"
+                             [typeahead]="advCarrierBolTypeahead$"
+                             [minTermLength]="3"
+                             [loading]="advCarrierBolLoading"
+                             typeToSearchText="Type 3+ chars"
+                             placeholder="Carrier BOL"
+                             class="custom-ng-select"
+                             style="width:90%;"
+                             [readonly]="carrierboldis">
+                  </ng-select>
+                </div>
+                <div class="col-md-2">
+                  <label>Vendor:</label>
+                </div>
+                <div class="col-md-2">
+                  <ng-select [items]="advVendorOptions"
+                             bindLabel="vendor_code"
+                             bindValue="vendor_code"
+                             [(ngModel)]="paramsList.vendorcodeadvval"
+                             [clearable]="true"
+                             [searchable]="true"
+                             [typeahead]="advVendorTypeahead$"
+                             [minTermLength]="3"
+                             [loading]="advVendorLoading"
+                             typeToSearchText="Type 3+ chars"
+                             placeholder="Vendor"
+                             class="custom-ng-select"
+                             style="width:90%;"
+                             [readonly]="vendorcodeadvdis">
+                  </ng-select>
+                </div>
+              </div>
+
+              <!-- Row 5: Destination | Charge Code | Invoice Ref No -->
+              <div class="row" style="margin-bottom:5px;">
+                <div class="col-md-2">
+                  <label>Destination:</label>
+                </div>
+                <div class="col-md-2">
+                  <input type="text" class="inputStyle" [(ngModel)]="paramsList.destinationval" [readonly]="destinationdis"/>
+                </div>
+                <div class="col-md-2">
+                  <label>Charge Code:</label>
+                </div>
+                <div class="col-md-2">
+                  <!-- Typeahead combo — mirrors old ExtJS ChargeCode.js:
+                       valueField='charge_code', displayField='charge_code', minChars=2 -->
+                  <ng-select [items]="advChargeCodeOptions"
+                             bindLabel="charge_code"
+                             bindValue="charge_code"
+                             [(ngModel)]="paramsList.chargecodeval"
+                             [typeahead]="advChargeCodeTypeahead$"
+                             [minTermLength]="2"
+                             [loading]="advChargeCodeLoading"
+                             [clearable]="true"
+                             typeToSearchText="Type 2+ chars"
+                             placeholder="Charge Code"
+                             class="custom-ng-select"
+                             style="width:90%;"
+                             [readonly]="chargecodedis">
+                  </ng-select>
+                </div>
+                <div class="col-md-2">
+                  <label>Invoice Ref No:</label>
+                </div>
+                <div class="col-md-2">
+                  <ng-select [items]="advInvoiceRefNoOptions"
+                             bindLabel="invrefno"
+                             bindValue="invrefno"
+                             [(ngModel)]="paramsList.invoicerefnoval"
+                             [clearable]="true"
+                             [searchable]="true"
+                             [typeahead]="advInvoiceRefNoTypeahead$"
+                             [minTermLength]="3"
+                             [loading]="advInvoiceRefNoLoading"
+                             typeToSearchText="Type 3+ chars"
+                             placeholder="Invoice Ref No"
+                             class="custom-ng-select"
+                             style="width:90%;"
+                             [readonly]="invoicerefnodis">
+                  </ng-select>
+                </div>
+              </div>
+
+              <!-- Row 6: Batch Id | Bill Status | Orig/Dest -->
+              <div class="row" style="margin-bottom:5px;">
+                <div class="col-md-2">
+                  <label>Batch Id:</label>
+                </div>
+                <div class="col-md-2">
+                  <input type="text" class="inputStyle" [(ngModel)]="paramsList.batchidval" [readonly]="batchiddis"/>
+                </div>
+                <div class="col-md-2">
+                  <label>Bill Status:</label>
+                </div>
+                <div class="col-md-2">
+                  <ng-select [items]="advBillStatusOptions"
+                             bindLabel="text"
+                             bindValue="value"
+                             [(ngModel)]="paramsList.billstatusval"
+                             [clearable]="true"
+                             placeholder="Bill Status"
+                             class="custom-ng-select"
+                             style="width:90%;"
+                             [readonly]="billstatusdis">
+                  </ng-select>
+                </div>
+                <div class="col-md-2">
+                  <label>Orig/Dest:</label>
+                </div>
+                <div class="col-md-2">
+                  <ng-select [items]="advOrigDestOptions"
+                             bindLabel="text"
+                             bindValue="value"
+                             [(ngModel)]="paramsList.origdestadvval"
+                             [clearable]="true"
+                             placeholder="Orig/Dest"
+                             class="custom-ng-select"
+                             style="width:90%;"
+                             [readonly]="origdestadvdis">
+                  </ng-select>
+                </div>
+              </div>
+
+              <!-- Row 7: Start Date | End Date | Received Date -->
+              <div class="row" style="margin-bottom:5px;">
+                <div class="col-md-2">
+                  <label>Start Date (mm/dd/yyyy):</label>
+                </div>
+                <div class="col-sm-2">
+                  <mat-form-field appearance="fill" style="width: 90%;" id="startdate">
+                    <mat-label>Select a date</mat-label>
+                    <input matInput
+                           [matDatepicker]="startdatepicker"
+                           [(ngModel)]="paramsList.startdateval"
+                           [readonly]="startdatedis">
+                    <mat-datepicker-toggle matSuffix [for]="startdatepicker"></mat-datepicker-toggle>
+                    <mat-datepicker #startdatepicker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-2">
+                  <label>End Date (mm/dd/yyyy):</label>
+                </div>
+                <div class="col-md-2">
+                  <mat-form-field appearance="fill" style="width: 90%;" id="enddate">
+                    <mat-label>Select a date</mat-label>
+                    <input matInput
+                           [matDatepicker]="enddatepicker"
+                           [(ngModel)]="paramsList.enddateval"
+                           [readonly]="enddatedis">
+                    <mat-datepicker-toggle matSuffix [for]="enddatepicker"></mat-datepicker-toggle>
+                    <mat-datepicker #enddatepicker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-2">
+                  <label>Received Date (mm/dd/yyyy):</label>
+                </div>
+                <div class="col-md-2">
+                  <mat-form-field appearance="fill" style="width: 90%;" id="receiveddate">
+                    <mat-label>Select a date</mat-label>
+                    <input matInput
+                           [matDatepicker]="receiveddatepicker"
+                           [(ngModel)]="paramsList.receiveddateval"
+                           [readonly]="receiveddatedis">
+                    <mat-datepicker-toggle matSuffix [for]="receiveddatepicker"></mat-datepicker-toggle>
+                    <mat-datepicker #receiveddatepicker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <!-- Row 8: MBL Cost Basis | Paid Status | E2k Carrier Code -->
+              <div class="row" style="margin-bottom:5px;">
+                <div class="col-md-2">
+                  <label>MBL Cost Basis:</label>
+                </div>
+                <div class="col-md-2">
+                  <ng-select [items]="advMblCostBasisOptions"
+                             bindLabel="cost_basis_description"
+                             bindValue="cost_basis_code"
+                             [(ngModel)]="paramsList.mblcostbasisval"
+                             [clearable]="true"
+                             placeholder="MBL Cost Basis"
+                             class="custom-ng-select"
+                             style="width:90%;"
+                             [readonly]="mblcostbasisdis">
+                    <!-- Selected value: show short code -->
+                    <ng-template ng-label-tmp let-item="item">
+                      {{ item.cost_basis_code }}
+                    </ng-template>
+                    <!-- Dropdown list: show full description -->
+                    <ng-template ng-option-tmp let-item="item">
+                      {{ item.cost_basis_description }}
+                    </ng-template>
+                  </ng-select>
+                </div>
+                <div class="col-md-2">
+                  <label>Paid Status:</label>
+                </div>
+                <div class="col-md-2">
+                  <ng-select [items]="advPaidStatusOptions"
+                             bindLabel="text"
+                             bindValue="value"
+                             [(ngModel)]="paramsList.paidstatusadvval"
+                             [clearable]="true"
+                             placeholder="Paid Status"
+                             class="custom-ng-select"
+                             style="width:90%;"
+                             [readonly]="paidstatusadvdis">
+                  </ng-select>
+                </div>
+                <div class="col-md-2">
+                  <label>E2k Carrier Code:</label>
+                </div>
+                <div class="col-md-2">
+                  <input type="text" class="inputStyle" [(ngModel)]="paramsList.e2kcarrierval" [readonly]="e2kcarrierdis"/>
+                </div>
+              </div>
+
+              <div class="row" *ngIf="errorMessage" style="color: red; margin-top: 5px;">
+                {{ errorMessage }}
+              </div>
+
+            </div>
+          </div>
+
+          <div class="modal-footer modalBackground">
+            <div class="row" style="width:100%; margin-left:10%;">
+              <div class="col-md-4">
+                <button class="buttonHome buttonmid" (click)="closeForm()">Close</button>
+              </div>
+              <div class="col-md-4">
+                <button class="buttonHome buttonmid" (click)="clearAllAdvancedFilters()">Clear All</button>
+              </div>
+              <div class="col-md-4">
+                <button class="buttonHome buttonmid" (click)="processAdvancedFilters()">Process</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isModalActive" class="modal-backdrop fade show"></div>
+  </div>

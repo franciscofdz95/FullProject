@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BCA0E67C-792C-4AAF-A90F-F7491D5D7013}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SpreadsheetLight</RootNamespace>
+    <AssemblyName>SpreadsheetLight</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CalculationFunctions.cs" />
+    <Compile Include="CellFunctions.cs" />
+    <Compile Include="Charts\EGAxShared.cs" />
+    <Compile Include="Charts\EGDLblShared.cs" />
+    <Compile Include="Charts\SLAreaChartOptions.cs" />
+    <Compile Include="Charts\SLAxisDataSourceType.cs" />
+    <Compile Include="Charts\SLBackWall.cs" />
+    <Compile Include="Charts\SLBarChartOptions.cs" />
+    <Compile Include="Charts\SLBubbleChartOptions.cs" />
+    <Compile Include="Charts\SLChart.cs" />
+    <Compile Include="Charts\SLChartAlignment.cs" />
+    <Compile Include="Charts\SLChartOptions.cs" />
+    <Compile Include="Charts\SLChartTool.cs" />
+    <Compile Include="Charts\SLCreateChartOptions.cs" />
+    <Compile Include="Charts\SLDataLabelOptions.cs" />
+    <Compile Include="Charts\SLDataPointOptions.cs" />
+    <Compile Include="Charts\SLDataSeries.cs" />
+    <Compile Include="Charts\SLDataSeriesOptions.cs" />
+    <Compile Include="Charts\SLDataTable.cs" />
+    <Compile Include="Charts\SLDownBars.cs" />
+    <Compile Include="Charts\SLDropLines.cs" />
+    <Compile Include="Charts\SLFloor.cs" />
+    <Compile Include="Charts\SLGroupDataLabelOptions.cs" />
+    <Compile Include="Charts\SLHighLowLines.cs" />
+    <Compile Include="Charts\SLLayout.cs" />
+    <Compile Include="Charts\SLLegend.cs" />
+    <Compile Include="Charts\SLLineChartOptions.cs" />
+    <Compile Include="Charts\SLMajorGridlines.cs" />
+    <Compile Include="Charts\SLMarker.cs" />
+    <Compile Include="Charts\SLMinorGridlines.cs" />
+    <Compile Include="Charts\SLMultiLevelStringReference.cs" />
+    <Compile Include="Charts\SLNumberDataSourceType.cs" />
+    <Compile Include="Charts\SLNumberDataType.cs" />
+    <Compile Include="Charts\SLNumberReference.cs" />
+    <Compile Include="Charts\SLNumericPoint.cs" />
+    <Compile Include="Charts\SLPieChartOptions.cs" />
+    <Compile Include="Charts\SLPlotArea.cs" />
+    <Compile Include="Charts\SLSeriesAxis.cs" />
+    <Compile Include="Charts\SLSideWall.cs" />
+    <Compile Include="Charts\SLStockChartOptions.cs" />
+    <Compile Include="Charts\SLStringLiteral.cs" />
+    <Compile Include="Charts\SLStringPoint.cs" />
+    <Compile Include="Charts\SLStringReference.cs" />
+    <Compile Include="Charts\SLTextAxis.cs" />
+    <Compile Include="Charts\SLTitle.cs" />
+    <Compile Include="Charts\SLUpBars.cs" />
+    <Compile Include="Charts\SLUpDownBars.cs" />
+    <Compile Include="Charts\SLValueAxis.cs" />
+    <Compile Include="CommentFunctions.cs" />
+    <Compile Include="ConditionalFormatting\SLColorScale.cs" />
+    <Compile Include="ConditionalFormatting\SLConditionalFormatting.cs" />
+    <Compile Include="ConditionalFormatting\SLConditionalFormattingRule.cs" />
+    <Compile Include="ConditionalFormatting\SLConditionalFormatValueObject.cs" />
+    <Compile Include="ConditionalFormatting\SLDataBar.cs" />
+    <Compile Include="ConditionalFormatting\SLDataBarOptions.cs" />
+    <Compile Include="ConditionalFormatting\SLFiveIconSetOptions.cs" />
+    <Compile Include="ConditionalFormatting\SLFourIconSetOptions.cs" />
+    <Compile Include="ConditionalFormatting\SLIconSet.cs" />
+    <Compile Include="ConditionalFormatting\SLThreeIconSetOptions.cs" />
+    <Compile Include="CreateObjectFunctions.cs" />
+    <Compile Include="Drawing\DrawingEnums.cs" />
+    <Compile Include="Drawing\SLColorTransform.cs" />
+    <Compile Include="Drawing\SLDrawingTool.cs" />
+    <Compile Include="Drawing\SLEffectList.cs" />
+    <Compile Include="Drawing\SLExtents.cs" />
+    <Compile Include="Drawing\SLFill.cs" />
+    <Compile Include="Drawing\SLFormat3D.cs" />
+    <Compile Include="Drawing\SLGlow.cs" />
+    <Compile Include="Drawing\SLGradientFill.cs" />
+    <Compile Include="Drawing\SLGradientStop.cs" />
+    <Compile Include="Drawing\SLLinePropertiesType.cs" />
+    <Compile Include="Drawing\SLOffset.cs" />
+    <Compile Include="Drawing\SLPicture.cs" />
+    <Compile Include="Drawing\SLReflection.cs" />
+    <Compile Include="Drawing\SLRotation3D.cs" />
+    <Compile Include="Drawing\SLShadowEffect.cs" />
+    <Compile Include="Drawing\SLShapeProperties.cs" />
+    <Compile Include="Drawing\SLSoftEdge.cs" />
+    <Compile Include="Drawing\SLTransform2D.cs" />
+    <Compile Include="ImportFunctions.cs" />
+    <Compile Include="InternalDataStoreFunctions.cs" />
+    <Compile Include="MiscFunctions.cs" />
+    <Compile Include="Misc\MiscEnums.cs" />
+    <Compile Include="Misc\SLAutoFilter.cs" />
+    <Compile Include="Misc\SLConstants.cs" />
+    <Compile Include="Misc\SLConvert.cs" />
+    <Compile Include="Misc\SLDocumentProperties.cs" />
+    <Compile Include="Misc\SLRstType.cs" />
+    <Compile Include="Misc\SLRun.cs" />
+    <Compile Include="Misc\SLSimpleTheme.cs" />
+    <Compile Include="Misc\SLSortCondition.cs" />
+    <Compile Include="Misc\SLSortItem.cs" />
+    <Compile Include="Misc\SLSortState.cs" />
+    <Compile Include="Misc\SLTextImportOptions.cs" />
+    <Compile Include="Misc\SLThemeSettings.cs" />
+    <Compile Include="Misc\SLTool.cs" />
+    <Compile Include="Misc\SLToolDefaultRowHeadingWidth.cs" />
+    <Compile Include="Misc\SLToolDefaultRowHeight.cs" />
+    <Compile Include="Misc\SLWorksheetStatistics.cs" />
+    <Compile Include="Office2010\SLColorScale2010.cs" />
+    <Compile Include="Office2010\SLConditionalFormatting2010.cs" />
+    <Compile Include="Office2010\SLConditionalFormattingIcon2010.cs" />
+    <Compile Include="Office2010\SLConditionalFormattingRule2010.cs" />
+    <Compile Include="Office2010\SLConditionalFormattingValueObject2010.cs" />
+    <Compile Include="Office2010\SLDataBar2010.cs" />
+    <Compile Include="Office2010\SLIconSet2010.cs" />
+    <Compile Include="PivotTableFunctions.cs" />
+    <Compile Include="PivotTable\SLAutoSortScope.cs" />
+    <Compile Include="PivotTable\SLBooleanItem.cs" />
+    <Compile Include="PivotTable\SLCacheField.cs" />
+    <Compile Include="PivotTable\SLCacheHierarchy.cs" />
+    <Compile Include="PivotTable\SLCacheSource.cs" />
+    <Compile Include="PivotTable\SLCalculatedItem.cs" />
+    <Compile Include="PivotTable\SLCalculatedMember.cs" />
+    <Compile Include="PivotTable\SLChartFormat.cs" />
+    <Compile Include="PivotTable\SLConditionalFormat.cs" />
+    <Compile Include="PivotTable\SLConsolidation.cs" />
+    <Compile Include="PivotTable\SLDataField.cs" />
+    <Compile Include="PivotTable\SLDateTimeItem.cs" />
+    <Compile Include="PivotTable\SLDimension.cs" />
+    <Compile Include="PivotTable\SLEntries.cs" />
+    <Compile Include="PivotTable\SLErrorItem.cs" />
+    <Compile Include="PivotTable\SLFieldGroup.cs" />
+    <Compile Include="PivotTable\SLFormat.cs" />
+    <Compile Include="PivotTable\SLGroup.cs" />
+    <Compile Include="PivotTable\SLGroupItems.cs" />
+    <Compile Include="PivotTable\SLGroupLevel.cs" />
+    <Compile Include="PivotTable\SLGroupMember.cs" />
+    <Compile Include="PivotTable\SLItem.cs" />
+    <Compile Include="PivotTable\SLKpi.cs" />
+    <Compile Include="PivotTable\SLLocation.cs" />
+    <Compile Include="PivotTable\SLMeasureDimensionMap.cs" />
+    <Compile Include="PivotTable\SLMeasureGroup.cs" />
+    <Compile Include="PivotTable\SLMemberProperty.cs" />
+    <Compile Include="PivotTable\SLMembers.cs" />
+    <Compile Include="PivotTable\SLMissingItem.cs" />
+    <Compile Include="PivotTable\SLNumberItem.cs" />
+    <Compile Include="PivotTable\SLPageField.cs" />
+    <Compile Include="PivotTable\SLPivotArea.cs" />
+    <Compile Include="PivotTable\SLPivotAreaReference.cs" />
+    <Compile Include="PivotTable\SLPivotCacheDefinition.cs" />
+    <Compile Include="PivotTable\SLPivotCacheRecord.cs" />
+    <Compile Include="PivotTable\SLPivotField.cs" />
+    <Compile Include="PivotTable\SLPivotFilter.cs" />
+    <Compile Include="PivotTable\SLPivotHierarchy.cs" />
+    <Compile Include="PivotTable\SLPivotTable.cs" />
+    <Compile Include="PivotTable\SLPivotTableStyle.cs" />
+    <Compile Include="PivotTable\SLQuery.cs" />
+    <Compile Include="PivotTable\SLRangeProperties.cs" />
+    <Compile Include="PivotTable\SLRangeSet.cs" />
+    <Compile Include="PivotTable\SLRowItem.cs" />
+    <Compile Include="PivotTable\SLServerFormat.cs" />
+    <Compile Include="PivotTable\SLSharedItems.cs" />
+    <Compile Include="PivotTable\SLStringItem.cs" />
+    <Compile Include="PivotTable\SLTuple.cs" />
+    <Compile Include="PivotTable\SLTupleCache.cs" />
+    <Compile Include="PivotTable\SLTupleSet.cs" />
+    <Compile Include="PivotTable\SLTuplesType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RowColumnFunctions.cs" />
+    <Compile Include="SharedStringFunctions.cs" />
+    <Compile Include="SLDocument.cs" />
+    <Compile Include="SortingFunctions.cs" />
+    <Compile Include="Sparkline\SLSparkline.cs" />
+    <Compile Include="Sparkline\SLSparklineGroup.cs" />
+    <Compile Include="StyleFunctions.cs" />
+    <Compile Include="Style\SLAlignment.cs" />
+    <Compile Include="Style\SLBorder.cs" />
+    <Compile Include="Style\SLCellStyle.cs" />
+    <Compile Include="Style\SLColor.cs" />
+    <Compile Include="Style\SLDifferentialFormat.cs" />
+    <Compile Include="Style\SLFill.cs" />
+    <Compile Include="Style\SLFont.cs" />
+    <Compile Include="Style\SLNumberingFormat.cs" />
+    <Compile Include="Style\SLProtection.cs" />
+    <Compile Include="Style\SLStyle.cs" />
+    <Compile Include="Style\SLTableStyle.cs" />
+    <Compile Include="Table\SLCalculatedColumnFormula.cs" />
+    <Compile Include="Table\SLColorFilter.cs" />
+    <Compile Include="Table\SLCustomFilters.cs" />
+    <Compile Include="Table\SLDateGroupItem.cs" />
+    <Compile Include="Table\SLDynamicFilter.cs" />
+    <Compile Include="Table\SLFilter.cs" />
+    <Compile Include="Table\SLFilterColumn.cs" />
+    <Compile Include="Table\SLFilters.cs" />
+    <Compile Include="Table\SLIconFilter.cs" />
+    <Compile Include="Table\SLTable.cs" />
+    <Compile Include="Table\SLTableColumn.cs" />
+    <Compile Include="Table\SLTableStyleInfo.cs" />
+    <Compile Include="Table\SLTop10.cs" />
+    <Compile Include="Table\SLTotalsRowFormula.cs" />
+    <Compile Include="Table\SLXmlColumnProperties.cs" />
+    <Compile Include="ThemeFunctions.cs" />
+    <Compile Include="Workbook\SLCalculationCell.cs" />
+    <Compile Include="Workbook\SLDefinedName.cs" />
+    <Compile Include="Workbook\SLSheet.cs" />
+    <Compile Include="Workbook\SLWorkbook.cs" />
+    <Compile Include="Workbook\SLWorkbookProperties.cs" />
+    <Compile Include="Workbook\SLWorkbookView.cs" />
+    <Compile Include="WorksheetFunctions.cs" />
+    <Compile Include="Worksheet\PageSetupEnums.cs" />
+    <Compile Include="Worksheet\SLBreak.cs" />
+    <Compile Include="Worksheet\SLCell.cs" />
+    <Compile Include="Worksheet\SLCellFormula.cs" />
+    <Compile Include="Worksheet\SLCellPoint.cs" />
+    <Compile Include="Worksheet\SLCellPointRange.cs" />
+    <Compile Include="Worksheet\SLColumnProperties.cs" />
+    <Compile Include="Worksheet\SLComment.cs" />
+    <Compile Include="Worksheet\SLDataValidation.cs" />
+    <Compile Include="Worksheet\SLHyperlink.cs" />
+    <Compile Include="Worksheet\SLMergeCell.cs" />
+    <Compile Include="Worksheet\SLPageSettings.cs" />
+    <Compile Include="Worksheet\SLPane.cs" />
+    <Compile Include="Worksheet\SLRowColumnStyleHistory.cs" />
+    <Compile Include="Worksheet\SLRowProperties.cs" />
+    <Compile Include="Worksheet\SLSelection.cs" />
+    <Compile Include="Worksheet\SLSheetFormatProperties.cs" />
+    <Compile Include="Worksheet\SLSheetProperties.cs" />
+    <Compile Include="Worksheet\SLSheetProtection.cs" />
+    <Compile Include="Worksheet\SLSheetView.cs" />
+    <Compile Include="Worksheet\SLWorksheet.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,29 @@
+
+.ag-header {
+  background-color: yellow !important;
+}
+
+.ag-header-cell {
+  background-color: yellow !important;
+}
+
+::ng-deep .mat-header-row {
+  background-color: yellow;
+}
+
+
+.mat-mdc-header-row {
+  background-color: yellow;
+}
+
+.mat-mdc-header-cell {
+  background-color: yellow;
+  color: black;
+}
+
+
+.ag-header,
+.ag-header-cell {
+  background-color: yellow !important;
+}
+

@@ -1,0 +1,117 @@
+﻿.connectionsHeaderContainer .x-btn-icon-el.fa {
+    padding: 0px 0px 0px 3px;
+    color: white;
+    font-size: 15px;
+}
+
+.connectionsContainer .x-grid .fa {
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.connectionsComponentNoaccess .Card {
+    background-color: #B0A696;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 22px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.connectionsFieldInfoMsg {
+    font-size: 12px;
+    font-style: italic;
+}
+
+.connectionsComponentFieldcontainer .x-field {
+    min-width: 400px;
+}
+
+.connectionsConnectionComponentAppcodeselectList .inactive {
+    color: #666;
+    font-style: italic;
+}
+
+.connectionsConnectionList .row-inactive.x-grid-row {
+    background-color: #E1E1DE;
+    color: #666;
+    font-style: italic;
+}
+
+.connectionsHeaderSearch .searchHelp i {
+    font-size: 18px;
+    color: #A6A6A3;
+    /*margin-top: 5px;
+    cursor: pointer;
+    */
+}
+
+
+.connectionsHeaderSearch .BIAIconButton {
+    font-size: 30px;
+    line-height: 30px;
+    padding: 0;
+    margin: auto;
+}
+
+.connectionsHeaderSearch .BIAIconButton.LargeScale {
+    font-size: 34px;
+    line-height: 33px;
+    margin-top: 0px !important;
+}
+
+.connectionsHeaderSearch .BIAIconButton.SmallScale {
+    font-size: 26px;
+    line-height: 25px;
+    margin-top: 2px !important;
+}
+
+.connectionsHeaderSearch .BIAIconButton.ButtonEnabled {
+    font-size: 27px;
+    line-height: 26px;
+    padding: 1px;
+}
+
+.connectionsHeaderSearch .BIAIconButton.LargeScale.ButtonEnabled {
+    font-size: 29px;
+    line-height: 28px;
+    padding: 0 1px;
+}
+
+.connectionsHeaderSearch .BIAIconButton.SmallScale.ButtonEnabled {
+    font-size: 25px;
+    line-height: 24px;
+    padding: 0 1px;
+}
+
+.connectionsConnectionComponentAdvancedsection {
+    padding-top: 5px;
+}
+
+.BIASecurity .connectionsConnectionList .x-panel-header .connectionsConnectionComponentEnvironmentfilter.x-field.x-form-item.x-form-type-text {
+    min-height: 23px;
+    padding: 0 12px;
+}
+
+.connectionsConnectionList .ConnectionsListHeaderFilters {
+    color: white;
+}
+
+.connectionsConnectionComponentConnectionnameentry .AddConnectionButton {
+    margin: 1px 1px 0px 0px; 
+    font-style: italic;
+    width: 500px;
+}
+
+.adminConnectionMenuItem {
+    cursor: pointer;
+    color: gray;
+    font: bold 14px arial, sans-serif;
+}
+
+.adminConnectionMenuItem:hover {
+    background-color: #A6A6A3;
+    color: white;
+    border-radius: 15px;
+}

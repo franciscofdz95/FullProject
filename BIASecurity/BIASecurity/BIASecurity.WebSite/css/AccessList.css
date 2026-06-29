@@ -1,0 +1,81 @@
+﻿.accessListItemActionsApprove .Approve {
+    color: #599117;
+}
+
+.accessListItemActionsDeny .Deny {
+    color: #F31A12;
+}
+
+.accessListItemActionsRemove .Remove {
+    color: #000000;
+}
+
+.accessListItemAccesslevel .Admin {
+    color: #008198;
+}
+
+.accessListItemAccesslevel .SA {
+    color: #C98400;
+}
+
+.BIA_Components_PagedList.accessListView .ListItemDefault {
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.BIA_Components_PagedList.accessListView .ListItemHeaderDefault {
+    font-size: 15px;
+    line-height: 17px;
+    background-color: #e8e8e7;
+}
+
+.accessListItemAdminlevel .IconCnt {
+    width: 100%;
+    padding: 0 5px;
+}
+
+.accessListItemAdminlevel .SA {
+    /*color: #FFB500;*/
+    /*background-color: #FED172;*/
+}
+
+.accessListItemAdminlevel .Admin {
+    /*color: #351C15;*/
+    /*background-color: #FFF2AC;*/
+}
+
+.accessListItemAdminlevel .AccessAdminLevelLabel {
+    width: 40px;
+    margin-right: 5px;
+}
+
+.accessListItemAppRoot i {
+    color: #00108A;
+}
+
+.accessListItemHierarchy i {
+    color: #00108A;
+
+}
+
+.accessListItemAdminlevel .fa-stack {
+    height: 14px;
+    width: 14px;
+}
+
+.accessListItemAdminlevel .fa-stack-2x {
+    font-size: 15px;
+}
+
+.accessListItemAdminlevel .fa-stack-1x {
+    margin-top: -8px;
+    font-size: 10px;
+}
+
+.accessListItemdetailFieldcontainer label:first-of-type {
+    font-weight: bold;
+}
+
+.AccessListActions i {
+    cursor: pointer;
+}

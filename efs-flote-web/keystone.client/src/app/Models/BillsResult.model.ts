@@ -1,0 +1,96 @@
+export interface billsResultModel {
+  rownumber: number;
+  invoice_id: number;
+  createdDT: Date;
+  invRefNo: string;
+  invoice_CID: string;
+  aP_Vendor_id: string;
+  aP_Remit_id: string;
+  vendor_id: number;
+  location_Code: string;
+  remote_check_location: string;
+  scanFolder: string;
+  oracle_Site_Code: string;
+  imageNumber: string;
+  vendor_code: string;
+  vendor_name_english: string;
+  showcheckbox: string;
+  pay_group: string;
+  createdBy: string;
+  approvedDT: Date;
+  approvedBy: string;
+  invoice_status: string;
+  referenceFilter: string;
+  reference_id: Number;
+  imageURL: string;
+  scan_dest: string;
+  imageCount: number;
+  imageFolder: string;
+  on_oracle: string;
+  rejected: boolean;
+  rejectedBy: string;
+  rejectedDate: Date;
+  rejectedRecall: boolean;
+  comment: string;
+  invoice_amt: number;
+  invoiceAmt: number;
+  shpmnt_nbr: string;
+  location_data_entry: string;
+  modifiedDT: Date;
+  modifiedBy: string;
+  detail_cnt: number;
+  batch_id: number;
+  invalidimage: string;
+  scanRejectedBy: string;
+  rejectScanComments: string;
+  incorrectScan: string;
+  scandest_Mod: Date;
+  pay_group_popup: string;
+  paid: number;
+  totalRows: number;
+}
+
+export interface billsPaymentsResultModel {
+  rownumber: number;
+  //location code
+  location_Code: string;
+  //bill ref number
+  invRefNo: string
+  //bill id
+  invoice_Id: number;
+  //invoice status
+  invoice_Status: string;
+  invoice_key: number;
+  vendor_site_key: number;
+  invoice_currency_code: string;
+  invoice_num: string;
+  invoice_amt: number;
+  invoice_date: Date;
+  //document image id
+  invoice_Image_Num: string;
+  invoice_payment_method: string;
+  invoice_dis_type: string;
+  //supplier number
+  vendor_Num: string;
+  //supplier name
+  vendor_Name: string;
+  //supplier site
+  site_Code: string;
+  //payment_status
+  payment_Status: string;
+  //amount paid
+  payment_Amount: number;
+  //scheduled date
+  payment_Due_Date: Date;
+  //payment currency
+  check_Currency_Code: string;
+  //payment method
+  payment_Method: string;
+  //document number
+  check_Num: string;
+  totalrows: number;
+  //payment date
+  check_Date: Date;
+  modified_Date: Date;
+  modified_By: string;
+}

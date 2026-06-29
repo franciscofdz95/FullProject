@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../efs-flote-web-ExtJS"
+		},
+		{
+			"path": "../BIASecurity"
+		},
+		{
+			"path": "../BIACore"
+		},
+		{
+			"path": "../efs-flote-db"
+		}
+	]
+}

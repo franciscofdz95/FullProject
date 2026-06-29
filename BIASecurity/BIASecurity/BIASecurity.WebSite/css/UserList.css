@@ -1,0 +1,74 @@
+﻿.BIA_Components_PagedList .userListItemIcon {
+    color: #1363b1;
+}
+
+.BIA_Components_PagedList .userListItem.ListItemDefault {
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.BIA_Components_PagedList .userListItem.ListItemHeaderDefault {
+    font-size: 14px;
+    line-height: 16px;
+    background-color: #e8e8e7;
+}
+
+.BIA_Components_PagedList .userListItem.Card.CardSlim {
+    margin: 4px;
+}
+
+.BIA_Components_PagedList .userListItem i {
+    font-size: 14px;
+}
+
+.SkypeIcon i {
+    color: #00AFF0;
+}
+
+.TeamsIcons i {
+    color: #505AC9;
+}
+
+.EmailIcon i {
+    color: #E1AA57;
+}
+
+.userListItemStatus i.Online {
+    color: #64a70b; /*Grass*/
+}
+
+.userListItemStatus i.Active {
+    color: #f68b20; /*Sun*/
+}
+
+.userListItemStatus i.Offline {
+    color: #a6a6a3; /*Stone Dark*/
+}
+
+.userListItem:not(.ListItemHeader) .UserLocation.UserRegion {
+    background-color: #B0A696; /*Coffee Medium*/
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.userListItem:not(.ListItemHeader) .UserLocation.UserDistrict {
+    background-color: #D4CCBF; /*Coffee Light*/
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.userListItem:not(.ListItemHeader) .UserLocation.UserCenter {
+    background-color: #EBEBE6; /*Coffee Pale*/
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.userListItem:not(.ListItemHeader) .UserLocation.UserCountry {
+    background-color: #FBD1A6; /*Sun Pale*/
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.help{
+    cursor: help;
+}

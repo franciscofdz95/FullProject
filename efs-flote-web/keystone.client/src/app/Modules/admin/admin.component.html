@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'vendorAdmin'" (click)="setActiveTab('vendorAdmin')" style="cursor: pointer;">Vendor</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'aircraftAdmin'" (click)="setActiveTab('aircraftAdmin')" style="cursor: pointer;">Aircraft</a>
+    </li>   
+    <li class="nav-item">
+      <a class="nav-link" [class.active]="activeTab === 'assigned-gateway'" (click)="setActiveTab('assigned-gateway')" style="cursor: pointer;">Assigned Gateway</a>
+    </li>
+  </ul>
+
+  <div class="tab-content mt-2">
+  </div>
+</div>

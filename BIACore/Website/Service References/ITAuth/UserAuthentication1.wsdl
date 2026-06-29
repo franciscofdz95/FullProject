@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="ws.ups.com" xmlns:ns2="ws.ups.com" name="UserAuthentication" targetNamespace="ws.ups.com" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="ws.ups.com">
+      <xsd:element name="UserAuthenticationRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="appkey" type="xsd:string" />
+            <xsd:element name="UserID" type="xsd:string" />
+            <xsd:element name="Password" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="UserAuthenticationResult">
+        <xsd:sequence>
+          <xsd:element name="version" type="xsd:string" />
+          <xsd:element name="status" type="xsd:int" />
+          <xsd:element name="message" type="xsd:string" />
+          <xsd:element name="source" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="result" type="ns2:UserAuthenticationResult" />
+    </xsd:schema>
+  </types>
+  <message name="Request">
+    <part name="parameters" element="ns2:UserAuthenticationRequest" />
+  </message>
+  <message name="Result">
+    <part name="result" element="ns2:result" />
+  </message>
+  <portType name="UserAuthenticationPort">
+    <operation name="getUserAuthentication">
+      <input message="ns2:Request" />
+      <output message="ns2:Result" />
+    </operation>
+  </portType>
+  <binding name="UserAuthenticationBinding" type="ns2:UserAuthenticationPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getUserAuthentication">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="UserAuthenticationService">
+    <port name="UserAuthenticationPort" binding="ns2:UserAuthenticationBinding">
+      <soap:address location="http://ws4id.inside.ups.com/ws4id/XML-SOAP/UserAuthentication" />
+    </port>
+  </service>
+</definitions>

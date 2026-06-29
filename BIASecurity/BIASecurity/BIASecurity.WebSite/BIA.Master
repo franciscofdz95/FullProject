@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BIA.Master.cs" Inherits="BIASecurity.WebSite.Main" %>
+<%@ Register Assembly="BIACore" Namespace="BIACore.Web.Controls" TagPrefix="biacore" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <%--<meta http-equiv="X-Frame-Options" content = "DENY" />
+    <meta http-equiv="X-XSS-Protection" content ="1 mode=block" /> --%>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>BIASecurity</title>
+    
+    <!-- page specific stuff -->
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+
+    <!-- BIACore -->
+    <%: BIACore.Web.Optimization.Scripts.Render("/CoreAssets/common/biacore/2.0/BIACore.min.js", "/CoreAssets/common/biacore/2.0/BIACore.js") %>
+    <!-- Ext7 -->
+    <%: BIACore.Web.Optimization.Scripts.Render("/CoreAssets/Library/extjs/7.8/ext-all.js", "/CoreAssets/Library/extjs/7.8/ext-all-debug.js", true) %>
+    <!-- Ext7 Theme -->
+    <%: BIACore.Web.Optimization.Scripts.Render("/CoreAssets/Library/extjs/7.8/classic/theme-neptune/theme-neptune.js","/CoreAssets/Library/extjs/7.8/classic/theme-neptune/theme-neptune-debug.js",true) %>
+    <%: BIACore.Web.Optimization.Links.Render("/CoreAssets/Library/extjs/7.8/classic/theme-neptune/resources/theme-neptune-all.css", "/CoreAssets/Library/extjs/7.8/classic/theme-neptune/resources/theme-neptune-all-debug.css",true) %>
+    <!-- Ext7 Charts -->
+    <%: BIACore.Web.Optimization.Scripts.Render("/CoreAssets/Library/extjs/7.8/packages/charts/classic/charts.js", "/CoreAssets/Library/extjs/7.8/packages/charts/classic/charts-debug.js",true) %>
+    <%: BIACore.Web.Optimization.Links.Render("/CoreAssets/Library/extjs/7.8/packages/charts/classic/neptune/resources/charts-all.css","/CoreAssets/Library/extjs/7.8/packages/charts/classic/neptune/resources/charts-all-debug.css",true) %>
+
+    <!-- BIACore.Ext requires -->
+    <%: BIACore.Web.Optimization.Links.Render("/CoreAssets/common/biacore/2.0/BIACore.Ext.css") %>
+    <%: BIACore.Web.Optimization.Scripts.Render("/CoreAssets/common/biacore/2.0/BIACore.Ext.min.js", "/CoreAssets/common/biacore/2.0/BIACore.Ext.js") %>
+
+    <!-- Bundles! -->
+    <%: System.Web.Optimization.Styles.Render( "~/bundle/css" )%>
+    <%: System.Web.Optimization.Scripts.Render( "~/bundle/app" )%>
+
+</head>
+<body>
+    
+    <%-- Do nothing, since the ExtJS Application will be launched automatically by BIACore.Ext.js --%>
+
+</body>
+</html>

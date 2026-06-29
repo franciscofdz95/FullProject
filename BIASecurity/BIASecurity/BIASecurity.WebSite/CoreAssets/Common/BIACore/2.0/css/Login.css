@@ -1,0 +1,495 @@
+﻿body 
+{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input {
+    width: 185px;
+    margin: 2px;
+}
+
+.loginBox input[type=text],
+.loginBox input[type=password] {
+    font-size: 18px;
+    line-height: 18px;
+}
+
+input[type=text]::-ms-clear {
+    display: none;
+    width: 0px;
+    height: 0px;
+}
+
+input[type=password]::-ms-reveal {
+    display: none;
+    width: 0px;
+    height: 0px;
+}
+
+.Card {
+    box-shadow: rgba(0, 0, 0, 0.137255) 0px 2px 2px 1px, rgba(0, 0, 0, 0.117647) 0px 1px 5px 2px, rgba(0, 0, 0, 0.2) 0px 3px 1px 0px;
+    border-radius: 3px;
+}
+
+.loginBox {
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    margin-top: 30px;
+    background-color: #EBEBE6;
+}
+
+.newHeader {
+    padding: 7px;
+    background-color: #351C15;
+    text-align: center;
+    color: #FFB500;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.idField,
+.pwField {
+    margin: 10px auto;
+    width: 315px;
+    clear: both;
+    text-align: right;
+}
+
+.idField i,
+.pwField i {
+    font-size: 24px;
+    position: absolute;
+    margin-top: -24px;
+    margin-left: 205px;
+}
+
+.newLogin input {
+    float: right;
+}
+
+.newLogin button {
+    margin: 10px 4px 4px;
+}
+
+.newLogin label {
+    display: inline-block;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 3px;
+}
+
+.newLogin {
+    background-color: #EBEBE6;
+    padding: 5px 5px 20px;
+}
+
+.newLogin #login {
+    display: block;
+    margin: 20px auto 5px;
+    padding: 5px 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.messages {
+    background-color: #D4CCBF;
+    padding: 20px 5px;
+    color: #555;
+    text-align: center;
+    font-weight: bold;
+}
+
+.messages.errMsg {
+    padding: 5px;
+}
+
+.newError {
+    border: 2px solid #D0150C;
+    padding: 12px 6px;
+    display: none;
+}
+
+.newError.visible {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.information {
+    font-size: 12px;
+    padding: 4px;
+    text-align: center;
+}
+
+.information a {
+    padding: 0 5px;
+}
+
+.newFooter {
+    background-color: #D4CCBF;
+    font-size: 11px;
+    border-top: #60513A 1px solid;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.info i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+#login.authenticating {
+    cursor: progress;
+}
+
+.ContainerButton:disabled {
+    background-color: #A4BED2;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#AFC3D2),color-stop(50%,#A4BED2),color-stop(51%,#8EB5D3 ),color-stop(100%,#A4BED2));
+    background-image: -webkit-linear-gradient(top,#AFC3D2,#A4BED2 50%,#8EB5D3 51%,#A4BED2);
+    background-image: -moz-linear-gradient(top,#AFC3D2,#A4BED2 50%,#8EB5D3 51%,#A4BED2);
+    background-image: -o-linear-gradient(top,#AFC3D2,#A4BED2 50%,#8EB5D3 51%,#A4BED2);
+    background-image: -ms-linear-gradient(top,#AFC3D2,#A4BED2 50%,#8EB5D3 51%,#A4BED2);
+    background-image: linear-gradient(top,#AFC3D2,#A4BED2 50%,#8EB5D3 51%,#A4BED2);
+    border-color: #A4BED2;
+    cursor: default;
+}
+
+.ContainerButton:hover:disabled {
+    background-color: #A4BED2;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#AFC3D2),color-stop(50%,#A4BED2),color-stop(51%,#8EB5D3 ),color-stop(100%,#A4BED2));
+    background-image: -webkit-linear-gradient(top,#AFC3D2,#A4BED2 50%,#8EB5D3 51%,#A4BED2);
+    background-image: -moz-linear-gradient(top,#AFC3D2,#A4BED2 50%,#8EB5D3 51%,#A4BED2);
+    background-image: -o-linear-gradient(top,#AFC3D2,#A4BED2 50%,#8EB5D3 51%,#A4BED2);
+    background-image: -ms-linear-gradient(top,#AFC3D2,#A4BED2 50%,#8EB5D3 51%,#A4BED2);
+    background-image: linear-gradient(top,#AFC3D2,#A4BED2 50%,#8EB5D3 51%,#A4BED2);
+    border-color: #A4BED2;
+    cursor: default;
+}
+
+.ContainerButton:active:disabled {
+    background-color: #A4BED2;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#AFC3D2),color-stop(50%,#A4BED2),color-stop(51%,#8EB5D3 ),color-stop(100%,#A4BED2));
+    background-image: -webkit-linear-gradient(top,#AFC3D2,#A4BED2 50%,#8EB5D3 51%,#A4BED2);
+    background-image: -moz-linear-gradient(top,#AFC3D2,#A4BED2 50%,#8EB5D3 51%,#A4BED2);
+    background-image: -o-linear-gradient(top,#AFC3D2,#A4BED2 50%,#8EB5D3 51%,#A4BED2);
+    background-image: -ms-linear-gradient(top,#AFC3D2,#A4BED2 50%,#8EB5D3 51%,#A4BED2);
+    background-image: linear-gradient(top,#AFC3D2,#A4BED2 50%,#8EB5D3 51%,#A4BED2);
+    border-color: #A4BED2;
+    cursor: default;
+}
+
+.ContainerButton:not(disabled) {
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: top;
+    overflow: hidden;
+    position: relative;
+    webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    padding: 3px 3px 3px 3px;
+    border-width: 1px;
+    border-style: solid;
+    background-image: none;
+    background-color: #3892d3;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#4b9cd7),color-stop(50%,#3892d3),color-stop(51%,#358ac8),color-stop(100%,#3892d3));
+    background-image: -webkit-linear-gradient(top,#4b9cd7,#3892d3 50%,#358ac8 51%,#3892d3);
+    background-image: -moz-linear-gradient(top,#4b9cd7,#3892d3 50%,#358ac8 51%,#3892d3);
+    background-image: -o-linear-gradient(top,#4b9cd7,#3892d3 50%,#358ac8 51%,#3892d3);
+    background-image: -ms-linear-gradient(top,#4b9cd7,#3892d3 50%,#358ac8 51%,#3892d3);
+    background-image: linear-gradient(top,#4b9cd7,#3892d3 50%,#358ac8 51%,#3892d3);
+    border-color: #126daf;
+}
+
+.ContainerButton:hover:not(disabled) {
+    border-color: #1064a1;
+    background-image: none;
+    background-color: #3386c2;
+    background-image: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#4792c8),color-stop(50%,#3386c2),color-stop(51%,#307fb8),color-stop(100%,#3386c2));
+    background-image: -webkit-linear-gradient(top,#4792c8,#3386c2 50%,#307fb8 51%,#3386c2);
+    background-image: -moz-linear-gradient(top,#4792c8,#3386c2 50%,#307fb8 51%,#3386c2);
+    background-image: -o-linear-gradient(top,#4792c8,#3386c2 50%,#307fb8 51%,#3386c2);
+    background-image: -ms-linear-gradient(top,#4792c8,#3386c2 50%,#307fb8 51%,#3386c2);
+    background-image: linear-gradient(top,#4792c8,#3386c2 50%,#307fb8 51%,#3386c2);
+}
+
+.ContainerButton:active:not(disabled) {
+    -webkit-box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+    -moz-box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+    box-shadow: #d4e1eb 0 1px 0 0 inset,#d4e1eb 0 -1px 0 0 inset,#d4e1eb -1px 0 0 0 inset,#d4e1eb 1px 0 0 0 inset;
+}
+
+#BIA_AppCode {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 5px;
+}
+
+.warningColor {
+    color: #FF8100;
+}
+
+.errorColor {
+    color: #D0150C;
+}
+
+.messages.loadingApp .info .loadingAppMessage {
+    margin-top: 20px;
+}
+
+.messages.loadingApp .info {
+    font-size: 22px;
+    line-height: 22px;
+}
+
+.messages.loadingApp {
+    background-color: #B0A696;
+    color: #EEE;
+}
+
+.tempMessage {
+    width: 325px;
+    margin-left: 20px;
+    position: absolute;
+    display: none;
+    background-color: rgba(255, 246, 179, 0.4);
+    font-weight: bold;
+}
+
+.Card.infoMessageBox {
+    padding: 7px;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.BIAMessageContainer {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+
+.BIAMessageContainer.Mobile {
+    display:none;
+}
+
+.BIAMessageContainer .BIAMessageTitle {
+    margin-bottom: 10px;
+}
+
+.BIAMessageContainer .BIAMessageTitle.newHeader {    
+    background-color: #908474;
+    color: black;
+}
+
+.BIAMessages {
+    overflow-y: auto;
+    max-height: 200px;
+}
+
+.BIAMessages .BIAMessageItem {
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
+.BIAMessages .BIAMessageCritical  {
+    background-color: #F31A12;
+    color: white;
+}
+
+.BIAMessages .BIAMessageCritical .BIAMessageItemType  {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.BIAMessages .BIAMessageWarning  {
+    background-color: #FF7800;
+}
+
+.BIAMessages .BIAMessageWarning .BIAMessageItemType  {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.BIAMessages .BIAMessageAttention  {
+    background-color: #FFD124;
+}
+
+.BIAMessages .BIAMessageAttention .BIAMessageItemType  {
+    font-weight: bold;
+}
+
+.BIAMessages .BIAMessageInfo {
+    background-color: #D9D9D6;
+}
+
+.BIAMessages .BIAMessageStatus {
+    background-color: #3376F0;
+    color: white;
+    font-weight: bold;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+/* Browser specific classing */
+.IE .idField i,
+.IE .pwField i {
+    margin-left: 330px;
+}
+.Mobile.IE .idField i,
+.Mobile.IE .pwField i {
+    margin-left: 455px;
+}
+
+/* Mobile specific classing */
+.Mobile input {
+    width: 225px;
+    margin: 2px 47px 2px 2px;
+    padding: 0 5px;
+}
+
+.Mobile .newHeader {
+    font-size: 26px;
+}
+
+.Mobile .idField,
+.Mobile .pwField {
+    margin: 15px auto;
+    width: 490px;
+}
+
+.Mobile .idField i,
+.Mobile .pwField i {
+    font-size: 26px;
+    margin-top: -26px;
+    margin-left: 250px;
+}
+
+.Mobile .newLogin label {
+    font-size: 22px;
+    margin-right: 6px;
+}
+
+.Mobile .newLogin #login {
+    margin: 25px auto 5px;
+    font-size: 22px;
+}
+
+.Mobile .info i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.Mobile #BIA_AppCode {
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.Mobile .loginBox input[type=text], 
+.Mobile .loginBox input[type=password] {
+    font-size: 22px;
+    line-height: 22px;
+}
+
+.Mobile .idField {
+    margin-top: 20px;
+}
+
+.Mobile .messages.loadingApp {
+    background-color: #B0A696;
+    color: #EEE;
+}
+
+.Mobile .messages.loadingApp .info {
+    font-size: 22px;
+    line-height: 22px;
+}
+
+.Mobile .messages.loadingApp .info .loadingAppMessage {
+    margin-top: 15px;
+}
+
+/* Phone specific classing */
+
+/* Tablet specific classing */
+
+/* Old CSS Formats */
+.center {
+    text-align: center;
+    padding: 10px;
+}
+
+.instructions {
+    display: inline-block;
+    border: 2px solid gray;
+    padding: 8px;
+    color: #0000CD;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+.error {
+    border: 2px solid #850600;
+    color: #850600;
+}
+
+.login {
+    display: inline-block;
+    border: 2px solid black;
+}
+
+.login .header {
+    background-color: rgb(103, 43, 8);
+    color: white;
+    border-bottom: 2px solid black;
+    padding: 2px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.login .body {
+    padding: 4px;
+    text-align: right;
+    font-size: 0.7em;
+}
+
+.links {
+    font-size: 0.7em;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.7em;
+    text-align: center;
+}
+
+.login-dialog {
+    display: none;
+    font-size: 0.7em;
+}
+
+#login {
+    display: block;
+    margin: 0 auto;
+}
+
+.no-close .ui-dialog-titlebar-close {
+    display: none;
+}

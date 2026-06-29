@@ -1,0 +1,65 @@
+﻿.bia-mask .x-mask-msg {
+    border: none;
+    background-color:#B0A696;
+    padding: 30px 10px;
+    min-width: 90px;
+}
+
+.bia-mask .x-mask-msg-inner.bia-mask-msg-inner {
+    border: none;
+    background-color: transparent;
+    color: #EBEBE6;
+    font: normal 20px tahoma,arial,verdana,sans-serif;
+}
+
+.bia-mask .x-mask-msg-text.bia-mask-msg-text {
+    padding: 65px 0 0;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+.bia-mask .x-mask-msg-text.bia-mask-msg-text {
+    background-image: url(images/BIA_Spinner_50.gif);
+    background-size: 50px 50px;
+}
+
+/* IE specific icon */
+.bia-mask.bia-mask-IE .x-mask-msg-text.bia-mask-msg-text {
+    background-image: url(images/BIA_Spinner_50.png);
+}
+
+/* Mobile formatting */
+.bia-mask.bia-mask-mobile .x-mask-msg-text.bia-mask-msg-text {
+    background-size: 25px 25px;
+}
+
+.bia-mask.bia-mask-mobile .x-mask-msg-text.bia-mask-msg-text {
+    padding: 40px 0 0;
+}
+
+.bia-mask.bia-mask-mobile .x-mask-msg {
+    padding: 15px 10px;
+    min-width: 60px;
+}
+
+
+.bia-mask.bia-mask-mobile .x-mask-msg-inner.bia-mask-msg-inner {
+    font: normal 14px tahoma,arial,verdana,sans-serif;
+}
+
+.bia-mask.bia-mask-micro .x-mask-msg-text.bia-mask-msg-text {
+    background-size: 25px 25px;
+}
+
+.bia-mask.bia-mask-micro .x-mask-msg {
+    padding: 10px 10px;
+    min-width: 50px;
+}
+
+.bia-mask.bia-mask-micro .x-mask-msg-text.bia-mask-msg-text {
+    padding: 30px 0 0;
+}
+
+.bia-mask-hidden {
+    display: none;
+}

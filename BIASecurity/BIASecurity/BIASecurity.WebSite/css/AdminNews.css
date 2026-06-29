@@ -1,0 +1,73 @@
+﻿.biaNewsAddButton {
+    color: white;
+    float: right;
+    height: 35px;
+}
+
+.biaNewsMenuItem {
+    cursor: pointer;
+    color: gray;
+    font: bold 14px arial, sans-serif;
+}
+
+.biaNewsMenuItem:hover {
+        background-color: #A6A6A3;
+        color: white;
+        border-radius: 15px;
+}
+
+.biaMessageList .x-panel-header .connectionsConnectionComponentEnvironmentfilter.x-field.x-form-item.x-form-type-text {
+    min-height: 23px;
+    padding: 0 12px;
+}
+
+.biaMessageList .x-grid-cell-inner {
+    font-family: 'Helvetica Neue', Helvetica, Arial;
+    font-size: 14px;
+    color: #3b3b3b;
+    line-height: 20px;
+    white-space: normal;
+}
+
+.newHeader {
+    background-color: #908474;
+    text-align: center;
+    margin: 10px;
+    font: bold 14px arial, sans-serif;
+    height: 40px;
+    line-height: 40px;
+}
+
+.newsMessages {
+    text-align: left;
+    margin: 4px 10px 10px 10px;
+    font: bold 14px arial, sans-serif;
+    height: 35px;
+    line-height: 35px;    
+    text-indent: 1em;
+}
+
+.newsMessageWarning {
+    background-color: #FF7800;
+    border-radius: 10px;
+}
+
+.newsMessageAttention {
+    background-color: #FFD124;
+    border-radius: 10px; 
+}
+
+.newsMessageCritical {
+    background-color: #F31A12;
+    border-radius: 10px; 
+}
+
+.newsMessageInfo {
+    background-color: #D9D9D6;
+    border-radius: 10px;
+}
+
+.newsMessageStatus {
+    background-color: #3376F0;
+    border-radius: 10px;
+}

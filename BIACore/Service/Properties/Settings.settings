@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="BIAService.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MyReportsUser" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">BIA_FTP_TEP</Value>
+    </Setting>
+    <Setting Name="MyReportsPass" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">imhotep12</Value>
+    </Setting>
+    <Setting Name="MyReportsPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ftp://ftp3bia.ups.com/</Value>
+    </Setting>
+    <Setting Name="NotificationSMTPServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">smtpapps-win.us.ups.com</Value>
+    </Setting>
+    <Setting Name="NotificationPollMinutes" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

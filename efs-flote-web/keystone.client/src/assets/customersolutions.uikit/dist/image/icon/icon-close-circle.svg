@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.9.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+<title>Close circle</title>
+<data-Icon_Keyword>x, close, circle</data-Icon_Keyword>
+<data-Icon_Use_Case>REPRESENTS: Closing Button LIMITATIONS OF USE: This icon has no limitations of use, only that it must represent a package or package box.</data-Icon_Use_Case>
+<path d="M256,8C119,8,8,119,8,256s111,248,248,248s248-111,248-248S393,8,256,8z M419.8,329.3c11.9,11.9,11.9,31.1,0,43l-47.5,47.5
+	c-11.9,11.9-31.1,11.9-43,0L256,346.5l-73.3,73.3c-11.9,11.9-31.1,11.9-43,0l-47.5-47.5c-11.9-11.9-11.9-31.1,0-43l73.3-73.3
+	l-73.3-73.3c-11.9-11.9-11.9-31.1,0-43l47.5-47.5c11.9-11.9,31.1-11.9,43,0l73.3,73.3l73.3-73.3c11.9-11.9,31.1-11.9,43,0l47.5,47.5
+	c11.9,11.9,11.9,31.1,0,43L346.5,256L419.8,329.3z"/>
+</svg>
+

@@ -1,0 +1,73 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IISMonitor", "IISMonitor.csproj", "{139C6570-4B57-4232-8AD3-7AC4E0FC8D19}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5000838F-DBDA-466D-A1A2-7F62A25CE4D2} = {5000838F-DBDA-466D-A1A2-7F62A25CE4D2}
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31} = {F74D65C7-0EF0-441F-86AE-1FD0F0702C31}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIACore", "..\BIACore\BIACore.csproj", "{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIACore.Agent", "..\Agent\BIACore.Agent.csproj", "{5000838F-DBDA-466D-A1A2-7F62A25CE4D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DEV|Any CPU = DEV|Any CPU
+		PROD|Any CPU = PROD|Any CPU
+		RC|Any CPU = RC|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{139C6570-4B57-4232-8AD3-7AC4E0FC8D19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{139C6570-4B57-4232-8AD3-7AC4E0FC8D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{139C6570-4B57-4232-8AD3-7AC4E0FC8D19}.DEV|Any CPU.ActiveCfg = Debug|Any CPU
+		{139C6570-4B57-4232-8AD3-7AC4E0FC8D19}.DEV|Any CPU.Build.0 = Debug|Any CPU
+		{139C6570-4B57-4232-8AD3-7AC4E0FC8D19}.PROD|Any CPU.ActiveCfg = Release|Any CPU
+		{139C6570-4B57-4232-8AD3-7AC4E0FC8D19}.PROD|Any CPU.Build.0 = Release|Any CPU
+		{139C6570-4B57-4232-8AD3-7AC4E0FC8D19}.RC|Any CPU.ActiveCfg = Release|Any CPU
+		{139C6570-4B57-4232-8AD3-7AC4E0FC8D19}.RC|Any CPU.Build.0 = Release|Any CPU
+		{139C6570-4B57-4232-8AD3-7AC4E0FC8D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{139C6570-4B57-4232-8AD3-7AC4E0FC8D19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.Debug|Any CPU.ActiveCfg = DEV|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.Debug|Any CPU.Build.0 = DEV|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.DEV|Any CPU.ActiveCfg = DEV|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.DEV|Any CPU.Build.0 = DEV|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.PROD|Any CPU.ActiveCfg = PROD|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.PROD|Any CPU.Build.0 = PROD|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.RC|Any CPU.ActiveCfg = RC|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.RC|Any CPU.Build.0 = RC|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.Release|Any CPU.ActiveCfg = RC|Any CPU
+		{F74D65C7-0EF0-441F-86AE-1FD0F0702C31}.Release|Any CPU.Build.0 = RC|Any CPU
+		{5000838F-DBDA-466D-A1A2-7F62A25CE4D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5000838F-DBDA-466D-A1A2-7F62A25CE4D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5000838F-DBDA-466D-A1A2-7F62A25CE4D2}.DEV|Any CPU.ActiveCfg = DEV|Any CPU
+		{5000838F-DBDA-466D-A1A2-7F62A25CE4D2}.DEV|Any CPU.Build.0 = DEV|Any CPU
+		{5000838F-DBDA-466D-A1A2-7F62A25CE4D2}.PROD|Any CPU.ActiveCfg = PROD|Any CPU
+		{5000838F-DBDA-466D-A1A2-7F62A25CE4D2}.PROD|Any CPU.Build.0 = PROD|Any CPU
+		{5000838F-DBDA-466D-A1A2-7F62A25CE4D2}.RC|Any CPU.ActiveCfg = RC|Any CPU
+		{5000838F-DBDA-466D-A1A2-7F62A25CE4D2}.RC|Any CPU.Build.0 = RC|Any CPU
+		{5000838F-DBDA-466D-A1A2-7F62A25CE4D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5000838F-DBDA-466D-A1A2-7F62A25CE4D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs.ups.com:8080/tfs/upsprod
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = IISMonitor.csproj
+		SccLocalPath1 = .
+		SccProjectUniqueName2 = ..\\BIACore\\BIACore.csproj
+		SccProjectName2 = ../BIACore
+		SccLocalPath2 = ..\\BIACore
+		SccProjectUniqueName3 = ..\\Agent\\BIACore.Agent.csproj
+		SccProjectName3 = ../Agent
+		SccLocalPath3 = ..\\Agent
+	EndGlobalSection
+EndGlobal

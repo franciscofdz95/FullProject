@@ -1,0 +1,1466 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BIACore</name>
+    </assembly>
+    <members>
+        <member name="T:BIACore.BIACoreModule">
+            <summary>
+            Another part of the BIACoreModule
+            See also BIACoreModule.cs
+            See also Log\BIACoreModule.cs
+            In this section, we are concerned with
+            1) Handling security
+            2) Setting up c# user/session objects prior to application execution
+            </summary>
+            <summary>
+            Another part of the BIACoreModule
+            See also BIACoreModule.cs
+            See also Log\BIACoreModule.cs
+            In this section, we are concerned with
+            1) Handling security
+            2) Setting up c# user/session objects prior to application execution
+            </summary>
+            <summary>
+            The core feature of BIACore.dll is the BIACoreModule.
+            </summary>
+            <remarks>
+            This class is broken into chunks so that I can keep the appropriate parts
+            in their respective areas.
+            In this section, we are concerned with
+            1) application start - registering any controllers we may be providing
+            2) application init - ensuring we are run first if security is enabled.
+            3) manual routing - not sure this is necessary, but we can manually handle
+               webapi routes if we're stuck in a non-webapi project.
+            </remarks>
+            <summary>
+            Another part of the BIACoreModule
+            See also BIACoreModule.cs
+            See also Log\BIACoreModule.cs
+            In this section, we are concerned with
+            1) Handling security
+            2) Setting up c# user/session objects prior to application execution
+            </summary>
+        </member>
+        <member name="M:BIACore.BIACoreModule.Activity(System.Object,System.EventArgs)">
+            <summary>
+            We are called in the EndRequest event; here we decide whether or not to log the event.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:BIACore.BIACoreModule.GetActivityData(System.Web.HttpRequest)">
+            <summary>
+            Exposes the param build code externally for use with Enterprise Logging of Logins
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.BIACoreModule.Error(System.Object,System.EventArgs)">
+            <summary>
+            We are called before the client application's global.asax 
+            has an opportunity to handle the exception. Consequently, this
+            will be recorded but may be handled and not shown to the client.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:BIACore.BIACoreModule.EndRequest(System.Object,System.EventArgs)">
+            <summary>
+            This happens at the beginning of the end of every request sent to the server.
+            Consequently, it's a supremely heavy way to capture exceptions not handled by 
+            the client for logging. Not used atm, but kept around just in case.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:BIACore.BIACoreModule.me">
+            <summary>
+            Static reference to BIACoreModule object from startup
+            </summary>
+        </member>
+        <member name="M:BIACore.BIACoreModule.onStart(System.Web.HttpApplication)">
+            <summary>
+            Do startup activities
+            </summary>
+            <param name="application"></param>
+        </member>
+        <member name="M:BIACore.BIACoreModule.Router(System.Object,System.EventArgs)">
+            <summary>
+            Manually implement WebAPI routing for this specific request.
+            Really only necessary in some (older) apps that aren't working very well. M.Erdmann This line is incorrect, used everywhere!
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:BIACore.Configuration.CoreElement.ServerInternal">
+            <Summary>
+             ServerInternal represents the parent domain of the BIACore node, used to keep internal WebAPI calls running on the same node as the subdomain calls.
+            </Summary>
+        </member>
+        <member name="P:BIACore.Configuration.CoreElement.BIAEnvironment">
+            <summary>
+            This variable is used by App Logging, Enterprise Logging, Header and internal BIA Core calls to determine which "Environment" it is running on, 
+            this is NOT the server/instance/subdomain
+            </summary>
+        </member>
+        <member name="T:BIACore.Extensions.CollectionExtensions">
+            <summary>
+            Extension methods for all kind of Collections implementing the ICollection&lt;T&gt; interface
+            </summary>
+        </member>
+        <member name="M:BIACore.Extensions.CollectionExtensions.AddUnique``1(System.Collections.Generic.ICollection{``0},``0)">
+            <summary>
+            Adds a value uniquely to to a collection and returns a value whether the value was added or not.
+            </summary>
+            <typeparam name="T">The generic collection value type</typeparam>
+            <param name="collection">The collection.</param>
+            <param name="value">The value to be added.</param>
+            <returns>Indicates whether the value was added or not</returns>
+            <example><code>
+            list.AddUnique(1); // returns true;
+            list.AddUnique(1); // returns false the second time;
+            </code></example>
+        </member>
+        <member name="M:BIACore.Extensions.CollectionExtensions.AddRangeUnique``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Adds a range of value uniquely to a collection and returns the amount of values added.
+            </summary>
+            <typeparam name="T">The generic collection value type.</typeparam>
+            <param name="collection">The collection.</param>
+            <param name="values">The values to be added.</param>
+            <returns>The amount if values that were added.</returns>
+        </member>
+        <member name="T:BIACore.Extensions.ComparableExtensions">
+            <summary>
+            Extension methods for all comparable objects eg. string, DateTime, numeric values ...
+            </summary>
+        </member>
+        <member name="M:BIACore.Extensions.ComparableExtensions.IsBetween``1(``0,``0,``0)">
+            <summary>
+            Determines whether the specified value is between the the defined minimum and maximum range (including those values).
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value">The value.</param>
+            <param name="minValue">The minimum value.</param>
+            <param name="maxValue">The maximum value.</param>
+            <returns>
+            	<c>true</c> if the specified value is between min and max; otherwise, <c>false</c>.
+            </returns>
+            <example>
+            var value = 5;
+            if(value.IsBetween(1, 10)) { 
+                // ... 
+            }
+            </example>
+        </member>
+        <member name="M:BIACore.Extensions.ComparableExtensions.IsBetween``1(``0,``0,``0,System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Determines whether the specified value is between the the defined minimum and maximum range (including those values).
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value">The value.</param>
+            <param name="minValue">The minimum value.</param>
+            <param name="maxValue">The maximum value.</param>
+            <param name="comparer">An optional comparer to be used instead of the types default comparer.</param>
+            <returns>
+            	<c>true</c> if the specified value is between min and max; otherwise, <c>false</c>.
+            </returns>
+            <example>
+            var value = 5;
+            if(value.IsBetween(1, 10)) {
+            // ...
+            }
+            </example>
+        </member>
+        <member name="M:BIACore.Extensions.DataRowExtensions.ColumnValuesEqual(System.Data.DataRow,System.Object,System.Object)">
+            <summary>
+            Compares two values to see if they are equal. Also compares DBNULL.Value.
+            Note: If your DataTable contains object fields, then you must extend this
+            function to handle them in a meaningful way if you intend to group on them.
+            </summary>
+            <param name="A"></param>
+            <param name="B"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Extensions.DataRowExtensions.ToFile(System.Data.DataRow,System.String,System.String)">
+            <summary>
+            This read the column as a byte[] and writes it straight to a file via BinaryWriter
+            </summary>
+            <param name="DR"></param>
+            <param name="sFieldName"></param>
+            <param name="sFilename"></param>
+        </member>
+        <member name="M:BIACore.Extensions.DataRowExtensions.ToChar(System.Data.DataRow,System.String)">
+            <summary>
+            Returns a character.  
+            NOTE: This will alway return at least ' ', NOT ''
+            </summary>
+            <param name="sFieldName">Name of field to process</param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Extensions.DataRowExtensions.CopyTo(System.Data.DataRow,System.Data.DataRow)">
+            <summary>
+            Copys any fields that exist in both rows.  
+            Does not copy primary key field(s).
+            Does not write to readonly fields but will copy them to a destination if its not readonly.
+            </summary>
+            <param name="DRSource"></param>
+            <param name="DRDestination"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Extensions.DataTableExtensions.Locate(System.Data.DataTable,System.String,System.Object)">
+            <summary>
+            Locate a key value in a column name
+            This is a table walk.  Only returns the first record found
+            </summary>
+            <param name="DT"></param>
+            <param name="sColumnName"></param>
+            <param name="oKeyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Extensions.DataTableExtensions.Remove(System.Data.DataTable,System.String)">
+            <summary>
+            Non Destructive remove of rows found by 'filter'
+            </summary>
+            <param name="DT"></param>
+            <param name="sFilter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Extensions.DataTableExtensions.ToList``1(System.Data.DataTable,System.Boolean)">
+            <summary>
+            Iterates over the rows of this DataTable and produces an
+            anonymous object with named-properties based on the column names and values.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="table"></param>
+            <param name="allowNullable"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BIACore.Extensions.DateTimeExtensions.ValidSQLDateTime(System.DateTime)" -->
+        <!-- Badly formed XML comment ignored for member "M:BIACore.Extensions.DateTimeExtensions.SQLDateTime(System.DateTime)" -->
+        <!-- Badly formed XML comment ignored for member "M:BIACore.Extensions.DateTimeExtensions.SQLDate(System.DateTime)" -->
+        <member name="M:BIACore.Extensions.DateTimeExtensions.CalculateAge(System.DateTime)">
+            <summary>
+            Calculates the age based on today.
+            </summary>
+            <param name="dateOfBirth">The date of birth.</param>
+            <returns>The calculated age.</returns>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.CalculateAge(System.DateTime,System.DateTime)">
+            <summary>
+            Calculates the age based on a passed reference date.
+            </summary>
+            <param name="dateOfBirth">The date of birth.</param>
+            <param name="referenceDate">The reference date to calculate on.</param>
+            <returns>The calculated age.</returns>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.GetCountDaysOfMonth(System.DateTime)">
+            <summary>
+            Returns the number of days in the month of the provided date.
+            </summary>
+            <param name="date">The date.</param>
+            <returns>The number of days.</returns>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.GetFirstDayOfMonth(System.DateTime)">
+            <summary>
+            Returns the first day of the month of the provided date.
+            </summary>
+            <param name="date">The date.</param>
+            <returns>The first day of the month</returns>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.GetFirstDayOfMonth(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Returns the first day of the month of the provided date.
+            </summary>
+            <param name="date">The date.</param>
+            <param name="dayOfWeek">The desired day of week.</param>
+            <returns>The first day of the month</returns>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.GetLastDayOfMonth(System.DateTime)">
+            <summary>
+            Returns the last day of the month of the provided date.
+            </summary>
+            <param name="date">The date.</param>
+            <returns>The last day of the month.</returns>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.GetLastDayOfMonth(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Returns the last day of the month of the provided date.
+            </summary>
+            <param name="date">The date.</param>
+            <param name="dayOfWeek">The desired day of week.</param>
+            <returns>The date time</returns>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.IsToday(System.DateTime)">
+            <summary>
+            Indicates whether the date is today.
+            </summary>
+            <param name="dt">The date.</param>
+            <returns>
+            	<c>true</c> if the specified date is today; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.SetTime(System.DateTime,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sets the time on the specified DateTime value.
+            </summary>
+            <param name="date">The base date.</param>
+            <param name="hours">The hours to be set.</param>
+            <param name="minutes">The minutes to be set.</param>
+            <param name="seconds">The seconds to be set.</param>
+            <returns>The DateTime including the new time value</returns>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.SetTime(System.DateTime,System.TimeSpan)">
+            <summary>
+            Sets the time on the specified DateTime value.
+            </summary>
+            <param name="date">The base date.</param>
+            <param name="time">The TimeSpan to be applied.</param>
+            <returns>
+            The DateTime including the new time value
+            </returns>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.ToDateTimeOffset(System.DateTime)">
+            <summary>
+            Converts a DateTime into a DateTimeOffset using the local system time zone.
+            </summary>
+            <param name="localDateTime">The local DateTime.</param>
+            <returns>The converted DateTimeOffset</returns>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.ToDateTimeOffset(System.DateTime,System.TimeZoneInfo)">
+            <summary>
+            Converts a DateTime into a DateTimeOffset using the specified time zone.
+            </summary>
+            <param name="localDateTime">The local DateTime.</param>
+            <param name="localTimeZone">The local time zone.</param>
+            <returns>The converted DateTimeOffset</returns>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.GetFirstDayOfWeek(System.DateTime)">
+            <summary>
+            Gets the first day of the week using the current culture.
+            </summary>
+            <param name="date">The date.</param>
+            <returns>The first day of the week</returns>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.GetFirstDayOfWeek(System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            Gets the first day of the week using the specified culture.
+            </summary>
+            <param name="date">The date.</param>
+            <param name="cultureInfo">The culture to determine the first weekday of a week.</param>
+            <returns>The first day of the week</returns>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.GetLastDayOfWeek(System.DateTime)">
+            <summary>
+            Gets the last day of the week using the current culture.
+            </summary>
+            <param name="date">The date.</param>
+            <returns>The first day of the week</returns>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.GetLastDayOfWeek(System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            Gets the last day of the week using the specified culture.
+            </summary>
+            <param name="date">The date.</param>
+            <param name="cultureInfo">The culture to determine the first weekday of a week.</param>
+            <returns>The first day of the week</returns>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.GetWeeksWeekday(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Gets the next occurence of the specified weekday within the current week using the current culture.
+            </summary>
+            <param name="date">The base date.</param>
+            <param name="weekday">The desired weekday.</param>
+            <returns>The calculated date.</returns>
+            <example><code>
+            var thisWeeksMonday = DateTime.Now.GetWeekday(DayOfWeek.Monday);
+            </code></example>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.GetWeeksWeekday(System.DateTime,System.DayOfWeek,System.Globalization.CultureInfo)">
+            <summary>
+            Gets the next occurence of the specified weekday within the current week using the specified culture.
+            </summary>
+            <param name="date">The base date.</param>
+            <param name="weekday">The desired weekday.</param>
+            <param name="cultureInfo">The culture to determine the first weekday of a week.</param>
+            <returns>The calculated date.</returns>
+            <example><code>
+            var thisWeeksMonday = DateTime.Now.GetWeekday(DayOfWeek.Monday);
+            </code></example>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.GetNextWeekday(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Gets the next occurence of the specified weekday.
+            </summary>
+            <param name="date">The base date.</param>
+            <param name="weekday">The desired weekday.</param>
+            <returns>The calculated date.</returns>
+            <example><code>
+            var lastMonday = DateTime.Now.GetNextWeekday(DayOfWeek.Monday);
+            </code></example>
+        </member>
+        <member name="M:BIACore.Extensions.DateTimeExtensions.GetPreviousWeekday(System.DateTime,System.DayOfWeek)">
+            <summary>
+            Gets the previous occurence of the specified weekday.
+            </summary>
+            <param name="date">The base date.</param>
+            <param name="weekday">The desired weekday.</param>
+            <returns>The calculated date.</returns>
+            <example><code>
+            var lastMonday = DateTime.Now.GetPreviousWeekday(DayOfWeek.Monday);
+            </code></example>
+        </member>
+        <member name="T:BIACore.Extensions.ListExtensions">
+            <summary>
+            Extension methods for all kind of Lists implementing the IList&lt;T&gt; interface
+            </summary>
+        </member>
+        <member name="M:BIACore.Extensions.ListExtensions.InsertUnique``1(System.Collections.Generic.IList{``0},System.Int32,``0)">
+            <summary>
+            Inserts an item uniquely to to a list and returns a value whether the item was inserted or not.
+            </summary>
+            <typeparam name="T">The generic list item type.</typeparam>
+            <param name="list">The list to be inserted into.</param>
+            <param name="index">The index to insert the item at.</param>
+            <param name="item">The item to be added.</param>
+            <returns>Indicates whether the item was inserted or not</returns>
+        </member>
+        <member name="M:BIACore.Extensions.ListExtensions.InsertRangeUnique``1(System.Collections.Generic.IList{``0},System.Int32,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Inserts a range of items uniquely to a list starting at a given index and returns the amount of items inserted.
+            </summary>
+            <typeparam name="T">The generic list item type.</typeparam>
+            <param name="list">The list to be inserted into.</param>
+            <param name="startIndex">The start index.</param>
+            <param name="items">The items to be inserted.</param>
+            <returns>The amount if items that were inserted.</returns>
+        </member>
+        <member name="M:BIACore.Extensions.ListExtensions.IndexOf``1(System.Collections.Generic.IList{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Return the index of the first matching item or -1.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list">The list.</param>
+            <param name="comparison">The comparison.</param>
+            <returns>The item index</returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.IsValidUrl(System.String)">
+            <summary>
+            Checks if url is valid. 
+            from http://www.osix.net/modules/article/?id=586
+            and changed to match http://localhost
+            
+            complete (not only http) url regex can be found 
+            at http://internet.ls-la.net/folklore/url-regexpr.html
+            </summary>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BIACore.Extensions.StringExtensions.Reduce(System.String,System.Int32,System.String)" -->
+        <member name="M:BIACore.Extensions.StringExtensions.RemoveSpaces(System.String)">
+            <summary>
+            remove white space, not line end
+            Useful when parsing user input such phone,
+            price int.Parse("1 000 000".RemoveSpaces(),.....
+            </summary>
+            <param name="s"></param>
+            <param name="value">string without spaces</param>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.IsNumber(System.String,System.Boolean)">
+            <summary>
+            true, if the string can be parse as Double respective Int32
+            Spaces are not considred.
+            </summary>
+            <param name="s">input string</param>
+            <param name="floatpoint">true, if Double is considered,
+            otherwhise Int32 is considered.</param>
+            <returns>true, if the string contains only digits or float-point</returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.IsNumberOnly(System.String,System.Boolean)">
+            <summary>
+            true, if the string contains only digits or float-point.
+            Spaces are not considred.
+            </summary>
+            <param name="s">input string</param>
+            <param name="floatpoint">true, if float-point is considered</param>
+            <returns>true, if the string contains only digits or float-point</returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.RemoveDiacritics(System.String)">
+            <summary>
+            Remove accent from strings 
+            </summary>
+            <example>
+             input:  "Příliš žluťoučký kůň úpěl ďábelské ódy."
+             result: "Prilis zlutoucky kun upel dabelske ody."
+            </example>
+            <param name="s"></param>
+            <remarks>founded at http://stackoverflow.com/questions/249087/
+            how-do-i-remove-diacritics-accents-from-a-string-in-net</remarks>
+            <returns>string without accents</returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.Nl2Br(System.String)">
+            <summary>
+            Replace \r\n or \n by <br />
+            from http://weblogs.asp.net/gunnarpeipman/archive/2007/11/18/c-extension-methods.aspx
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.Br2NL(System.String)">
+            <summary>
+            Replace <br /> with \r\n
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:BIACore.Extensions.StringExtensions.s_md5" -->
+        <!-- Badly formed XML comment ignored for member "M:BIACore.Extensions.StringExtensions.MD5(System.String)" -->
+        <member name="M:BIACore.Extensions.StringExtensions.IsEmpty(System.String)">
+            <summary>
+            Determines whether the specified string is null or empty.
+            </summary>
+            <param name="value">The string value to check.</param>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.IsNotEmpty(System.String)">
+            <summary>
+            Determines whether the specified string is not null or empty.
+            </summary>
+            <param name="value">The string value to check.</param>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.IfEmpty(System.String,System.String)">
+            <summary>
+            Checks whether the string is empty and returns a default value in case.
+            </summary>
+            <param name="value">The string to check.</param>
+            <param name="defaultValue">The default value.</param>
+            <returns>Either the string or the default value.</returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.FormatWith(System.String,System.Object[])">
+            <summary>
+            Formats the value with the parameters using string.Format.
+            </summary>
+            <param name="value">The input string.</param>
+            <param name="parameters">The parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.TrimToMaxLength(System.String,System.Int32)">
+            <summary>
+            Trims the text to a provided maximum length.
+            </summary>
+            <param name="value">The input string.</param>
+            <param name="maxLength">Maximum length.</param>
+            <returns></returns>
+            <remarks>Proposed by Rene Schulte</remarks>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.TrimToMaxLength(System.String,System.Int32,System.String)">
+            <summary>
+            Trims the text to a provided maximum length and adds a suffix if required.
+            </summary>
+            <param name="value">The input string.</param>
+            <param name="maxLength">Maximum length.</param>
+            <param name="suffix">The suffix.</param>
+            <returns></returns>
+            <remarks>Proposed by Rene Schulte</remarks>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.Contains(System.String,System.String,System.StringComparison)">
+            <summary>
+            Determines whether the comparison value strig is contained within the input value string
+            </summary>
+            <param name="inputValue">The input value.</param>
+            <param name="comparisonValue">The comparison value.</param>
+            <param name="comparisonType">Type of the comparison to allow case sensitive or insensitive comparison.</param>
+            <returns>
+            	<c>true</c> if input value contains the specified value, otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.ToXDocument(System.String)">
+            <summary>
+            Loads the string into a LINQ to XML XDocument
+            </summary>
+            <param name="xml">The XML string.</param>
+            <returns>The XML document object model (XDocument)</returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.ToXmlDOM(System.String)">
+            <summary>
+            Loads the string into a XML DOM object (XmlDocument)
+            </summary>
+            <param name="xml">The XML string.</param>
+            <returns>The XML document object model (XmlDocument)</returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.ToXPath(System.String)">
+            <summary>
+            Loads the string into a XML XPath DOM (XPathDocument)
+            </summary>
+            <param name="xml">The XML string.</param>
+            <returns>The XML XPath document object model (XPathNavigator)</returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.Reverse(System.String)">
+            <summary>
+            Reverses / mirrors a string.
+            </summary>
+            <param name="value">The string to be reversed.</param>
+            <returns>The reversed string</returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.EnsureStartsWith(System.String,System.String)">
+            <summary>
+            Ensures that a string starts with a given prefix.
+            </summary>
+            <param name="value">The string value to check.</param>
+            <param name="prefix">The prefix value to check for.</param>
+            <returns>The string value including the prefix</returns>
+            <example>
+            <code>
+            var extension = "txt";
+            var fileName = string.Concat(file.Name, extension.EnsureStartsWith("."));
+            </code>
+            </example>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.EnsureEndsWith(System.String,System.String)">
+            <summary>
+            Ensures that a string ends with a given suffix.
+            </summary>
+            <param name="value">The string value to check.</param>
+            <param name="suffix">The suffix value to check for.</param>
+            <returns>The string value including the suffix</returns>
+            <example>
+            <code>
+            var url = "http://www.pgk.de";
+            url = url.EnsureEndsWith("/"));
+            </code>
+            </example>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.IsMatchingTo(System.String,System.String)">
+            <summary>
+            Uses regular expressions to determine if the string matches to a given regex pattern.
+            </summary>
+            <param name="value">The input string.</param>
+            <param name="regexPattern">The regular expression pattern.</param>
+            <returns>
+            	<c>true</c> if the value is matching to the specified pattern; otherwise, <c>false</c>.
+            </returns>
+            <example>
+            <code>
+            var s = "12345";
+            var isMatching = s.IsMatchingTo(@"^\d+$");
+            </code>
+            </example>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.IsMatchingTo(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            Uses regular expressions to determine if the string matches to a given regex pattern.
+            </summary>
+            <param name="value">The input string.</param>
+            <param name="regexPattern">The regular expression pattern.</param>
+            <param name="options">The regular expression options.</param>
+            <returns>
+            	<c>true</c> if the value is matching to the specified pattern; otherwise, <c>false</c>.
+            </returns>
+            <example>
+            <code>
+            var s = "12345";
+            var isMatching = s.IsMatchingTo(@"^\d+$");
+            </code>
+            </example>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.ReplaceWith(System.String,System.String,System.String)">
+            <summary>
+            Uses regular expressions to replace parts of a string.
+            </summary>
+            <param name="value">The input string.</param>
+            <param name="regexPattern">The regular expression pattern.</param>
+            <param name="replaceValue">The replacement value.</param>
+            <returns>The newly created string</returns>
+            <example>
+            <code>
+            var s = "12345";
+            var replaced = s.ReplaceWith(@"\d", m => string.Concat(" -", m.Value, "- "));
+            </code>
+            </example>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.ReplaceWith(System.String,System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            Uses regular expressions to replace parts of a string.
+            </summary>
+            <param name="value">The input string.</param>
+            <param name="regexPattern">The regular expression pattern.</param>
+            <param name="replaceValue">The replacement value.</param>
+            <param name="options">The regular expression options.</param>
+            <returns>The newly created string</returns>
+            <example>
+            <code>
+            var s = "12345";
+            var replaced = s.ReplaceWith(@"\d", m => string.Concat(" -", m.Value, "- "));
+            </code>
+            </example>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.ReplaceWith(System.String,System.String,System.Text.RegularExpressions.MatchEvaluator)">
+            <summary>
+            Uses regular expressions to replace parts of a string.
+            </summary>
+            <param name="value">The input string.</param>
+            <param name="regexPattern">The regular expression pattern.</param>
+            <param name="evaluator">The replacement method / lambda expression.</param>
+            <returns>The newly created string</returns>
+            <example>
+            <code>
+            var s = "12345";
+            var replaced = s.ReplaceWith(@"\d", m => string.Concat(" -", m.Value, "- "));
+            </code>
+            </example>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.ReplaceWith(System.String,System.String,System.Text.RegularExpressions.RegexOptions,System.Text.RegularExpressions.MatchEvaluator)">
+            <summary>
+            Uses regular expressions to replace parts of a string.
+            </summary>
+            <param name="value">The input string.</param>
+            <param name="regexPattern">The regular expression pattern.</param>
+            <param name="options">The regular expression options.</param>
+            <param name="evaluator">The replacement method / lambda expression.</param>
+            <returns>The newly created string</returns>
+            <example>
+            <code>
+            var s = "12345";
+            var replaced = s.ReplaceWith(@"\d", m => string.Concat(" -", m.Value, "- "));
+            </code>
+            </example>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.GetMatches(System.String,System.String)">
+            <summary>
+            Uses regular expressions to determine all matches of a given regex pattern.
+            </summary>
+            <param name="value">The input string.</param>
+            <param name="regexPattern">The regular expression pattern.</param>
+            <returns>A collection of all matches</returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.GetMatches(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            Uses regular expressions to determine all matches of a given regex pattern.
+            </summary>
+            <param name="value">The input string.</param>
+            <param name="regexPattern">The regular expression pattern.</param>
+            <param name="options">The regular expression options.</param>
+            <returns>A collection of all matches</returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.GetMatchingValues(System.String,System.String)">
+            <summary>
+            Uses regular expressions to determine all matches of a given regex pattern and returns them as string enumeration.
+            </summary>
+            <param name="value">The input string.</param>
+            <param name="regexPattern">The regular expression pattern.</param>
+            <returns>An enumeration of matching strings</returns>
+            <example>
+            <code>
+            var s = "12345";
+            foreach(var number in s.GetMatchingValues(@"\d")) {
+             Console.WriteLine(number);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.GetMatchingValues(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            Uses regular expressions to determine all matches of a given regex pattern and returns them as string enumeration.
+            </summary>
+            <param name="value">The input string.</param>
+            <param name="regexPattern">The regular expression pattern.</param>
+            <param name="options">The regular expression options.</param>
+            <returns>An enumeration of matching strings</returns>
+            <example>
+            <code>
+            var s = "12345";
+            foreach(var number in s.GetMatchingValues(@"\d")) {
+             Console.WriteLine(number);
+            }
+            </code>
+            </example>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.Split(System.String,System.String)">
+            <summary>
+            Uses regular expressions to split a string into parts.
+            </summary>
+            <param name="value">The input string.</param>
+            <param name="regexPattern">The regular expression pattern.</param>
+            <returns>The splitted string array</returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.Split(System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            Uses regular expressions to split a string into parts.
+            </summary>
+            <param name="value">The input string.</param>
+            <param name="regexPattern">The regular expression pattern.</param>
+            <param name="options">The regular expression options.</param>
+            <returns>The splitted string array</returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.GetWords(System.String)">
+            <summary>
+            Splits the given string into words and returns a string array.
+            </summary>
+            <param name="value">The input string.</param>
+            <returns>The splitted string array</returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.GetWordByIndex(System.String,System.Int32)">
+            <summary>
+            Gets the nth "word" of a given string, where "words" are substrings separated by a given separator
+            </summary>
+            <param name="value">The string from which the word should be retrieved.</param>
+            <param name="index">Index of the word (0-based).</param>
+            <returns>
+            The word at position n of the string.
+            Trying to retrieve a word at a position lower than 0 or at a position where no word exists results in an exception.
+            </returns>
+            <remarks>Originally contributed by MMathews</remarks>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.ToBytes(System.String)">
+            <summary>
+            Converts the string to a byte-array using the default encoding
+            </summary>
+            <param name="value">The input string.</param>
+            <returns>The created byte array</returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.ToBytes(System.String,System.Text.Encoding)">
+            <summary>
+            Converts the string to a byte-array using the supplied encoding
+            </summary>
+            <param name="value">The input string.</param>
+            <param name="encoding">The encoding to be used.</param>
+            <returns>The created byte array</returns>
+            <example><code>
+            var value = "Hello World";
+            var ansiBytes = value.ToBytes(Encoding.GetEncoding(1252)); // 1252 = ANSI
+            var utf8Bytes = value.ToBytes(Encoding.UTF8);
+            </code></example>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.EncodeBase64(System.String)">
+            <summary>
+            Encodes the input value to a Base64 string using the default encoding.
+            </summary>
+            <param name="value">The input value.</param>
+            <returns>The Base 64 encoded string</returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.EncodeBase64(System.String,System.Text.Encoding)">
+            <summary>
+            Encodes the input value to a Base64 string using the supplied encoding.
+            </summary>
+            <param name="value">The input value.</param>
+            <param name="encoding">The encoding.</param>
+            <returns>The Base 64 encoded string</returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.DecodeBase64(System.String)">
+            <summary>
+            Decodes a Base 64 encoded value to a string using the default encoding.
+            </summary>
+            <param name="encodedValue">The Base 64 encoded value.</param>
+            <returns>The decoded string</returns>
+        </member>
+        <member name="M:BIACore.Extensions.StringExtensions.DecodeBase64(System.String,System.Text.Encoding)">
+            <summary>
+            Decodes a Base 64 encoded value to a string using the supplied encoding.
+            </summary>
+            <param name="encodedValue">The Base 64 encoded value.</param>
+            <param name="encoding">The encoding.</param>
+            <returns>The decoded string</returns>
+        </member>
+        <member name="T:BIACore.Extensions.TextReaderExtensions">
+            <summary>
+            Extension methods for the TextReader class and its sub classes (StreamReader, StringReader)
+            </summary>
+        </member>
+        <member name="M:BIACore.Extensions.TextReaderExtensions.IterateLines(System.IO.TextReader)">
+            <summary>
+            The method provides an iterator through all lines of the text reader.
+            </summary>
+            <param name="reader">The text reader.</param>
+            <returns>The iterator</returns>
+            <example>
+            <code>
+            using(var reader = fileInfo.OpenText()) {
+             foreach(var line in reader.IterateLines()) {
+              // ...
+             }
+            }
+            </code></example>
+            <remarks>Contributed by OlivierJ</remarks>
+        </member>
+        <member name="M:BIACore.Extensions.TextReaderExtensions.IterateLines(System.IO.TextReader,System.Action{System.String})">
+            <summary>
+            The method executes the passed delegate /lambda expression) for all lines of the text reader.
+            </summary>
+            <param name="reader">The text reader.</param>
+            <param name="action">The action.</param>
+            <example>
+            	<code>
+            using(var reader = fileInfo.OpenText()) {
+             reader.IterateLines(l => Console.WriteLine(l));
+            }
+            </code></example>
+            <remarks>Contributed by OlivierJ</remarks>
+        </member>
+        <member name="T:BIACore.Internal._AsyncOp">
+            <summary>
+            This section is for saving the log entries to the database outside of the
+            operating context. It acts as a local speed-up; these will end up getting
+            queue'd and then fired all at once at the end of whatever operation is in
+            progress.
+            </summary>
+        </member>
+        <member name="T:BIACore.Model.ConfigResponse">
+            <summary>
+            Represents the schema of the table EnvServerNodeAppLog.
+            </summary>
+        </member>
+        <member name="T:BIACore.Model.EnvServerNodeAppLog">
+            <summary>
+            Represents the schema of the table EnvServerNodeAppLog.
+            </summary>
+        </member>
+        <member name="P:BIACore.Model.EnvServerNodeAppLog.Environment">
+            <summary>
+            Gets or sets the EnvServerNodeId element contained for EnvServerNodeAppLog.
+            </summary>  
+        </member>
+        <member name="P:BIACore.Model.EnvServerNodeAppLog.Server">
+            <summary>
+            Gets or sets the Environment element contained for EnvServerNodeAppLog.
+            </summary>  
+        </member>
+        <member name="P:BIACore.Model.EnvServerNodeAppLog.Website">
+            <summary>
+            Gets or sets the Server element contained for EnvServerNodeAppLog.
+            </summary>  
+        </member>
+        <member name="P:BIACore.Model.EnvServerNodeAppLog.Node">
+            <summary>
+            Gets or sets the Website element contained for EnvServerNodeAppLog.
+            </summary>  
+        </member>
+        <member name="P:BIACore.Model.EnvServerNodeAppLog.Domain">
+            <summary>
+            Gets or sets the Node element contained for EnvServerNodeAppLog.
+            </summary>  
+        </member>
+        <member name="P:BIACore.Model.EnvServerNodeAppLog.appCode">
+            <summary>
+            Gets or sets the Domain element contained for EnvServerNodeAppLog.
+            </summary>  
+        </member>
+        <member name="P:BIACore.Model.EnvServerNodeAppLog.ReturnPath">
+            <summary>
+            Gets or sets the AppCode element contained for EnvServerNodeAppLog.
+            </summary>  
+        </member>
+        <member name="P:BIACore.Model.UserApp.multiple">
+            <summary>
+            Indicates this user has multiple Application permissions.
+            </summary>
+        </member>
+        <member name="P:BIACore.Model.UserBase.userId">
+            <summary>
+            The user's unique identifier (sysm currently, but may change).
+            </summary>
+        </member>
+        <member name="P:BIACore.Model.UserBase.adId">
+            <summary>
+            The user's Windows login id.
+            </summary>
+        </member>
+        <member name="P:BIACore.Model.UserBase.employeeId">
+            <summary>
+            The user's employee id - only valid for employees.
+            </summary>
+        </member>
+        <member name="P:BIACore.Model.UserBase.firstName">
+            <summary>
+            The user's given name.
+            </summary>
+        </member>
+        <member name="P:BIACore.Model.UserBase.lastName">
+            <summary>
+            The user's family name.
+            </summary>
+        </member>
+        <member name="P:BIACore.Model.UserBase.email">
+            <summary>
+            The user's email address.
+            </summary>
+        </member>
+        <member name="P:BIACore.Model.UserBase.phone">
+            <summary>
+            The user's phone number, if available.
+            </summary>
+        </member>
+        <member name="P:BIACore.Model.UserBase.department">
+            <summary>
+            The department the user reports to.
+            </summary>
+        </member>
+        <member name="M:BIACore.Model.Permission.ToObject``1">
+            <summary>
+            Newtonsoft.JSON provides this method automatically.
+            When using this class locally, the method still needs
+            to exist for Rules.User() calls.
+            </summary>
+        </member>
+        <member name="T:BIACore.Provider.Oracle">
+            <summary>
+            Provider for interop'ing with Oracle.
+            Tracks performance of queries, logs exceptions, etc...
+            </summary>
+        </member>
+        <member name="M:BIACore.Provider.Oracle.Execute``1(System.String,System.String,BIACore.Model.DBParameter[])">
+            <summary>
+            Performs an Oracle Execute for the given connection, stored procedure, args list.
+            Automatically casts the result from a datatable into a list of fully typed objects.
+            </summary>
+            <typeparam name="T">The Type parameter to return</typeparam>
+            <param name="connection">The Connection string to use</param>
+            <param name="sp">The stored procedure to execute</param>
+            <param name="args">Any arguments to pass to the stored procedure</param>
+            <returns>List&lt;T&gt; the list of type objects or an empty list.</returns>
+        </member>
+        <member name="M:BIACore.Provider.Oracle.Execute``1(System.String,System.String)">
+            <summary>
+            Perform an Oracle Execute for a given connection and raw oracle text.
+            Automatically casts the result from a datatable into a list of fully typed objects.
+            </summary>
+            <typeparam name="T">The Type parameter to return</typeparam>
+            <param name="connection">The Connection string to use</param>
+            <param name="text">The oracle text to execute</param>
+            <returns>List&lt;T&gt; the list of type objects or an empty list.</returns>
+        </member>
+        <member name="T:BIACore.Provider.SQL">
+            <summary>
+            Provider for interop'ing with SQL.
+            Tracks performance of queries, logs exceptions, etc...
+            </summary>
+        </member>
+        <member name="M:BIACore.Provider.SQL.Execute``1(System.String,System.String,BIACore.Model.DBParameter[])">
+            <summary>
+            Performs an SQL Execute for the given connection, stored procedure, args list.
+            Automatically casts the result from a datatable into a list of fully typed objects.
+            </summary>
+            <typeparam name="T">The Type parameter to return</typeparam>
+            <param name="connection">The Connection string to use</param>
+            <param name="sp">The stored procedure to execute</param>
+            <param name="args">Any arguments to pass to the stored procedure</param>
+            <returns>List&lt;T&gt; the list of type objects or an empty list.</returns>
+        </member>
+        <member name="M:BIACore.Provider.SQL.Execute``1(System.String,System.String)">
+            <summary>
+            Perform an SQL Execute for a given connection and raw sql text.
+            Automatically casts the result from a datatable into a list of fully typed objects.
+            </summary>
+            <typeparam name="T">The Type parameter to return</typeparam>
+            <param name="connection">The Connection string to use</param>
+            <param name="text">The sql text to execute</param>
+            <returns>List&lt;T&gt; the list of type objects or an empty list.</returns>
+        </member>
+        <member name="T:BIACore.Reflection.Reflector">
+            <summary>
+            This class does the dynamic class generation for the Providers.
+            (see GetTypeBuilder)
+            
+            If you pass in a type T - do make sure it is public, otherwise
+            the assembly won't be able to extend it.
+            </summary>
+        </member>
+        <member name="T:BIACore.Security.Application">
+            <summary>
+            This static class is for accessing the current User object.
+            Internally, it contains an Obj property which is a reference to
+            the current user object; if none exists, nulls will (usually)
+            be returned.
+            There are 2 modes of operation; inside of a web application,
+            this will automatically be provided assuming you're using the
+            BIA security system.
+            If you're in a standalone mode (e.g. running as a window service)
+            you can manually set the User by calling User.StandAlone(UserId)
+            - the appropriate user (and their permissions) will be loaded 
+            automatically.
+            </summary>
+        </member>
+        <member name="T:BIACore.Security.Session">
+            <summary>
+            This static class is for accessing the current Session object.
+            Internally, it contains an Obj property which is a reference to
+            the current session object; if none exists, nulls will (usually)
+            be returned.
+            As a client, you shouldn't worry about this; also it doesn't
+            exist in standalone mode.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.Session.pollInterval">
+            <summary>
+            How long this Session can be considered "valid" for
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.Session.sessionId">
+            <summary>
+            The UserId associated with this Session
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.Session.ad_id">
+            <summary>
+            The UserId associated with this Session
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.Session.empId">
+            <summary>
+            The UserId associated with this Session
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.Session.userId">
+            <summary>
+            The UserId associated with this Session
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.Session.authenticatedId">
+            <summary>
+            The UserId associated with this Session
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.Session.authenticated_ad_id">
+            <summary>
+            The UserId associated with this Session
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.Session.appCode">
+            <summary>
+            The UserId associated with this Session
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.Session.appOnline">
+            <summary>
+            The UserId associated with this Session
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.Session.status">
+            <summary>
+            The UserId associated with this Session
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.Session.msg">
+            <summary>
+            The UserId associated with this Session
+            </summary>
+        </member>
+        <member name="M:BIACore.Security.Session.IsCachable(BIACore.Model.Session)">
+            <summary>
+            Determines if the session object is available for Http caching
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Security.Session.LogSessionStatus(BIACore.Model.Session)">
+            <summary>
+            Logs session if detail is a loggable event
+            </summary>
+            <param name="s"></param>
+        </member>
+        <member name="T:BIACore.Security.User">
+            <summary>
+            This static class is for accessing the current User object.
+            Internally, it contains an Obj property which is a reference to
+            the current user object; if none exists, nulls will (usually)
+            be returned.
+            There are 2 modes of operation; inside of a web application,
+            this will automatically be provided assuming you're using the
+            BIA security system.
+            If you're in a standalone mode (e.g. running as a window service)
+            you can manually set the User by calling User.StandAlone(UserId)
+            - the appropriate user (and their permissions) will be loaded 
+            automatically.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.UserId">
+            <summary>
+            The userId for the current user.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.userId">
+            <summary>
+            The userId for the current user.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.AdId">
+            <summary>
+            The adId for the current user.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.adId">
+            <summary>
+            The adId for the current user.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.EmployeeId">
+            <summary>
+            The employeeId for the current user.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.employeeId">
+            <summary>
+            The employeeId for the current user.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.FirstName">
+            <summary>
+            The firstName of the current user.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.firstName">
+            <summary>
+            The firstName of the current user.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.LastName">
+            <summary>
+            The lastName of the current user.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.lastName">
+            <summary>
+            The lastName of the current user.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.GeoPermissions">
+            <summary>
+            The permissions list of the current user.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.permissions">
+            <summary>
+            The permissions list of the current user.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.permissionsEA">
+            <summary>
+            The permissions list of the current user.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.aprsRoles">
+            <summary>
+            List of roles assigned in APRS
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.msEntraRoles">
+            <summary>
+            Gets the list of roles from the token
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.email">
+            <summary>
+            The email address of the current user.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.phone">
+            <summary>
+            The phone number of the current user.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.regionType">
+            <summary>
+            The regionType of the current user.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.region">
+            <summary>
+            The region of the current user.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.district">
+            <summary>
+            The district of the current user.
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.authenticatedId">
+            <summary>
+            The authenticated user's id (can be different from current user thanks to superimpose)
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.authenticatedFirstName">
+            <summary>
+            The authenticated user's first name (can be different from current user thanks to superimpose)
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.authenticatedLastName">
+            <summary>
+            The authenticated user's last name (can be different from current user thanks to superimpose)
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.isCorporate">
+            <summary>
+            returns true if the user is considered "corporate"
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.isSA">
+            <summary>
+            Returns true if the current user is considered at least an application Super Admin
+            </summary>
+        </member>
+        <member name="P:BIACore.Security.User.isAdmin">
+            <summary>
+            Returns true if the current user is considered at least an application Admin
+            </summary>
+        </member>
+        <member name="M:BIACore.Security.User.logout">
+            <summary>
+            Manually log out the current user.
+            </summary>
+        </member>
+        <member name="M:BIACore.Security.User.impersonateUser(System.String)">
+            <summary>
+            Pretend to be a different user in the current application.
+            </summary>
+            <param name="impersonateId">userId of the target to pretend to be</param>
+        </member>
+        <member name="M:BIACore.Security.User.StandAlone(System.String)">
+            <summary>
+            Meant for use in non Http-Environment apps, e.g. Windows Services
+            </summary>
+            <param name="UserId">The user id to load</param>
+        </member>
+        <member name="M:BIACore.Security.User.Lookup(System.String)">
+            <summary>
+            Look up the given user by the provided UserId.
+            Requires at least application Admin permissions; if the current user is not, an exception will be thrown.
+            </summary>
+            <param name="UserId">The UserId to look up</param>
+            <returns>Null if no user is found, or the given user</returns>
+        </member>
+        <member name="T:BIACore.Utility.Encryption.Hashicorp">
+            <summary>
+            Hashicorp class used within Encryption project
+            </summary>
+        </member>
+        <member name="M:BIACore.Utility.Encryption.Hashicorp.#ctor">
+            <summary>
+            Hashicorp Constructor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Utility.Encryption.Hashicorp.Encrypt(System.String)">
+            <summary>
+            Public Encyrpt with Hashicorp Vault
+            </summary>
+            <param name="authKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Utility.Encryption.Hashicorp.Decrypt(System.String)">
+            <summary>
+            Public Encyrpt with Hashicorp Vault
+            </summary>
+            <param name="encryptString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Utility.Encryption.Hashicorp.TLSLogin">
+            <summary>
+            Authenticates to Hashicorp Vault
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Utility.Encryption.Hashicorp.RefreshToken(System.Int16)">
+            <summary>
+            Refresh Token Method
+            </summary>
+            <param name="Skip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Utility.Encryption.Hashicorp.EncryptInternal(System.String)">
+            <summary>
+            Crypt for encrypt and decrypt
+            </summary>
+            <param name="crypttext"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Utility.Encryption.Hashicorp.DecryptInternal(System.String)">
+            <summary>
+            Decrypt
+            </summary>
+            <param name="secretPath"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BIACore.Utility.Validation">
+            <summary>
+            The Validation classes used for various string validations.
+            </summary>
+        </member>
+        <member name="M:BIACore.Utility.Validation.ValidateString(System.String)">
+            <summary>
+            The ValidateString method used to validate standard strings.
+            </summary>
+        </member>
+        <member name="T:BIACore.Settings">
+            <summary>
+            Static class for accessing our Configuration object.
+            e.g. Settings.Security.enabled == true
+            </summary>
+        </member>
+        <member name="T:BIACore.Web.BIAHttpModule">
+            <summary>
+            The basis for BIACoreModule. 
+            Handles determining the difference between application startup and request startup.
+            </summary>
+        </member>
+        <member name="T:BIACore.Web.Controls.Link">
+            <summary>
+            ASPx control for adding a server-invariant &lt;link&gt; html item.
+            </summary>
+        </member>
+        <member name="T:BIACore.Web.Controls.Resource">
+            <summary>
+            Base class for dynamically hosted ASPx controls.
+            </summary>
+        </member>
+        <member name="P:BIACore.Web.Controls.Resource.Path">
+            <summary>
+            The path to the compressed/minified file for this resource.
+            </summary>
+        </member>
+        <member name="P:BIACore.Web.Controls.Resource.DebugPath">
+            <summary>
+            The path to the uncompressed (debug) file for this resource.
+            </summary>
+        </member>
+        <member name="P:BIACore.Web.Controls.Resource.AlwaysCache">
+            <summary>
+            When true this resource will always be cached regardless of webconfig.core.debug configuration.
+            </summary>
+        </member>
+        <member name="T:BIACore.Web.Controls.Script">
+            <summary>
+            ASPx control for adding a server-invariant &lt;script&gt; html item.
+            </summary>
+        </member>
+        <member name="T:BIACore.Web.Controls.SimpleControl">
+            <summary>
+            Base class for dynamically hosted ASPx controls.
+            </summary>
+        </member>
+        <member name="M:BIACore.Web.Optimization.Links.Render(System.String,System.String,System.Boolean)">
+            <summary>
+            Embeds an html link resource in the webpage.
+            Also replaces some "magic" strings with values determined at run time.
+            {server} is replaced with the BIACore config "server" string.
+            {baseurl} is replaced with the BIACore config "baseurl" string.
+            </summary>
+            <param name="path">Required - this is the default URI to use.</param>
+            <param name="debug">Optional - this is the URI to use when in debug mode.
+            If not specified, uses "path".</param>
+            <param name="cache">Optional - adds a query string parameter (_dc=ticks) to prevent caching of this resource.</param>
+            <returns></returns>
+        </member>
+        <member name="M:BIACore.Web.Optimization.Scripts.Render(System.String,System.String,System.Boolean)">
+            <summary>
+            Embeds an html link resource in the webpage.
+            Also replaces some "magic" strings with values determined at run time.
+            {server} is replaced with the BIACore config "server" string.
+            {baseurl} is replaced with the BIACore config "baseurl" string.
+            </summary>
+            <param name="path">Required - this is the default URI to use.</param>
+            <param name="debug">Optional - this is the URI to use when in debug mode.
+            If not specified, uses "path".</param>
+            <param name="cache">Optional - adds a query string parameter (_dc=ticks) to prevent caching of this resource.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

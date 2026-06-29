@@ -1,0 +1,152 @@
+﻿.BIASecurity .x-field.x-form-item.x-form-type-text, .BIASecurity .x-field.x-form-item.x-form-type-password {
+    padding: 0 12px 4px;
+    min-height: 48px;
+    border-bottom: #888 solid 1px;
+    background-color: #E8E8E7;
+    background-color: #E8E8E7;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.BIASecurity #BH_Button_PerformanceTrackerSQLInjectionToggle {
+    padding: 0px 0px 0px 0px !important;
+    background-color: #B0B0AA !important;
+    border-top-left-radius: 6px !important;
+    border-top-right-radius: 6px !important;
+    min-height: initial !important;
+    border-bottom: none !important;
+    cursor: pointer;
+}
+
+.BIASecurity .x-field.x-form-item.x-form-type-text .x-form-item-label, .BIASecurity .x-field.x-form-item.x-form-type-password .x-form-item-label {
+        font-size: 12px;
+        line-height: 14px;
+        padding: 0;
+        height: 21px;
+        color: #888;
+        font-weight: bold;
+    }
+
+.BIASecurity .x-field.x-form-item.x-form-type-text .x-form-item-label .x-form-item-label-inner, .BIASecurity .x-field.x-form-item.x-form-type-password .x-form-item-label .x-form-item-label-inner {
+    padding-top: 6px !important;
+    padding-bottom: 1px !important;
+}
+
+.BIASecurity .x-field.x-form-item.x-form-type-text .x-form-text-field-body, .BIASecurity .x-field.x-form-item.x-form-type-password .x-form-text-field-body {
+    min-height: 18px;
+}
+
+.BIASecurity .x-field.x-form-item.x-form-type-text .x-form-text-field-body .x-form-trigger-wrap, .BIASecurity .x-field.x-form-item.x-form-type-password .x-form-text-field-body .x-form-trigger-wrap {
+    border-width: 0px;
+}
+
+.BIASecurity .x-field.x-form-item.x-form-type-text .x-form-text-field-body .x-form-text,
+.BIASecurity .x-field.x-form-item.x-form-type-password .x-form-text-field-body .x-form-text {
+    font-size: 14px;
+    line-height: 16px;
+    min-height: 20px;
+    padding: 1px 0;
+    background-color: #E8E8E7;
+}
+
+.BIASecurity .x-field.x-form-item.x-form-type-text .x-form-text-field-body .x-form-trigger,
+.BIASecurity .x-field.x-form-item.x-form-type-password .x-form-text-field-body .x-form-trigger {
+    font-size: 14px;
+    line-height: 16px;
+    min-height: 20px;
+    padding: 1px 0;
+    /*background-color: #E8E8E7;*/
+}
+
+.BIASecurity .x-field.x-form-item.x-form-type-text .x-form-text-field-body .x-form-text.x-form-invalid-field, 
+.BIASecurity .x-field.x-form-item.x-form-type-password .x-form-text-field-body .x-form-text.x-form-invalid-field {
+    border: 1px red solid;
+}
+
+/*.BIASecurity .x-field.x-form-item.x-form-type-text:hover:not(.x-item-disabled), 
+.BIASecurity .x-field.x-form-item.x-form-type-text:hover:not(.x-item-disabled) .x-form-text-field-body .x-form-text,
+.BIASecurity .x-field.x-form-item.x-form-type-password:hover:not(.x-item-disabled), 
+.BIASecurity .x-field.x-form-item.x-form-type-password:hover:not(.x-item-disabled) .x-form-text-field-body .x-form-text{
+    background-color: #DEDED6;
+    border-bottom: #888 solid 1px;
+}*/
+
+.BIASecurity .x-field.x-form-item.x-form-type-text:hover:not(.x-item-disabled),
+.BIASecurity .x-field.x-form-item.x-form-type-text:hover:not(.x-item-disabled) .x-form-text-field-body .x-form-text,
+.BIASecurity .x-field.x-form-item.x-form-type-text:hover:not(.x-item-disabled) .x-form-text-field-body .x-form-trigger,
+.BIASecurity .x-field.x-form-item.x-form-type-password:hover:not(.x-item-disabled),
+.BIASecurity .x-field.x-form-item.x-form-type-password:hover:not(.x-item-disabled) .x-form-text-field-body .x-form-text,
+.BIASecurity .x-field.x-form-item.x-form-type-password:hover:not(.x-item-disabled) .x-form-text-field-body .x-form-trigger {
+    background-color: #DEDED6;
+    border-bottom: #888 solid 1px;
+}
+
+.BIASecurity .x-field.x-form-item.x-form-type-text.x-field-focus, 
+.BIASecurity .x-field.x-form-item.x-form-type-text.x-field-focus:hover:not(.x-item-disabled),
+.BIASecurity .x-field.x-form-item.x-form-type-password.x-field-focus, 
+.BIASecurity .x-field.x-form-item.x-form-type-password.x-field-focus:hover:not(.x-item-disabled) {
+    border-bottom: #666 2px solid;
+}
+
+.BIASecurity .x-field.x-form-item.x-form-type-text.x-field-focus, 
+.BIASecurity .x-field.x-form-item.x-form-type-text.x-field-focus .x-form-text-field-body .x-form-text,
+.BIASecurity .x-field.x-form-item.x-form-type-password.x-field-focus, 
+.BIASecurity .x-field.x-form-item.x-form-type-password.x-field-focus .x-form-text-field-body .x-form-text {
+    background-color: #D4D4D3;
+}
+
+.BIASecurity .x-field.x-form-item.x-form-type-text.x-item-disabled .x-form-item-label, .BIASecurity .x-field.x-form-item.x-form-type-password.x-item-disabled .x-form-item-label {
+    color: #444;
+}
+
+.BIASecurity .x-field.x-form-item.x-form-type-text.x-form-item-no-label, .BIASecurity .x-field.x-form-item.x-form-type-password.x-form-item-no-label {
+    padding-top: 10px;
+    min-height: 27px;
+}
+
+.BIASecurity .x-field.x-form-item.x-form-type-text.x-form-active, 
+.BIASecurity .x-field.x-form-item.x-form-type-text.x-form-active:hover:not(.x-item-disabled),
+.BIASecurity .x-field.x-form-item.x-form-type-password.x-form-active, 
+.BIASecurity .x-field.x-form-item.x-form-type-password.x-form-active:hover:not(.x-item-disabled) {
+    padding-bottom: 2px;
+    border-bottom: #3386c2 2px solid;
+}
+
+.BIASecurity .x-field.x-form-item.x-form-type-text.x-form-active .x-form-item-label, .BIASecurity .x-field.x-form-item.x-form-type-password.x-form-active .x-form-item-label {
+    color: #3386c2;
+}
+
+.BIASecurity .x-field.x-form-item.x-form-type-text.x-field-focus:hover:not(.x-item-disabled),
+.BIASecurity .x-field.x-form-item.x-form-type-text.x-field-active:hover:not(.x-item-disabled),
+.BIASecurity .x-field.x-form-item.x-form-type-password.x-field-focus:hover:not(.x-item-disabled),
+.BIASecurity .x-field.x-form-item.x-form-type-password.x-field-active:hover:not(.x-item-disabled) {
+    padding-bottom: 3px;
+}
+
+.BIASecurity .x-field.x-form-item.x-form-type-text .x-form-text-field-body i.fa-pencil, 
+.BIASecurity .x-field.x-form-item.x-form-type-password .x-form-text-field-body i.fa-pencil {
+    color: #888;
+}
+
+.BIASecurity .x-field.x-form-item.x-form-type-text .x-form-field::-webkit-input-placeholder, 
+.BIASecurity .x-field.x-form-item.x-form-type-text .x-form-item-body .x-tagfield-list .x-tagfield-input .x-form-empty-field {
+    color: #AAA;
+}
+
+.BIASecurity .x-field.x-form-item.x-form-type-text .x-tagfield-list {
+    padding: 0 3px;
+}
+
+.BIASecurity .x-field.x-form-item.x-form-type-text .x-tagfield-item {
+    margin: 1px 4px 1px 0;
+    min-height: 18px;
+    background-color: #d2d2d2;
+    border: 1px solid #d2d2d2;
+}
+
+.BIASecurity .x-field.x-form-item.x-form-type-text .x-tagfield-item .x-tagfield-item-text { line-height: 16px; }
+
+.BIASecurity .x-field.x-form-item.x-form-type-text .x-tagfield-item .x-tagfield-item-close { top: 2px; }
+
+.BIASecurity .x-field.x-form-item.x-form-type-text .x-pickerfield-open .x-tagfield-item { display: none; }
+
+.BIASecurity .x-field.x-form-item.x-form-type-text .x-tagfield-input .x-tagfield-input-field { line-height: 18px; }

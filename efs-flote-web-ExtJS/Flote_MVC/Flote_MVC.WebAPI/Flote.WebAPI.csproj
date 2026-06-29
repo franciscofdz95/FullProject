@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\Antlr3.3.5.1\build\Antlr3.props" Condition="Exists('..\..\packages\Antlr3.3.5.1\build\Antlr3.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{11DA3835-46FD-4952-8ED0-5217D4BFA6FA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Flote.WebAPI</RootNamespace>
+    <AssemblyName>Flote.WebAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dev|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Dev\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QA|AnyCPU'">
+    <OutputPath>bin\QA\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Dev|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Dev\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'QA|x64'">
+    <OutputPath>bin\x64\QA\</OutputPath>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Alpha|AnyCPU'">
+    <OutputPath>bin\Alpha\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Alpha|x64'">
+    <OutputPath>bin\x64\Alpha\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\winprodpost4.inside.ups.com\BIAAlpha\Reference\BIACore\2.0\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="BIACore, Version=3.0.8538.20175, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\winprodpost4.inside.ups.com\BIAAlpha\Reference\BIACore\2.0\Entra\BIACore.dll</HintPath>
+    </Reference>
+    <Reference Include="BIACore.WebAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\winprodpost4.inside.ups.com\BIAAlpha\Reference\BIACore\2.0\BIACore.WebAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="GemBox.Spreadsheet">
+      <HintPath>\\winprodpost4.inside.ups.com\BIAAlpha\Library\GemBox.Bundle.37.0.1014\lib\net35\GemBox.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>\\svrp000346ec\dev_root\Reference\ThirdParty\ExcelPackage.1.0.0\lib\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\winprodpost4.inside.ups.com\BIAAlpha\Reference\BIACore\2.0\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\winprodpost4.inside.ups.com\BIAAlpha\Reference\BIACore\2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess">
+      <HintPath>\\winprodpost4.inside.ups.com\BIAAlpha\Reference\BIACore\2.0\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\winprodpost4.inside.ups.com\BIAAlpha\Common\BIACore\2.0\bin\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\winprodpost4.inside.ups.com\BIAAlpha\Reference\BIACore\2.0\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http">
+      <HintPath>\\winprodpost4.inside.ups.com\BIAAlpha\Reference\BIACore\2.0\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>\\winprodpost4.inside.ups.com\BIAAlpha\Reference\BIACore\2.0\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\winprodpost4.inside.ups.com\BIAAlpha\Reference\BIACore\2.0\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>\\winprodpost4.inside.ups.com\BIAAlpha\Reference\BIACore\2.0\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connections.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Controller\Admin\BIASecurityFlote.cs" />
+    <Compile Include="Controller\BIADemoFilterController.cs" />
+    <Compile Include="Controller\BIADemoReportController.cs" />
+    <Compile Include="Controller\Common\CodingSheetExcelExport.cs" />
+    <Compile Include="Controller\Common\ScannedDocuments.cs" />
+    <Compile Include="Controller\Common\SFTPConnectController.cs" />
+    <Compile Include="Controller\Filter\AccrualStat.cs" />
+    <Compile Include="Controller\Filter\AcctMon.cs" />
+    <Compile Include="Controller\Filter\AcctYear.cs" />
+    <Compile Include="Controller\Filter\BatchId.cs" />
+    <Compile Include="Controller\Filter\BillId.cs" />
+    <Compile Include="Controller\Filter\BillRefNo.cs" />
+    <Compile Include="Controller\Filter\CarrierBOL.cs" />
+    <Compile Include="Controller\Filter\CarrierId.cs" />
+    <Compile Include="Controller\Filter\ChargeCode.cs" />
+    <Compile Include="Controller\Filter\ChargeStatus.cs" />
+    <Compile Include="Controller\Filter\CompanyCode.cs" />
+    <Compile Include="Controller\Filter\ContainerNumber.cs" />
+    <Compile Include="Controller\Filter\CostType.cs" />
+    <Compile Include="Controller\Filter\CountryCode.cs" />
+    <Compile Include="Controller\Filter\CurrencyCode.cs" />
+    <Compile Include="Controller\Filter\DestCc.cs" />
+    <Compile Include="Controller\Filter\Destination.cs" />
+    <Compile Include="Controller\Filter\DestTp.cs" />
+    <Compile Include="Controller\Filter\DisplayCurr.cs" />
+    <Compile Include="Controller\Filter\DivisionDest.cs" />
+    <Compile Include="Controller\Filter\DIvisionOrig.cs" />
+    <Compile Include="Controller\Filter\DocumentId.cs" />
+    <Compile Include="Controller\Filter\EndDate.cs" />
+    <Compile Include="Controller\Filter\EndPeriod.cs" />
+    <Compile Include="Controller\Filter\EPADest.cs" />
+    <Compile Include="Controller\Filter\EPAOrig.cs" />
+    <Compile Include="Controller\Filter\InvoiceStatus.cs" />
+    <Compile Include="Controller\Filter\InvRefNo.cs" />
+    <Compile Include="Controller\Filter\LocCode.cs" />
+    <Compile Include="Controller\Filter\LocCountry.cs" />
+    <Compile Include="Controller\Filter\LocRegion.cs" />
+    <Compile Include="Controller\Filter\LocType.cs" />
+    <Compile Include="Controller\Filter\MBLCostBasis.cs" />
+    <Compile Include="Controller\Filter\MBLNo.cs" />
+    <Compile Include="Controller\Filter\ModifiedBy.cs" />
+    <Compile Include="Controller\Filter\OrigDest.cs" />
+    <Compile Include="Controller\Filter\Origin.cs" />
+    <Compile Include="Controller\Filter\OriginCc.cs" />
+    <Compile Include="Controller\Filter\OriginTp.cs" />
+    <Compile Include="Controller\Filter\PageName.cs" />
+    <Compile Include="Controller\Filter\RcvdAtDate.cs" />
+    <Compile Include="Controller\Filter\Reason.cs" />
+    <Compile Include="Controller\Filter\RegionDest.cs" />
+    <Compile Include="Controller\Filter\RegionOrig.cs" />
+    <Compile Include="Controller\Filter\RemoteCheckLoc.cs" />
+    <Compile Include="Controller\Filter\ServiceCode.cs" />
+    <Compile Include="Controller\Filter\ShipmentNumber.cs" />
+    <Compile Include="Controller\Filter\StartDate.cs" />
+    <Compile Include="Controller\Filter\StartPeriod.cs" />
+    <Compile Include="Controller\Filter\UserId.cs" />
+    <Compile Include="Controller\Filter\ValuePayLocation.cs" />
+    <Compile Include="Controller\Filter\VendorCode.cs" />
+    <Compile Include="Controller\Filter\WebApiFilter.cs" />
+    <Compile Include="Controller\ImportExcel\Excel.cs" />
+    <Compile Include="Controller\ImportExcel\Validate.cs" />
+    <Compile Include="Controller\Report\PaidDifferently.cs" />
+    <Compile Include="Controller\Report\AccrualReport.cs" />
+    <Compile Include="Controller\Report\BillsReport.cs" />
+    <Compile Include="Controller\Report\CBOLSumReport.cs" />
+    <Compile Include="Controller\Report\CodingSheetExport.cs" />
+    <Compile Include="Controller\Report\InvoiceProcessingRpt.cs" />
+    <Compile Include="Controller\Report\LocOceanMBLRpt.cs" />
+    <Compile Include="Controller\Report\LocShipReport.cs" />
+    <Compile Include="Controller\Report\LocVendorsRpt.cs" />
+    <Compile Include="Controller\Report\LogVendorBillReport.cs" />
+    <Compile Include="Controller\Report\Shipment.cs" />
+    <Compile Include="Controller\Report\VendorShipRpt.cs" />
+    <Compile Include="Controller\Common\CommonFloteCtrl.cs" />
+    <Compile Include="Controller\Report\Vendors.cs" />
+    <Compile Include="DBConstants.cs" />
+    <Compile Include="GemBoxConfig.cs" />
+    <Compile Include="Model\BIAUserAccess\BIAProfile.cs" />
+    <Compile Include="Model\Filter.cs" />
+    <Compile Include="Model\ImportExcel\ExcelInfoModel.cs" />
+    <Compile Include="Model\ImportExcel\ExcelModel.cs" />
+    <Compile Include="Model\ImportExcel\Utility.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RouteConfig.cs" />
+    <Compile Include="TIF.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Antlr3.3.5.1\build\Antlr3.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Antlr3.3.5.1\build\Antlr3.props'))" />
+    <Error Condition="!Exists('..\..\packages\Antlr3.3.5.1\build\Antlr3.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Antlr3.3.5.1\build\Antlr3.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\Antlr3.3.5.1\build\Antlr3.targets" Condition="Exists('..\..\packages\Antlr3.3.5.1\build\Antlr3.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

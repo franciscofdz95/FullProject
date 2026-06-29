@@ -1,0 +1,15 @@
+
+<ng-select [items]="months"
+           bindLabel="label"
+           bindValue="key"
+           [placeholder]="placeholder"
+           [clearable]="clearable"
+           [searchable]="true"
+           [disabled]="disabled"
+           [(ngModel)]="selectedKey"
+           >
+ 
+  <ng-template ng-option-tmp let-item="item">
+    {{ item.label }}
+  </ng-template>
+</ng-select>
