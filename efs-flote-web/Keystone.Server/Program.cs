@@ -8,6 +8,7 @@ using Keystone.Services.Services.Email;
 using Keystone.Services.Services.Filters;
 using Keystone.Services.Services.Locations.LocationOceanMBL;
 using Keystone.Services.Services.Locations.LocationShipment;
+using Keystone.Services.Services.MBL.OceanMBL;
 using Keystone.Services.Services.MultiUpload;
 using Keystone.Services.Services.Reports;
 using Keystone.Services.Services.Session;
@@ -80,6 +81,7 @@ builder.Services.AddScoped<IShipmentService, ShipmentService>();
 builder.Services.AddHttpClient("BIASecurity");
 builder.Services.AddScoped<IFilterService, FilterService>();
 builder.Services.AddScoped<ILocationOceanMBLService, LocationOceanMBLService>();
+builder.Services.AddScoped<IOceanMBLService, OceanMBLService>();
 //Repositories
 builder.Services.AddScoped<IBillsService, BillsService>();
 // Logging with Serilog

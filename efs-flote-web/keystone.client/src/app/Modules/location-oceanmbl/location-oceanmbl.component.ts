@@ -4,14 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgGridAngular } from 'ag-grid-angular';
-import { GridApi, GridReadyEvent, ColDef, ColGroupDef, ValueFormatterParams, RowClassParams } from 'ag-grid-community';
+import { GridApi, GridReadyEvent, ColDef, ColGroupDef, ValueFormatterParams, RowClassParams, CellClickedEvent } from 'ag-grid-community';
 import { HttpClientModule } from '@angular/common/http';
 import { Subject, takeUntil } from 'rxjs';
 import { Paramlist } from '../../Models/Paramlist.model';
 import { ExecuteService } from '../../Service/execute.service';
 import { LocationOceanMBLService, LocationOceanMBLFilter } from '../../Service/location-oceanmbl.service';
+import { OceanMBLDetailComponent, OceanMBLDetailDialogData } from '../ocean-mbl-detail/ocean-mbl-detail.component';
 
 @Component({
   standalone: true,
@@ -25,6 +27,7 @@ import { LocationOceanMBLService, LocationOceanMBLFilter } from '../../Service/l
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
+    MatDialogModule,
     BrowserAnimationsModule,
     AgGridAngular,
     HttpClientModule
@@ -39,6 +42,9 @@ export class LocationOceanmblComponent implements OnInit, OnDestroy {
   isLoading: boolean = false;
   totalRows: number = 0;
 
+  /** Stores the most recent filter used so the detail popup can pass them through. */
+  private currentFilters: LocationOceanMBLFilter = {};
+
   // Pagination
   currentPage: number = 1;
   totalPages: number = 1;
@@ -48,7 +54,8 @@ export class LocationOceanmblComponent implements OnInit, OnDestroy {
 
   constructor(
     private locationOceanMBLService: LocationOceanMBLService,
-    private executeService: ExecuteService
+    private executeService: ExecuteService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -94,6 +101,8 @@ export class LocationOceanmblComponent implements OnInit, OnDestroy {
 
   loadData(filters?: LocationOceanMBLFilter): void {
     this.isLoading = true;
+    this.currentFilters = filters || {};
+
     if (this.gridApi) {
       this.gridApi.showLoadingOverlay();
     }
@@ -158,6 +167,40 @@ export class LocationOceanmblComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Open the Ocean MBL Detail modal when the MBL Number hyperlink is clicked.
+   * Mirrors ExtJS LocationMBL Report.cnt.js 'colMblNbr' case which did:
+   *   var win = Ext.widget('App-View-LocationMBL-OceanMBL-Report');
+   *   win.record = record; win.show();
+   */
+  onCellClicked(event: CellClickedEvent): void {
+    if (event.colDef.field !== 'mbl_nbr') { return; }
+    if (event.node.rowPinned) { return; }
+    const mblNbr = event.data?.mbl_nbr;
+    if (!mblNbr) { return; }
+    this.openOceanMBLDetail(event.data);
+  }
+
+  /** Launch the Ocean MBL Detail modal for the clicked row. */
+  private openOceanMBLDetail(record: any): void {
+    const data: OceanMBLDetailDialogData = {
+      record,
+      displayCurrency: this.currentFilters?.displayCurr || 'USD',
+      filters: this.currentFilters,
+      locationCode: this.currentFilters?.locCode || record?.location_code || '',
+      countryCode: this.currentFilters?.country || ''
+    };
+
+    this.dialog.open(OceanMBLDetailComponent, {
+      data,
+      width: '98vw',
+      maxWidth: '98vw',
+      height: '98vh',
+      panelClass: 'ocean-mbl-detail-dialog',
+      autoFocus: false
+    });
+  }
+
   onPaginationChanged(): void {
     if (this.gridApi) {
       this.currentPage = this.gridApi.paginationGetCurrentPage() + 1;
@@ -213,7 +256,12 @@ export class LocationOceanmblComponent implements OnInit, OnDestroy {
     { headerName: 'Location', field: 'location_code', width: 110 },
     { headerName: 'MBL Origin Port', field: 'mbl_orig_port', width: 130 },
     { headerName: 'MBL Destination Port', field: 'mbl_dest_port', width: 150 },
-    { headerName: 'MBL Number', field: 'mbl_nbr', hide: true },
+    {
+      headerName: 'MBL Number',
+      field: 'mbl_nbr',
+      width: 140,
+      cellStyle: { color: '#1D598E', textDecoration: 'underline', cursor: 'pointer', 'white-space': 'nowrap' }
+    },
     { headerName: 'O/D', field: 'OD_ind', width: 70 },
     { headerName: 'Charge Status', field: 'Charge_Status', width: 110 },
     { headerName: 'Invoice Status', field: 'Invoice_Status', width: 110 },

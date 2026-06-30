@@ -1,0 +1,182 @@
+/* =====================================================================
+   Ocean MBL Detail modal — pixel parity with legacy ExtJS OceanMBL Report
+   Colors:
+     Blue grid headers  : #1D598E  (UBlue)
+     TBar background    : #DFE8F6
+     Group bars         : #85bcdd
+     Total/subtotal     : #3d88c2
+   ===================================================================== */
+
+.ombl-modal {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  background: #ffffff;
+  display: block;
+  height: auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: visible;
+  border: 3px solid #3D8BC8;
+  box-sizing: border-box;
+}
+
+/* ===== Modal title bar ===== */
+.ombl-modal-title {
+  background: #4f81bd;
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 4px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ombl-close-x {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 1;
+}
+.ombl-close-x:hover { color: #ffd700; }
+
+/* ===== TBar (mirrors bodyStyle: 'background:#DFE8F6', layout:'hbox') ===== */
+.ombl-tbar {
+  background: #DFE8F6;
+  padding: 4px 8px;
+  border: 1px solid #99BBE8;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.ombl-tbar-label { font-size: 14px; }
+.ombl-tbar-loc   { font-size: 14px; }
+.ombl-bold { font-weight: bold; }
+.ombl-spacer { flex: 1 1 auto; }
+.ombl-currency {
+  height: 24px;
+  min-width: 150px;
+  font-size: 12px;
+  border: 1px solid #99BBE8;
+}
+.ombl-export-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ===== Charge detail grid ===== */
+.ombl-grid-wrap {
+  margin: 5px;
+  border: 1px solid #99BBE8;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+}
+.ombl-grid {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 11px;
+  table-layout: fixed;
+}
+.ombl-grid th {
+  background: #1D598E;
+  color: #fff;
+  font-weight: bold;
+  text-align: left;
+  padding: 3px 5px;
+  border: 1px solid #15466E;
+  vertical-align: bottom;
+  white-space: normal;
+}
+.ombl-grid td {
+  padding: 2px 5px;
+  border: 1px solid #D4D4D4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: #fff;
+}
+.ombl-grid tbody tr:nth-child(even):not(.ombl-group-header):not(.ombl-group-total) td {
+  background: #EAF1F8;
+}
+.ombl-right  { text-align: right; }
+
+/* Master bill row indicator (* in buy amount — legacy 'str' logic) */
+.ombl-mbl-star { font-style: italic; }
+
+/* Group header bar (collapsible, matches UBlue cls + groupHeaderTpl) */
+.ombl-group-header td {
+  background: #85bcdd !important;
+  color: #545454;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 3px 6px;
+}
+.ombl-group-icon { margin-right: 6px; }
+
+/* Group subtotal bar (matches groupingsummary rowIncompleteInvoices cls) */
+.ombl-group-total td {
+  background: #3d88c2 !important;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Grand total bar (matches ftype:'summary' dock:'bottom') */
+.ombl-grand-total td {
+  background: #3d88c2 !important;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Empty / loading */
+.ombl-empty { text-align: center; color: #666; padding: 10px; font-style: italic; }
+.ombl-loading {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  color: #1D598E;
+  font-weight: bold;
+}
+
+/* ===== Legend / footer note ===== */
+.ombl-legend {
+  margin: 5px;
+  padding: 5px 8px;
+  font-size: 11px;
+  color: #222;
+  line-height: 1.6;
+}
+.ombl-footer {
+  background: #DFE8F6;
+  color: #0d0d0c;
+  text-align: center;
+  font-size: 11px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+/* ===== MatDialog panel overrides ===== */
+.ocean-mbl-detail-dialog .mat-mdc-dialog-surface,
+.ocean-mbl-detail-dialog .mdc-dialog__surface {
+  padding: 0 !important;
+  height: 98vh !important;
+  max-height: 98vh !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  border: 2px solid #3D8BC8;
+}
+.ocean-mbl-detail-dialog .mat-mdc-dialog-container {
+  padding: 0 !important;
+  height: 98vh !important;
+  max-height: 98vh !important;
+}

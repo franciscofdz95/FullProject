@@ -26,7 +26,8 @@
                      [overlayLoadingTemplate]="overlayLoadingTemplate"
                      overlayNoRowsTemplate="<span>No matches found or Data set too large</span>"
                      (gridReady)="onGridReady($event)"
-                     (paginationChanged)="onPaginationChanged()">
+                     (paginationChanged)="onPaginationChanged()"
+                     (cellClicked)="onCellClicked($event)">
     </ag-grid-angular>
   </div>
 </div>

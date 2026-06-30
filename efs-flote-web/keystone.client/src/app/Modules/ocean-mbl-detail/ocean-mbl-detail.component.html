@@ -1,0 +1,123 @@
+<div class="ombl-modal">
+
+  <!-- ===== Modal title bar ===== -->
+  <div class="ombl-modal-title">
+    <span>Ocean MBL Detail</span>
+    <button class="ombl-close-x" (click)="close()" title="Close">&#10005;</button>
+  </div>
+
+  <!-- ===== TBar: MBL Number label + location + spacer + currency + export ===== -->
+  <!-- Mirrors App.View.LocationMBL.OceanMBL.TBar -->
+  <div class="ombl-tbar">
+    <span class="ombl-tbar-label ombl-bold">MBL Number:&nbsp;{{ mblNumber }}</span>
+    <span class="ombl-tbar-loc ombl-bold" *ngIf="locationLabel">{{ locationLabel }}</span>
+    <span class="ombl-spacer"></span>
+    <select class="ombl-currency" [(ngModel)]="displayCurrency" (change)="onCurrencyChanged()">
+      <option *ngFor="let c of currencyOptions" [value]="c['currency_code']">{{ c['currency_code'] }}</option>
+    </select>
+    <button class="ombl-export-btn" (click)="exportToExcel()" title="Export to Excel">
+      <img src="../../../assets/logo/excel_button.png" style="width:22px; height:22px;" />
+    </button>
+  </div>
+
+  <!-- ===== Charge detail grid ===== -->
+  <div class="ombl-grid-wrap">
+    <div class="ombl-loading" *ngIf="isLoading">
+      <i class="fa fa-spinner fa-spin fa-2x"></i><br/>Query in progress, please wait...
+    </div>
+
+    <table class="ombl-grid">
+      <thead>
+        <tr>
+          <th style="width:90px;">Update<br/>Date</th>
+          <th style="width:80px;">Location</th>
+          <th style="width:90px;">Charge<br/>Split</th>
+          <th style="width:70px;">Type<br/>M/L</th>
+          <th style="width:120px;">Vendor Code</th>
+          <th style="width:90px;">Charge<br/>Code</th>
+          <th style="width:210px;">Charge Desc</th>
+          <th class="ombl-right" style="width:110px;">Sell<br/>Amount</th>
+          <th style="width:50px;">Sell<br/>Curr.</th>
+          <th class="ombl-right" style="width:120px;">Sell<br/>Amt<br/>({{ displayCurrency }})</th>
+          <th class="ombl-right" style="width:110px;">Buy<br/>Amount</th>
+          <th style="width:50px;">Buy<br/>Curr.</th>
+          <th class="ombl-right" style="width:120px;">Buy<br/>Amt<br/>({{ displayCurrency }})</th>
+          <th class="ombl-right" style="width:120px;">Margin<br/>Amt<br/>({{ displayCurrency }})</th>
+          <th class="ombl-right" style="width:100px;">Margin<br/>Pct<br/>({{ displayCurrency }})</th>
+        </tr>
+      </thead>
+
+      <tbody *ngFor="let g of groups">
+        <!-- group header (collapsible, matches groupHeaderTpl) -->
+        <tr class="ombl-group-header" (click)="toggleGroup(g)">
+          <td colspan="15">
+            <span class="ombl-group-icon">{{ g.collapsed ? '&#9658;' : '&#9472;' }}</span>
+            {{ g.type }} - {{ g.recordCount }} Records
+          </td>
+        </tr>
+
+        <!-- group rows -->
+        <ng-container *ngIf="!g.collapsed">
+          <tr *ngFor="let r of g.rows">
+            <td>{{ r.acctg_per_year }}</td>
+            <td>{{ r.location_code }}</td>
+            <td>{{ r.rev_split }}</td>
+            <td>{{ r.MANIFESTED_IND }}</td>
+            <td [title]="r.vendor_name">{{ r.vendor_name }}</td>
+            <td>{{ r.charge_code }}</td>
+            <td [title]="r.CHARGE_DESCRIPTION">{{ r.CHARGE_DESCRIPTION }}</td>
+            <td class="ombl-right">{{ rowSellAmt(r) }}</td>
+            <td>{{ r.sell_cid }}</td>
+            <td class="ombl-right">{{ rowSellUsd(r) }}</td>
+            <td class="ombl-right" [class.ombl-mbl-star]="r._isFromMasterBill">{{ rowBuyAmt(r) }}</td>
+            <td>{{ r.buy_cid }}</td>
+            <td class="ombl-right">{{ formatNumber(+r.buy_usd || 0) }}</td>
+            <td class="ombl-right">{{ rowMarginAmt(r) }}</td>
+            <td class="ombl-right">{{ formatPercent(rowMarginPct(r)) }}</td>
+          </tr>
+        </ng-container>
+
+        <!-- group subtotal (mirrors groupingsummary summaryType) -->
+        <tr class="ombl-group-total">
+          <td colspan="9"></td>
+          <td class="ombl-right">{{ formatNumber(g.sellTotal) }}</td>
+          <td colspan="2"></td>
+          <td class="ombl-right">{{ formatNumber(g.buyTotal) }}</td>
+          <td class="ombl-right">{{ formatNumber(g.marginTotal) }}</td>
+          <td class="ombl-right">{{ formatPercent(g.marginPct) }}</td>
+        </tr>
+      </tbody>
+
+      <!-- no results -->
+      <tbody *ngIf="noResults && !isLoading">
+        <tr>
+          <td colspan="15" class="ombl-empty">No Matches Found! Verify the selected filter criteria.</td>
+        </tr>
+      </tbody>
+
+      <!-- grand total (mirrors ftype:'summary' dock:'bottom') -->
+      <tfoot *ngIf="!noResults && !isLoading">
+        <tr class="ombl-grand-total">
+          <td colspan="9">Grand Total</td>
+          <td class="ombl-right">{{ formatNumber(grandSellTotal) }}</td>
+          <td colspan="2"></td>
+          <td class="ombl-right">{{ formatNumber(grandBuyTotal) }}</td>
+          <td class="ombl-right">{{ formatNumber(grandMarginTotal) }}</td>
+          <td class="ombl-right">{{ formatPercent(grandMarginPct) }}</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- ===== Legend / footer note (matches ExtJS label in Report.js) ===== -->
+  <div class="ombl-legend">
+    Items with <b>*</b> after the buy amounts are from the Master Bill<br/>
+    Currency conversions at UPS Treasury's most recent monthly average rate.
+  </div>
+
+  <!-- ===== Footer (copyright) ===== -->
+  <div class="ombl-footer">
+    Copyright &copy; {{ year }}, United Parcel Service of America, Inc. All Rights Reserved.
+  </div>
+
+</div>
