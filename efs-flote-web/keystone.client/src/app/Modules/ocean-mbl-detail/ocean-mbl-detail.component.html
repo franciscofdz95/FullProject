@@ -84,7 +84,7 @@
           <td colspan="2"></td>
           <td class="ombl-right">{{ formatNumber(g.buyTotal) }}</td>
           <td class="ombl-right">{{ formatNumber(g.marginTotal) }}</td>
-          <td class="ombl-right">{{ formatPercent(g.marginPct) }}</td>
+          <td class="ombl-right">{{ formatPercentSummary(g.marginPct) }}</td>
         </tr>
       </tbody>
 
@@ -103,7 +103,7 @@
           <td colspan="2"></td>
           <td class="ombl-right">{{ formatNumber(grandBuyTotal) }}</td>
           <td class="ombl-right">{{ formatNumber(grandMarginTotal) }}</td>
-          <td class="ombl-right">{{ formatPercent(grandMarginPct) }}</td>
+          <td class="ombl-right">{{ formatPercentSummary(grandMarginPct) }}</td>
         </tr>
       </tfoot>
     </table>

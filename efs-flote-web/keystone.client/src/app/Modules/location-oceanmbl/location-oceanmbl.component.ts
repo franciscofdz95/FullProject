@@ -225,7 +225,8 @@ export class LocationOceanmblComponent implements OnInit, OnDestroy {
     if (params.value == null || params.value === '') return '';
     const num = parseFloat(params.value);
     if (isNaN(num)) return params.value;
-    return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const abs = Math.abs(num).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return num < 0 ? `(${abs})` : abs;
   }
 
   getRowClass = (params: RowClassParams): string => {
@@ -252,38 +253,38 @@ export class LocationOceanmblComponent implements OnInit, OnDestroy {
   };
 
   columnDefs: (ColDef | ColGroupDef)[] = [
-    { headerName: 'MBL Depart Date', field: 'mbl_depart_date', valueFormatter: this.dateFormatter, width: 140 },
+    { headerName: 'MBL Depart Date (mm/dd/yyyy)', field: 'mbl_depart_date', valueFormatter: this.dateFormatter, width: 160 },
     { headerName: 'Location', field: 'location_code', width: 110 },
-    { headerName: 'MBL Origin Port', field: 'mbl_orig_port', width: 130 },
-    { headerName: 'MBL Destination Port', field: 'mbl_dest_port', width: 150 },
+    { headerName: 'MBL Orig. Port', field: 'mbl_orig_port', width: 120 },
+    { headerName: 'MBL Dest. Port', field: 'mbl_dest_port', width: 120 },
     {
       headerName: 'MBL Number',
       field: 'mbl_nbr',
       width: 140,
       cellStyle: { color: '#1D598E', textDecoration: 'underline', cursor: 'pointer', 'white-space': 'nowrap' }
     },
-    { headerName: 'O/D', field: 'OD_ind', width: 70 },
-    { headerName: 'Charge Status', field: 'Charge_Status', width: 110 },
-    { headerName: 'Invoice Status', field: 'Invoice_Status', width: 110 },
-    { headerName: 'Cost Basis', field: 'mbl_cost_basis', width: 110 },
+    { headerName: 'O/D', field: 'OD_ind', width: 60 },
+    { headerName: 'I/U', field: 'Charge_Status', width: 60 },
+    { headerName: 'O/A', field: 'Invoice_Status', width: 60 },
+    { headerName: 'Cost Basis Code', field: 'mbl_cost_basis', width: 120 },
     { headerName: 'Shipment Count', field: 'ShipmentCount', width: 120, cellStyle: { textAlign: 'right' } },
     {
       headerName: 'Manifested (USD)',
       children: [
         { headerName: 'Sell Amt', field: 'ManifestedSellAmtUSD', width: 120, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
         { headerName: 'Buy Amt', field: 'ManifestedBuyAmtUSD', width: 120, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
-        { headerName: 'Diff', field: 'Man_Diff', width: 110, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
+        { headerName: 'Diff Amt', field: 'Man_Diff', width: 110, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
       ]
     },
     {
-      headerName: 'Un-Manifested (USD)',
+      headerName: 'Local (USD)',
       children: [
         { headerName: 'Sell Amt', field: 'UnManifestedSellAmtUSD', width: 120, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
         { headerName: 'Buy Amt', field: 'UnManifestedBuyAmtUSD', width: 120, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
-        { headerName: 'Diff', field: 'Loc_Diff', width: 110, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
+        { headerName: 'Diff Amt', field: 'Loc_Diff', width: 110, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
+        { headerName: 'Pass-Through', field: 'BalanceSheetAmtUSD', width: 130, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
       ]
     },
-    { headerName: 'Balance Sheet (USD)', field: 'BalanceSheetAmtUSD', width: 140, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
-    { headerName: 'Total Diff (USD)', field: 'Tot_Diff', width: 130, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
+    { headerName: 'Total Diff Amt (USD)', field: 'Tot_Diff', width: 150, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
   ];
 }

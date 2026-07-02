@@ -323,7 +323,7 @@ export class OceanMBLDetailComponent implements OnInit {
         `<td colspan="2"></td>` +
         `<td><b>${this.formatNumber(g.buyTotal)}</b></td>` +
         `<td><b>${this.formatNumber(g.marginTotal)}</b></td>` +
-        `<td><b>${this.formatPercent(g.marginPct)}</b></td></tr>`;
+        `<td><b>${this.formatPercentSummary(g.marginPct)}</b></td></tr>`;
     }
 
     html += `<tr><td colspan="9"><b>Grand Total</b></td>` +
@@ -331,7 +331,7 @@ export class OceanMBLDetailComponent implements OnInit {
       `<td colspan="2"></td>` +
       `<td><b>${this.formatNumber(this.grandBuyTotal)}</b></td>` +
       `<td><b>${this.formatNumber(this.grandMarginTotal)}</b></td>` +
-      `<td><b>${this.formatPercent(this.grandMarginPct)}</b></td></tr>`;
+      `<td><b>${this.formatPercentSummary(this.grandMarginPct)}</b></td></tr>`;
     html += '</tbody></table>';
 
     const blob = new Blob(
@@ -358,10 +358,18 @@ export class OceanMBLDetailComponent implements OnInit {
   }
 
   formatNumber(v: number): string {
-    return (v ?? 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    const n = v ?? 0;
+    const abs = Math.abs(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return n < 0 ? `(${abs})` : abs;
   }
 
+  /** Row-level margin pct: 1 decimal (NumFormat_Percent_1Decimals). */
   formatPercent(v: number): string {
     return (v ?? 0).toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + '%';
+  }
+
+  /** Group / grand-total margin pct: 2 decimals (NumFormat_Percent_2Decimals). */
+  formatPercentSummary(v: number): string {
+    return (v ?? 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '%';
   }
 }
