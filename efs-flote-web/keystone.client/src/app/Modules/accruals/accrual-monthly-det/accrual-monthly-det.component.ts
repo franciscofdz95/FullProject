@@ -3,10 +3,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgGridAngular } from 'ag-grid-angular';
-import { GridApi, GridReadyEvent, ColDef } from 'ag-grid-community';
+import { GridApi, GridReadyEvent, ColDef, ValueFormatterParams } from 'ag-grid-community';
 import { Subject, takeUntil } from 'rxjs';
 import { Paramlist } from '../../../Models/Paramlist.model';
 import { ExecuteService } from '../../../Service/execute.service';
+import { AccrualService, AccrualFilter } from '../Service/accrual.service';
 
 @Component({
   standalone: true,
@@ -20,27 +21,22 @@ import { ExecuteService } from '../../../Service/execute.service';
     AgGridAngular,
   ]
 })
-export class AccrualMonthlyDetComponent implements OnInit, OnInit, OnDestroy {
+export class AccrualMonthlyDetComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
   private gridApi!: GridApi;
-  constructor(private executeService: ExecuteService) {
+
+  rowData: any[] = [];
+  isLoading: boolean = false;
+  totalRows: number = 0;
+
+  constructor(private executeService: ExecuteService, private accrualService: AccrualService) {
 
   }
 
   ngOnInit(): void {
-    ////Filter subscription
-    //this.executeService.execute$
-    //  .pipe(takeUntil(this.destroy$))
-    //  .subscribe(event => {
-    //    console.log('Current tab: ', event.tabName);
-    //    if (event.tabName === 'Accrual Monthly Details') {
-    //      this.executecall(event.params);
-    //    }
-    //  });
     this.executeService.execute$
       .pipe(takeUntil(this.destroy$))
       .subscribe(event => {
-       // console.log('accruals tabs:', event);
         if (event.mainTab === 'Accruals' && event.subTab === 'Accrual Monthly Details') {
           this.executecall(event.params);
         }
@@ -53,8 +49,47 @@ export class AccrualMonthlyDetComponent implements OnInit, OnInit, OnDestroy {
   }
 
   executecall(params: Paramlist): void {
-    console.log('Execute call in Accrual Monthly Details');
-    // Execute report logic here
+    const filters: AccrualFilter = {
+      acctYear: params.accountingyearval ? params.accountingyearval.toString() : new Date().getFullYear().toString(),
+      acctMonth: params.accountingmonthval ? params.accountingmonthval.toString() : (new Date().getMonth() + 1).toString(),
+      displayCurr: params.displaycurrentval?.toString() || '',
+      locCode: params.locationcodeval?.toString() || ''
+    };
+
+    this.loadData(filters);
+  }
+
+  loadData(filters: AccrualFilter): void {
+    this.isLoading = true;
+
+    if (this.gridApi) {
+      this.gridApi.showLoadingOverlay();
+    }
+
+    this.accrualService.getAccrualMonthlyDetailReport(filters)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (data) => {
+          this.rowData = data || [];
+          this.totalRows = this.rowData.length;
+          this.isLoading = false;
+          if (this.gridApi) {
+            this.gridApi.hideOverlay();
+            if (this.rowData.length === 0) {
+              this.gridApi.showNoRowsOverlay();
+            }
+          }
+        },
+        error: (err) => {
+          console.error('Error loading Accrual Monthly Details:', err);
+          this.rowData = [];
+          this.totalRows = 0;
+          this.isLoading = false;
+          if (this.gridApi) {
+            this.gridApi.showNoRowsOverlay();
+          }
+        }
+      });
   }
 
   onGridReady(params: GridReadyEvent): void {
@@ -73,45 +108,60 @@ export class AccrualMonthlyDetComponent implements OnInit, OnInit, OnDestroy {
     filter: true
   };
 
+  numberFormatter(params: ValueFormatterParams): string {
+    if (params.value === null || params.value === undefined || params.value === '') return '';
+    const num = parseFloat(params.value);
+    if (isNaN(num)) return params.value;
+    const abs = Math.abs(num).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return num < 0 ? `(${abs})` : abs;
+  }
+
+  invoiceStatusFormatter(params: ValueFormatterParams): string {
+    return params.value === null || params.value === undefined || params.value === '' ? 'NULL' : params.value;
+  }
+
   columnDefs: ColDef[] = [
-    { headerName: 'Rcvd At Date (mm-dd-yyyy)', field: 'rcvdatdate', hide: false, width: 110 },
-    { headerName: 'Depart Date (mm-dd-yyyy)', field: 'departdate', hide: false, width: 110 },
-    { headerName: 'Year', field: 'year', width: 110 },
-    { headerName: 'Month', field: 'month', width: 110 },
-    { headerName: 'Shipment Number', field: 'shipmentnumber', width: 110 },
-    { headerName: 'Shipment Dim FK', field: 'shipmentdimfk', width: 110 },
-    { headerName: 'Orig. Loc.', field: 'origloc', width: 110 },
-    { headerName: 'Dest. Loc.', field: 'destloc', width: 110 },
-    { headerName: 'Dest. CC', field: 'destcc', width: 110 },
-    { headerName: 'Charge Code', field: 'chargecode', width: 110 },
-    { headerName: 'Service Code', field: 'servicecode', width: 110 },
-    { headerName: 'COMP.', field: 'comp', width: 110 },
-    { headerName: 'JRNL Date (mm-dd-yyyy)', field: 'jrnldate', width: 110 },
-    { headerName: 'ACC.', field: 'acc', hide: false, width: 110 },
-    { headerName: 'PROD.', field: 'prod', width: 110 },
-    { headerName: 'Center', field: 'center', width: 110 },
-    { headerName: 'Oper.', field: 'oper', width: 110 },
-    { headerName: 'RRDD', field: 'rrdd', width: 110 },
-    { headerName: 'Captured Info', field: 'capturedinfo', width: 110 },
-    { headerName: 'STAT EXP AMT', field: 'statexpamt', width: 110 },
-    { headerName: 'Debit', field: 'debit', width: 110 },
-    { headerName: 'Credit', field: 'credit', width: 110 },
-    { headerName: 'CID', field: 'cid', width: 110 },
-    { headerName: 'Rev Split', field: 'revsplit', width: 110 },
-    { headerName: 'Cost Loc.', field: 'costloc', hide: false, width: 110 },
-    { headerName: 'Rev Amt.', field: 'revamt', width: 110 },
-    { headerName: 'Vendor Code', field: 'vendorcode', width: 110 },
-    { headerName: 'Vendor Name', field: 'vendorname', width: 110 },
-    { headerName: 'Carrier bold', field: 'carrierbold', width: 110 },
-    { headerName: 'EPA LOC.', field: 'epaloc', width: 110 },
-    { headerName: 'EPA CC.', field: 'epacc', width: 110 },
-    { headerName: 'Notes', field: 'notes', width: 110 },
-    { headerName: 'Charge Description', field: 'chargedesc', width: 110 },
-    { headerName: 'Ship Period', field: 'shipperiod', width: 110 },
-    { headerName: 'Invoice Status', field: 'invoicestatus', width: 110 },
+    { headerName: 'Rcvd At Date (mm-dd-yyyy)', field: 'RCVD_AT_DATE', width: 130 },
+    { headerName: 'Depart Date (mm-dd-yyyy)', field: 'DEPART_DATE', width: 130 },
+    { headerName: 'Year', field: 'acctg_per_year', width: 90 },
+    { headerName: 'Month', field: 'acctg_per_month', width: 90 },
+    { headerName: 'Shipment Number', field: 'shipment_nbr', width: 130 },
+    { headerName: 'Shipment Dim FK', field: 'shipment_dim_fk', width: 130 },
+    { headerName: 'Orig. Loc.', field: 'ORIG_TP', width: 100 },
+    { headerName: 'Orig. CC', field: 'ORIG_CC', width: 100 },
+    { headerName: 'Dest. Loc.', field: 'DEST_TP', width: 100 },
+    { headerName: 'Dest. CC', field: 'DEST_CC', width: 100 },
+    { headerName: 'Charge Code', field: 'CHARGE_CODE', width: 110 },
+    { headerName: 'Service Code', field: 'SERVICE_CODE', width: 110 },
+    { headerName: 'COMP.', field: 'company_code', width: 90 },
+    { headerName: 'JRNL Date (yyyy-mm-dd)', field: 'jrnl_date', width: 130 },
+    { headerName: 'ACC.', field: 'account_code', width: 100 },
+    { headerName: 'PROD.', field: 'product', width: 100 },
+    { headerName: 'Center', field: 'center_code', width: 100 },
+    { headerName: 'Oper.', field: 'opstypecode', width: 100 },
+    { headerName: 'RRDD', field: 'rrdd_code', width: 90 },
+    { headerName: 'Captured Info', field: 'Captured_Info_DEF', width: 120 },
+    { headerName: 'STAT EXP AMT', field: 'STAT_AMOUNT', width: 130, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
+    { headerName: 'Debit', field: 'ORA_LOCAL_AMOUNT_DR', width: 120, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
+    { headerName: 'Credit', field: 'ORA_LOCAL_AMOUNT_CR', width: 120, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
+    { headerName: 'CID', field: 'ORA_CURRENCY_CODE', width: 90 },
+    { headerName: 'Rev Split', field: 'REV_SPLIT', width: 100 },
+    { headerName: 'Cost Loc.', field: 'COST_LOC_CODE', width: 110 },
+    { headerName: 'Rev Amt.', field: 'SELL_AMT_LOCAL', width: 120, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
+    { headerName: 'Vendor Code', field: 'vendor_code', width: 110 },
+    { headerName: 'Vendor Name', field: 'vendor_name', width: 160 },
+    { headerName: 'Carrier BOL', field: 'Carrier_Bol', width: 110 },
+    { headerName: 'EPA LOC.', field: 'EPA_LOC', width: 100 },
+    { headerName: 'EPA CC.', field: 'EPA_CC', width: 100 },
+    { headerName: 'Notes', field: 'Notes', width: 160 },
+    { headerName: 'Charge Description', field: 'charge_Description', width: 180 },
+    { headerName: 'Ship Period', field: 'Ship_period', width: 110 },
+    { headerName: 'Invoice Status', field: 'Invoice_Status', width: 120, valueFormatter: this.invoiceStatusFormatter },
   ];
 
   exportData() {
-    console.log('Exporting data from Approved');
+    if (this.gridApi) {
+      this.gridApi.exportDataAsCsv({ fileName: 'AccrualMonthlyDetails.csv' });
+    }
   }
 }

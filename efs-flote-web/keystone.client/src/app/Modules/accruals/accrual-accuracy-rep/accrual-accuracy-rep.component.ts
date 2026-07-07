@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgGridAngular } from 'ag-grid-angular';
-import { GridApi, GridReadyEvent, ColDef } from 'ag-grid-community';
+import { GridApi, GridReadyEvent, ColDef, ValueFormatterParams } from 'ag-grid-community';
 import { ExecuteService } from '../../../Service/execute.service';
 import { Subject, takeUntil } from 'rxjs';
 import { Paramlist } from '../../../Models/Paramlist.model';
+import { AccrualService, AccrualFilter } from '../Service/accrual.service';
 
 @Component({
   standalone: true,
@@ -24,16 +25,19 @@ export class AccrualAccuracyRepComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject<void>();
   private gridApi!: GridApi;
-  constructor(private executeService: ExecuteService) {
+
+  rowData: any[] = [];
+  isLoading: boolean = false;
+  totalRows: number = 0;
+
+  constructor(private executeService: ExecuteService, private accrualService: AccrualService) {
 
   }
 
   ngOnInit(): void {
-    //// Execute subscription
     this.executeService.execute$
       .pipe(takeUntil(this.destroy$))
       .subscribe(event => {
-        //console.log('accruals tabs:', event);
         if (event.mainTab === 'Accruals' && event.subTab === 'Accrual Accuracy Report') {
           this.executecall(event.params);
         }
@@ -46,10 +50,48 @@ export class AccrualAccuracyRepComponent implements OnInit, OnDestroy {
   }
 
   executecall(params: Paramlist): void {
-    console.log('Execute call in Accrual Accuracy Report');
-    // Execute report logic here
+    const filters: AccrualFilter = {
+      acctYear: params.accountingyearval ? params.accountingyearval.toString() : new Date().getFullYear().toString(),
+      acctMonth: params.accountingmonthval ? params.accountingmonthval.toString() : (new Date().getMonth() + 1).toString(),
+      displayCurr: params.displaycurrentval?.toString() || '',
+      locCode: params.locationcodeval?.toString() || ''
+    };
+
+    this.loadData(filters);
   }
 
+  loadData(filters: AccrualFilter): void {
+    this.isLoading = true;
+
+    if (this.gridApi) {
+      this.gridApi.showLoadingOverlay();
+    }
+
+    this.accrualService.getAccrualAccuracyReport(filters)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (data) => {
+          this.rowData = data || [];
+          this.totalRows = this.rowData.length;
+          this.isLoading = false;
+          if (this.gridApi) {
+            this.gridApi.hideOverlay();
+            if (this.rowData.length === 0) {
+              this.gridApi.showNoRowsOverlay();
+            }
+          }
+        },
+        error: (err) => {
+          console.error('Error loading Accrual Accuracy Report:', err);
+          this.rowData = [];
+          this.totalRows = 0;
+          this.isLoading = false;
+          if (this.gridApi) {
+            this.gridApi.showNoRowsOverlay();
+          }
+        }
+      });
+  }
 
   onGridReady(params: GridReadyEvent): void {
     this.gridApi = params.api;
@@ -67,21 +109,31 @@ export class AccrualAccuracyRepComponent implements OnInit, OnDestroy {
     filter: true
   };
 
+  numberFormatter(params: ValueFormatterParams): string {
+    if (params.value === null || params.value === undefined || params.value === '') return '';
+    const num = parseFloat(params.value);
+    if (isNaN(num)) return params.value;
+    const abs = Math.abs(num).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return num < 0 ? `(${abs})` : abs;
+  }
+
   columnDefs: ColDef[] = [
-    { headerName: 'Year', field: 'year', hide: false, width: 110 },
-    { headerName: 'Month', field: 'month', width: 110 },
-    { headerName: 'Region', field: 'region', width: 110 },
-    { headerName: 'District', field: 'district', width: 110 },
-    { headerName: 'Location', field: 'location', width: 110 },
-    { headerName: 'Amount Paid', field: 'amountpaid', width: 110 },
-    { headerName: 'Amount Accrued', field: 'amountaccrued', width: 110 },
-    { headerName: 'Diff. Amount', field: 'diffamount', width: 110 },
-    { headerName: 'Overall % Accuracy', field: 'overallaccuracy', width: 110 },
-    { headerName: 'ABS Diff.', field: 'absdiff', width: 110 },
-    { headerName: 'ABS % Accuracy', field: 'absaccuracy', width: 110 }
+    { headerName: 'Year', field: 'acctg_per_year', width: 100 },
+    { headerName: 'Month', field: 'acctg_per_month', width: 100 },
+    { headerName: 'Region', field: 'Region', width: 110 },
+    { headerName: 'District', field: 'District', width: 110 },
+    { headerName: 'Location', field: 'Location_code', width: 110 },
+    { headerName: 'Amount Paid', field: 'AmountPaid', width: 130, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
+    { headerName: 'Amount Accrued', field: 'AmountAccrued', width: 140, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
+    { headerName: 'Diff. Amount', field: 'DiffAmount', width: 130, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
+    { headerName: 'Overall % Accuracy', field: 'OverallPercentageAccuracy', width: 150, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
+    { headerName: 'ABS Diff.', field: 'ABSDiff', width: 120, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } },
+    { headerName: 'ABS % Accuracy', field: 'ABSPercentageAccuracy', width: 140, valueFormatter: this.numberFormatter, cellStyle: { textAlign: 'right' } }
   ];
 
   exportData() {
-    console.log('Exporting data from Approved');
+    if (this.gridApi) {
+      this.gridApi.exportDataAsCsv({ fileName: 'AccrualAccuracyReport.csv' });
+    }
   }
 }
