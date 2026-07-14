@@ -1,1 +1,69 @@
-<p>invoice-processing works!</p>
+<div class="ip-container">
+
+  <!-- Interim entry point: Bills grid drill-down isn't wired up yet, so an invoice
+       lookup is exposed directly here (same convention as Vendor Statement Summary).
+       The CBOL Vendor Statement Summary hand-off populates invoiceContext directly,
+       bypassing this input. -->
+  <div class="ip-invoice-lookup">
+    <label for="ipInvoiceId">Invoice ID</label>
+    <input id="ipInvoiceId" type="text" class="form-control form-control-sm" style="width:180px"
+           [(ngModel)]="invoiceIdInput" (keyup.enter)="loadInvoice()" placeholder="Enter invoice id" />
+    <button type="button" class="btn btn-sm btn-primary" (click)="loadInvoice()">Load</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary" *ngIf="invoiceContext.invoiceId" (click)="closeInvoice()">Close</button>
+  </div>
+
+  <ng-container *ngIf="invoiceContext.invoiceId">
+
+    <!-- Fields.js header panel -->
+    <div class="ip-field-details" *ngIf="details">
+      <div class="ip-field-details-header">
+        <div><span class="label">Bill Id</span><span class="value">{{ details.invoice_id }}</span></div>
+        <div><span class="label">Vendor Code</span><span class="value">{{ details.vendor_code }}</span></div>
+        <div><span class="label">Vendor Name</span><span class="value">{{ details.Vendor_Name_English }}</span></div>
+        <div><span class="label">E2K Carrier Code</span><span class="value">{{ details.E2K_CARRIER_CODE }}</span></div>
+        <div><span class="label">Bill Ref No</span><span class="value">{{ details.InvRefNo }}</span></div>
+        <div><span class="label">Bill Curr</span><span class="value">{{ details.Invoice_CID }}</span></div>
+      </div>
+
+      <table class="ip-variance-table">
+        <thead>
+          <tr><th></th><th>Logged</th><th>Processed</th><th>Variance</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Charges</td><td>{{ details.Charges_Logged }}</td><td>{{ details.Charges_Processed }}</td><td>{{ details.Charges_Variance }}</td></tr>
+          <tr><td>VAT</td><td>{{ details.VAT_Logged }}</td><td>{{ details.VAT_Processed }}</td><td>{{ details.VAT_Variance }}</td></tr>
+          <tr><td>Withholding</td><td>{{ details.TWH_Logged }}</td><td>{{ details.TWH_Processed }}</td><td>{{ details.TWH_Variance }}</td></tr>
+          <tr><td>OSOffset</td><td>{{ details.OSOffset_Logged }}</td><td>{{ details.OSOffset_Processed }}</td><td>{{ details.OSOffset_Variance }}</td></tr>
+          <tr><td>Total Billed</td><td>{{ details.Total_Logged }}</td><td>{{ details.Total_Processed }}</td><td>{{ details.Total_Variance }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- TBar equivalent -->
+    <div class="ip-tbar">
+      <div class="ip-tbar-combo">
+        <input type="text" class="form-control form-control-sm" style="width:160px" placeholder="Non-E2K charge search"
+               [(ngModel)]="nonE2kSearch" (keyup.enter)="searchNonE2kCost()" />
+        <select class="form-select form-select-sm" style="width:160px" *ngIf="nonE2kOptions.length" [(ngModel)]="selectedNonE2k">
+          <option *ngFor="let o of nonE2kOptions" [ngValue]="o">{{ o.description || o.Description || o.charge_code }}</option>
+        </select>
+        <button type="button" class="btn btn-sm btn-outline-secondary" [disabled]="!selectedNonE2k" (click)="insertNonE2kCharge()">Add Non-E2K</button>
+      </div>
+
+      <div class="ip-tbar-combo">
+        <button type="button" class="btn btn-sm btn-outline-secondary" (click)="searchTWHCodes()">Load TWH Codes</button>
+        <select class="form-select form-select-sm" style="width:160px" *ngIf="twhOptions.length" [(ngModel)]="selectedTwh">
+          <option *ngFor="let o of twhOptions" [ngValue]="o">{{ o.description || o.Description || o.twh_code }}</option>
+        </select>
+        <button type="button" class="btn btn-sm btn-outline-secondary" [disabled]="!selectedTwh" (click)="insertTaxWithholding()">Add TWH</button>
+      </div>
+
+      <button type="button" class="btn btn-sm btn-success" *ngIf="allVariancesZero" (click)="verifyInvoice()">Verify</button>
+      <button type="button" class="btn btn-sm btn-outline-secondary" (click)="closeInvoice()">Close</button>
+      <span class="ip-verify-message" *ngIf="verifyMessage">{{ verifyMessage }}</span>
+    </div>
+
+    <app-invoice-processing-grid></app-invoice-processing-grid>
+  </ng-container>
+
+</div>

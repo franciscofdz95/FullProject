@@ -498,16 +498,15 @@
                        aria-controls="admin-modules-pane"
                        [attr.aria-selected]="getFirstAccessibleTabId() === 'admin-modules-tab'">Vendor Statement Summary</a>
                   </li>
-                  <!--ESE-0526-1 vendor statement summary disabled-->
-                  <li class="nav-item" role="presentation" hidden="hidden">
+                  <li class="nav-item" role="presentation">
                     <a class="nav-link"
-                       [class.active]="getFirstAccessibleTabId() === 'admin-modules-tab'"
+                       [class.active]="getFirstAccessibleTabId() === 'invoice-processing-tab'"
                        id="reports-tab"
                        data-bs-toggle="tab"
                        href="#reports-pane"
                        role="tab"
                        aria-controls="reports-pane"
-                       [attr.aria-selected]="getFirstAccessibleTabId() === 'admin-modules-tab'">Invoice Processing</a>
+                       [attr.aria-selected]="getFirstAccessibleTabId() === 'invoice-processing-tab'">Invoice Processing</a>
                   </li>
                   <li class="nav-item" role="presentation">
                     <a class="nav-link"
@@ -621,15 +620,14 @@
                aria-labelledby="admin-modules-tab">
             <app-vendor-statement-summary></app-vendor-statement-summary>
           </div>
-          <!--ESE-0526-1 Invoice Processing disabled-->
           <div class="tab-pane fade"
-               [class.show]="getFirstAccessibleTabPaneId() === 'reports-pane'"
-               [class.active]="getFirstAccessibleTabPaneId() === 'reports-pane'"
+               [class.show]="getFirstAccessibleTabPaneId() === 'invoice-processing-pane'"
+               [class.active]="getFirstAccessibleTabPaneId() === 'invoice-processing-pane'"
                id="reports-pane"
                role="tabpanel"
                aria-labelledby="reports-tab"
-               *ngIf="hasTabAccess('Reports')">
-            <app-reports></app-reports>
+               *ngIf="hasTabAccess('Invoice Processing')">
+            <app-invoice-processing></app-invoice-processing>
           </div>
           <div class="tab-pane fade"
                [class.show]="getFirstAccessibleTabPaneId() === 'paid-differently-pane'"

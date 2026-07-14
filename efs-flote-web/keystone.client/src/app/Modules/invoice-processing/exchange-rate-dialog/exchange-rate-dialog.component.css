@@ -1,0 +1,36 @@
+.er-header {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 10px;
+}
+
+.er-header .label {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.er-rates-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+.er-rates-table th, .er-rates-table td {
+  border: 1px solid #ccc;
+  padding: 4px 6px;
+  font-size: 12px;
+}
+
+.er-rates-table tr.selected {
+  background-color: #d7e8f7;
+}
+
+.er-manual {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.er-computed {
+  font-size: 14px;
+}

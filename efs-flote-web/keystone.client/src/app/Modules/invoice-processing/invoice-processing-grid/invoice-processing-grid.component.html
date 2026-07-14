@@ -1,0 +1,27 @@
+<div class="ip-grid-toolbar">
+  <div class="btn-group btn-group-sm" role="group">
+    <input type="radio" class="btn-check" name="ipRadio" id="rdoUnselected" autocomplete="off"
+           [checked]="radioSelection === 'Unselected'" (change)="setRadioSelection('Unselected')">
+    <label class="btn btn-outline-secondary" for="rdoUnselected">Unselected Charges</label>
+
+    <input type="radio" class="btn-check" name="ipRadio" id="rdoSelected" autocomplete="off"
+           [checked]="radioSelection === 'Selected'" (change)="setRadioSelection('Selected')">
+    <label class="btn btn-outline-secondary" for="rdoSelected">Selected Charges</label>
+  </div>
+  <button type="button" class="btn btn-sm btn-outline-secondary" (click)="exportData()">Export CSV</button>
+</div>
+
+<ag-grid-angular
+  class="ag-theme-alpine ip-grid"
+  [rowData]="rowData"
+  [columnDefs]="columnDefs"
+  [defaultColDef]="defaultColDef"
+  [pagination]="true"
+  [paginationPageSize]="30"
+  [overlayLoadingTemplate]="overlayLoadingTemplate"
+  [singleClickEdit]="true"
+  (gridReady)="onGridReady($event)"
+  (cellClicked)="onCellClicked($event)"
+  (cellValueChanged)="onCellValueChanged($event.data)"
+  domLayout="autoHeight">
+</ag-grid-angular>

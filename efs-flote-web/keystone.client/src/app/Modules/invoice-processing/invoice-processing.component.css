@@ -1,0 +1,67 @@
+.ip-container {
+  padding: 8px;
+}
+
+.ip-invoice-lookup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.ip-field-details {
+  background-color: #1D598E;
+  color: white;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+}
+
+.ip-field-details-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 8px;
+}
+
+.ip-field-details-header .label {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.ip-variance-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  color: #222;
+}
+
+.ip-variance-table th, .ip-variance-table td {
+  border: 1px solid #ccc;
+  padding: 3px 8px;
+  font-size: 12px;
+  text-align: right;
+}
+
+.ip-variance-table th:first-child, .ip-variance-table td:first-child {
+  text-align: left;
+}
+
+.ip-tbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 8px 0;
+}
+
+.ip-tbar-combo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ip-verify-message {
+  font-size: 13px;
+  color: #b03a2e;
+}

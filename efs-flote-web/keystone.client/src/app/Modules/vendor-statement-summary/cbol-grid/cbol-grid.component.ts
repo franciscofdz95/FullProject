@@ -119,10 +119,11 @@ export class CbolGridComponent implements OnInit, OnDestroy {
       pageType: field === 'Containers' ? 'Containers' : 'CbolCC'
     });
 
-    // TODO: Invoice Processing screen not yet migrated to Angular — the old ExtJS
-    // app navigated to tabPanel.setActiveTab(9) here. Once that module exists, route
-    // to it here using the record context captured above (CbolContextService.recDetails$).
-    console.warn('Vendor Statement Summary: Invoice Processing hand-off requested, but that module is not yet migrated.', this.cbolContext.recDetails);
+    // Invoice Processing subscribes to CbolContextService.recDetails$ (see
+    // InvoiceProcessingComponent.ngOnInit) and loads this record's invoice as soon as
+    // it's set above; switching the visible tab mirrors the old
+    // tabPanel.setActiveTab(9) navigation, adapted to this app's Bootstrap-tab convention.
+    (document.getElementById('reports-tab') as HTMLElement | null)?.click();
   }
 
   /** Row-level "match" action — mirrors CBOLSinCls.processExcelDataToInvDetails. */

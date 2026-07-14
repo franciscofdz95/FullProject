@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Keystone.Services.Services.Invoices.InvoiceVAT
 {
-    internal interface IInvoiceVATService
+    public interface IInvoiceVATService
     {
         Task DeleteVATData(string invoiceId, string vatCode);
         Task UpdateDeleteInvoiceVATData(string invoiceId, string vatCode);

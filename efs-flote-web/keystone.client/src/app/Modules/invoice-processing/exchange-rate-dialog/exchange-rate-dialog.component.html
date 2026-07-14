@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Exchange Rate</h2>
+<div mat-dialog-content>
+  <div class="er-header">
+    <div><span class="label">From CID</span><span class="value">{{ data.fromCID }}</span></div>
+    <div><span class="label">To CID</span><span class="value">{{ data.toCID }}</span></div>
+  </div>
+
+  <table class="er-rates-table" *ngIf="rates.length">
+    <thead>
+      <tr><th></th><th *ngFor="let key of rates[0] | keyvalue">{{ key.key }}</th></tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rate of rates" [class.selected]="rate === selectedRate" (click)="selectRate(rate)">
+        <td><input type="radio" [checked]="rate === selectedRate" /></td>
+        <td *ngFor="let kv of rate | keyvalue">{{ kv.value }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="!isLoading && rates.length === 0">No existing rates found — enter a manual rate below.</p>
+
+  <div class="er-manual" *ngIf="!selectedRate">
+    <label>From Rate <input type="number" step="0.000001" [(ngModel)]="fromRate" /></label>
+    <label>To Rate <input type="number" step="0.000001" [(ngModel)]="toRate" /></label>
+  </div>
+
+  <div class="er-computed">Computed Rate: <b>{{ computedRate }}</b></div>
+</div>
+<div mat-dialog-actions align="end">
+  <button type="button" class="btn btn-sm btn-outline-secondary" (click)="cancel()">Cancel</button>
+  <button type="button" class="btn btn-sm btn-primary" (click)="apply()">Apply</button>
+</div>

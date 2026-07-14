@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Comments</h2>
+<div mat-dialog-content>
+  <div class="cm-header">
+    <div><span class="label">Shipment</span><span class="value">{{ data.record.shpmnt_nbr }}</span></div>
+    <div><span class="label">Charge Code</span><span class="value">{{ data.record.Charge_code }}</span></div>
+    <div><span class="label">Description</span><span class="value">{{ data.record.CHARGE_DESCRIPTION }}</span></div>
+  </div>
+
+  <div class="cm-reason" *ngIf="showReason">
+    <label for="cmReason">Paid Differently Reason</label>
+    <select id="cmReason" class="form-select form-select-sm" [(ngModel)]="reason">
+      <option value="">-- Select Reason --</option>
+      <option *ngFor="let r of reasons" [value]="r.reason_code || r.Reason || r.value">{{ r.reason_desc || r.Reason || r.value }}</option>
+    </select>
+  </div>
+
+  <div class="cm-comment">
+    <label for="cmComment">Comment</label>
+    <textarea id="cmComment" class="form-control form-control-sm" rows="3" [(ngModel)]="comment" required></textarea>
+  </div>
+</div>
+<div mat-dialog-actions align="end">
+  <button type="button" class="btn btn-sm btn-outline-secondary" (click)="cancel()">Cancel</button>
+  <button type="button" class="btn btn-sm btn-primary" (click)="save()">Save</button>
+</div>

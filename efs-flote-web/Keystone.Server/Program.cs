@@ -7,6 +7,8 @@ using Keystone.Services.Services.Admin;
 using Keystone.Services.Services.Bills;
 using Keystone.Services.Services.Cbol;
 using Keystone.Services.Services.Email;
+using Keystone.Services.Services.InvoiceProcessing;
+using Keystone.Services.Services.Invoices.InvoiceVAT;
 using Keystone.Services.Services.Filters;
 using Keystone.Services.Services.Locations.LocationOceanMBL;
 using Keystone.Services.Services.Locations.LocationShipment;
@@ -88,6 +90,8 @@ builder.Services.AddScoped<IOceanMBLService, OceanMBLService>();
 builder.Services.AddScoped<IBillsService, BillsService>();
 builder.Services.AddScoped<IAccrualService, AccrualService>();
 builder.Services.AddScoped<ICbolService, CbolService>();
+builder.Services.AddScoped<IInvoiceVATService, InvoiceVATService>();
+builder.Services.AddScoped<IInvoiceProcessingService, InvoiceProcessingService>();
 // Logging with Serilog
 Log.Logger = new LoggerConfiguration()
     .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
