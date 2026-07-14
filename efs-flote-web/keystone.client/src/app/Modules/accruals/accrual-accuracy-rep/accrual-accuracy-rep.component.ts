@@ -71,7 +71,7 @@ export class AccrualAccuracyRepComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (data) => {
-          this.rowData = data || [];
+          this.rowData = this.removeBlankRows(data);
           this.totalRows = this.rowData.length;
           this.isLoading = false;
           if (this.gridApi) {
@@ -95,6 +95,11 @@ export class AccrualAccuracyRepComponent implements OnInit, OnDestroy {
 
   onGridReady(params: GridReadyEvent): void {
     this.gridApi = params.api;
+  }
+
+  /** Drop fully-empty rows the stored procedure sometimes appends (all fields null/blank). */
+  private removeBlankRows(data: any[]): any[] {
+    return (data || []).filter(row => Object.values(row).some(v => v !== null && v !== undefined && v !== ''));
   }
 
   public overlayLoadingTemplate = `

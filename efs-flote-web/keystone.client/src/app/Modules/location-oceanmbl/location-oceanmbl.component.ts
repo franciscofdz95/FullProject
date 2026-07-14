@@ -111,15 +111,16 @@ export class LocationOceanmblComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (data) => {
-          this.rowData = data;
-          this.totalRows = data.length;
+          const cleanData = this.removeBlankRows(data);
+          this.rowData = cleanData;
+          this.totalRows = cleanData.length;
           this.isLoading = false;
           if (this.gridApi) {
             this.gridApi.hideOverlay();
-            if (data.length === 0) {
+            if (cleanData.length === 0) {
               this.gridApi.showNoRowsOverlay();
             }
-            this.gridApi.setGridOption('pinnedBottomRowData', [this.calculateGrandTotal(data)]);
+            this.gridApi.setGridOption('pinnedBottomRowData', [this.calculateGrandTotal(cleanData)]);
             setTimeout(() => this.gridApi.autoSizeAllColumns(), 100);
           }
         },
@@ -132,6 +133,11 @@ export class LocationOceanmblComponent implements OnInit, OnDestroy {
           }
         }
       });
+  }
+
+  /** Drop fully-empty rows the stored procedure sometimes appends (all fields null/blank). */
+  private removeBlankRows(data: any[]): any[] {
+    return (data || []).filter(row => Object.values(row).some(v => v !== null && v !== undefined && v !== ''));
   }
 
   private calculateGrandTotal(data: any[]): any {

@@ -1350,6 +1350,23 @@ export class NavigationComponent implements AfterViewInit, OnInit, OnDestroy {
     }, 100);
   }
 
+  /** Auto-load Location OCEAN MBL data when the tab becomes active (no manual Go needed). */
+  private loadOceanMBL(): void {
+    this.syncSidebarParams();
+    this.executeService.triggerExecute('Location OCEAN MBL', this.paramsList);
+  }
+
+  /** Auto-load Accrual Monthly Details data when the tab becomes active (no manual Go needed). */
+  private loadAccrualMonthlyDetail(): void {
+    this.syncSidebarParams();
+    this.executeService.triggerExecute('Accruals', this.paramsList, 'Accrual Monthly Details');
+  }
+
+  /** Auto-load Accrual Accuracy Report data when the tab becomes active (no manual Go needed). */
+  private loadAccrualAccuracyReport(): void {
+    this.syncSidebarParams();
+    this.executeService.triggerExecute('Accruals', this.paramsList, 'Accrual Accuracy Report');
+  }
 
   onDateChange() {
     console.log('Date:', this.selectedDate);
@@ -1369,6 +1386,7 @@ export class NavigationComponent implements AfterViewInit, OnInit, OnDestroy {
       case 'location-oceanmbl-pane':
         this.cleanFilters();
         this.locationOceanMBLFilters();
+        this.loadOceanMBL();
         break;
       case 'location-vendor-pane':
         this.cleanFilters();
@@ -1418,10 +1436,12 @@ export class NavigationComponent implements AfterViewInit, OnInit, OnDestroy {
       case 'app-accrual-accuracy-rep':
         this.cleanFilters();
         this.accrualAccuracyRepFilter();
+        this.loadAccrualAccuracyReport();
         break;
       case 'app-accrual-monthly-det':
         this.cleanFilters();
         this.accrualMonthlyDetailDetFilter();
+        this.loadAccrualMonthlyDetail();
         break;
       case 'vendors-pane':
         this.cleanFilters();
@@ -2122,14 +2142,18 @@ export class NavigationComponent implements AfterViewInit, OnInit, OnDestroy {
   }
   //#endregion
 
-  async executeTab(): Promise<void> {
- 
-    // Sync the 5 filter criteria (sidebar) values into paramsList before triggering
+  /** Sync the 5 filter criteria (sidebar) values into paramsList before triggering a load. */
+  private syncSidebarParams(): void {
     this.paramsList.accountingyearval = this.filterAcctYear ? Number(this.filterAcctYear) : new Date().getFullYear();
     this.paramsList.accountingmonthval = this.filterAcctMonth === 'All' ? 0 : Number(this.filterAcctMonth);
     this.paramsList.displaycurrentval = this.filterDisplayCurr || 'USD';
     this.paramsList.locationtypeval = this.filterLocType || 'DEP';
     this.paramsList.locationcodeval = this.filterLocCode || '';
+  }
+
+  async executeTab(): Promise<void> {
+
+    this.syncSidebarParams();
 
     // Sync advanced filter values (these are already bound via [(ngModel)] to paramsList)
     // The following are already in paramsList via 2-way binding:
