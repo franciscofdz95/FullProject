@@ -1,1 +1,73 @@
-<p>vendor-statement-summary works!</p>
+<div class="cbol-container">
+
+  <!-- Interim entry point: Bills grid drill-down isn't wired up yet, so an invoice
+       lookup is exposed directly here (see plan: "Bills-grid entry point" deferred). -->
+  <div class="cbol-invoice-lookup">
+    <label for="cbolInvoiceId">Invoice ID</label>
+    <input id="cbolInvoiceId" type="text" class="form-control form-control-sm" style="width:180px"
+           [(ngModel)]="invoiceIdInput" (keyup.enter)="loadInvoice()" placeholder="Enter invoice id" />
+    <button type="button" class="btn btn-sm btn-primary" (click)="loadInvoice()">Load</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary" *ngIf="cbolContext.invoiceId" (click)="closeInvoice()">Close</button>
+  </div>
+
+  <ng-container *ngIf="cbolContext.invoiceId">
+
+    <!-- FieldDetails header panel -->
+    <div class="cbol-field-details">
+      <div class="cbol-field-details-title">Vendor Statement Summary:</div>
+      <div class="cbol-field-details-grid">
+        <div><span class="label">Bill Id</span><span class="value">{{ cbolContext.invoiceId }}</span></div>
+        <div><span class="label">All</span><span class="value">{{ aggregate?.All || 0 }}</span></div>
+        <div><span class="label">Matched</span><span class="value">{{ aggregate?.Matched || 0 }}</span></div>
+        <div><span class="label">Non-Matched</span><span class="value">{{ aggregate?.NonMatched || 0 }}</span></div>
+        <div><span class="label">Selected</span><span class="value">{{ aggregate?.Selected || 0 }}</span></div>
+      </div>
+    </div>
+
+    <!-- TBar equivalent -->
+    <div class="cbol-tbar">
+      <div class="btn-group btn-group-sm" role="group" *ngIf="!isDrilledIn">
+        <input type="radio" class="btn-check" name="cbolRadio" id="rdoCarrierBol" autocomplete="off"
+               [checked]="cbolContext.radioType === 'ByCarrierBol'" (change)="setRadioType('ByCarrierBol')">
+        <label class="btn btn-outline-secondary" for="rdoCarrierBol">By Carrier BOL</label>
+
+        <input type="radio" class="btn-check" name="cbolRadio" id="rdoChargeCode" autocomplete="off"
+               [checked]="cbolContext.radioType === 'ByChargeCode'" (change)="setRadioType('ByChargeCode')">
+        <label class="btn btn-outline-secondary" for="rdoChargeCode">By Charge Code</label>
+
+        <input type="radio" class="btn-check" name="cbolRadio" id="rdoHbl" autocomplete="off"
+               [checked]="cbolContext.radioType === 'ByHBL'" (change)="setRadioType('ByHBL')">
+        <label class="btn btn-outline-secondary" for="rdoHbl">By HBL</label>
+      </div>
+
+      <button type="button" class="btn btn-sm btn-outline-secondary" *ngIf="isDrilledIn" (click)="backToSummary()">Back</button>
+
+      <button type="button" class="btn btn-sm btn-success" *ngIf="hasMatchedCharges" (click)="processAllMatchedCharges()">
+        Process All Matched Charges
+      </button>
+    </div>
+
+    <!-- Sub-tabs: All / Matched / Non-Matched / Selected, sharing the CBOL grid -->
+    <ul class="nav nav-tabs mt-2">
+      <li class="nav-item" *ngFor="let tab of tabs">
+        <a class="nav-link" [class.active]="activeTab === tab" (click)="setActiveTab(tab)" style="cursor:pointer;">
+          {{ tabLabel(tab) }}
+        </a>
+      </li>
+    </ul>
+
+    <div class="tab-content mt-2">
+      <div *ngFor="let tab of tabs" [style.display]="activeTab === tab ? 'block' : 'none'">
+        <app-cbol-grid [status]="tab"></app-cbol-grid>
+      </div>
+    </div>
+
+    <!-- BBar equivalent -->
+    <div class="cbol-bbar" *ngIf="showUnmatchedConfirmBar">
+      <textarea class="form-control form-control-sm" rows="2" placeholder="Comments (required)"
+                [(ngModel)]="unmatchedComment"></textarea>
+      <button type="button" class="btn btn-sm btn-warning" (click)="confirmUnmatchedCharges()">Confirm Unmatched Charges</button>
+    </div>
+  </ng-container>
+
+</div>

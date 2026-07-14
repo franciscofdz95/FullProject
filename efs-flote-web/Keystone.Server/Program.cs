@@ -5,6 +5,7 @@ using Keystone.Server.Utility.ExceptionHandler;
 using Keystone.Services.Services.Accrual;
 using Keystone.Services.Services.Admin;
 using Keystone.Services.Services.Bills;
+using Keystone.Services.Services.Cbol;
 using Keystone.Services.Services.Email;
 using Keystone.Services.Services.Filters;
 using Keystone.Services.Services.Locations.LocationOceanMBL;
@@ -86,6 +87,7 @@ builder.Services.AddScoped<IOceanMBLService, OceanMBLService>();
 //Repositories
 builder.Services.AddScoped<IBillsService, BillsService>();
 builder.Services.AddScoped<IAccrualService, AccrualService>();
+builder.Services.AddScoped<ICbolService, CbolService>();
 // Logging with Serilog
 Log.Logger = new LoggerConfiguration()
     .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)

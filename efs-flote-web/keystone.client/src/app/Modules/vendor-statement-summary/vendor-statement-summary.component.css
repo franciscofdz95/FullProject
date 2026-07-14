@@ -1,0 +1,52 @@
+.cbol-container {
+  padding: 8px;
+}
+
+.cbol-invoice-lookup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.cbol-field-details {
+  background-color: #1D598E;
+  color: white;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+}
+
+.cbol-field-details-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.cbol-field-details-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.cbol-field-details-grid .label {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.cbol-tbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.cbol-bbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cbol-bbar textarea {
+  flex: 1;
+}

@@ -488,9 +488,7 @@
                        [attr.aria-selected]="getFirstAccessibleTabId() === 'accruals-tab'">Accruals</a>
                   </li>
 
-                  <!--ESE-0526-1 vendor statement summary disabled-->
-                  <li class="nav-item" role="presentation"
-                      hidden="hidden">
+                  <li class="nav-item" role="presentation">
                     <a class="nav-link"
                        [class.active]="getFirstAccessibleTabId() === 'admin-modules-tab'"
                        id="admin-modules-tab"
@@ -498,8 +496,7 @@
                        href="#admin-modules-pane"
                        role="tab"
                        aria-controls="admin-modules-pane"
-                       [attr.aria-selected]="getFirstAccessibleTabId() === 'admin-modules-tab'"
-                       disabled="true">Vendor Statement Summary</a>
+                       [attr.aria-selected]="getFirstAccessibleTabId() === 'admin-modules-tab'">Vendor Statement Summary</a>
                   </li>
                   <!--ESE-0526-1 vendor statement summary disabled-->
                   <li class="nav-item" role="presentation" hidden="hidden">
@@ -616,13 +613,13 @@
             <app-accruals></app-accruals>
           </div>
 
-          <!--ESE-0526-1 Vendor Statement Summary disabled-->
           <div class="tab-pane fade"
                [class.show]="getFirstAccessibleTabPaneId() === 'admin-modules-pane'"
                [class.active]="getFirstAccessibleTabPaneId() === 'admin-modules-pane'"
                id="admin-modules-pane"
                role="tabpanel"
                aria-labelledby="admin-modules-tab">
+            <app-vendor-statement-summary></app-vendor-statement-summary>
           </div>
           <!--ESE-0526-1 Invoice Processing disabled-->
           <div class="tab-pane fade"

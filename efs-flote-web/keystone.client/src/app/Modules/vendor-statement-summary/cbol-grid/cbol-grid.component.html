@@ -1,0 +1,17 @@
+<div class="cbol-grid-toolbar">
+  <button type="button" class="btn btn-sm btn-outline-secondary" (click)="exportData()">Export CSV</button>
+</div>
+
+<ag-grid-angular
+  class="ag-theme-alpine cbol-grid"
+  [rowData]="rowData"
+  [columnDefs]="columnDefs"
+  [defaultColDef]="defaultColDef"
+  [pagination]="true"
+  [paginationPageSize]="20"
+  [overlayLoadingTemplate]="overlayLoadingTemplate"
+  (gridReady)="onGridReady($event)"
+  (cellClicked)="onCellClicked($event)"
+  (cellValueChanged)="onCommentSave($event.data)"
+  domLayout="autoHeight">
+</ag-grid-angular>

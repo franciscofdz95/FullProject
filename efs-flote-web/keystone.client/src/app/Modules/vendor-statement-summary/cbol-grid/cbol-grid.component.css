@@ -1,0 +1,10 @@
+.cbol-grid-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 6px;
+}
+
+.cbol-grid {
+  width: 100%;
+  min-height: 300px;
+}
