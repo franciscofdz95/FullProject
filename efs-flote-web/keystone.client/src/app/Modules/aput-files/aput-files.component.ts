@@ -76,11 +76,11 @@ export class AputFilesComponent implements OnInit {
   };
 
   columnDefs: ColDef[] = [
-    { headerName: 'File Name', field: 'fileName', flex: 2 },
+    { headerName: 'File Name', field: 'fileName', flex: 1, minWidth: 200 },
     {
       headerName: 'Action',
-      flex: 1,
-      maxWidth: 120,
+      width: 110,
+      resizable: false,
       cellRenderer: AputFileActionsRendererComponent,
       cellRendererParams: {
         onDelete: (row: FtpFile) => this.confirmDelete(row),
