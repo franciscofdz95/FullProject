@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef, GridApi, GridReadyEvent, IGetRowsParams } from 'ag-grid-community';
@@ -19,7 +18,6 @@ import { NotificationService } from '../../Service/notification.service';
   imports: [
     CommonModule,
     FormsModule,
-    BrowserAnimationsModule,
     MatDialogModule,
     AgGridAngular
   ]

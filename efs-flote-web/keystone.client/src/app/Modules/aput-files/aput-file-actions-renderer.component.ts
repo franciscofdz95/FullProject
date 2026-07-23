@@ -6,11 +6,11 @@ import { ICellRendererAngularComp } from 'ag-grid-angular';
   standalone: true,
   template: `
     <div style="display:flex; align-items:center; justify-content:center; gap: 10px; height:100%;">
-      <button class="btn btn-sm btn-link p-0" title="Delete" (click)="onDelete()">
-        <i class="fa fa-minus-circle" style="color:#d9534f; font-size: 16px;"></i>
+      <button class="btn btn-sm" style="border-color:#d9534f; line-height:1;" title="Delete" (click)="onDelete()">
+        <i class="fas fa-solid fa-circle-minus" style="color:#d9534f; font-size: 16px;"></i>
       </button>
-      <button class="btn btn-sm btn-link p-0" title="Download" (click)="onDownload()">
-        <i class="fa fa-check-circle" style="color:#5cb85c; font-size: 16px;"></i>
+      <button class="btn btn-sm" style="border-color:#5cb85c; line-height:1;" title="Download" (click)="onDownload()">
+        <i class="fas fa-solid fa-circle-check" style="color:#5cb85c; font-size: 16px;"></i>
       </button>
     </div>
   `

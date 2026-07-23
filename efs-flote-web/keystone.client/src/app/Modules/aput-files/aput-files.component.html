@@ -2,7 +2,7 @@
   <div class="aput-files-header">
     <div class="aput-files-title">FTP Folder &amp; Files</div>
     <button type="button" class="btn-close-icon" title="Close" (click)="close()">
-      <i class="fa fa-times"></i>
+      <i class="fas fa-solid fa-xmark"></i>
     </button>
   </div>
 
@@ -13,7 +13,7 @@
         <option *ngFor="let folder of folders" [value]="folder.name">{{ folder.name }}</option>
       </select>
       <button type="button" class="btn btn-outline-secondary btn-sm refresh-btn" title="Refresh" (click)="refresh()">
-        <i class="fa fa-refresh"></i> Refresh
+        <i class="fas fa-solid fa-arrows-rotate"></i> Refresh
       </button>
     </div>
 
@@ -41,10 +41,10 @@
       </div>
       <div class="pagination-controls">
         <button type="button" class="btn btn-sm btn-outline-secondary" title="First Page" [disabled]="currentPage <= 1" (click)="goToFirstPage()">
-          <i class="fa fa-angle-double-left"></i>
+          <i class="fas fa-solid fa-angles-left"></i>
         </button>
         <button type="button" class="btn btn-sm btn-outline-secondary" title="Previous Page" [disabled]="currentPage <= 1" (click)="goToPreviousPage()">
-          <i class="fa fa-angle-left"></i>
+          <i class="fas fa-solid fa-angle-left"></i>
         </button>
         <span class="page-input-wrapper">
           Page
@@ -52,10 +52,10 @@
           of {{ totalPages }}
         </span>
         <button type="button" class="btn btn-sm btn-outline-secondary" title="Next Page" [disabled]="currentPage >= totalPages" (click)="goToNextPage()">
-          <i class="fa fa-angle-right"></i>
+          <i class="fas fa-solid fa-angle-right"></i>
         </button>
         <button type="button" class="btn btn-sm btn-outline-secondary" title="Last Page" [disabled]="currentPage >= totalPages" (click)="goToLastPage()">
-          <i class="fa fa-angle-double-right"></i>
+          <i class="fas fa-solid fa-angles-right"></i>
         </button>
       </div>
     </div>
