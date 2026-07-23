@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Serilog" Version="4.1.0" />
+    <PackageReference Include="SSH.NET" Version="2025.1.0" />
     <PackageReference Include="VaultSharp" Version="1.17.5.1" />
   </ItemGroup>
 
