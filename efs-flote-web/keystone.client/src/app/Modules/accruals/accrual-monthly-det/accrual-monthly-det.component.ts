@@ -96,9 +96,16 @@ export class AccrualMonthlyDetComponent implements OnInit, OnDestroy {
     this.gridApi = params.api;
   }
 
-  /** Drop fully-empty rows the stored procedure sometimes appends (all fields null/blank). */
+  /** Fields the stored procedure always populates for pagination, even on the trailing blank row it appends. */
+  private static readonly META_FIELDS = ['ROWNUMBER', 'TotalRows'];
+
+  /** Drop fully-empty rows the stored procedure sometimes appends (all real fields null/blank). */
   private removeBlankRows(data: any[]): any[] {
-    return (data || []).filter(row => Object.values(row).some(v => v !== null && v !== undefined && v !== ''));
+    return (data || []).filter(row =>
+      Object.entries(row).some(([key, v]) =>
+        !AccrualMonthlyDetComponent.META_FIELDS.includes(key) && v !== null && v !== undefined && v !== ''
+      )
+    );
   }
 
   public overlayLoadingTemplate = `

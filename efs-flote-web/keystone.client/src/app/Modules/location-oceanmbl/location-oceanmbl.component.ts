@@ -111,7 +111,7 @@ export class LocationOceanmblComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (data) => {
-          const cleanData = this.removeBlankRows(data);
+          const cleanData = this.removeBlankRows(data).filter(row => !this.isGrandTotalRow(row));
           this.rowData = cleanData;
           this.totalRows = cleanData.length;
           this.isLoading = false;
@@ -135,9 +135,21 @@ export class LocationOceanmblComponent implements OnInit, OnDestroy {
       });
   }
 
-  /** Drop fully-empty rows the stored procedure sometimes appends (all fields null/blank). */
+  /** Fields the stored procedure always populates for pagination, even on the trailing blank row it appends. */
+  private static readonly META_FIELDS = ['ROWNUMBER', 'TotalRows'];
+
+  /** Drop fully-empty rows the stored procedure sometimes appends (all real fields null/blank). */
   private removeBlankRows(data: any[]): any[] {
-    return (data || []).filter(row => Object.values(row).some(v => v !== null && v !== undefined && v !== ''));
+    return (data || []).filter(row =>
+      Object.entries(row).some(([key, v]) =>
+        !LocationOceanmblComponent.META_FIELDS.includes(key) && v !== null && v !== undefined && v !== ''
+      )
+    );
+  }
+
+  /** The stored procedure appends its own Grand Total summary row; we exclude it and recompute client-side instead so the record count and pinned totals stay accurate. */
+  private isGrandTotalRow(row: any): boolean {
+    return row?.location_code === 'Grand Total';
   }
 
   private calculateGrandTotal(data: any[]): any {
