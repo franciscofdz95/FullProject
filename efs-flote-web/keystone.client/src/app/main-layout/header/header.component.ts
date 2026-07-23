@@ -3,6 +3,8 @@ import { consumerPollProducersForChange } from '@angular/core/primitives/signals
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { environment } from './../../../../src/environments/environment';
 import { MsalService, MsalBroadcastService } from '@azure/msal-angular';
+import { MatDialog } from '@angular/material/dialog';
+import { AputFilesComponent } from '../../Modules/aput-files/aput-files.component';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +19,7 @@ export class HeaderComponent {
   @Input() userName: string = '';
   @Input() userAccount: string = '';
 
-  constructor(private http: HttpClient, private authService: MsalService) { }
+  constructor(private http: HttpClient, private authService: MsalService, private dialog: MatDialog) { }
 
   ngOnInit() {
     this.getForecasts();
@@ -101,6 +103,17 @@ export class HeaderComponent {
 
   logout(): void {
     this.authService.logout();
+  }
+
+  /** Mirrors legacy Header.js 'APUT Files' button: Ext.widget('App-View-Component-FTPFileNFolder-FTPWindow').show(); */
+  openAputFiles(): void {
+    this.dialog.open(AputFilesComponent, {
+      width: '80vw',
+      height: '85vh',
+      maxWidth: '90vw',
+      panelClass: 'aput-files-dialog-panel',
+      autoFocus: false
+    });
   }
 
   goHome() {

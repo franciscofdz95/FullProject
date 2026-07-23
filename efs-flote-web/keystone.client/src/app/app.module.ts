@@ -27,6 +27,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 import { LocalShipmentComponent } from './Modules/local-shipment/local-shipment.component';
 import { LocationOceanmblComponent } from './Modules/location-oceanmbl/location-oceanmbl.component';
 import { BillsComponent } from './Modules/bills/bills.component';
@@ -115,6 +116,7 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule,
     LocalShipmentComponent,
     LocationOceanmblComponent,
     BillsComponent,
