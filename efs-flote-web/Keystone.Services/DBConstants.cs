@@ -63,8 +63,8 @@ namespace Keystone.Services
         public const string UpdateAdminMessage = "appObject.usp_Update_Admin_Message_FV2";//noted
         public const string UpdateAdminMessageByUser = "appObject.usp_UpdateAdminMessageByUser_FV2";//noted
         public const string IsReadByUser = "appObject.usp_IsReadByUser_FV2";//noted
-        public const string GetValuePayByRLoc = "appObject.usp_GetValuePayByRLoc_FV2";//noted
-        public const string GetValuePayUpdateAction = "appObject.usp_GetValuePayUpdateAction_FV2";//noted
+        public const string GetValuePayByRLoc = "appObject.usp_GetValuePayByRLoc_FV2";
+        public const string GetValuePayUpdateAction = "appObject.usp_GetValuePayUpdateAction_FV2";
         public const string GetCompanyCodesAll = "appObject.usp_GetCompanyCodesAll_FV2";
         public const string GetCompanyCodesByUserId = "appObject.usp_GetCompanyCodesByUserId_FV2";
         public const string GetAputUserList = "appObject.usp_GetAputUserList_FV2";

@@ -29,11 +29,6 @@ export class AputFilesService {
     return this.http.get<{ data: FtpFile[]; totalCount: number }>(`${this.baseUrl}/api/FtpFiles/GetFiles`, { params });
   }
 
-  deleteFile(folder: string, fileName: string): Observable<any> {
-    const params = new HttpParams().set('folder', folder).set('fileName', fileName);
-    return this.http.delete(`${this.baseUrl}/api/FtpFiles/DeleteFile`, { params });
-  }
-
   getDownloadUrl(folder: string, fileName: string): string {
     const params = new HttpParams().set('folder', folder).set('fileName', fileName);
     return `${this.baseUrl}/api/FtpFiles/DownloadFile?${params.toString()}`;

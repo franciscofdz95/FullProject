@@ -18,6 +18,7 @@ using Keystone.Services.Services.MultiUpload;
 using Keystone.Services.Services.Reports;
 using Keystone.Services.Services.Session;
 using Keystone.Services.Services.Shipment;
+using Keystone.Services.Services.ValuePay;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Identity.Web;
 using Serilog;
@@ -87,6 +88,7 @@ builder.Services.AddHttpClient("BIASecurity");
 builder.Services.AddScoped<IFilterService, FilterService>();
 builder.Services.AddScoped<ILocationOceanMBLService, LocationOceanMBLService>();
 builder.Services.AddScoped<IFtpFilesService, FtpFilesService>();
+builder.Services.AddScoped<IValuePayLocationService, ValuePayLocationService>();
 builder.Services.AddScoped<IOceanMBLService, OceanMBLService>();
 //Repositories
 builder.Services.AddScoped<IBillsService, BillsService>();

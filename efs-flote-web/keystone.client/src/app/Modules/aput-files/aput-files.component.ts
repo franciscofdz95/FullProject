@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColDef, GridApi, GridReadyEvent, IGetRowsParams } from 'ag-grid-community';
 import { AputFilesService } from './Service/aput-files.service';
 import { FtpFolder, FtpFile, FtpFilePagination } from '../../Models/FtpFiles.model';
 import { AputFileActionsRendererComponent } from './aput-file-actions-renderer.component';
-import { ConfirmDialogComponent } from '../shared/confirm-dialog/confirm-dialog.component';
 import { NotificationService } from '../../Service/notification.service';
 
 @Component({
@@ -46,24 +45,6 @@ export class AputFilesComponent implements OnInit {
 
   defaultColDef: ColDef = { resizable: true, sortable: true };
 
-  confirmDelete = (row: FtpFile): void => {
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: '420px',
-      autoFocus: false,
-      data: {
-        title: 'Delete FTP File',
-        message: `Are you sure you want to delete "${row.fileName}"? This action cannot be undone.`,
-        confirmLabel: 'Delete'
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(confirmed => {
-      if (confirmed) {
-        this.deleteFile(row);
-      }
-    });
-  };
-
   downloadFile = (row: FtpFile): void => {
     const url = this.aputFilesService.getDownloadUrl(this.selectedFolder, row.fileName);
     const link = document.createElement('a');
@@ -83,7 +64,6 @@ export class AputFilesComponent implements OnInit {
       resizable: false,
       cellRenderer: AputFileActionsRendererComponent,
       cellRendererParams: {
-        onDelete: (row: FtpFile) => this.confirmDelete(row),
         onDownload: (row: FtpFile) => this.downloadFile(row)
       }
     }
@@ -91,7 +71,6 @@ export class AputFilesComponent implements OnInit {
 
   constructor(
     private dialogRef: MatDialogRef<AputFilesComponent>,
-    private dialog: MatDialog,
     private aputFilesService: AputFilesService,
     private notificationService: NotificationService
   ) { }
@@ -162,19 +141,6 @@ export class AputFilesComponent implements OnInit {
             this.notificationService.error('Failed to load FTP files.');
           }
         });
-      }
-    });
-  }
-
-  private deleteFile(row: FtpFile): void {
-    this.aputFilesService.deleteFile(this.selectedFolder, row.fileName).subscribe({
-      next: () => {
-        this.notificationService.success(`"${row.fileName}" was deleted.`);
-        this.gridApi.purgeInfiniteCache();
-      },
-      error: (err) => {
-        console.error('Error deleting APUT FTP file:', err);
-        this.notificationService.error(`Failed to delete "${row.fileName}".`);
       }
     });
   }

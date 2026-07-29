@@ -1,0 +1,26 @@
+<div class="value-pay-dialog">
+  <div class="value-pay-header">
+    <div class="value-pay-title">Value Pay Locations Admin</div>
+    <button type="button" class="btn buttonHome" title="Home" (click)="goHome()">
+      Home
+    </button>
+  </div>
+
+  <div class="value-pay-body">
+    <div class="grid-wrapper">
+      <ag-grid-angular
+        style="width: 100%; height: 100%;"
+        class="ag-theme-balham"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        [rowData]="rowData"
+        [rowHeight]="32"
+        [headerHeight]="32"
+        [singleClickEdit]="true"
+        [overlayLoadingTemplate]="overlayLoadingTemplate"
+        overlayNoRowsTemplate="<span>No Value Pay Locations found</span>"
+        (gridReady)="onGridReady($event)">
+      </ag-grid-angular>
+    </div>
+  </div>
+</div>

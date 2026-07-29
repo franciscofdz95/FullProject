@@ -108,37 +108,6 @@ namespace Keystone.Services.Services.FtpFiles
             return (page, allFiles.Count);
         }
 
-        public Task<(bool result, string message)> DeleteFileAsync(string folder, string fileName)
-        {
-            return Task.Run(() =>
-            {
-                try
-                {
-                    using var sftp = CreateClient();
-                    sftp.Connect();
-                    try
-                    {
-                        var currentFolderName = string.IsNullOrEmpty(_rootFolder)
-                            ? folder
-                            : $"{_rootFolder}/{folder}";
-                        sftp.ChangeDirectory(currentFolderName);
-                        sftp.DeleteFile(fileName);
-                    }
-                    finally
-                    {
-                        sftp.Disconnect();
-                    }
-
-                    _cache.Remove(CacheKey(folder));
-                    return (true, "File deleted successfully.");
-                }
-                catch (Exception ex)
-                {
-                    return (false, ex.Message);
-                }
-            });
-        }
-
         public Task<(byte[] content, string fileName)> DownloadFileAsync(string folder, string fileName)
         {
             return Task.Run(() =>

@@ -47,25 +47,6 @@ namespace Keystone.Server.Controllers
             }
         }
 
-        [HttpDelete("DeleteFile")]
-        public async Task<IActionResult> DeleteFile(string folder, string fileName)
-        {
-            try
-            {
-                var (result, message) = await _ftpFilesService.DeleteFileAsync(folder, fileName);
-                if (!result)
-                {
-                    return BadRequest($"Message: {message}");
-                }
-                return Ok(new { success = true, message });
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error deleting APUT FTP file {FileName} in folder {Folder}.", fileName, folder);
-                return StatusCode(500, "Internal Server Error");
-            }
-        }
-
         [HttpGet("DownloadFile")]
         public async Task<IActionResult> DownloadFile(string folder, string fileName)
         {

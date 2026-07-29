@@ -13,7 +13,7 @@ describe('AputFileActionsRendererComponent', () => {
 
     fixture = TestBed.createComponent(AputFileActionsRendererComponent);
     component = fixture.componentInstance;
-    component.agInit({ data: { fileName: 'test.csv' }, onDelete: () => { }, onDownload: () => { } });
+    component.agInit({ data: { fileName: 'test.csv' }, onDownload: () => { } });
     fixture.detectChanges();
   });
 
