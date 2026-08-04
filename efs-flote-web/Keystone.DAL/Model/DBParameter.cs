@@ -33,7 +33,7 @@ namespace Keystone.DAL.Model
 
         public SqlParameter ToSQLParameter()
         {
-            return new SqlParameter(Name, Type) { Value = Value };
+            return new SqlParameter(Name, Type) { Value = Value ?? DBNull.Value };
         }
     }
 }

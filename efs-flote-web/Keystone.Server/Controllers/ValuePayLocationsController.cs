@@ -18,16 +18,21 @@ namespace Keystone.Server.Controllers
         }
 
         [HttpGet("GetAll")]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] string reqLoc)
         {
+            if (string.IsNullOrWhiteSpace(reqLoc))
+            {
+                return BadRequest("reqLoc is required.");
+            }
+
             try
             {
-                var result = await _valuePayLocationService.GetAllAsync();
+                var result = await _valuePayLocationService.GetAllAsync(reqLoc);
                 return Ok(result);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error retrieving Value Pay Locations.");
+                _logger.LogError(ex, "Error retrieving Value Pay Locations for {ReqLoc}.", reqLoc);
                 return StatusCode(500, "Internal Server Error");
             }
         }

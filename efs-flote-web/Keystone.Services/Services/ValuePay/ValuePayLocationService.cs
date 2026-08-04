@@ -13,10 +13,10 @@ namespace Keystone.Services.Services.ValuePay
             _dataProvider = dataProvider;
         }
 
-        public async Task<List<ValuePayLocationInfo>> GetAllAsync()
+        public async Task<List<ValuePayLocationInfo>> GetAllAsync(string reqLoc)
         {
             var parameters = new DBParameter[] {
-                new("@reqLoc", DbType.AnsiString, null)
+                new("@reqLoc", DbType.AnsiString, reqLoc)
             };
 
             var results = await _dataProvider.ExecuteAsync<ValuePayLocationInfo>(

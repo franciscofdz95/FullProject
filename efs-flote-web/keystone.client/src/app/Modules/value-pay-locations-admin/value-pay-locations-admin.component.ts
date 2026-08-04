@@ -8,6 +8,7 @@ import { ValuePayLocationsAdminService } from './Service/value-pay-locations-adm
 import { ValuePayLocationRow } from '../../Models/ValuePayLocation.model';
 import { ValuePayUpdateActionRendererComponent } from './value-pay-update-action-renderer.component';
 import { NotificationService } from '../../Service/notification.service';
+import { SessionService } from '../../Service/session.service';
 
 @Component({
   standalone: true,
@@ -77,7 +78,8 @@ export class ValuePayLocationsAdminComponent {
   constructor(
     private dialogRef: MatDialogRef<ValuePayLocationsAdminComponent>,
     private valuePayLocationsAdminService: ValuePayLocationsAdminService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private sessionService: SessionService
   ) { }
 
   onGridReady(params: GridReadyEvent): void {
@@ -86,8 +88,14 @@ export class ValuePayLocationsAdminComponent {
   }
 
   loadData(): void {
+    const reqLoc = this.sessionService.selectedLocationCode;
+    if (!reqLoc) {
+      this.notificationService.error('Select a Location Code in the filter bar before opening Value Pay Locations Admin.');
+      return;
+    }
+
     this.gridApi.setGridOption('loading', true);
-    this.valuePayLocationsAdminService.getAll().subscribe({
+    this.valuePayLocationsAdminService.getAll(reqLoc).subscribe({
       next: (rows) => {
         this.rowData = rows || [];
         this.gridApi.setGridOption('loading', false);

@@ -12,8 +12,8 @@ export class ValuePayLocationsAdminService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<ValuePayLocationRow[]> {
-    return this.http.get<ValuePayLocationRow[]>(`${this.baseUrl}/api/ValuePayLocations/GetAll`);
+  getAll(reqLoc: string): Observable<ValuePayLocationRow[]> {
+    return this.http.get<ValuePayLocationRow[]>(`${this.baseUrl}/api/ValuePayLocations/GetAll?reqLoc=${encodeURIComponent(reqLoc)}`);
   }
 
   updateLocation(request: ValuePayLocationUpdateRequest): Observable<any> {

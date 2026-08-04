@@ -8,6 +8,7 @@ import { Paramlist } from '../../Models/Paramlist.model';
 import { ExecuteService } from '../../Service/execute.service';
 import { LocalShipmentComponent } from '../../Modules/local-shipment/local-shipment.component';
 import { LocalShipmentFilter } from '../../Modules/local-shipment/Service/local-shipment.service';
+import { SessionService } from '../../Service/session.service';
 
 interface ViewInfo {
   type: 'tab' | 'subtab';
@@ -325,7 +326,7 @@ export class NavigationComponent implements AfterViewInit, OnInit, OnDestroy {
   isCollapsed = false;
   executeService:any
   private filterService: FilterService;
-  constructor(private roleService: RoleService, private fb: FormBuilder, private _executeService: ExecuteService, _filterService: FilterService) {
+  constructor(private roleService: RoleService, private fb: FormBuilder, private _executeService: ExecuteService, _filterService: FilterService, private sessionService: SessionService) {
     this.executeService = _executeService;
     this.filterService = _filterService;
   }
@@ -464,11 +465,14 @@ export class NavigationComponent implements AfterViewInit, OnInit, OnDestroy {
    * Reloads display currencies for the new location, mirroring old ExtJS
    * PageAttributes.getCurrencyCodes(locCode, combo) which sent:
    *   query = locCode + ',' + PgAtt.getCountry_code()
-   * ng-select (change) with bindValue fires with the raw bound value (string).
+   * Note: ng-select's (change) event always emits the full item object, even
+   * with bindValue set — only [(ngModel)] respects bindValue. So read the
+   * already-bound primitive off filterLocCode instead of the $event payload.
    */
-  onLocationCodeChanged(selectedValue: any): void {
-    const locCode = selectedValue ?? '';
+  onLocationCodeChanged(_selectedValue: any): void {
+    const locCode = this.filterLocCode ?? '';
     const countryCode = String(this.paramsList?.countryval ?? '');
+    this.sessionService.setSelectedLocationCode(locCode);
     this.loadDisplayCurrencies(locCode, countryCode);
   }
 

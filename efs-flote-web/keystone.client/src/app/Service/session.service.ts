@@ -60,6 +60,12 @@ export class SessionService {
   readonly geoCode$: Observable<string> = this._geoCode.asObservable();
   readonly geoId$:   Observable<string> = this._geoId.asObservable();
 
+  // === Selected Location Code (the global "Location Code" filter dropdown) ===
+  // Shared so screens outside the navigation filter bar (e.g. admin dialogs)
+  // can read the location the user currently has selected.
+  private readonly _selectedLocationCode = new BehaviorSubject<string>('');
+  readonly selectedLocationCode$: Observable<string> = this._selectedLocationCode.asObservable();
+
   /**
    * Full permissions list — mirrors BIACore.Security.User.permissions[].
    * Populated by loadUserPermissions(); switch active geo with setGeoIndex().
@@ -135,6 +141,16 @@ export class SessionService {
   /** Current geoIndex — mirrors the old "geoIndex" cookie. */
   get geoIndex(): number { return this._geoIndex; }
 
+  // === Selected Location Code accessors ===
+
+  /** Synchronous read of the currently selected Location Code filter value. */
+  get selectedLocationCode(): string { return this._selectedLocationCode.value; }
+
+  /** Update the currently selected Location Code (called from the nav filter bar). */
+  setSelectedLocationCode(locationCode: string | null | undefined): void {
+    this._selectedLocationCode.next(locationCode ?? '');
+  }
+
   /**
    * Switch the active geo by index into permissions[].
    * Mirrors GeoSRSwitchCtrl.cnt.js:
@@ -168,6 +184,7 @@ export class SessionService {
     sessionStorage.removeItem(STORAGE_KEY);
     this._geoCode.next('');
     this._geoId.next('');
+    this._selectedLocationCode.next('');
     this.permissions = [];
     this._geoIndex = 0;
     sessionStorage.removeItem(GEO_CODE_KEY);
